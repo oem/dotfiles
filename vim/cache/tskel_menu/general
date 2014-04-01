@@ -1,0 +1,21 @@
+
+menu 90.9 TSke&l.General.Pairs.( :call tskeleton#ExpandBitUnderCursor("n", '(')<cr>
+imenu 90.9 TSke&l.General.Pairs.( <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", '(')<cr>
+menu 90.9 TSke&l.General.Pairs.< :call tskeleton#ExpandBitUnderCursor("n", '<')<cr>
+imenu 90.9 TSke&l.General.Pairs.< <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", '<')<cr>
+menu 90.10 TSke&l.General.<< :call tskeleton#ExpandBitUnderCursor("n", '<<')<cr>
+imenu 90.10 TSke&l.General.<< <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", '<<')<cr>
+menu 90.9 TSke&l.General.Pairs.[ :call tskeleton#ExpandBitUnderCursor("n", '[')<cr>
+imenu 90.9 TSke&l.General.Pairs.[ <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", '[')<cr>
+menu 90.10 TSke&l.General.date :call tskeleton#ExpandBitUnderCursor("n", 'date')<cr>
+imenu 90.10 TSke&l.General.date <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", 'date')<cr>
+menu 90.10 TSke&l.General.localvariables :call tskeleton#ExpandBitUnderCursor("n", 'localvariables')<cr>
+imenu 90.10 TSke&l.General.localvariables <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", 'localvariables')<cr>
+menu 90.9 TSke&l.General.TEST.test_tSkeleton_select :call tskeleton#ExpandBitUnderCursor("n", 'test_tSkeleton_select')<cr>
+imenu 90.9 TSke&l.General.TEST.test_tSkeleton_select <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", 'test_tSkeleton_select')<cr>
+menu 90.10 TSke&l.General.time :call tskeleton#ExpandBitUnderCursor("n", 'time')<cr>
+imenu 90.10 TSke&l.General.time <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", 'time')<cr>
+menu 90.10 TSke&l.General.vi :call tskeleton#ExpandBitUnderCursor("n", 'vi')<cr>
+imenu 90.10 TSke&l.General.vi <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", 'vi')<cr>
+menu 90.9 TSke&l.General.Pairs.{ :call tskeleton#ExpandBitUnderCursor("n", '{')<cr>
+imenu 90.9 TSke&l.General.Pairs.{ <c-\><c-o>:call tskeleton#ExpandBitUnderCursor("i", '{')<cr>

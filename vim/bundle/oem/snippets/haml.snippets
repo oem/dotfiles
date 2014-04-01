@@ -1,0 +1,25 @@
+snippet h
+	!!!
+	%html(xmlns="http://www.w3.org/1999/xhtml")
+		%head
+			%meta(http-equiv="content-type" content="text/html; charset=utf-8")
+			%title${1}
+		%body
+			${2:= yield}
+
+snippet link
+	%link(href="${1}" rel="${2:stylesheet}" media="screen")${3}
+
+snippet scriptsrc
+	%script(type="text/javascript" src="${1}")${2}
+
+snippet swf
+	%script(type="text/javascript" src="${1:swfobject.js}")
+	%script(type="text/javascript")
+		swfobject.embedSWF("${2:swf}", "${3:id}", "${4:width}", "${5:height}", "${6:version}");${7}
+snippet script
+	<script>
+		${1}
+	</script>${2}
+snippet scriptsrc
+	<script src="${1}.js"></script>${2}

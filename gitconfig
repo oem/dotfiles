@@ -1,0 +1,21 @@
+[user]
+	name = Ömür Özkir
+	email = oemuer.oezkir@gmail.com
+[credential]
+	helper = cache --timeout=3600
+[alias]
+  ci = commit -v
+  co = checkout
+  st = status
+  br = branch
+  df = diff
+  lg = log -p
+  who = shortlog -s --
+  rb = rebase
+  cp = cherry-pick
+  sub = submodule update --init --recursive
+  dd = diff --cached
+[color]
+  ui = true
+[core]
+	excludesfile = /Users/oem/.gitignore

@@ -1,0 +1,48 @@
+#!/usr/bin/bash
+
+# status bar for dwm
+
+# color codes from dwm/config.h
+color_gray="\x01" # gray on black
+color_white="\x02" # white on black
+
+print_time() {
+  time="$(date "+%H:%M")"
+  echo -ne "${color_white}${time} "
+}
+
+print_battery() {
+  battery_status="$(acpi -b)"
+  charging=""
+  if grep -q Charging <<<$battery_status; then charging="+"; fi
+  battery="$(echo ${battery_status}|sed -e "s/.*, \([0-9]*\)%.*/\1/g")"
+  echo -ne "${color_gray}Bat ${color_white}${charging}${battery} "
+}
+
+print_wifi() {
+  wifi="Off"
+  connection="$(iwgetid)"
+  if [ $? -eq 0 ]; then wifi="On"; fi
+  echo -ne "${color_gray}Net ${color_white}${wifi} "
+}
+
+print_mem_used() {
+  mem_used="$(free -m | awk 'NR==3 {print $3}')"
+  echo -ne "${color_gray}Mem ${color_white}${mem_used} "
+}
+
+print_temperature() {
+  temperature="$(acpi -t|sed -e "s/.*, \([0-9]*\).*/\1/g")"
+  echo -ne "${color_gray}Tem ${color_white}${temperature} "
+}
+
+while true; do
+  xsetroot -name "$(print_temperature)\
+ $(print_mem_used)\
+ $(print_wifi)\
+ $(print_battery)\
+ $(print_time)"
+
+  sleep 2
+done
+
