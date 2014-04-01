@@ -100,22 +100,22 @@ rbenv rehash >/dev/null ^&1
 status --is-interactive; and . (rbenv init -|psub)
 
 function colored_path
-	pwd | sed "s,/,$c0/$c1,g" | sed "s,\(.*\)/[^m]*m,\1/$c4,"
+  pwd | sed "s,/,$c0/$c1,g" | sed "s,\(.*\)/[^m]*m,\1/$c4,"
 end
 
 function fish_prompt
-	set -l last_status $status
+  set -l last_status $status
 
-	printf (colored_path)
-	set_color normal
-	if test -d .git
-		printf (echo (__fish_git_prompt) | sed "s/[()|]//g")
-	end
+  printf (colored_path)
+  set_color normal
+  if test -d .git
+    printf (echo (__fish_git_prompt) | sed "s/[()|]//g")
+  end
 
-	if not test $last_status -eq 0
-		set_color red
-	end
-	printf "> "
+  if not test $last_status -eq 0
+    set_color red
+  end
+  printf "> "
 end
 
 # dev helpers

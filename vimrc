@@ -76,10 +76,6 @@ syntax on
 set t_Co=256
 colo krittapong-dark
 
-
-" To avoid bell sound, set to visual bell => which is disabled in terminal and doesn't work in macvim
-set cursorline
-
 " set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }[%b][0x%B]%=\ %4l,%02c%2V\ %P%*
 set laststatus=2
 
@@ -101,15 +97,6 @@ set guioptions+=e
 let g:CommandTMaxHeight=20
 map <leader>f :CommandT<cr>
 
-" Powerline symbols
-" let g:airline_left_sep = '⮀'
-" let g:airline_left_alt_sep = '⮁'
-" let g:airline_right_sep = '⮂'
-" let g:airline_right_alt_sep = '⮃'
-" let g:airline#extensions#branch#symbol = ' '
-" let g:airline_readonly_symbol = '⭤'
-" let g:airline_linecolumn_prefix = '⭡'
-
 let g:airline_theme='serene'
 
 " rails.vim settings
@@ -121,7 +108,8 @@ smap kk <Plug>snipMateNextOrTrigger
 
 " show invisibles
 set list
-set listchars=tab:\ \ ,trail:·
+set listchars=tab:»\ ,eol:«
+
 " nnoremap <esc> :noh<CR><esc>
 map <F1> :tabp<CR>
 map <F2> :tabn<CR>

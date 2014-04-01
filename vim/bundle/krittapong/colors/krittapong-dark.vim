@@ -31,7 +31,7 @@ hi LineNr          ctermfg=238 ctermbg=233
 hi CursorLineNr    ctermfg=245 ctermbg=234
 
 " hide the tilde symbol/empty buffer area
-hi NonText         ctermfg=233
+hi NonText         ctermfg=236
 hi CursorLine                  ctermbg=234 cterm=none
 
 " diff
@@ -74,7 +74,7 @@ hi IncSearch       ctermfg=15  ctermbg=16
 hi Keyword         ctermfg=15               cterm=bold
 hi Label           ctermfg=15               cterm=none
 hi Macro           ctermfg=15
-hi SpecialKey      ctermfg=15
+hi SpecialKey      ctermfg=241
 
 hi MatchParen      ctermfg=15  ctermbg=234   cterm=none
 hi ModeMsg         ctermfg=15
