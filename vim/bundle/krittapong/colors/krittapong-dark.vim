@@ -18,6 +18,12 @@ hi Question        ctermfg=81
 hi Repeat          ctermfg=161             cterm=bold
 hi Search          ctermfg=234 ctermbg=222
 
+" git gutter
+hi GitGutterAdd          ctermfg=2   ctermbg=2
+hi GitGutterChange       ctermfg=5   ctermbg=5
+hi GitGutterDelete       ctermfg=1   ctermbg=1
+hi GitGutterChangeDelete ctermfg=13  ctermbg=13
+
 " ui decorations
 hi StatusLine      ctermfg=5   ctermbg=233
 hi StatusLineNC    ctermfg=5   ctermbg=233

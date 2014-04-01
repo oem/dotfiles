@@ -197,7 +197,7 @@ autocmd BufNewFile,BufRead *spec.*coffee set filetype=jasmine.coffeescript
 autocmd BufNewFile,BufRead *spec.js set filetype=jasmine.javascript
 
 au WinLeave * set nocursorline
-au WinEnter * set cursorline
+" au WinEnter * set cursorline
 
 " fuzzy finder with dmenu
 map <c-f> :call DmenuOpen("e")<cr>
