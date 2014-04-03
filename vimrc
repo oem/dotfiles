@@ -36,6 +36,16 @@ Plugin 'file://.vim/bundle/colors-github'
 Plugin 'file://.vim/bundle/javascript'
 Plugin 'file://.vim/bundle/oem'
 
+" vim-rspec
+" Plugin 'thoughtbot/vim-rspec'
+" Plugin 'jgdavey/tslime.vim'
+" let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
+
+
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " " Use neocomplete.
