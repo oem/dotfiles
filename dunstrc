@@ -2,13 +2,17 @@
   font = tamsyn 12
 
   # Show how many messages are currently hidden (because of geometry).
-  allow_markup = yes
   indicate_hidden = yes
+  show_indicators = no
   word_wrap = yes
   separator_height = 0
   alignment = center
   geometry = x2
   padding = 6
+
+  allow_markup = yes
+  format = "<b>%s %p</b> %b"
+  ignore_newline = yes
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
