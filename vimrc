@@ -15,7 +15,7 @@ Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-unimpaired.git'
 Plugin 'tpope/vim-bundler.git'
 Plugin 'tpope/vim-haml.git'
-Plugin 'tsaleh/vim-align.git'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'bling/vim-airline'
 Plugin 'rking/ag.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -57,6 +57,13 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 "
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" align
+" Start interactive EasyAlign in visual mode
+vmap <Enter> <Plug>(EasyAlign)
+"
+" " Start interactive EasyAlign with a Vim movement
+nmap <Leader>a <Plug>(EasyAlign)
 
 filetype plugin indent on
 set backspace=indent,eol,start
