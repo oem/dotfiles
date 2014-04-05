@@ -85,6 +85,7 @@ syntax on
 
 set t_Co=256
 colo krittapong-dark
+set term=$TERM
 
 " set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }[%b][0x%B]%=\ %4l,%02c%2V\ %P%*
 set laststatus=2

@@ -1,0 +1,29 @@
+[global]
+  font = tamsyn 12
+
+  # Show how many messages are currently hidden (because of geometry).
+  allow_markup = yes
+  indicate_hidden = yes
+  word_wrap = yes
+  separator_height = 0
+  alignment = center
+  geometry = x2
+  padding = 6
+
+[urgency_low]
+    # IMPORTANT: colors have to be defined in quotation marks.
+    # Otherwise the "#" and following would be interpreted as a comment.
+    background = "#222222"
+    foreground = "#ffffff"
+    timeout = 10
+
+[urgency_normal]
+    background = "#99b433"
+    foreground = "#ffffff"
+    timeout = 10
+
+[urgency_critical]
+    background = "#da532c"
+    foreground = "#ffffff"
+    timeout = 0
+
