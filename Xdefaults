@@ -1,11 +1,14 @@
-URxvt.saveLines: 10000
-URxvt.scrollBar: false
-URxvt.secondaryScroll: true
-!URxvt.font:xft:tamsyn:size=12:antialias=false
-URxvt.font: -*-tamsyn-medium-*-*-*-16-*-*-*-*-*-*-*
-URxvt.visualBell: false
-urxvt*secondaryScreen: false
-URxvt*termName: rxvt-unicode
+URxvt.saveLines:         10000
+URxvt.scrollBar:         false
+URxvt.secondaryScroll:   true
+!URxvt.font:             xft:tamsyn:size=12:antialias=false
+URxvt.font:              -*-tamsyn-medium-*-*-*-16-*-*-*-*-*-*-*
+URxvt.visualBell:        false
+urxvt*secondaryScreen:   false
+URxvt*termName:          rxvt-unicode
+URxvt*scrollTtyOutput:   false
+URxvt*scrollWithBuffer:  true
+URxvt*scrollTtyKeypress: true
 
 !Xft settings
 !Xft.dpi: 96
