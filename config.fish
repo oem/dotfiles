@@ -1,7 +1,6 @@
 set fish_greeting ""
 
 # prompt colors
-set -gx TERM rxvt-256color
 set fish_color_error ff8a00
 
 # c0 to c4 progress from dark to bright
