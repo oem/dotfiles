@@ -30,6 +30,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mattn/emmet-vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'jamessan/vim-gnupg'
 
 Plugin 'file://.vim/bundle/krittapong'
 Plugin 'file://.vim/bundle/colors-github'
