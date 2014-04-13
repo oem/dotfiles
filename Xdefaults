@@ -10,6 +10,8 @@ URxvt*scrollTtyOutput:   false
 URxvt*scrollWithBuffer:  true
 URxvt*scrollTtyKeypress: true
 
+URxvt.perl-ext-common: matcher,selection,option-popup,selection-popup,readline
+
 !Xft settings
 !Xft.dpi: 96
 !Xft.hinting: 1
