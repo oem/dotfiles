@@ -103,6 +103,11 @@ function colored_path
 end
 
 function fish_prompt
+  # npm
+  if test -d (npm bin)
+    set -gx PATH (npm bin) $PATH
+  end
+
   set -l last_status $status
 
   printf (colored_path)

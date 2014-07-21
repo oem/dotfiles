@@ -23,7 +23,6 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'tomtom/tcomment_vim.git'
 Plugin 'digitaltoad/vim-jade.git'
-"Bundle 'rstacruz/sparkup.git', {'rtp': 'vim/'}
 Plugin 'claco/jasmine.vim.git'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'pangloss/vim-javascript'
