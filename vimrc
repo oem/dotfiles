@@ -30,6 +30,10 @@ Plugin 'mattn/emmet-vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'jamessan/vim-gnupg'
+Plugin 'nacitar/terminalkeys.vim'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-dispatch'
+Plugin 'christoomey/vim-tmux-navigator'
 
 Plugin 'file://.vim/bundle/krittapong'
 Plugin 'file://.vim/bundle/colors-github'
@@ -37,14 +41,13 @@ Plugin 'file://.vim/bundle/javascript'
 Plugin 'file://.vim/bundle/oem'
 
 " vim-rspec
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'jgdavey/tslime.vim'
-let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+let g:rspec_command = "Dispatch zeus spec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+nnoremap <F9> :Dispatch<CR>
 
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -116,6 +119,13 @@ let g:CommandTMaxHeight=20
 map <leader>f :CommandT<cr>
 
 let g:airline_theme='serene'
+
+if &term =~ '256color'
+    " disable Background Color Erase (BCE) so that color schemes
+    "   " render properly when inside 256-color tmux and GNU screen.
+    "     " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+    set t_ut=
+endif
 
 " rails.vim settings
 let g:rails_default_file='config/database.yml'
@@ -209,6 +219,7 @@ autocmd BufNewFile,BufRead *.mustache set filetype=html
 autocmd BufNewFile,BufRead *.hbs set filetype=html
 
 autocmd FileType javascript setlocal shiftwidth=2
+autocmd FileType javascript let b:dispatch = 'mocha % -R min'
 
 " jasmine
 autocmd BufNewFile,BufRead *spec.*coffee set filetype=jasmine.coffeescript

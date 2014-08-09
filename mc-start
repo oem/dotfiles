@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+cd ~/proj/njiuko/mediacenter
+tmux new-session -d -s mc
+
+tmux rename-window -t mc:0 'DEV'
+tmux send-keys 'git up' 'C-m'
+tmux new-window -t mc:1 -n 'RUN'
+tmux send-keys 'bundle exec passenger start' 'C-m'
+
+tmux split-window -p 50 -h
+tmux send-keys 'zeus start' 'C-m'
+tmux split-window -p 80 -v -t 0
+tmux send-keys 'tail -f log/development.log' 'C-m'
+tmux split-window -p 80 -v -t 1
+tmux send-keys 'bundle exec foreman start' 'C-m'
+
+tmux select-window -t mc:0
+tmux -2 attach-session -t mc
+
