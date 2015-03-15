@@ -34,6 +34,7 @@ Plugin 'nacitar/terminalkeys.vim'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'fatih/vim-go'
 
 Plugin 'file://.vim/bundle/krittapong'
 Plugin 'file://.vim/bundle/colors-github'

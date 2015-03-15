@@ -47,6 +47,9 @@ alias b='bundle exec'
 
 # env
 set -x EDITOR vim
+# go
+setenv GOPATH $HOME/lab/go
+set -gx PATH $GOTPATH/bin $PATH
 
 # keybindings
 function fish_user_key_bindings
@@ -97,6 +100,10 @@ set -gx PATH $HOME/.rbenv/bin $PATH
 set -gx PATH $HOME/.rbenv/shims $PATH
 rbenv rehash >/dev/null ^&1
 status --is-interactive; and . (rbenv init -|psub)
+
+# java/android dev
+set -gx JAVA_HOME /usr/lib/jvm/java-7-openjdk
+set -gx _JAVA_AWT_WM_NONREPARENTING 1
 
 function colored_path
   pwd | sed "s,/,$c0/$c1,g" | sed "s,\(.*\)/[^m]*m,\1/$c4,"

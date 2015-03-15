@@ -27,7 +27,7 @@ print_wifi() {
 }
 
 print_mem_used() {
-  mem_used="$(free -m | awk 'NR==3 {print $3}')"
+  mem_used="$(free -m | awk 'NR==2 {print $3}')"
   echo -ne "${color_gray}Mem ${color_white}${mem_used} "
 }
 
