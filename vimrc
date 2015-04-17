@@ -141,13 +141,15 @@ set list
 set listchars=tab:»\ ,eol:«
 
 " nnoremap <esc> :noh<CR><esc>
-map <F1> :tabp<CR>
-map <F2> :tabn<CR>
+" map <F1> :tabp<CR>
+" map <F2> :tabn<CR>
 map <F4> :noh<CR>
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
-nmap <C-L> <C-W>l<C-W>\|
-nmap <C-H> <C-W>h<C-W>\|
+
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-J> :TmuxNavigateDown<cr> <C-W>_
+nnoremap <silent> <C-K> :TmuxNavigateUp<cr> <C-W>_
+nnoremap <silent> <C-L> :TmuxNavigateRight<cr> <C-W>\|
+nnoremap <silent> <C-H> :TmuxNavigateLeft<cr> <C-W>\|
 map <F5> :CtrlP<CR>
 map <F6> :CtrlPBuffer<CR>
 
@@ -162,7 +164,6 @@ set directory=~/.vim/backup
 " handling whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
 
-nmap tn :tabnew<CR>
 iab <expr> dts strftime("%c")
 
 let Tlist_Use_Right_Window = 1
