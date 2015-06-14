@@ -51,6 +51,13 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 nnoremap <F9> :Dispatch<CR>
 
+" tmux nav
+" let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-H> :TmuxNavigateLeft<cr> <C-W>\|
+nnoremap <silent> <C-J> :TmuxNavigateDown<cr> <C-W>_
+nnoremap <silent> <C-K> :TmuxNavigateUp<cr> <C-W>_
+nnoremap <silent> <C-L> :TmuxNavigateRight<cr> <C-W>\|
+
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " " Use neocomplete.
@@ -139,17 +146,8 @@ smap kk <Plug>snipMateNextOrTrigger
 " show invisibles
 set list
 set listchars=tab:»\ ,eol:«
-
-" nnoremap <esc> :noh<CR><esc>
-" map <F1> :tabp<CR>
-" map <F2> :tabn<CR>
 map <F4> :noh<CR>
 
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-J> :TmuxNavigateDown<cr> <C-W>_
-nnoremap <silent> <C-K> :TmuxNavigateUp<cr> <C-W>_
-nnoremap <silent> <C-L> :TmuxNavigateRight<cr> <C-W>\|
-nnoremap <silent> <C-H> :TmuxNavigateLeft<cr> <C-W>\|
 map <F5> :CtrlP<CR>
 map <F6> :CtrlPBuffer<CR>
 
