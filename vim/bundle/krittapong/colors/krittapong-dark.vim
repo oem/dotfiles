@@ -92,7 +92,6 @@ hi SignColumn      ctermfg=15 ctermbg=235
 hi SpecialChar     ctermfg=15               cterm=bold
 hi SpecialComment  ctermfg=15               cterm=bold
 hi Special         ctermfg=15 ctermbg=232
-hi SpecialKey      ctermfg=15
 
 hi SpellBad        ctermfg=15 ctermbg=233  cterm=bold
 hi SpellCap        ctermfg=15 ctermbg=233  cterm=bold
