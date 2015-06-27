@@ -80,7 +80,7 @@ hi IncSearch       ctermfg=15  ctermbg=16
 hi Keyword         ctermfg=15               cterm=bold
 hi Label           ctermfg=15               cterm=none
 hi Macro           ctermfg=15
-hi SpecialKey      ctermfg=13
+hi SpecialKey      ctermfg=0
 
 hi MatchParen      ctermfg=15  ctermbg=234   cterm=none
 hi ModeMsg         ctermfg=15

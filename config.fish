@@ -101,6 +101,9 @@ set -gx PATH $HOME/.rbenv/shims $PATH
 rbenv rehash >/dev/null ^&1
 status --is-interactive; and . (rbenv init -|psub)
 
+# heroku
+set -gx PATH /usr/local/heroku/bin $PATH
+
 # java/android dev
 set -gx JAVA_HOME /usr/lib/jvm/java-7-openjdk
 set -gx _JAVA_AWT_WM_NONREPARENTING 1
