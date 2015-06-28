@@ -47,9 +47,11 @@ alias b='bundle exec'
 
 # env
 set -x EDITOR vim
+
 # go
 setenv GOPATH $HOME/lab/go
-set -gx PATH $GOTPATH/bin $PATH
+set -x GOPATH $HOME/lab/go
+set -gx PATH $HOME/lab/go/bin $PATH
 
 # keybindings
 function fish_user_key_bindings
