@@ -77,6 +77,9 @@ vmap <Enter> <Plug>(EasyAlign)
 " " Start interactive EasyAlign with a Vim movement
 nmap <Leader>a <Plug>(EasyAlign)
 
+" go stuff
+let g:go_fmt_command="goimports"
+
 filetype plugin indent on
 set backspace=indent,eol,start
 set shiftwidth=2
