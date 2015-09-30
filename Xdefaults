@@ -2,7 +2,7 @@ URxvt.saveLines:         10000
 URxvt.scrollBar:         false
 URxvt.secondaryScroll:   true
 !URxvt.font:             xft:tamsyn:size=12:antialias=false
-URxvt.font:              -*-tamsyn-medium-*-*-*-16-*-*-*-*-*-*-*
+URxvt.font:              -*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*
 URxvt.visualBell:        false
 urxvt*secondaryScreen:   false
 URxvt*termName:          xterm-256color

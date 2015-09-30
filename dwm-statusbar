@@ -12,7 +12,7 @@ print_time() {
 }
 
 print_battery() {
-  battery_status="$(acpi -b)"
+  battery_status="$(acpi -b|head -1)"
   charging=""
   if grep -q Charging <<<$battery_status; then charging="+"; fi
   battery="$(echo ${battery_status}|sed -e "s/.*, \([0-9]*\)%.*/\1/g")"

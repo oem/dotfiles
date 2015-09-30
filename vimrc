@@ -1,10 +1,10 @@
 set nocompatible
 filetype off
 set shell=/bin/bash
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " my bundles
 Plugin 'tpope/vim-fugitive'
@@ -41,6 +41,8 @@ Plugin 'file://.vim/bundle/krittapong'
 Plugin 'file://.vim/bundle/colors-github'
 Plugin 'file://.vim/bundle/javascript'
 Plugin 'file://.vim/bundle/oem'
+
+call vundle#end()
 
 " vim-rspec
 let g:rspec_command = "Dispatch zeus spec {spec}"
