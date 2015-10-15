@@ -1,5 +1,5 @@
 [global]
-  font = tamsyn 12
+  font = tamsyn 20
 
   # Show how many messages are currently hidden (because of geometry).
   indicate_hidden = yes

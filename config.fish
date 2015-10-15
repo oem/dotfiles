@@ -101,7 +101,11 @@ end
 set -gx PATH $HOME/.rbenv/bin $PATH
 set -gx PATH $HOME/.rbenv/shims $PATH
 rbenv rehash >/dev/null ^&1
-status --is-interactive; and . (rbenv init -|psub)
+
+if status --is-interactive
+  set PATH $HOME/.rbenv/bin $PATH
+  . (rbenv init - | psub)
+end
 
 # heroku
 set -gx PATH /usr/local/heroku/bin $PATH

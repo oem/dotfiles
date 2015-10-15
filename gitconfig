@@ -19,3 +19,5 @@
   ui = true
 [core]
 	excludesfile = /Users/oem/.gitignore
+[push]
+	default = matching
