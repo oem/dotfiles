@@ -1,5 +1,5 @@
 [global]
-  font = tamsyn 20
+  font = tamsyn 20:antialias=false
 
   # Show how many messages are currently hidden (because of geometry).
   indicate_hidden = yes
@@ -11,7 +11,7 @@
   padding = 6
 
   allow_markup = yes
-  format = "<b>%s %p</b> %b"
+  format = "%s %p %b"
   ignore_newline = yes
 
   follow = mouse

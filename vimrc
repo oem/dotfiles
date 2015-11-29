@@ -91,6 +91,7 @@ set autoindent
 set smarttab
 set ignorecase
 set encoding=utf-8
+set synmaxcol=200
 
 set ttyfast
 set number
@@ -249,7 +250,7 @@ endfunction
 
 " Find a file and pass it to cmd
 function! DmenuOpen(cmd)
-  let font = "-*-tamsyn-medium-*-*-*-16-*-*-*-*-*-*-*"
+  let font = "-*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*"
   let fg = "#757978"
   let fg_selected = "#C1C4BC"
   let bg = "#1C1C1C"

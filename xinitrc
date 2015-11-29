@@ -9,6 +9,7 @@ xset +fp /usr/share/fonts/local
 xsetroot -solid "#1c1c1c"
 xbindkeys &
 xmodmap ~/.xmodmap
+exec dunst &
 urxvtd -f
 exec /home/oem/dotfiles/dwm-statusbar &
 exec /home/oem/dotfiles/dwm-start
