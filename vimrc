@@ -17,6 +17,7 @@ Plugin 'tpope/vim-bundler.git'
 Plugin 'tpope/vim-haml.git'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rking/ag.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -250,7 +251,7 @@ endfunction
 
 " Find a file and pass it to cmd
 function! DmenuOpen(cmd)
-  let font = "-*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*"
+  let font = "Tamsyn:pixelsize=20"
   let fg = "#757978"
   let fg_selected = "#C1C4BC"
   let bg = "#1C1C1C"
