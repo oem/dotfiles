@@ -1,0 +1,12 @@
+[Unit]
+Description=battery warning
+Wants=batcountry.timer
+
+[Service]
+Type=simple
+Environment=XAUTHORITY=/home/oem/.Xauthority
+Environment='DISPLAY=:0.0'
+ExecStart=/home/oem/lab/go/bin/batcountry
+
+[Install]
+WantedBy=batcountry.target

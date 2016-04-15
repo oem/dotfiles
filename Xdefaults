@@ -1,8 +1,10 @@
 URxvt.saveLines:         10000
 URxvt.scrollBar:         false
 URxvt.secondaryScroll:   true
-!URxvt.font:             xft:tamsyn:size=12:antialias=false
 URxvt.font:              -*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*
+! URxvt.font:              -*-terminus-*-*-*-*-22-*-*-*-*-*-*-*
+! URxvt.font:              -*-profont-medium-*-*-*-22-*-*-*-*-*-*-*
+! URxvt.font:             xft:Roboto Mono:pixelsize=20:weight=Regular
 URxvt.visualBell:        false
 urxvt*secondaryScreen:   false
 URxvt*termName:          xterm-256color
@@ -10,6 +12,7 @@ URxvt*scrollTtyOutput:   false
 URxvt*scrollWithBuffer:  true
 URxvt*scrollTtyKeypress: true
 
+Xft.dpi: 176
 
 !Xft settings
 !Xft.dpi: 96

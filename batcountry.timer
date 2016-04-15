@@ -1,0 +1,9 @@
+[Unit]
+Description=Run battery warning every 2 minutes
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=2min
+
+[Install]
+WantedBy=multi-user.target

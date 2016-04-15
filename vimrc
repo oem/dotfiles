@@ -46,7 +46,7 @@ Plugin 'file://.vim/bundle/oem'
 call vundle#end()
 
 " vim-rspec
-let g:rspec_command = "Dispatch zeus spec {spec}"
+let g:rspec_command = "Dispatch spring rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
