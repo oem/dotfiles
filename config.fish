@@ -1,4 +1,5 @@
 set fish_greeting ""
+fish_vi_mode
 
 # prompt colors
 set fish_color_error ff8a00
@@ -47,11 +48,12 @@ alias b='bundle exec'
 
 # env
 set -x EDITOR vim
+set -gx PATH $HOME/dotfiles/tools $PATH
 
 # go
-setenv GOPATH $HOME/lab/go
-set -x GOPATH $HOME/lab/go
-set -gx PATH $HOME/lab/go/bin $PATH
+setenv GOPATH $HOME/src/go
+set -x GOPATH $HOME/src/go
+set -gx PATH $HOME/src/go/bin $PATH
 
 # keybindings
 function fish_user_key_bindings
