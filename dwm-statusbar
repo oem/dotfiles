@@ -36,8 +36,14 @@ print_temperature() {
   echo -ne "${color_gray}Tem ${color_white}${temperature} "
 }
 
+print_travis() {
+  status="$($HOME/dotfiles/tools/mc-travis)"
+  echo -ne  "${color_gray}MC ${color_white}${status} "
+}
+
 while true; do
-  xsetroot -name "$(print_temperature)\
+  xsetroot -name "$(print_travis)\
+ $(print_temperature)\
  $(print_mem_used)\
  $(print_wifi)\
  $(print_battery)\
