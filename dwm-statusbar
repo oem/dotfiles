@@ -37,7 +37,7 @@ print_temperature() {
 }
 
 print_travis() {
-  status="$($HOME/dotfiles/tools/mc-travis)"
+  status="$(mc-travis)"
   echo -ne  "${color_gray}MC ${color_white}${status} "
 }
 
