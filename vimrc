@@ -1,52 +1,41 @@
 set nocompatible
 filetype off
 set shell=/bin/bash
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
-
-" my bundles
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails.git'
-Plugin 'tpope/vim-endwise.git'
-Plugin 'tpope/vim-ragtag.git'
-Plugin 'tpope/vim-surround.git'
-Plugin 'tpope/vim-unimpaired.git'
-Plugin 'tpope/vim-bundler.git'
-Plugin 'tpope/vim-haml.git'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'rking/ag.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'tomtom/tcomment_vim.git'
-Plugin 'digitaltoad/vim-jade.git'
-Plugin 'claco/jasmine.vim.git'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mattn/emmet-vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'jamessan/vim-gnupg'
-Plugin 'nacitar/terminalkeys.vim'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-dispatch'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'fatih/vim-go'
-Plugin 'hsanson/vim-android'
-
-Plugin 'file://.vim/bundle/krittapong'
-Plugin 'file://.vim/bundle/colors-github'
-Plugin 'file://.vim/bundle/javascript'
-Plugin 'file://.vim/bundle/oem'
-
-call vundle#end()
+" installing the plugins
+call plug#begin('~/.vim/bundle')
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-haml'
+Plug 'junegunn/vim-easy-align'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'rking/ag.vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'tomtom/tcomment_vim'
+Plug 'digitaltoad/vim-pug'
+Plug 'airblade/vim-gitgutter'
+Plug 'pangloss/vim-javascript'
+Plug 'mattn/emmet-vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'Shougo/neocomplete.vim'
+Plug 'jamessan/vim-gnupg'
+Plug 'nacitar/terminalkeys.vim'
+Plug 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-dispatch'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'fatih/vim-go'
+call plug#end()
 
 " vim-rspec
-let g:rspec_command = "Dispatch spring rspec {spec}"
+let g:rspec_command = "Dispatch bin/rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
@@ -120,10 +109,10 @@ set showtabline=1
 set noequalalways
 
 "folding
-set foldmethod=syntax
-set foldnestmax=10
-set nofoldenable
-set foldlevel=1
+" set foldmethod=syntax
+" set foldnestmax=10
+" set nofoldenable
+" set foldlevel=1
 
 " guioptions
 set guioptions-=T
