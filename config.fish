@@ -1,5 +1,4 @@
 set fish_greeting ""
-fish_vi_mode
 
 # prompt colors
 set fish_color_error ff8a00
@@ -40,15 +39,18 @@ set -g __fish_git_prompt_color_untrackedfiles $fish_color_error
 set -g __fish_git_prompt_color_cleanstate green
 
 # aliases
-alias vi='vim'
+alias vi='nvim'
 alias l='ls -lA'
 alias ll='ls -lAh'
 alias dir='ls -lht | less'
 alias b='bundle exec'
 
 # env
-set -x EDITOR vim
+set -x EDITOR nvim
 set -gx PATH $HOME/dotfiles/tools $PATH
+
+# neovim
+set -x XDG_CONFIG_HOME $HOME/.config
 
 # go
 setenv GOPATH $HOME/src/go
