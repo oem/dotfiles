@@ -186,8 +186,3 @@ function! DmenuOpen(cmd)
 endfunction
 " }}}
 
-" automatically change directory to current buffers location
-" autocmd BufEnter * lcd %:p:h
-
-set dictionary+=/usr/share/dict/words
-
