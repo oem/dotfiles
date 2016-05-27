@@ -123,7 +123,7 @@ nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
 " golang {{{
 let g:go_fmt_command="goimports"
 " }}}
-" rails {{{
+" ruby {{{
 let g:rails_default_file='config/database.yml'
 " bundler
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
@@ -133,6 +133,8 @@ autocmd BufNewFile,BufRead *.ru set filetype=ruby
 autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
 " rabl
 autocmd BufNewFile,BufRead *.rabl set filetype=ruby
+" unfold initially
+autocmd Syntax ruby normal zR
 " }}}
 " frontend {{{
 let g:sparkupNextMapping = '<c-x>'
