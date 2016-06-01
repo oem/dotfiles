@@ -33,6 +33,8 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-dispatch'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'fatih/vim-go'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 " }}}
 " plugins config {{{
@@ -46,6 +48,7 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " snipmate
 imap kk <esc>a<Plug>snipMateNextOrTrigger
 smap kk <Plug>snipMateNextOrTrigger
+map <c-F> :FZF<cr>
 " }}}
 " basic config {{{
 filetype off
@@ -171,7 +174,7 @@ endfunction
 " }}}
 " dmenu {{{
 " fuzzy finder with dmenu
-map <c-f> :call DmenuOpen("e")<cr>
+" map <c-f> :call DmenuOpen("e")<cr>
 
 " Find a file and pass it to cmd
 function! DmenuOpen(cmd)
