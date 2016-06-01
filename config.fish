@@ -1,5 +1,28 @@
+# vim:fdm=marker
+
 set fish_greeting ""
 
+# prompt {{{
+function colored_path
+  pwd | sed "s,/,$c0/$c1,g" | sed "s,\(.*\)/[^m]*m,\1/$c4,"
+end
+
+function fish_prompt
+  set -l last_status $status
+
+  printf (colored_path)
+  set_color normal
+  if test -d .git
+    printf (echo (__fish_git_prompt) | sed "s/[()|]//g")
+  end
+
+  if not test $last_status -eq 0
+    set_color red
+  end
+  printf "> "
+end
+# }}}
+# colors {{{
 # prompt colors
 set fish_color_error ff8a00
 
@@ -37,32 +60,26 @@ set -g __fish_git_prompt_color_stagedstate yellow
 set -g __fish_git_prompt_color_invalidstate red
 set -g __fish_git_prompt_color_untrackedfiles $fish_color_error
 set -g __fish_git_prompt_color_cleanstate green
-
-# aliases
+# }}}
+# aliases {{{
 alias vi='nvim'
 alias l='ls -lA'
 alias ll='ls -lAh'
 alias dir='ls -lht | less'
 alias b='bundle exec'
-
-# env
+# }}}
+# env {{{
 set -x EDITOR nvim
 set -gx PATH $HOME/dotfiles/tools $PATH
-
-# neovim
-set -x XDG_CONFIG_HOME $HOME/.config
-
-# go
-setenv GOPATH $HOME/src/go
-set -x GOPATH $HOME/src/go
-set -gx PATH $HOME/src/go/bin $PATH
-
-# keybindings
+# }}}
+# keybindings {{{
 function fish_user_key_bindings
-  bind \cr history-search-backward
+  # bind \cr history-search-backward
+  bind \cr __fzf_ctrl_r
+  bind \cf __fzf_ctrl_f
 end
-
-# ssh
+# }}}
+# ssh {{{
 setenv SSH_ENV $HOME/.ssh/environment
 
 function start_agent
@@ -100,7 +117,16 @@ else
         start_agent
     end
 end
-
+# }}}
+# neovim {{{
+set -x XDG_CONFIG_HOME $HOME/.config
+# }}}
+# go {{{
+setenv GOPATH $HOME/src/go
+set -x GOPATH $HOME/src/go
+set -gx PATH $HOME/src/go/bin $PATH
+# }}}
+# ruby {{{
 # rbenv
 set -gx PATH $HOME/.rbenv/bin $PATH
 set -gx PATH $HOME/.rbenv/shims $PATH
@@ -110,36 +136,70 @@ if status --is-interactive
   set PATH $HOME/.rbenv/bin $PATH
   . (rbenv init - | psub)
 end
-
-# heroku
+# }}}
+# heroku {{{
 set -gx PATH /usr/local/heroku/bin $PATH
-
-# java/android dev
+# }}}
+# java/android dev {{{
 set -gx JAVA_HOME /usr/lib/jvm/java-7-openjdk
 set -gx _JAVA_AWT_WM_NONREPARENTING 1
-
-function colored_path
-  pwd | sed "s,/,$c0/$c1,g" | sed "s,\(.*\)/[^m]*m,\1/$c4,"
-end
-
-function fish_prompt
-  set -l last_status $status
-
-  printf (colored_path)
-  set_color normal
-  if test -d .git
-    printf (echo (__fish_git_prompt) | sed "s/[()|]//g")
-  end
-
-  if not test $last_status -eq 0
-    set_color red
-  end
-  printf "> "
-end
-
-# dev helpers
+# }}}
+# mysql {{{
 function start_mysql
   sudo systemctl start mysqld
   ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock
 end
+# }}}
+# fzf {{{
+set -U FZF_TMUX 1
+
+function __fzfescape
+  while read item
+    echo -n (echo -n "$item" | sed -E 's/([ "$~'\''([{<>})&])/\\\\\\1/g')' '
+  end
+end
+
+function __fzfcmd
+  set -q FZF_TMUX; or set -l FZF_TMUX 0
+  if test "$FZF_TMUX" -eq 1
+    set -q FZF_TMUX_HEIGHT; or set -l FZF_TMUX_HEIGHT 40%
+    fzf-tmux -d$FZF_TMUX_HEIGHT $argv
+  else
+    fzf $argv
+  end
+end
+
+function __fzf_ctrl_r
+    if not type -q fzf
+        printf "fzf not yet installed. Installing now, please wait..."
+        __fzf_install
+        commandline -f repaint
+        __fzf_ctrl_r
+    else
+        history | __fzfcmd +s +m --tiebreak=index --toggle-sort=ctrl-r | read -l select
+
+        and commandline -rb $select
+        commandline -f repaint
+    end
+end
+
+function __fzf_ctrl_f
+    if not type -q fzf
+        printf "fzf not yet installed. Installing now, please wait..."
+        __fzf_install
+        commandline -f repaint
+        __fzf_ctrl_t
+    else
+        set -q FZF_CTRL_T_COMMAND
+        or set -l FZF_CTRL_T_COMMAND "
+    command find -L . \\( -path '*/\\.*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune \
+    -o -type f -print \
+    -o -type d -print \
+    -o -type l -print 2> /dev/null | sed 1d | cut -b3-"
+        eval "$FZF_CTRL_T_COMMAND" | __fzfcmd -m | __fzfescape | read -l selects
+        and commandline -i "$selects"
+        commandline -f repaint
+    end
+end
+# }}}
 
