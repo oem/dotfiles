@@ -71,6 +71,9 @@ alias b='bundle exec'
 # env {{{
 set -x EDITOR nvim
 set -gx PATH $HOME/dotfiles/tools $PATH
+set -gx LANG en_US.UTF-8
+set -gx LANGUAGE en_US.UTF-8
+set -gx LC_ALL en_US.UTF-8
 # }}}
 # keybindings {{{
 function fish_user_key_bindings
@@ -137,9 +140,6 @@ if status --is-interactive
   . (rbenv init - | psub)
 end
 # }}}
-# heroku {{{
-set -gx PATH /usr/local/heroku/bin $PATH
-# }}}
 # java/android dev {{{
 set -gx JAVA_HOME /usr/lib/jvm/java-7-openjdk
 set -gx _JAVA_AWT_WM_NONREPARENTING 1
@@ -151,8 +151,7 @@ function start_mysql
 end
 # }}}
 # fzf {{{
-set -U FZF_TMUX 1
-
+set -U FZF_TMUX 0
 function __fzfescape
   while read item
     echo -n (echo -n "$item" | sed -E 's/([ "$~'\''([{<>})&])/\\\\\\1/g')' '
@@ -202,4 +201,3 @@ function __fzf_ctrl_f
     end
 end
 # }}}
-
