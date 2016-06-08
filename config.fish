@@ -70,7 +70,7 @@ alias b='bundle exec'
 # }}}
 # env {{{
 set -x EDITOR nvim
-set -gx PATH $HOME/dotfiles/tools $PATH
+set -gx PATH $HOME/dotfiles/wrappers $PATH
 set -gx LANG en_US.UTF-8
 set -gx LANGUAGE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
