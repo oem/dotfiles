@@ -35,10 +35,12 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 " }}}
 " plugins config {{{
 let g:deoplete#enable_at_startup = 1
+let g:rustfmt_autosave = 1
 " align
 " Start interactive EasyAlign in visual mode
 vmap <Enter> <Plug>(EasyAlign)
