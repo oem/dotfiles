@@ -38,7 +38,7 @@ print_temperature() {
 
 print_travis() {
   status="$(mc-travis)"
-  echo -ne  "${color_gray}MC ${color_white}${status} "
+  echo -ne  "${color_gray}Mc ${color_white}${status} "
 }
 
 while true; do
