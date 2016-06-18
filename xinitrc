@@ -11,6 +11,7 @@ xbindkeys &
 xmodmap ~/.xmodmap
 exec dunst &
 urxvtd -f
+exec /home/oem/dotfiles/batwarn &
 exec /home/oem/dotfiles/dwm-statusbar &
 exec /home/oem/dotfiles/dwm-start
 
