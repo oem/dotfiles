@@ -21,17 +21,17 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#2d89ef"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 6
 
 [urgency_normal]
     # green, but normal urgency does not always map well, see guard or node-growl
     # background = "#99b433"
     background = "#7e3878"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 6
 
 [urgency_critical]
     background = "#da532c"
     foreground = "#ffffff"
-    timeout = 10
+    timeout = 6
 

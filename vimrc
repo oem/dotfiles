@@ -16,7 +16,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rking/ag.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
 Plug 'tomtom/tcomment_vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'airblade/vim-gitgutter'
@@ -27,6 +26,8 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
 Plug 'thoughtbot/vim-rspec'
@@ -36,20 +37,33 @@ Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 call plug#end()
 " }}}
 " plugins config {{{
 let g:deoplete#enable_at_startup = 1
-let g:rustfmt_autosave = 1
 " align
 " Start interactive EasyAlign in visual mode
 vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign with a Vim movement
 nmap <Leader>a <Plug>(EasyAlign)
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-" snipmate
-imap kk <esc>a<Plug>snipMateNextOrTrigger
-smap kk <Plug>snipMateNextOrTrigger
+" neosnippet
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+imap <expr><TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ neosnippet#expandable_or_jumpable() ?
+	\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+	smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
 map <c-F> :FZF<cr>
 " }}}
 " basic config {{{
@@ -127,6 +141,12 @@ nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
 " }}}
 " golang {{{
 let g:go_fmt_command="goimports"
+" }}}
+" rust {{{
+let g:rustfmt_autosave = 1
+set hidden
+let g:racer_cmd = "/home/oem/.cargo/bin/racer"
+let $RUST_SRC_PATH="/home/oem/src/rust/src/"
 " }}}
 " ruby {{{
 let g:rails_default_file='config/database.yml'

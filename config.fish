@@ -129,6 +129,11 @@ setenv GOPATH $HOME/src/go
 set -x GOPATH $HOME/src/go
 set -gx PATH $HOME/src/go/bin $PATH
 # }}}
+# rust {{{
+# racer
+set -gx PATH /home/oem/.cargo/bin $PATH
+set -x RUST_SRC_PATH $HOME/src/rust/src
+# }}}
 # ruby {{{
 # rbenv
 set -gx PATH $HOME/.rbenv/bin $PATH
