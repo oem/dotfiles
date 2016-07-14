@@ -20,4 +20,4 @@
 [core]
 	excludesfile = /Users/oem/.gitignore
 [push]
-	default = matching
+	default = upstream
