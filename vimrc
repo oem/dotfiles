@@ -38,6 +38,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
+Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 " }}}
 " plugins config {{{
@@ -94,7 +96,9 @@ set nobackup
 set wildmenu
 syntax on
 " set t_Co=256
-colo krittapong-dark
+" colo krittapong-dark
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colo onedark
 
 " show invisibles
 set list
@@ -113,7 +117,8 @@ set directory=~/.vim/backup
 set clipboard+=unnamed
 
 " statusbar
-let g:airline_theme='serene'
+" let g:airline_theme='serene'
+let g:airline_theme='onedark'
 " set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }[%b][0x%B]%=\ %4l,%02c%2V\ %P%*
 set laststatus=2
 set showtabline=1
