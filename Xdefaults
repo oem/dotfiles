@@ -1,4 +1,4 @@
-URxvt.saveLines:         10000
+URxvt.saveLines:         100000
 URxvt.scrollBar:         false
 URxvt.secondaryScroll:   true
 URxvt.font:              -*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*
