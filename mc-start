@@ -10,8 +10,6 @@ tmux send-keys 'bundle exec passenger start' 'C-m'
 
 tmux split-window -p 50 -h
 tmux send-keys 'docker run -it -p 3001:3001 mc-varnish' 'C-m'
-tmux split-window -p 80 -v -t 0
-tmux send-keys 'tail -f log/development.log' 'C-m'
 tmux split-window -p 80 -v -t 1
 tmux send-keys 'docker run -p 6389:6389 -ti mc-redis' 'C-m'
 
