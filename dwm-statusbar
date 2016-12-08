@@ -32,7 +32,7 @@ print_mem_used() {
 }
 
 print_temperature() {
-  temperature="$(acpi -t|sed -e "s/.*, \([0-9]*\).*/\1/g")"
+  temperature="$(acpi -t|awk 'END { print }'|sed -e "s/.*, \([0-9]*\).*/\1/g")"
   echo -ne "${color_gray}Tem ${color_white}${temperature} "
 }
 
