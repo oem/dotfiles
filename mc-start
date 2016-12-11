@@ -4,14 +4,13 @@ cd ~/proj/njiuko/mediacenter
 tmux new-session -d -s mc
 
 tmux rename-window -t mc:0 'DEV'
-tmux send-keys 'git up' 'C-m'
 tmux new-window -t mc:1 -n 'RUN'
 tmux send-keys 'bundle exec passenger start' 'C-m'
 
 tmux split-window -p 50 -h
 tmux send-keys 'docker run -it -p 3001:3001 mc-varnish' 'C-m'
 tmux split-window -p 80 -v -t 1
-tmux send-keys 'docker run -p 6389:6389 -ti mc-redis' 'C-m'
+tmux send-keys 'docker run -p 6389:6389 -it redis:alpine redis-server --port 6389' 'C-m'
 
 tmux select-window -t mc:0
 tmux -2 attach-session -t mc
