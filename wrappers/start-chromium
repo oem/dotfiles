@@ -1,2 +1,2 @@
 #!/bin/bash
-chromium --high-dpi-support=1 --force-device-scale-factor=1.5
+chromium --high-dpi-support=1 --force-device-scale-factor=2

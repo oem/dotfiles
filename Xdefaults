@@ -1,7 +1,9 @@
 URxvt.saveLines:         100000
 URxvt.scrollBar:         false
 URxvt.secondaryScroll:   true
-URxvt.font:              -*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*
+! URxvt.font:              -*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*
+! URxvt.font:              -*-terminesspowerline-medium-*-*-*-24-*-*-*-*-*-*-*
+URxvt.font:              xft:Cartograph MonoCF:light:size=18
 URxvt.visualBell:        false
 urxvt*secondaryScreen:   false
 URxvt*termName:          xterm-256color
@@ -9,16 +11,15 @@ URxvt*scrollTtyOutput:   false
 URxvt*scrollWithBuffer:  true
 URxvt*scrollTtyKeypress: true
 
-Xft.dpi: 176
+Xft.dpi: 96
 
 !Xft settings
-!Xft.dpi: 96
 !Xft.hinting: 1
 !Xft.hintstyle: hintfull
-!Xft.antialias: 1
+Xft.antialias: 1
 
 
-*foreground: #DDCCBB
+*foreground: #DDDDEA
 *background: #1C1C1C
 
 !black

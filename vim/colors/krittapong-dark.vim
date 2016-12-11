@@ -2,6 +2,7 @@
 
 let g:colors_name="krittapong-dark"
 hi clear
+
 set background=dark
 
 hi Normal   ctermfg=15 ctermbg=233
@@ -70,8 +71,8 @@ hi Error           ctermfg=15  ctermbg=89
 hi ErrorMsg        ctermfg=15  ctermbg=16    cterm=bold
 hi Exception       ctermfg=15               cterm=bold
 hi Float           ctermfg=15
-hi FoldColumn      ctermfg=15  ctermbg=233 cterm=none
-hi Folded          ctermfg=15  ctermbg=235 cterm=bold
+hi FoldColumn      ctermfg=241 ctermbg=233 cterm=none
+hi Folded          ctermfg=241 ctermbg=234 cterm=bold
 hi Function        ctermfg=25
 hi Identifier      ctermfg=15
 hi Ignore          ctermfg=15  ctermbg=232
@@ -82,7 +83,7 @@ hi Label           ctermfg=15               cterm=none
 hi Macro           ctermfg=15
 hi SpecialKey      ctermfg=0
 
-hi MatchParen      ctermfg=15  ctermbg=234   cterm=none
+hi MatchParen      ctermfg=6  ctermbg=233   cterm=none
 hi ModeMsg         ctermfg=15
 hi MoreMsg         ctermfg=15
 hi Operator        ctermfg=15

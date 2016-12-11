@@ -26,6 +26,7 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'zchee/deoplete-go'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'jamessan/vim-gnupg'
@@ -66,6 +67,7 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
+" fzf - fuzzy file finder
 map <c-F> :FZF<cr>
 " }}}
 " basic config {{{
@@ -96,9 +98,9 @@ set nobackup
 set wildmenu
 syntax on
 " set t_Co=256
-" colo krittapong-dark
+colo krittapong-dark
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colo onedark
+" colo onedark
 
 " show invisibles
 set list
@@ -117,9 +119,10 @@ set directory=~/.vim/backup
 set clipboard+=unnamed
 
 " statusbar
-" let g:airline_theme='serene'
-let g:airline_theme='onedark'
-" set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }[%b][0x%B]%=\ %4l,%02c%2V\ %P%*
+let g:airline_theme='serene'
+" let g:airline_theme='onedark'
+let g:airline_powerline_fonts=0
+set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }[%b][0x%B]%=\ %4l,%02c%2V\ %P%*
 set laststatus=2
 set showtabline=1
 set noequalalways
