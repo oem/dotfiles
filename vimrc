@@ -20,7 +20,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
-Plug 'mattn/emmet-vim'
+Plug 'rstacruz/sparkup'
 Plug 'kchmck/vim-coffee-script'
 function! DoRemote(arg)
   UpdateRemotePlugins
