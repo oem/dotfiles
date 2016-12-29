@@ -42,8 +42,7 @@ print_travis() {
 }
 
 while true; do
-  xsetroot -name "$(print_travis)\
- $(print_temperature)\
+  xsetroot -name "$(print_temperature)\
  $(print_mem_used)\
  $(print_wifi)\
  $(print_battery)\
