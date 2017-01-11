@@ -21,7 +21,7 @@ Plug 'digitaltoad/vim-pug'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'rstacruz/sparkup'
-Plug 'kchmck/vim-coffee-script'
+Plug 'bling/vim-bufferline'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
@@ -170,8 +170,7 @@ autocmd Syntax ruby normal zR
 " frontend {{{
 let g:sparkupNextMapping = '<c-x>'
 let g:user_emmet_leader_key = '<c-e>'
-" for vim-coffee-script: automatically compile to javascript on save
-let coffee_script_compile_on_save = 1
+
 " json
 autocmd BufNewFile,BufRead *.json set filetype=javascript
 " mustache
