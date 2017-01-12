@@ -129,7 +129,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " }}}
 " tmux / dispatch {{{
 " vim-rspec
-let g:rspec_command = "Dispatch bin/rspec {spec}"
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
