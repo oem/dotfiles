@@ -19,7 +19,7 @@ function fish_prompt
   if not test $last_status -eq 0
     set_color red
   end
-  printf "> "
+  printf " "
 end
 # }}}
 # colors {{{
