@@ -9,7 +9,7 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-haml'
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -19,8 +19,6 @@ Plug 'tomtom/tlib_vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'airblade/vim-gitgutter'
-Plug 'pangloss/vim-javascript'
-Plug 'rstacruz/sparkup'
 Plug 'bling/vim-bufferline'
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -28,6 +26,7 @@ endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'neomake/neomake'
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
 Plug 'thoughtbot/vim-rspec'
@@ -40,6 +39,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'mxw/vim-jsx'
+Plug 'mattn/emmet-vim'
 call plug#end()
 " }}}
 " plugins config {{{
@@ -66,6 +67,9 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
+" neomake
+autocmd! BufWritePost * Neomake
+let g:neomake_error_sign = {'text': '*', 'texthl': 'NeomakeErrorSign'}
 map <c-F> :FZF<cr>
 " }}}
 " basic config {{{
@@ -168,8 +172,16 @@ autocmd BufNewFile,BufRead *.rabl set filetype=ruby
 autocmd Syntax ruby normal zR
 " }}}
 " frontend {{{
-let g:sparkupNextMapping = '<c-x>'
 let g:user_emmet_leader_key = '<c-e>'
+
+" react
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
+let g:jsx_ext_required = 0
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 " json
 autocmd BufNewFile,BufRead *.json set filetype=javascript
