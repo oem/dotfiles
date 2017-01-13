@@ -2,6 +2,10 @@
 
 " plugins {{{
 call plug#begin('~/.vim/bundle')
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
@@ -11,18 +15,14 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-bundler'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'easymotion/vim-easymotion'
 Plug 'rking/ag.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-bufferline'
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
+Plug 'terryma/vim-multiple-cursors'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
@@ -41,6 +41,9 @@ Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
+" improved incsearch
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
 call plug#end()
 " }}}
 " plugins config {{{
@@ -71,6 +74,13 @@ endif
 autocmd! BufWritePost * Neomake
 let g:neomake_error_sign = {'text': '*', 'texthl': 'NeomakeErrorSign'}
 map <c-F> :FZF<cr>
+
+" incsearch
+map / <Plug>(incsearch-fuzzy-/)
+map ? <Plug>(incsearch-fuzzy-?)
+map g/ <Plug>(incsearch-fuzzy-stay)
+"easymotion
+
 " }}}
 " basic config {{{
 filetype off
@@ -86,7 +96,7 @@ set ignorecase
 set encoding=utf-8
 set synmaxcol=200
 
-set number
+set relativenumber
 
 " regexp like perl
 "nnoremap / /\v
@@ -120,10 +130,14 @@ set directory=~/.vim/backup
 " clipboard
 set clipboard+=unnamed
 
+" leader key
+map <SPACE> <leader>
+map <SPACE><SPACE> <leader><leader>
+
 " statusbar
 " let g:airline_theme='serene'
-let g:airline_theme='onedark'
-" set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }[%b][0x%B]%=\ %4l,%02c%2V\ %P%*
+" let g:airline_theme='onedark'
+set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }[%b][0x%B]%=\ %4l,%02c%2V\ %P%*
 set laststatus=2
 set showtabline=1
 set noequalalways
