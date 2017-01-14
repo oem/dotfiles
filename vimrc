@@ -124,6 +124,7 @@ set cpo+=$
 inoremap jj <esc>
 imap <leader><cr> <esc>o
 nnoremap <leader><leader> <c-^>
+
 " backup dir for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
@@ -133,6 +134,15 @@ set clipboard+=unnamed
 " leader key
 map <SPACE> <leader>
 map <SPACE><SPACE> <leader><leader>
+
+" cursor highlighting
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
+  au WinLeave * setlocal nocursorline
+  au WinLeave * setlocal nocursorcolumn
+augroup END
 
 " statusbar
 " let g:airline_theme='serene'
