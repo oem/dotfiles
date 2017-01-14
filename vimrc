@@ -79,8 +79,9 @@ map <c-F> :FZF<cr>
 map / <Plug>(incsearch-fuzzy-/)
 map ? <Plug>(incsearch-fuzzy-?)
 map g/ <Plug>(incsearch-fuzzy-stay)
-"easymotion
 
+"easymotion
+map <Leader> <Plug>(easymotion-prefix)
 " }}}
 " basic config {{{
 filetype off
@@ -159,7 +160,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " vim-rspec
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>r :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
