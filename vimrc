@@ -13,6 +13,7 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'easymotion/vim-easymotion'
@@ -44,6 +45,7 @@ Plug 'mattn/emmet-vim'
 " improved incsearch
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
 call plug#end()
 " }}}
 " plugins config {{{
@@ -81,7 +83,25 @@ map ? <Plug>(incsearch-fuzzy-?)
 map g/ <Plug>(incsearch-fuzzy-stay)
 
 "easymotion
-map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap s <Plug>(easymotion-s2)
+nmap s <Plug>(easymotion-overwin-f)
+let g:EasyMotion_smartcase = 1
+map j <Plug>(easymotion-j)
+map k <Plug>(easymotion-k)
+
+" incsearch.vim x fuzzy x vim-easymotion
+function! s:config_easyfuzzymotion(...) abort
+  return extend(copy({
+  \   'converters': [incsearch#config#fuzzy#converter()],
+  \   'modules': [incsearch#config#easymotion#module()],
+  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+  \   'is_expr': 0,
+  \   'is_stay': 1
+  \ }), get(a:, 1, {}))
+endfunction
+
+noremap <silent><expr> / incsearch#go(<SID>config_easyfuzzymotion())
 " }}}
 " basic config {{{
 filetype off
@@ -124,6 +144,7 @@ set cpo+=$
 
 inoremap jj <esc>
 imap <leader><cr> <esc>o
+" quickly switch to alternate file
 nnoremap <leader><leader> <c-^>
 
 " backup dir for swp files
