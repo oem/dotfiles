@@ -12,38 +12,41 @@ URxvt*scrollTtyKeypress: true
 URxvt.cursorBlink: 1
 URxvt.cursorUnderline: 1
 Xft.dpi: 176
-
+URxvt.transparent:    True
+URxvt.shading:        30
 !Xft settings
 !Xft.hinting: 1
 !Xft.hintstyle: hintfull
 ! Xft.antialias: 2
 
-*foreground: #DDCCBB
+! onedark colors. Sort of.
+*foreground: #ABB2BF
 *background: #1C1C1C
 
+URxvt.cursorColor: #5C6370
 !black
-*color0:     #393939
-*color8:     #AF875F
+*color0:     #1E2127
+*color8:     #5C6370
 !red
-*color1:     #BF1E2D
-*color9:     #E7212A
+*color1:     #E06C75
+*color9:     #E06C75
 !green
-*color2:     #9DBA3A
-*color10:    #A9C938
+*color2:     #98C379
+*color10:    #98C379
 !yellow
-*color3:     #F5B915
-*color11:    #F7D325
+*color3:     #D19A66
+*color11:    #D19A66
 !blue
-*color4:     #1CA1DB
-*color12:    #00AFDA
+*color4:     #61AFEF
+*color12:    #61AFEF
 !magenta
-*color5:     #652F90
-*color13:    #894E9F
+*color5:     #C678DD
+*color13:    #C678DD
 !cyan
-*color6:     #EA7D24
-*color14:    #F79321
+*color6:     #56B6C2
+*color14:    #56B6C2
 !white
-*color7:     #E7E8E9
+*color7:     #ABB2BF
 *color15:    #F3F3F4
 
 !for vim mostly:
