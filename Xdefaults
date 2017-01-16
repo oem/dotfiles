@@ -24,6 +24,7 @@ URxvt.shading:        30
 *background: #1C1C1C
 
 URxvt.cursorColor: #5C6370
+
 !black
 *color0:     #1E2127
 *color8:     #5C6370
