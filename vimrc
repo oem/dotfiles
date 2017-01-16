@@ -182,6 +182,9 @@ set noequalalways
 
 " current dir insertion
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+" hide the empty buffer character
+highlight EndOfBuffer ctermfg=bg
 " }}}
 " tmux / dispatch {{{
 " vim-rspec
