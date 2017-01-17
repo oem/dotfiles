@@ -14,6 +14,11 @@ URxvt.cursorUnderline: 1
 Xft.dpi: 176
 URxvt.transparent:    True
 URxvt.shading:        30
+
+! hide cursor when not using the mouse
+*pointerBlank: true
+*pointerBlankDelay: 1
+
 !Xft settings
 !Xft.hinting: 1
 !Xft.hintstyle: hintfull
