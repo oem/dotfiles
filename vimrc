@@ -175,7 +175,7 @@ augroup END
 " statusbar
 " let g:airline_theme='serene'
 " let g:airline_theme='onedark'
-set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }[%b][0x%B]%=\ %4l,%02c%2V\ %P%*
+set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }%=\ %4l,%02c%2V\ %P%*
 set laststatus=2
 set showtabline=1
 set noequalalways
