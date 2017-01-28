@@ -238,8 +238,6 @@ let g:user_emmet_settings = {
 let g:jsx_ext_required = 0
 let g:neomake_javascript_enabled_makers = ['eslint']
 
-" json
-autocmd BufNewFile,BufRead *.json set filetype=javascript
 " mustache
 autocmd BufNewFile,BufRead *.mustache set filetype=html
 " handlebars
