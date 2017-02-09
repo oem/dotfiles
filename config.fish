@@ -2,26 +2,6 @@
 
 set fish_greeting ""
 
-# prompt {{{
-function colored_path
-  pwd | sed "s,/,$c0/$c1,g" | sed "s,\(.*\)/[^m]*m,\1/$c4,"
-end
-
-function fish_prompt
-  set -l last_status $status
-
-  printf (colored_path)
-  set_color normal
-  if test -d .git
-    printf (echo (__fish_git_prompt) | sed "s/[()|]//g")
-  end
-
-  if not test $last_status -eq 0
-    set_color red
-  end
-  printf " "
-end
-# }}}
 # colors {{{
 # prompt colors
 set fish_color_error ff8a00
