@@ -1,0 +1,3 @@
+#!/bin/bash
+chromium --high-dpi-support=1 --force-device-scale-factor=1.5 --app=https://play.spotify.com/browse
+

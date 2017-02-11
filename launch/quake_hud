@@ -1,0 +1,6 @@
+#!/bin/bash
+  xdotool search --onlyvisible --classname URxvtQuake windowunmap \
+    || xdotool search --classname URxvtQuake windowmap \
+    || urxvtc -name URxvtQuake -geometry 110x20+297+1
+
+
