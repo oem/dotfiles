@@ -2,16 +2,16 @@ URxvt.saveLines:         100000
 URxvt.scrollBar:         false
 URxvt.secondaryScroll:   true
 URxvt.font:              -*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*
-!URxvt.font:              xft:Cartograph MonoCF:light:size=10
+!URxvt.font:             xft:Cartograph MonoCF:light:size=10
 URxvt.visualBell:        false
 urxvt*secondaryScreen:   false
 URxvt*termName:          xterm-256color
 URxvt*scrollTtyOutput:   false
 URxvt*scrollWithBuffer:  true
 URxvt*scrollTtyKeypress: true
-URxvt.cursorBlink: 1
-URxvt.cursorUnderline: 1
-Xft.dpi: 176
+URxvt.cursorBlink:       1
+URxvt.cursorUnderline:   1
+Xft.dpi:                 176
 
 !URxvt.transparent:    True
 !URxvt.shading:        30
@@ -20,7 +20,7 @@ URxvt*fading:    10
 URxvt*fadeColor: #1c1c1c
 
 !URxvtQuake*font: xft:Cartograph MonoCF:light:size=10
-URxvtQuake*internalBorder: 20
+URxvtQuake*internalBorder: 30
 
 
 ! hide cursor when not using the mouse
