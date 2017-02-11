@@ -16,7 +16,7 @@ Xft.dpi:                 176
 !URxvt.transparent:    True
 !URxvt.shading:        30
 
-URxvt*fading:    10
+URxvt*fading:    30
 URxvt*fadeColor: #1c1c1c
 
 URxvtQuake*font: xft:Cartograph MonoCF:light:size=10
