@@ -142,6 +142,8 @@ syntax on
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colo onedark
 
+hi Normal ctermbg=234
+
 " show invisibles
 set list
 set listchars=tab:»\ ,eol:«
