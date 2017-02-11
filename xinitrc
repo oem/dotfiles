@@ -1,5 +1,3 @@
-export SXHKD_SHELL='/usr/bin/sh'
-
 xinput --set-prop 12 'libinput Accel Speed' 1
 
 xset -b # deactivate pc speaker
