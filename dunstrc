@@ -1,5 +1,5 @@
 [global]
-  font = tamsyn 20:antialias=false
+  font = Cartograph MonoCF Light 30
 
   # Show how many messages are currently hidden (because of geometry).
   indicate_hidden = yes
@@ -8,7 +8,7 @@
   separator_height = 0
   alignment = center
   geometry = x2
-  padding = 6
+  padding = 12
 
   allow_markup = yes
   format = "%s %p %b"
@@ -20,15 +20,16 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#2d89ef"
+    #background = "#1c1c1c"
     foreground = "#ffffff"
-    timeout = 6
+    timeout = 2
 
 [urgency_normal]
     # green, but normal urgency does not always map well, see guard or node-growl
     # background = "#99b433"
     background = "#7e3878"
     foreground = "#ffffff"
-    timeout = 6
+    timeout = 4
 
 [urgency_critical]
     background = "#da532c"
