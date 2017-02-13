@@ -11,5 +11,7 @@ xmodmap ~/.xmodmap
 
 urxvtd -f
 
+dunst &
+
 exec bspwm
 
