@@ -1,9 +1,7 @@
 fisherman/await
-fisherman/boss
 fisherman/fzf
 fisherman/get
 fisherman/getopts
-fisherman/git_util
-fisherman/humanize_duration
 fisherman/last_job_id
+rafaelrinaldi/pure
 fisherman/z
