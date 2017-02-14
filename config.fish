@@ -195,7 +195,7 @@ function z
 
     # https://github.com/fish-shell/fish-shell/issues/1362
     set -l tmpfile (mktemp)
-    find $searchdir \( ! -regex '.*/\..*' \) ! -name __pycache__ -type d | fzf --color=bw > $tmpfile
+    find $searchdir \( ! -regex '.*/\..*' \) ! -name __pycache__ -type d | fzf > $tmpfile
     set -l destdir (cat $tmpfile)
     rm -f $tmpfile
 
