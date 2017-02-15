@@ -8,8 +8,8 @@ super + Return
 
 # program launcher
 super + space
-	# dmenu_run -fn "Cartograph MonoCF:light:size=12" -nb "#1C1C1C" -nf "#757978" -sb "#1C1C1C" -sf "#C1C4BC"
   fzf_run
+	# dmenu_run -fn "Cartograph MonoCF:light:size=12" -nb "#1C1C1C" -nf "#757978" -sb "#1C1C1C" -sf "#C1C4BC"
 
 # make sxhkd reload its configuration files:
 super + Escape
