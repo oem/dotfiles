@@ -21,7 +21,7 @@ URxvt*fadeColor: #1c1c1c
 
 URxvtQuake*internalBorder: 30
 URxvtFuzzy*internalBorder: 30
-URxvtFuzzy*font: xft:Cartograph MonoCF:light:size=12
+URxvtFuzzy*font: xft:Cartograph MonoCF:light:size=20
 
 ! hide cursor when not using the mouse
 *pointerBlank: true

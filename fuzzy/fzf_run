@@ -1,5 +1,5 @@
 #!/bin/sh
   xdotool search --onlyvisible --classname URxvtFuzzy windowunmap \
     || xdotool search --classname URxvtFuzzy windowmap \
-    || urxvt -name URxvtFuzzy -geometry 80x10+297+1 -e sh -c 'cmdlist|fzf --reverse --border|xargs lnch'
+    || urxvtc -name URxvtFuzzy -geometry 40x8+297+1 -e sh -c 'cmdlist|fzf --color=bw --reverse --border|xargs lnch'
 
