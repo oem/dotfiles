@@ -1,0 +1,3 @@
+#!/bin/sh
+urxvt -name URxvtFuzzy -geometry 80x10+297+1 -e sh -c 'cmdlist|fzf --reverse --border|xargs lnch'
+
