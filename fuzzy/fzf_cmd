@@ -1,0 +1,2 @@
+#!/bin/sh
+cmdlist|fzf --color=bw --reverse --border|xargs lnch
