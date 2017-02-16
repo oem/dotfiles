@@ -1,0 +1,14 @@
+#!/bin/sh
+# filters chromium history through fzf
+cols=$(( COLUMNS / 3 ))
+sep='{::}'
+
+# this is the location of the chromium history on linux
+cp -f ~/.config/chromium/Default/History /tmp/h
+
+url=$(sqlite3 -separator $sep /tmp/h \
+  "select substr(title, 1, $cols), url
+   from urls order by last_visit_time desc" |
+awk -F $sep '{printf "%-'$cols's  %s\n", $1, $2}' |
+fzf --color=bw --reverse --border --multi | sed 's#.*\(https*://\)#\1#')
+[ -z "$url" ] || lnch chromium $url
