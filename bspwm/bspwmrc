@@ -2,8 +2,6 @@
 
 sxhkd &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
-
 bspc config border_width  0
 bspc config window_gap   20
 
@@ -24,3 +22,5 @@ bspc rule -a \*:"URxvtFuzzy" state=floating center=on sticky=on
 
 bspc desktop II --layout monocle
 
+bspc monitor HDMI1 -d IV V VI
+bspc monitor eDP1 -d I II III
