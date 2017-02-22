@@ -20,7 +20,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'tomtom/tcomment_vim'
-Plug 'digitaltoad/vim-pug'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
@@ -32,15 +31,26 @@ Plug 'nacitar/terminalkeys.vim'
 Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-dispatch'
 Plug 'christoomey/vim-tmux-navigator'
+
 Plug 'fatih/vim-go'
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
+
 Plug 'joshdick/onedark.vim'
+
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'sheerun/vim-polyglot'
-Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
+
+" using ranger in neovim
+Plug 'rbgrouleff/bclose.vim'
+Plug 'francoiscabrol/ranger.vim'
+
 " improved incsearch
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
@@ -74,6 +84,8 @@ endif
 " neomake
 autocmd! BufWritePost * Neomake
 let g:neomake_error_sign = {'text': '●', 'texthl': 'NeomakeErrorSign'}
+
+" fzf - fuzzy file searching
 map <c-F> :FZF<cr>
 
 " incsearch
@@ -243,6 +255,7 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 autocmd BufNewFile,BufRead *.mustache set filetype=html
 " handlebars
 autocmd BufNewFile,BufRead *.hbs set filetype=html
+
 autocmd FileType javascript setlocal shiftwidth=2
 autocmd FileType javascript let b:dispatch = 'mocha % -R min'
 " jasmine
