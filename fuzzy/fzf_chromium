@@ -10,5 +10,5 @@ url=$(sqlite3 -separator $sep /tmp/h \
   "select substr(title, 1, $cols), url
    from urls order by last_visit_time desc" |
 awk -F $sep '{printf "%-'$cols's  %s\n", $1, $2}' |
-fzf --color=bw --reverse --border --multi | sed 's#.*\(https*://\)#\1#')
+fzf --color=bw --reverse --multi --prompt='' | sed 's#.*\(https*://\)#\1#')
 [ -z "$url" ] || lnch chromium $url
