@@ -66,9 +66,6 @@ call plug#end()
 " }}}
 " plugins config {{{
 let g:deoplete#enable_at_startup = 1
-set completeopt=longest,menuone,preview
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips']
 
 " align
 " Start interactive EasyAlign in visual mode
