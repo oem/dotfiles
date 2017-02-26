@@ -2,5 +2,5 @@
 # launches the script from param in a centered window
 xdotool search --onlyvisible --classname URxvtFuzzy windowunmap \
   || xdotool search --classname URxvtFuzzy windowmap \
-  || urxvtc -name URxvtFuzzy -geometry 50x4+297+1 -e $1
+  || urxvtc -name URxvtFuzzy -geometry 40x4+730 -e $1
 
