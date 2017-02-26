@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/sh
 
 # status bar for dwm
 
@@ -12,10 +12,11 @@ print_time() {
 }
 
 print_battery() {
-  battery_status="$(acpi -b|tail -1)"
+  battery_status="$(cat /sys/class/power_supply/BAT1/capacity)"
+  status="$(cat /sys/class/power_supply/BAT1/status)"
   charging=""
-  if grep -q Charging <<<$battery_status; then charging="+"; fi
-  battery="$(echo ${battery_status}|sed -e "s/.*, \([0-9]*\)%.*/\1/g")"
+  if grep -q Charging <<<$status; then charging="+"; fi
+  battery="$battery_status"
   echo -ne "${color_gray}Bat ${color_white}${charging}${battery} "
 }
 
@@ -32,7 +33,8 @@ print_mem_used() {
 }
 
 print_temperature() {
-  temperature="$(acpi -t|awk 'END { print }'|sed -e "s/.*, \([0-9]*\).*/\1/g")"
+  temperature=$(cat /sys/class/thermal/thermal_zone0/temp)
+  temperature=$((temperature/1000))
   echo -ne "${color_gray}Tem ${color_white}${temperature} "
 }
 
