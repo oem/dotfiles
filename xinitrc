@@ -12,6 +12,6 @@ xmodmap ~/.xmodmap
 urxvtd -f
 
 dunst &
-
-exec bspwm
+exec /home/oem/dotfiles/dwm-statusbar &
+exec /home/oem/dotfiles/dwm-start
 
