@@ -32,7 +32,7 @@ Plug 'epilande/vim-react-snippets'
 " Ultisnips
 Plug 'SirVer/ultisnips'
 
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
 Plug 'thoughtbot/vim-rspec'
@@ -49,9 +49,8 @@ Plug 'racer-rust/vim-racer'
 
 Plug 'joshdick/onedark.vim'
 
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'sheerun/vim-polyglot'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
 
 " using ranger in neovim
@@ -75,9 +74,10 @@ nmap <Leader>a <Plug>(EasyAlign)
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 let g:UltiSnipsExpandTrigger="<C-k>"
+
 " neomake
-autocmd! BufWritePost * Neomake
-let g:neomake_error_sign = {'text': '●', 'texthl': 'NeomakeErrorSign'}
+" autocmd! BufWritePost * Neomake
+" let g:neomake_error_sign = {'text': '●', 'texthl': 'NeomakeErrorSign'}
 
 " fzf - fuzzy file searching
 map <c-F> :FZF<cr>
@@ -243,7 +243,6 @@ let g:user_emmet_settings = {
 \  },
 \}
 let g:jsx_ext_required = 0
-let g:neomake_javascript_enabled_makers = ['eslint']
 
 " mustache
 autocmd BufNewFile,BufRead *.mustache set filetype=html
