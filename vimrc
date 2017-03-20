@@ -148,7 +148,10 @@ syntax on
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colo onedark
 
+" slightly more contrast for onedark theme
 hi Normal ctermbg=234
+" hide the empty buffer character
+highlight EndOfBuffer ctermfg=bg
 
 " show invisibles
 set list
@@ -189,9 +192,6 @@ set noequalalways
 
 " current dir insertion
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-" hide the empty buffer character
-highlight EndOfBuffer ctermfg=bg
 " }}}
 " tmux / dispatch {{{
 " vim-rspec
