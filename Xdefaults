@@ -36,7 +36,7 @@ URxvtFuzzy*internalBorder: 30
 *foreground: #ABB2BF
 *background: #1C1C1C
 
-URxvt.cursorColor: #5C6370
+URxvt.cursorColor: #ABB2BF
 
 !black
 *color0:     #1E2127
