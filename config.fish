@@ -108,7 +108,9 @@ set -x XDG_CONFIG_HOME $HOME/.config
 # go {{{
 setenv GOPATH $HOME/src/go
 set -x GOPATH $HOME/src/go
-set -gx PATH $GOPATH/bin $PATH
+setenv GOBIN $GOPATH/bin
+set -gx GOBIN $GOPATH/bin
+set -gx PATH $GOBIN $PATH
 # }}}
 # rust {{{
 # racer
