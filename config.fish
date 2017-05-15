@@ -129,8 +129,9 @@ if status --is-interactive
 end
 # }}}
 # java/android dev {{{
-set -gx JAVA_HOME /usr/lib/jvm/java-7-openjdk
+set -gx JAVA_HOME /usr/lib/jvm/java-8-openjdk
 set -gx _JAVA_AWT_WM_NONREPARENTING 1
+set -gx ANDROID_HOME /home/oem/Android/Sdk
 # }}}
 # mysql {{{
 function start_mysql
