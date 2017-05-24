@@ -47,11 +47,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 
-Plug 'joshdick/onedark.vim'
-
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
+
+Plug 'joshdick/onedark.vim'
 
 " using ranger in neovim
 Plug 'rbgrouleff/bclose.vim'
@@ -83,8 +83,8 @@ let g:UltiSnipsExpandTrigger="<C-k>"
 map <c-F> :FZF<cr>
 
 " incsearch
-map / <Plug>(incsearch-fuzzy-/)
-map ? <Plug>(incsearch-fuzzy-?)
+map /f <Plug>(incsearch-fuzzy-/)
+map ?f <Plug>(incsearch-fuzzy-?)
 map g/ <Plug>(incsearch-fuzzy-stay)
 
 "easymotion
@@ -106,7 +106,7 @@ function! s:config_easyfuzzymotion(...) abort
   \ }), get(a:, 1, {}))
 endfunction
 
-noremap <silent><expr> / incsearch#go(<SID>config_easyfuzzymotion())
+" noremap <silent><expr> / incsearch#go(<SID>config_easyfuzzymotion())
 " }}}
 " basic config {{{
 filetype off
@@ -131,9 +131,15 @@ set incsearch
 set hlsearch
 set tw=0 wrap linebreak
 set showmode
-set nobackup
 set wildmenu
-syntax on
+syntax enable
+set background=dark
+
+" Turn Off Swap Files
+set noswapfile
+set nobackup
+set nowb
+
 " set t_Co=256
 " if (has("nvim"))
 "   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -150,6 +156,7 @@ colo onedark
 
 " slightly more contrast for onedark theme
 hi Normal ctermbg=234
+
 " hide the empty buffer character
 highlight EndOfBuffer ctermfg=bg
 
@@ -165,9 +172,6 @@ imap <leader><cr> <esc>o
 " quickly switch to alternate file
 nnoremap <leader><leader> <c-^>
 
-" backup dir for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
 " clipboard
 set clipboard+=unnamed
 
@@ -292,4 +296,3 @@ endfunction
 " ripgrep {{{
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 " }}}
-
