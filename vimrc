@@ -25,6 +25,8 @@ Plug 'terryma/vim-multiple-cursors'
 
 " auto complete and other insert mode completions, like snippets
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+" auto completion for go
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 " ES2015 code snippets (Optional)
 Plug 'epilande/vim-es2015-snippets'
 " React code snippets
@@ -155,6 +157,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colo onedark
 
 " slightly more contrast for onedark theme
+hi Normal ctermbg=234
 hi Normal ctermbg=234
 
 " hide the empty buffer character
