@@ -63,6 +63,10 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
+
+" markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 " }}}
 " plugins config {{{
