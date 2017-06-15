@@ -13,8 +13,8 @@ URxvt.cursorBlink:       1
 URxvt.cursorUnderline:   1
 Xft.dpi:                 176
 
-!URxvt.transparent:    True
-!URxvt.shading:        30
+! URxvt.transparent:    True
+! URxvt.shading:        20
 
 URxvt*fading:    30
 URxvt*fadeColor: #1c1c1c
