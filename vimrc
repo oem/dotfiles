@@ -67,6 +67,9 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 " markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+
+" typescript
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 " }}}
 " plugins config {{{
@@ -224,6 +227,7 @@ nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
 " golang {{{
 let g:go_fmt_command="goimports"
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
+let g:ale_linters = {'go': ['gometalinter']}
 " }}}
 " rust {{{
 let g:rustfmt_autosave = 1
