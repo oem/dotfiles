@@ -69,7 +69,13 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 " typescript
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/vim-js-pretty-template'
+
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs'
 call plug#end()
 " }}}
 " plugins config {{{
@@ -115,7 +121,14 @@ function! s:config_easyfuzzymotion(...) abort
   \ }), get(a:, 1, {}))
 endfunction
 
-" noremap <silent><expr> / incsearch#go(<SID>config_easyfuzzymotion())
+" typescript
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
+let g:tsuquyomi_completion_detail = 1
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+let g:tsuquyomi_single_quote_import=1
 " }}}
 " basic config {{{
 filetype off
@@ -272,6 +285,9 @@ autocmd BufNewFile,BufRead *spec.js set filetype=jasmine.javascript
 " }}}
 " Assembler {{{
 autocmd BufNewFile,BufRead *.asm set filetype=tasm
+" }}}
+" HTML {{{
+let g:html_indent_inctags = "html,body,head,tbody"
 " }}}
 " remove whitespaces {{{
 autocmd BufWritePre * :%s/\s\+$//e
