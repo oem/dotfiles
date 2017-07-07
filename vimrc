@@ -75,11 +75,19 @@ Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/vim-js-pretty-template'
 
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
-Plug 'carlitux/deoplete-ternjs'
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+
+Plug 'Chiel92/vim-autoformat'
 call plug#end()
 " }}}
 " plugins config {{{
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+      \ 'tern#Complete',
+      \ 'jspc#omni'
+      \]
 
 " align
 " Start interactive EasyAlign in visual mode
@@ -89,6 +97,9 @@ nmap <Leader>a <Plug>(EasyAlign)
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 let g:UltiSnipsExpandTrigger="<C-k>"
+
+" AutoFormat on save
+au BufWrite * :Autoformat
 
 " neomake
 " autocmd! BufWritePost * Neomake
@@ -113,12 +124,12 @@ map <leader>k <Plug>(easymotion-k)
 " incsearch.vim x fuzzy x vim-easymotion
 function! s:config_easyfuzzymotion(...) abort
   return extend(copy({
-  \   'converters': [incsearch#config#fuzzy#converter()],
-  \   'modules': [incsearch#config#easymotion#module()],
-  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
-  \   'is_expr': 0,
-  \   'is_stay': 1
-  \ }), get(a:, 1, {}))
+        \   'converters': [incsearch#config#fuzzy#converter()],
+        \   'modules': [incsearch#config#easymotion#module()],
+        \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+        \   'is_expr': 0,
+        \   'is_stay': 1
+        \ }), get(a:, 1, {}))
 endfunction
 
 " typescript
@@ -171,7 +182,7 @@ set nowb
 " "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
 " " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
 " if (has("termguicolors"))
-  " set termguicolors
+" set termguicolors
 " endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colo onedark
@@ -240,7 +251,8 @@ nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
 " golang {{{
 let g:go_fmt_command="goimports"
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
-let g:ale_linters = {'go': ['gometalinter']}
+let g:ale_linters = {'go': ['gometalinter', 'gofmt']}
+let g:ale_go_gometalinter_options = '--fast'
 " }}}
 " rust {{{
 let g:rustfmt_autosave = 1
@@ -266,10 +278,10 @@ let g:user_emmet_leader_key = '<c-e>'
 
 " react
 let g:user_emmet_settings = {
-\  'javascript.jsx' : {
-\      'extends' : 'jsx',
-\  },
-\}
+      \  'javascript.jsx' : {
+      \      'extends' : 'jsx',
+      \  },
+      \}
 let g:jsx_ext_required = 0
 
 " mustache
