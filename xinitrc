@@ -6,6 +6,8 @@ xset +fp /usr/share/fonts/local
 
 xsetroot -solid "#1c1c1c"
 
+setxkbmap us mac
+
 xbindkeys &
 xmodmap ~/.xmodmap
 
