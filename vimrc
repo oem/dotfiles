@@ -100,6 +100,8 @@ let g:UltiSnipsExpandTrigger="<C-k>"
 
 " AutoFormat on save
 au BufWrite * :Autoformat
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
 
 " neomake
 " autocmd! BufWritePost * Neomake
