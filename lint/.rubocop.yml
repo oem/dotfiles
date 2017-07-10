@@ -6,3 +6,6 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Documentation:
   Enabled: false
+Style/SymbolArray:
+  Enabled: true
+  EnforcedStyle: brackets
