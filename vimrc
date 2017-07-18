@@ -40,6 +40,7 @@ Plug 'nacitar/terminalkeys.vim'
 Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-dispatch'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
 
 Plug 'fatih/vim-go'
 
@@ -102,6 +103,18 @@ let g:UltiSnipsExpandTrigger="<C-k>"
 au BufWrite * :Autoformat
 let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
+
+" vimux
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
+" Inspect runner pane
+map <Leader>vi :VimuxInspectRunner<CR>
+" Zoom the tmux runner pane
+map <Leader>vz :VimuxZoomRunner<CR>
+" Zoom the tmux runner pane
+map <Leader>vc :VimuxCloseRunner<CR>
 
 " neomake
 " autocmd! BufWritePost * Neomake
@@ -193,6 +206,9 @@ colo onedark
 hi Normal ctermbg=234
 hi Normal ctermbg=234
 
+" different highlight color
+hi Search ctermfg=0 ctermbg=4
+
 " hide the empty buffer character
 highlight EndOfBuffer ctermfg=bg
 
@@ -255,6 +271,15 @@ let g:go_fmt_command="goimports"
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 let g:ale_linters = {'go': ['gometalinter', 'gofmt']}
 let g:ale_go_gometalinter_options = '--fast'
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_sameids = 1
 " }}}
 " rust {{{
 let g:rustfmt_autosave = 1

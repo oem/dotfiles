@@ -9,3 +9,6 @@ Documentation:
 Style/SymbolArray:
   Enabled: true
   EnforcedStyle: brackets
+Bundler/OrderedGems:
+  Enabled: false
+
