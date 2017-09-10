@@ -79,7 +79,9 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
-Plug 'Chiel92/vim-autoformat'
+Plug 'sbdchd/neoformat'
+
+Plug 'ElmCast/elm-vim'
 call plug#end()
 " }}}
 " plugins config {{{
@@ -99,10 +101,8 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 let g:UltiSnipsExpandTrigger="<C-k>"
 
-" AutoFormat on save
-au BufWrite * :Autoformat
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
+" neoformat on save
+au BufWrite * :Neoformat
 
 " vimux
 " Prompt for a command to run
@@ -282,6 +282,17 @@ let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_auto_sameids = 1
+" }}}
+" {{{ javascript
+function! neoformat#formatters#javascript#prettiereslint() abort
+    return {
+        \ 'exe': 'prettier-eslint',
+        \ 'args': ['--stdin', '--single-quote true'],
+        \ 'stdin': 1,
+        \ }
+endfunction
+let g:neoformat_enabled_javascript = ['prettiereslint']
+autocmd FileType javascript set fdm=syntax
 " }}}
 " rust {{{
 let g:rustfmt_autosave = 1

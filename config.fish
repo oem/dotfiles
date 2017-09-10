@@ -52,6 +52,7 @@ alias b='bundle exec'
 set -x EDITOR nvim
 set -gx PATH $HOME/dotfiles/launch $PATH
 set -gx PATH $HOME/dotfiles/fuzzy $PATH
+set -gx PATH $HOME/src/bin $PATH
 set -gx LANG en_US.UTF-8
 set -gx LANGUAGE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
@@ -218,3 +219,14 @@ function posix-source
 	end
 end
 # }}}
+# {{{ python
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv virtualenv-init -|psub)
+# }}}
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /home/oem/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]; and . /home/oem/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /home/oem/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish ]; and . /home/oem/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish
