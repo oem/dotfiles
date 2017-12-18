@@ -1,1 +1,1 @@
-/home/oem/.vimrc
+/Users/oem/.vimrc

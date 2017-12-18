@@ -43,19 +43,20 @@ set -g ce (set_color $fish_color_error)
 # }}}
 # aliases {{{
 alias vi='nvim'
-alias l='ls -lA'
-alias ll='ls -lAh'
+alias l='exa -la'
+alias ll='exa -lah'
 alias dir='ls -lht | less'
 alias b='bundle exec'
+alias code='code-insiders'
 # }}}
 # env {{{
 set -x EDITOR nvim
 set -gx PATH $HOME/dotfiles/launch $PATH
 set -gx PATH $HOME/dotfiles/fuzzy $PATH
-set -gx PATH $HOME/src/bin $PATH
 set -gx LANG en_US.UTF-8
 set -gx LANGUAGE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
+set -gx JAVA_HOME (/usr/libexec/java_home)
 # }}}
 # keybindings {{{
 function fish_user_key_bindings
@@ -86,22 +87,22 @@ function test_identities
     end
 end
 
-if [ -n "$SSH_AGENT_PID" ]
-    ps -ef | grep $SSH_AGENT_PID | grep ssh-agent > /dev/null
-    if [ $status -eq 0 ]
-        test_identities
-    end
-else
-    if [ -f $SSH_ENV ]
-        . $SSH_ENV > /dev/null
-    end
-    ps -ef | grep $SSH_AGENT_PID | grep -v grep | grep ssh-agent > /dev/null
-    if [ $status -eq 0 ]
-        test_identities
-    else
-        start_agent
-    end
-end
+# if [ -n "$SSH_AGENT_PID" ]
+#     ps -ef | grep $SSH_AGENT_PID | grep ssh-agent > /dev/null
+#     if [ $status -eq 0 ]
+#         test_identities
+#     end
+# else
+#     if [ -f $SSH_ENV ]
+#         . $SSH_ENV > /dev/null
+#     end
+#     ps -ef | grep $SSH_AGENT_PID | grep -v grep | grep ssh-agent > /dev/null
+#     if [ $status -eq 0 ]
+#         test_identities
+#     else
+#         start_agent
+#     end
+# end
 # }}}
 # neovim {{{
 set -x XDG_CONFIG_HOME $HOME/.config
@@ -115,24 +116,8 @@ set -gx PATH $GOBIN $PATH
 # }}}
 # rust {{{
 # racer
-set -gx PATH /home/oem/.cargo/bin $PATH
+set -gx PATH $HOME/.cargo/bin $PATH
 set -x RUST_SRC_PATH $HOME/src/rust/src
-# }}}
-# ruby {{{
-# rbenv
-set -gx PATH $HOME/.rbenv/bin $PATH
-set -gx PATH $HOME/.rbenv/shims $PATH
-rbenv rehash >/dev/null ^&1
-
-if status --is-interactive
-  set PATH $HOME/.rbenv/bin $PATH
-  . (rbenv init - | psub)
-end
-# }}}
-# java/android dev {{{
-set -gx JAVA_HOME /usr/lib/jvm/java-8-openjdk
-set -gx _JAVA_AWT_WM_NONREPARENTING 1
-set -gx ANDROID_HOME /home/oem/Android/Sdk
 # }}}
 # mysql {{{
 function start_mysql
@@ -223,10 +208,14 @@ end
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
 # }}}
+#{{{ rbenv
+status --is-interactive; and source (rbenv init -|psub)
+#}}}
+
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /home/oem/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish ]; and . /home/oem/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.fish
+[ -f /Users/oem/src/njiuko/comdirect_alexa/node_modules/tabtab/.completions/serverless.fish ]; and . /Users/oem/src/njiuko/comdirect_alexa/node_modules/tabtab/.completions/serverless.fish
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /home/oem/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish ]; and . /home/oem/.nvm/versions/node/v6.10.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.fish
+[ -f /Users/oem/src/njiuko/comdirect_alexa/node_modules/tabtab/.completions/sls.fish ]; and . /Users/oem/src/njiuko/comdirect_alexa/node_modules/tabtab/.completions/sls.fish
