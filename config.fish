@@ -47,7 +47,7 @@ alias l='exa -la'
 alias ll='exa -lah'
 alias dir='ls -lht | less'
 alias b='bundle exec'
-alias code='code-insiders'
+# alias code='code-insiders'
 # }}}
 # env {{{
 set -x EDITOR nvim

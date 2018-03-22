@@ -213,6 +213,7 @@ hi Search ctermfg=0 ctermbg=4
 highlight EndOfBuffer ctermfg=bg
 
 hi VertSplit       ctermfg=236 ctermbg=236 cterm=bold
+hi Normal guibg=NONE ctermbg=NONE
 
 " show invisibles
 set list
