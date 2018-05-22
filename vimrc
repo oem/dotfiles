@@ -214,6 +214,7 @@ highlight EndOfBuffer ctermfg=bg
 
 hi VertSplit       ctermfg=236 ctermbg=236 cterm=bold
 hi Normal guibg=NONE ctermbg=NONE
+set fillchars+=vert:\ 
 
 " show invisibles
 set list
