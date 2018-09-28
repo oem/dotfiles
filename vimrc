@@ -80,8 +80,6 @@ Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 Plug 'sbdchd/neoformat'
-
-Plug 'ElmCast/elm-vim'
 call plug#end()
 " }}}
 " plugins config {{{

@@ -2,7 +2,7 @@ URxvt.saveLines:         100000
 URxvt.scrollBar:         false
 URxvt.secondaryScroll:   true
 URxvt.font:              -*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*
-!URxvt.font:             xft:Cartograph MonoCF:light:size=9
+/* URxvt.font:             xft:Cartograph MonoCF:light:size=9 */
 URxvt.visualBell:        false
 urxvt*secondaryScreen:   false
 URxvt*termName:          xterm-256color
