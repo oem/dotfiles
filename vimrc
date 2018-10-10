@@ -35,6 +35,9 @@ Plug 'epilande/vim-react-snippets'
 Plug 'SirVer/ultisnips'
 
 Plug 'w0rp/ale'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
 Plug 'thoughtbot/vim-rspec'
@@ -46,9 +49,6 @@ Plug 'fatih/vim-go'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -80,8 +80,6 @@ Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 Plug 'sbdchd/neoformat'
-
-Plug 'ElmCast/elm-vim'
 call plug#end()
 " }}}
 " plugins config {{{
@@ -214,7 +212,7 @@ highlight EndOfBuffer ctermfg=bg
 
 hi VertSplit       ctermfg=236 ctermbg=236 cterm=bold
 hi Normal guibg=NONE ctermbg=NONE
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 
 " show invisibles
 set list

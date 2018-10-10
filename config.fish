@@ -57,6 +57,7 @@ set -gx LANG en_US.UTF-8
 set -gx LANGUAGE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 set -gx JAVA_HOME (/usr/libexec/java_home)
+set -gx NODE_PATH "/usr/local/lib/node_modules"
 # }}}
 # keybindings {{{
 function fish_user_key_bindings
