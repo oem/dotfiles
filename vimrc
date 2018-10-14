@@ -209,10 +209,12 @@ hi Search ctermfg=0 ctermbg=4
 " hide the empty buffer character
 highlight EndOfBuffer ctermfg=bg
 
-hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
-hi CursorLine ctermfg=237 ctermbg=237 cterm=bold
+hi VertSplit ctermfg=None ctermbg=None
+" hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
+hi CursorLine ctermbg=237
 hi Normal guibg=NONE ctermbg=NONE
 hi StatusLine ctermbg=None
+hi Comment ctermfg=2
 set fillchars+=vert:\ ,eob:\ ,fold:·
 
 " show invisibles
