@@ -35,6 +35,10 @@ Plug 'epilande/vim-react-snippets'
 Plug 'SirVer/ultisnips'
 
 Plug 'w0rp/ale'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'majutsushi/tagbar'
+
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
 Plug 'thoughtbot/vim-rspec'
@@ -46,9 +50,6 @@ Plug 'fatih/vim-go'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -101,6 +102,8 @@ let g:UltiSnipsExpandTrigger="<C-k>"
 
 " neoformat on save
 au BufWrite * :Neoformat
+
+nmap <F8> :TagbarToggle<CR>
 
 " vimux
 " Prompt for a command to run
@@ -200,17 +203,19 @@ set nowb
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colo onedark
 
-" slightly more contrast for onedark theme
-hi Normal ctermbg=234
-hi Normal ctermbg=234
-
 " different highlight color
 hi Search ctermfg=0 ctermbg=4
 
 " hide the empty buffer character
 highlight EndOfBuffer ctermfg=bg
 
-hi VertSplit       ctermfg=236 ctermbg=236 cterm=bold
+hi VertSplit ctermfg=None ctermbg=None
+" hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
+hi CursorLine ctermbg=237
+hi Normal guibg=NONE ctermbg=NONE
+hi StatusLine ctermbg=None
+hi Comment ctermfg=2
+set fillchars+=vert:\ ,eob:\ ,fold:·
 
 " show invisibles
 set list
@@ -297,6 +302,7 @@ let g:rustfmt_autosave = 1
 set hidden
 let g:racer_cmd = "/home/oem/.cargo/bin/racer"
 let $RUST_SRC_PATH="/home/oem/src/rust/src/"
+autocmd FileType rust set fdm=syntax
 " }}}
 " ruby {{{
 let g:rails_default_file='config/database.yml'
