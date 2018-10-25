@@ -12,7 +12,6 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
@@ -38,6 +37,12 @@ Plug 'w0rp/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'majutsushi/tagbar'
+Plug 'Shougo/echodoc'
+
+Plug 'autozimu/LanguageClient-neovim', {
+  \ 'branch': 'next',
+  \ 'do': 'bash install.sh'
+  \ }
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
@@ -90,6 +95,16 @@ let g:deoplete#omni#functions.javascript = [
       \ 'tern#Complete',
       \ 'jspc#omni'
       \]
+
+" language client
+let g:LanguageClient_serverCommands = {
+      \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+      \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+      \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+      \ 'python': ['/usr/local/bin/pyls'],
+      \ }
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 
 " align
 " Start interactive EasyAlign in visual mode
@@ -211,10 +226,10 @@ highlight EndOfBuffer ctermfg=bg
 
 hi VertSplit ctermfg=None ctermbg=None
 " hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
-hi CursorLine ctermbg=237
+hi CursorLine ctermbg=None
 hi Normal guibg=NONE ctermbg=NONE
 hi StatusLine ctermbg=None
-hi Comment ctermfg=2
+
 set fillchars+=vert:\ ,eob:\ ,fold:·
 
 " show invisibles
