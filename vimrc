@@ -235,6 +235,7 @@ hi GitGutterAdd          ctermfg=2   ctermbg=2
 hi GitGutterChange       ctermfg=5   ctermbg=5
 hi GitGutterDelete       ctermfg=1   ctermbg=1
 hi GitGutterChangeDelete ctermfg=13  ctermbg=13
+set updatetime=100
 
 " show invisibles
 set fillchars+=vert:\ ,eob:\ ,fold:·
