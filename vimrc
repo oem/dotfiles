@@ -230,9 +230,14 @@ hi CursorLine ctermbg=None
 hi Normal guibg=NONE ctermbg=NONE
 hi StatusLine ctermbg=None
 
-set fillchars+=vert:\ ,eob:\ ,fold:·
+" gitgutter
+hi GitGutterAdd          ctermfg=2   ctermbg=2
+hi GitGutterChange       ctermfg=5   ctermbg=5
+hi GitGutterDelete       ctermfg=1   ctermbg=1
+hi GitGutterChangeDelete ctermfg=13  ctermbg=13
 
 " show invisibles
+set fillchars+=vert:\ ,eob:\ ,fold:·
 set list
 set listchars=tab:»\ ,eol:«
 map <F4> :noh<CR>
