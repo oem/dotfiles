@@ -35,7 +35,6 @@ Plug 'SirVer/ultisnips'
 
 Plug 'w0rp/ale'
 Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/echodoc'
 
@@ -324,6 +323,8 @@ set hidden
 let g:racer_cmd = "/home/oem/.cargo/bin/racer"
 let $RUST_SRC_PATH="/home/oem/src/rust/src/"
 autocmd FileType rust set fdm=syntax
+" disable ale linting for rust since we are already using the RLS for that
+let g:ale_linters = { 'rust': [] }
 " }}}
 " ruby {{{
 let g:rails_default_file='config/database.yml'
