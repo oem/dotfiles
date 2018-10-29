@@ -100,7 +100,7 @@ let g:LanguageClient_serverCommands = {
       \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
       \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
       \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-      \ 'python': ['/usr/local/bin/pyls'],
+      \ 'python': ['~/.pyenv/shims/pyls'],
       \ }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
@@ -214,7 +214,7 @@ set nowb
 " if (has("termguicolors"))
 " set termguicolors
 " endif
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colo onedark
 
 " different highlight color
@@ -226,7 +226,7 @@ highlight EndOfBuffer ctermfg=bg
 hi VertSplit ctermfg=None ctermbg=None
 " hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
 hi CursorLine ctermbg=None
-hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=0
 hi StatusLine ctermbg=None
 
 " gitgutter
