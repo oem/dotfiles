@@ -112,6 +112,9 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
+" folding
+set nofoldenable
+
 let g:UltiSnipsExpandTrigger="<C-k>"
 
 " neoformat on save
