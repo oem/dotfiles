@@ -229,7 +229,7 @@ highlight EndOfBuffer ctermfg=bg
 hi VertSplit ctermfg=None ctermbg=None
 " hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
 hi CursorLine ctermbg=None
-hi Normal guibg=NONE ctermbg=0
+hi Normal guibg=NONE ctermbg=NONE
 hi StatusLine ctermbg=None
 
 " gitgutter
@@ -267,8 +267,6 @@ augroup CursorLine
 augroup END
 
 " statusbar
-" let g:airline_theme='serene'
-" let g:airline_theme='onedark'
 set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }%=\ %4l,%02c%2V\ %P%*
 set laststatus=2
 set showtabline=1
