@@ -120,6 +120,10 @@ set -gx PATH $GOBIN $PATH
 set -gx PATH $HOME/.cargo/bin $PATH
 set -x RUST_SRC_PATH $HOME/src/rust/src
 # }}}
+# swift {{{
+#custom toolchains like tensowflow
+set -gx PATH /Library/Developer/Toolchains/swift-latest/usr/bin
+# }}}
 # mysql {{{
 function start_mysql
   sudo systemctl start mysqld
