@@ -193,6 +193,7 @@ set number
 "nnoremap / /\v
 
 set scs
+set scl=yes
 set incsearch
 set hlsearch
 set tw=0 wrap linebreak
