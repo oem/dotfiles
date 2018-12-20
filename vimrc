@@ -60,6 +60,10 @@ Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
 
 Plug 'joshdick/onedark.vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'tomasiser/vim-code-dark'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " using ranger in neovim
 Plug 'rbgrouleff/bclose.vim'
@@ -219,7 +223,11 @@ set nowb
 " set termguicolors
 " endif
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colo onedark
+"
+set  background=light
+colo PaperColor
+" colo onedark
+let g:airline_powerline_fonts = 1
 
 " different highlight color
 hi Search ctermfg=0 ctermbg=4
