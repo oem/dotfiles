@@ -204,7 +204,6 @@ set tw=0 wrap linebreak
 set showmode
 set wildmenu
 syntax enable
-set background=dark
 
 " Turn Off Swap Files
 set noswapfile
@@ -224,22 +223,23 @@ set nowb
 " endif
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "
-set  background=light
-colo PaperColor
-" colo onedark
+set  background=dark
+" colo PaperColor
+colo codedark
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " different highlight color
-hi Search ctermfg=0 ctermbg=4
+" hi Search ctermfg=0 ctermbg=4
 
 " hide the empty buffer character
 highlight EndOfBuffer ctermfg=bg
 
-hi VertSplit ctermfg=None ctermbg=None
+" hi VertSplit ctermfg=None ctermbg=None
 " hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
 hi CursorLine ctermbg=None
-hi Normal guibg=NONE ctermbg=NONE
-hi StatusLine ctermbg=None
+" hi Normal guibg=NONE ctermbg=NONE
+" hi StatusLine ctermbg=None
 
 " gitgutter
 hi GitGutterAdd          ctermfg=2   ctermbg=2
