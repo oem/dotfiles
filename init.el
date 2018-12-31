@@ -11,14 +11,13 @@
 (setq coding-system-for-write 'utf-8 )
 (setq sentence-end-double-space nil)	; sentence SHOULD end with only a point.
 (setq default-fill-column 80)		; toggle wrapping text at the 80th character
-(setq initial-scratch-message "Welcome in Emacs") ; print a default message in the empty scratch buffer opened at startup
+(setq initial-scratch-message "system online") ; print a default message in the empty scratch buffer opened at startup
 (tool-bar-mode -1) ; do not show the toolbar when launched as GUI
 
 ;; packages
 (require 'package)
 (setq package-enable-at-startup nil) ; tells emacs not to load any packages before starting up
-;; the following lines tell emacs where on the internet to look up
-;; for new packages.
+;; the following lines tell emacs where on the internet to look up for new packages.
 (setq package-archives '(("org"       . "http://orgmode.org/elpa/")
                          ("gnu"       . "http://elpa.gnu.org/packages/")
                          ("melpa"     . "https://melpa.org/packages/")
@@ -37,43 +36,63 @@
   :config
   (evil-mode 1))
 
-(use-package general :ensure t
-             :config
-             (general-define-key
-               "C-'" 'acy-goto-word-1
-               ;; replace default keybindings
-               "C-s" 'swiper ; search for string in current buffer
-               "M-x" 'counsel-M-x ; replace default M-x with ivy
+(use-package which-key :ensure t)  ; nice short explanations for keybinds
+(use-package counsel :ensure t)
+(use-package swiper :ensure t)
+(use-package key-chord :ensure t)
+(use-package general
+  :ensure t
+  :config
+  (general-define-key
+   "C-'" 'acy-goto-word-1
+   ;; replace default keybindings
+   "C-s" 'swiper ; search for string in current buffer
+   "M-x" 'counsel-M-x ; replace default M-x with ivy
 
-               :prefix "C-c"
-               ;; bind to simple key press
-               "b"	'ivy-switch-buffer  ; change buffer, chose using ivy
-               "/"   'counsel-git-grep   ; find string in git project
-               ;; bind to double key press
-               "f"   '(:ignore t :which-key "files")
-               "ff"  'counsel-find-file
-               "fr"	'counsel-recentf
-               "p"   '(:ignore t :which-key "project")
-               "pf"  '(counsel-git :which-key "find file in git dir")
-
-               )
-             )
+   :prefix "C-c"
+   ;; bind to simple key press
+   "b"	'ivy-switch-buffer  ; change buffer, chose using ivy
+   "/"   'counsel-git-grep   ; find string in git project
+   ;; bind to double key press
+   "f"   '(:ignore t :which-key "files")
+   "ff"  'counsel-find-file
+   "fr"	'counsel-recentf
+   "p"   '(:ignore t :which-key "project")
+   "pf"  '(counsel-git :which-key "find file in git dir")))
 
 (use-package avy :ensure t
-             :commands (avy-goto-word-1))
+	     :commands (avy-goto-word-1))
 
-(use-package which-key :ensure t)  ; nice short explanations for keybinds
+;; looks
+(add-hook 'after-init-hook (lambda () (load-theme 'spacemacs-dark t)))
+(setq default-frame-alist '((font . "Cartograph Mono CF Heavy-18")))
+(scroll-bar-mode -1)
+(set-face-background 'font-lock-comment-face "#c0c0c0")
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(setq-default line-spacing 16)
+(linum-mode)
 
-;; keybindings with general.el
 (general-define-key
-  )
+ :keymaps '(normal insert emacs)
+ :non-normal-prefix "M"
+ "/" 'swiper)
+
+;;Exit insert mode by pressing j and then j quickly
+(setq key-chord-two-keys-delay 0.5)
+(key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+(key-chord-mode 1)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (evil which-key use-package general avy))))
+ '(custom-safe-themes
+   (quote
+    ("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "73c69e346ec1cb3d1508c2447f6518a6e582851792a8c0e57a22d6b9948071b4" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+ '(package-selected-packages
+   (quote
+    (key-chord anti-zenburn-theme ## spacemacs-theme counsel swiper swipe evil which-key use-package general avy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
