@@ -227,7 +227,8 @@ set  background=dark
 " colo PaperColor
 colo codedark
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='serene'
 
 " different highlight color
 " hi Search ctermfg=0 ctermbg=4
