@@ -214,7 +214,7 @@ status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
 # }}}
 #{{{ rbenv
-status --is-interactive; and source (rbenv init -|psub)
+# status --is-interactive; and source (rbenv init -|psub)
 #}}}
 
 
