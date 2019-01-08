@@ -42,6 +42,8 @@ set -g ce (set_color $fish_color_error)
 # }}}
 # aliases {{{
 alias vi='nvim'
+alias ex='emacs'
+alias e='emacs -nw'
 alias l='exa -la'
 alias ll='exa -lah'
 alias dir='ls -lht | less'
