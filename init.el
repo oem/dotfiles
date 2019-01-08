@@ -65,12 +65,13 @@
 
 ;; looks
 (add-hook 'after-init-hook (lambda () (load-theme 'spacemacs-dark t)))
-(setq default-frame-alist '((font . "Cartograph Mono CF Heavy-18")))
+(setq default-frame-alist '((font . "Cartograph Mono CF Bold-18")))
 (scroll-bar-mode -1)
 (set-face-background 'font-lock-comment-face "#c0c0c0")
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-(setq-default line-spacing 16)
-(linum-mode)
+(setq-default line-spacing 14)
+(global-linum-mode 1)
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 
 (general-define-key
  :keymaps '(normal insert emacs)
