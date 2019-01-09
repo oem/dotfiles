@@ -28,4 +28,4 @@ vim/bundle/vim-coffee-script
 vim/bundle/vim-powerline
 vim/bundle/vim-surround
 vim/bundle/vim-jade
-
+.emacs.d/backups
