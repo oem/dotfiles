@@ -6,3 +6,4 @@
 ;; exit insert mode by pressing jj
 (setq-default evil-escape-key-sequence "jj")
 (setq-default evil-escape-delay 0.2)
+(setq doom-theme 'doom-Iosvkem)
