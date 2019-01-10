@@ -15,6 +15,7 @@
 (toggle-frame-fullscreen)
 (global-visual-line-mode)
 (toggle-scroll-bar -1)
+(tool-bar-mode -1)
 
 ;; exit insert mode by pressing jj
 (setq-default evil-escape-key-sequence "jj")
