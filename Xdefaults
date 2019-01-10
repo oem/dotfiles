@@ -1,8 +1,8 @@
 URxvt.saveLines:         100000
 URxvt.scrollBar:         false
 URxvt.secondaryScroll:   true
-! URxvt.font:              -*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*
-URxvt.font:              -*-tamzenforpowerline-medium-*-*-*-20-*-*-*-*-*-*-*
+URxvt.font:              -*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*
+! URxvt.font:              -*-tamzenforpowerline-medium-*-*-*-20-*-*-*-*-*-*-*
 ! URxvt.font:             xft:Cartograph MonoCF:light:size=9
 URxvt.visualBell:        false
 urxvt*secondaryScreen:   false
@@ -40,7 +40,7 @@ URxvtFuzzy*internalBorder: 30
 URxvt.cursorColor: #ABB2BF
 
 !black
-*color0:     #1E2127
+*color0:     #1C1C1C
 *color8:     #5C6370
 !red
 *color1:     #E06C75

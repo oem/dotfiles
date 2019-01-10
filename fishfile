@@ -7,9 +7,9 @@ fisherman/git_util
 fisherman/host_info
 fisherman/humanize_duration
 fisherman/last_job_id
-fisherman/metro
+fisherman/mono
 oh-my-fish/plugin-node-binpath
 fisherman/nvm
+laughedelic/pisces
 fisherman/pwd_info
 fisherman/pwd_is_home
-fisherman/segment
