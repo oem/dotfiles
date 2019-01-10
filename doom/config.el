@@ -3,6 +3,13 @@
 ;; Place your private configuration here
 ;;; Code:
 (setq doom-font (font-spec :family "Tamsyn" :size 20))
+
+(cond
+ ((string-equal system-type "darwin")
+  (setq doom-font (font-spec :family "Cartograph Mono CF" :size 18))
+  )
+ )
+
 (setq doom-big-font (font-spec :family "Cartograph Mono CF Heavy" :size 26))
 (setq doom-theme 'doom-Iosvkem)
 (toggle-frame-fullscreen)
