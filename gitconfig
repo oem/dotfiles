@@ -27,3 +27,5 @@
 	required = true
 [help]
 	autoCorrect = 20
+[github]
+	user = oem
