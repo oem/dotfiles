@@ -6,16 +6,16 @@
 
 (cond
  ((string-equal system-type "darwin")
-  (setq doom-font (font-spec :family "Cartograph Mono CF" :size 18))
+  (setq doom-font (font-spec :family "Cartograph Mono CF" :size 14))
   )
  )
 
 (setq doom-big-font (font-spec :family "Cartograph Mono CF Heavy" :size 26))
 (setq doom-theme 'doom-Iosvkem)
-(toggle-frame-fullscreen)
 (global-visual-line-mode)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+(toggle-frame-fullscreen)
 
 ;; exit insert mode by pressing jj
 (setq-default evil-escape-key-sequence "jj")
