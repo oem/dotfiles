@@ -8,6 +8,7 @@
 (cond
  ((string-equal system-type "darwin")
   (setq doom-font (font-spec :family "Cartograph Mono CF" :size 14))
+  (setq doom-variable-pitch-font (font-spec :family "Avenir Next LT Pro" :size 24))
   )
  )
 
