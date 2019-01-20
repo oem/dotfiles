@@ -36,6 +36,7 @@ Plug 'epilande/vim-react-snippets'
 Plug 'SirVer/ultisnips'
 
 Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'rust-lang/rust.vim'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/echodoc'
