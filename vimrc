@@ -213,7 +213,7 @@ set smarttab
 set ignorecase
 set encoding=utf-8
 set synmaxcol=200
-set number
+set nonumber
 
 " regexp like perl
 "nnoremap / /\v
@@ -264,10 +264,10 @@ hi CursorLine ctermbg=None
 " hi StatusLine ctermbg=None
 
 " gitgutter
-hi GitGutterAdd          ctermfg=2   ctermbg=2
-hi GitGutterChange       ctermfg=5   ctermbg=5
-hi GitGutterDelete       ctermfg=1   ctermbg=1
-hi GitGutterChangeDelete ctermfg=13  ctermbg=13
+hi GitGutterAdd          ctermfg=2   ctermbg=2  guifg=#718c00 guibg=#718c00
+hi GitGutterChange       ctermfg=5   ctermbg=5  guifg=#8959a8 guibg=#8959a8
+hi GitGutterDelete       ctermfg=1   ctermbg=1  guifg=#d75e00 guibg=#d75e00
+hi GitGutterChangeDelete ctermfg=13  ctermbg=13 guifg=#d6225e guibg=#d6225e
 set updatetime=100
 
 " show invisibles
