@@ -46,9 +46,9 @@ Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
 " Ultisnips
 Plug 'SirVer/ultisnips'
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
 Plug 'w0rp/ale'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'rust-lang/rust.vim'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/echodoc'
@@ -278,7 +278,7 @@ map <F4> :noh<CR>
 " shows a dollar sign at the end of a change range
 set cpo+=$
 
-inoremap jj <esc>
+inoremap fd <esc>
 imap <leader><cr> <esc>o
 " quickly switch to alternate file
 nnoremap <leader><leader> <c-^>
