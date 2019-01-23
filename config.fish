@@ -60,7 +60,7 @@ set -gx LANGUAGE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 # set -gx JAVA_HOME (/usr/libexec/java_home)
 set -gx NODE_PATH "/usr/local/lib/node_modules"
-set -gx FZF_DEFAULT_COMMAND  "fd . $HOME"
+set -gx FZF_DEFAULT_COMMAND "fd --type f"
 set -gx FZF_CTRL_T_COMMAND  "$FZF_DEFAULT_COMMAND"
 set -gx FZF_ALT_C_COMMAND  "fd -t d . $HOME"
 set -U FZF_FIND_FILE_COMMAND "$FZF_DEFAULT_COMMAND"
