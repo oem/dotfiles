@@ -60,12 +60,15 @@ set -gx LANGUAGE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 # set -gx JAVA_HOME (/usr/libexec/java_home)
 set -gx NODE_PATH "/usr/local/lib/node_modules"
+set -gx FZF_DEFAULT_COMMAND  "fd . $HOME"
+set -gx FZF_CTRL_T_COMMAND  "$FZF_DEFAULT_COMMAND"
+set -gx FZF_ALT_C_COMMAND  "fd -t d . $HOME"
+set -U FZF_FIND_FILE_COMMAND "$FZF_DEFAULT_COMMAND"
 # }}}
 # keybindings {{{
 function fish_user_key_bindings
   # bind \cr history-search-backward
   bind \cr __fzf_ctrl_r
-  bind \cf __fzf_ctrl_f
 end
 # }}}
 # ssh {{{
@@ -133,7 +136,7 @@ function start_mysql
 end
 # }}}
 # fzf {{{
-set -U FZF_TMUX 0
+set -U FZF_TMUX 1
 function __fzfescape
   while read item
     echo -n (echo -n "$item" | sed -E 's/([ "$~'\''([{<>})&])/\\\\\\1/g')' '
@@ -160,25 +163,6 @@ function __fzf_ctrl_r
         history | __fzfcmd +s +m --tiebreak=index --toggle-sort=ctrl-r | read -l select
 
         and commandline -rb $select
-        commandline -f repaint
-    end
-end
-
-function __fzf_ctrl_f
-    if not type -q fzf
-        printf "fzf not yet installed. Installing now, please wait..."
-        __fzf_install
-        commandline -f repaint
-        __fzf_ctrl_t
-    else
-        set -q FZF_CTRL_T_COMMAND
-        or set -l FZF_CTRL_T_COMMAND "
-    command find -L . \\( -path '*/\\.*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune \
-    -o -type f -print \
-    -o -type d -print \
-    -o -type l -print 2> /dev/null | sed 1d | cut -b3-"
-        eval "$FZF_CTRL_T_COMMAND" | __fzfcmd -m | __fzfescape | read -l selects
-        and commandline -i "$selects"
         commandline -f repaint
     end
 end
