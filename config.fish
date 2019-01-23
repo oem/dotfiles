@@ -216,6 +216,36 @@ function kp --description "Kill processes"
     kp
   end
 end
+
+function bip --description "Install brew plugins"
+  set -l inst (brew search | eval "fzf $FZF_DEFAULT_OPTS -m --header='[brew:install]'")
+
+  if not test (count $inst) = 0
+    for prog in $inst
+      brew install "$prog"
+    end
+  end
+end
+
+function bup --description "Update brew plugins"
+  set -l inst (brew leaves | eval "fzf $FZF_DEFAULT_OPTS -m --header='[brew:update]'")
+
+  if not test (count $inst) = 0
+    for prog in $inst
+      brew upgrade "$prog"
+    end
+  end
+end
+
+function bcp --description "Remove brew plugins"
+  set -l inst (brew leaves | eval "fzf $FZF_DEFAULT_OPTS -m --header='[brew:update]'")
+
+  if not test (count $inst) = 0
+    for prog in $inst
+      brew uninstall "$prog"
+    end
+  end
+end
 # }}}
 # {{{ posix
 function posix-source

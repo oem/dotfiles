@@ -333,13 +333,6 @@ let g:go_highlight_types = 1
 let g:go_auto_sameids = 1
 " }}}
 " {{{ javascript
-function! neoformat#formatters#javascript#prettiereslint() abort
-    return {
-        \ 'exe': 'prettier-eslint',
-        \ 'args': ['--stdin', '--single-quote true'],
-        \ 'stdin': 1,
-        \ }
-endfunction
 let g:neoformat_enabled_javascript = ['prettiereslint']
 autocmd FileType javascript set fdm=syntax
 " }}}
