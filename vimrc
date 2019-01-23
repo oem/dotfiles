@@ -24,6 +24,14 @@ Plug 'terryma/vim-multiple-cursors'
 
 Plug 'neomake/neomake'
 
+" orgmode
+Plug 'vim-scripts/utl.vim'
+Plug 'inkarkat/vim-SyntaxRange'
+Plug 'jceb/vim-orgmode'
+
+" api blueprint
+Plug 'kylef/apiblueprint.vim'
+
 " auto complete and other insert mode completions, like snippets
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " auto completion for go
