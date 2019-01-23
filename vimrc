@@ -24,6 +24,10 @@ Plug 'terryma/vim-multiple-cursors'
 
 Plug 'neomake/neomake'
 
+"statusline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " orgmode
 Plug 'vim-scripts/utl.vim'
 Plug 'inkarkat/vim-SyntaxRange'
@@ -70,9 +74,11 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
 
+" themes
 Plug 'joshdick/onedark.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tomasiser/vim-code-dark'
+Plug 'KimNorgaard/vim-frign'
 
 " using ranger in neovim
 Plug 'rbgrouleff/bclose.vim'
@@ -117,6 +123,13 @@ let g:LanguageClient_serverCommands = {
       \ }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+
+" statusline
+let g:airline_powerline_fonts = 1
+
+
+" orgmode
+:let g:org_agenda_files=['~/org/*.org', '~/org/projects/*.org']
 
 " align
 " Start interactive EasyAlign in visual mode
@@ -232,15 +245,17 @@ set nowb
 " endif
 " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "
-set  background=dark
-" colo PaperColor
-colo onedark
+set  background=light
+set termguicolors
+colo PaperColor
+" set  background=dark
+" colo onedark
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
 " hi Search ctermfg=0 ctermbg=4
 
 " hide the empty buffer character
-highlight EndOfBuffer ctermfg=bg
+" highlight EndOfBuffer ctermfg=bg
 
 " hi VertSplit ctermfg=None ctermbg=None
 " hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
@@ -281,12 +296,6 @@ augroup CursorLine
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   au WinLeave * setlocal nocursorline
 augroup END
-
-" statusbar
-set statusline=[%02n]%y\ %f\ %(\[%M%R%H]%)\ %{fugitive#statusline()\ }%=\ %4l,%02c%2V\ %P%*
-set laststatus=2
-set showtabline=1
-set noequalalways
 
 " current dir insertion
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
