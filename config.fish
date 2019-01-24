@@ -67,8 +67,7 @@ set -U FZF_FIND_FILE_COMMAND "$FZF_DEFAULT_COMMAND"
 # }}}
 # keybindings {{{
 function fish_user_key_bindings
-  # bind \cr history-search-backward
-  bind \cr __fzf_ctrl_r
+  fzf_key_bindings
 end
 # }}}
 # ssh {{{
@@ -136,37 +135,6 @@ function start_mysql
 end
 # }}}
 # fzf {{{
-set -U FZF_TMUX 1
-function __fzfescape
-  while read item
-    echo -n (echo -n "$item" | sed -E 's/([ "$~'\''([{<>})&])/\\\\\\1/g')' '
-  end
-end
-
-function __fzfcmd
-  set -q FZF_TMUX; or set -l FZF_TMUX 0
-  if test "$FZF_TMUX" -eq 1
-    set -q FZF_TMUX_HEIGHT; or set -l FZF_TMUX_HEIGHT 40%
-    fzf-tmux -d$FZF_TMUX_HEIGHT $argv
-  else
-    fzf $argv
-  end
-end
-
-function __fzf_ctrl_r
-    if not type -q fzf
-        printf "fzf not yet installed. Installing now, please wait..."
-        __fzf_install
-        commandline -f repaint
-        __fzf_ctrl_r
-    else
-        history | __fzfcmd +s +m --tiebreak=index --toggle-sort=ctrl-r | read -l select
-
-        and commandline -rb $select
-        commandline -f repaint
-    end
-end
-
 function kp --description "Kill processes"
   set -l __kp__pid (ps -ef | sed 1d | eval "fzf $FZF_DEFAULT_OPTS -m --header='[kill:process]'" | awk '{print $2}')
   set -l __kp__kc $argv[1]
