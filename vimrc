@@ -80,10 +80,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'tomasiser/vim-code-dark'
 Plug 'KimNorgaard/vim-frign'
 
-" using ranger in neovim
-Plug 'rbgrouleff/bclose.vim'
-Plug 'francoiscabrol/ranger.vim'
-
 " improved incsearch
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
@@ -166,6 +162,8 @@ map <Leader>vc :VimuxCloseRunner<CR>
 
 " fzf - fuzzy file searching
 map <c-F> :FZF<cr>
+map <leader>b :Buffers<cr>
+map <leader>f :Files<cr>
 
 " incsearch
 map /f <Plug>(incsearch-fuzzy-/)
@@ -416,7 +414,4 @@ function! DmenuOpen(cmd)
   endif
   execute a:cmd . " " . fname
 endfunction
-" }}}
-" ripgrep {{{
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 " }}}
