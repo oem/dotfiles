@@ -167,26 +167,6 @@ function __fzf_ctrl_r
     end
 end
 
-function z
-    if set -q argv[1]
-        set searchdir $argv[1]
-    else
-        set searchdir $HOME
-    end
-
-    # https://github.com/fish-shell/fish-shell/issues/1362
-    set -l tmpfile (mktemp)
-    find $searchdir \( ! -regex '.*/\..*' \) ! -name __pycache__ -type d | fzf > $tmpfile
-    set -l destdir (cat $tmpfile)
-    rm -f $tmpfile
-
-    if test -z "$destdir"
-        return 1
-    end
-
-    cd $destdir
-end
-
 function kp --description "Kill processes"
   set -l __kp__pid (ps -ef | sed 1d | eval "fzf $FZF_DEFAULT_OPTS -m --header='[kill:process]'" | awk '{print $2}')
   set -l __kp__kc $argv[1]
