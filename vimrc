@@ -227,31 +227,6 @@ set noswapfile
 set nobackup
 set nowb
 
-" looks
-set  background=light
-set termguicolors
-colo PaperColor
-" set  background=dark
-" colo onedark
-" let g:airline#extensions#tabline#enabled = 1
-" different highlight color
-" hi Search ctermfg=0 ctermbg=4
-
-" hide the empty buffer character
-" highlight EndOfBuffer ctermfg=bg
-
-" hi VertSplit ctermfg=None ctermbg=None
-" hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
-hi CursorLine ctermbg=None
-" hi Normal guibg=NONE ctermbg=NONE
-" hi StatusLine ctermbg=None
-
-" gitgutter
-hi GitGutterAdd          ctermfg=2   ctermbg=2  guifg=#718c00 guibg=#718c00
-hi GitGutterChange       ctermfg=5   ctermbg=5  guifg=#8959a8 guibg=#8959a8
-hi GitGutterDelete       ctermfg=1   ctermbg=1  guifg=#d75e00 guibg=#d75e00
-hi GitGutterChangeDelete ctermfg=13  ctermbg=13 guifg=#d6225e guibg=#d6225e
-set updatetime=100
 
 " show invisibles
 set fillchars+=vert:\ ,eob:\ ,fold:·
@@ -285,6 +260,51 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " fold fish files and vim files initially
 au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
+" }}}
+" {{{ ui
+set  background=light
+set termguicolors
+colo PaperColor
+" set  background=dark
+" colo onedark
+" let g:airline#extensions#tabline#enabled = 1
+" different highlight color
+" hi Search ctermfg=0 ctermbg=4
+" hide the empty buffer character
+" highlight EndOfBuffer ctermfg=bg
+
+" hi VertSplit ctermfg=None ctermbg=None
+" hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
+hi CursorLine ctermbg=None
+" hi Normal guibg=NONE ctermbg=NONE
+" hi StatusLine ctermbg=None
+
+" gitgutter
+hi GitGutterAdd          ctermfg=2   ctermbg=2  guifg=#718c00 guibg=#718c00
+hi GitGutterChange       ctermfg=5   ctermbg=5  guifg=#8959a8 guibg=#8959a8
+hi GitGutterDelete       ctermfg=1   ctermbg=1  guifg=#d75e00 guibg=#d75e00
+hi GitGutterChangeDelete ctermfg=13  ctermbg=13 guifg=#d6225e guibg=#d6225e
+set updatetime=100
+
+" fzf styling
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 " }}}
 " tmux / dispatch {{{
 " vim-rspec
