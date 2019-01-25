@@ -64,7 +64,7 @@ set -gx FZF_DEFAULT_COMMAND "fd --type f"
 set -gx FZF_CTRL_T_COMMAND  "$FZF_DEFAULT_COMMAND"
 set -gx FZF_ALT_C_COMMAND  "fd -t d . $HOME"
 set -U FZF_FIND_FILE_COMMAND "$FZF_DEFAULT_COMMAND"
-set -gx FZF_DEFAULT_OPTS "--height 40% --preview=\"bat -p --theme OneHalfLight --color always {}\" --preview-window=right:50%:wrap "
+set -gx FZF_DEFAULT_OPTS "--height 40% --preview=\"bat -p --theme OneHalfLight --color always {}\" --preview-window=right:33%:wrap "
 # }}}
 # keybindings {{{
 function fish_user_key_bindings
