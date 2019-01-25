@@ -119,6 +119,7 @@ let g:LanguageClient_serverCommands = {
       \ }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+set cot+=preview
 
 " statusline
 let g:airline_powerline_fonts = 1
