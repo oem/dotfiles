@@ -128,13 +128,6 @@ let g:airline_powerline_fonts = 1
 " orgmode
 :let g:org_agenda_files=['~/org/*.org', '~/org/projects/*.org']
 
-" align
-" Start interactive EasyAlign in visual mode
-vmap <Enter> <Plug>(EasyAlign)
-" Start interactive EasyAlign with a Vim movement
-nmap <Leader>a <Plug>(EasyAlign)
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
 " folding
 set nofoldenable
 
@@ -145,26 +138,11 @@ au BufWrite * :Neoformat
 
 nmap <F8> :TagbarToggle<CR>
 
-" vimux
-" Prompt for a command to run
-map <Leader>vp :VimuxPromptCommand<CR>
-" Run last command executed by VimuxRunCommand
-map <Leader>vl :VimuxRunLastCommand<CR>
-" Inspect runner pane
-map <Leader>vi :VimuxInspectRunner<CR>
-" Zoom the tmux runner pane
-map <Leader>vz :VimuxZoomRunner<CR>
-" Zoom the tmux runner pane
-map <Leader>vc :VimuxCloseRunner<CR>
 
 " neomake
 " autocmd! BufWritePost * Neomake
 " let g:neomake_error_sign = {'text': '●', 'texthl': 'NeomakeErrorSign'}
 
-" fzf - fuzzy file searching
-map <c-F> :FZF<cr>
-map <leader>b :Buffers<cr>
-map <leader>f :Files<cr>
 
 " incsearch
 map /f <Plug>(incsearch-fuzzy-/)
@@ -176,8 +154,6 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 nmap s <Plug>(easymotion-s2)
 nmap s <Plug>(easymotion-overwin-f)
 let g:EasyMotion_smartcase = 1
-map <leader>j <Plug>(easymotion-j)
-map <leader>k <Plug>(easymotion-k)
 
 " incsearch.vim x fuzzy x vim-easymotion
 function! s:config_easyfuzzymotion(...) abort
@@ -189,15 +165,6 @@ function! s:config_easyfuzzymotion(...) abort
         \   'is_stay': 1
         \ }), get(a:, 1, {}))
 endfunction
-
-" typescript
-let g:typescript_compiler_binary = 'tsc'
-let g:typescript_compiler_options = ''
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
-let g:tsuquyomi_completion_detail = 1
-autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-let g:tsuquyomi_single_quote_import=1
 " }}}
 " basic config {{{
 filetype off
@@ -237,17 +204,8 @@ map <F4> :noh<CR>
 " shows a dollar sign at the end of a change range
 set cpo+=$
 
-inoremap fd <esc>
-imap <leader><cr> <esc>o
-" quickly switch to alternate file
-nnoremap <leader><leader> <c-^>
-
 " clipboard
 set clipboard+=unnamed
-
-" leader key
-map <SPACE> <leader>
-map <SPACE><SPACE> <leader><leader>
 
 " cursor highlighting
 augroup CursorLine
@@ -307,26 +265,59 @@ autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 " }}}
-" tmux / dispatch {{{
-" vim-rspec
-let g:rspec_command = "Dispatch bundle exec rspec {spec}"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>r :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" {{{ Keybindings
+" leader key
+map <SPACE> <leader>
+map <SPACE><SPACE> <leader><leader>
 
-nnoremap <F9> :Dispatch<CR>
-
+inoremap fd <esc>
+imap <leader><cr> <esc>o
+" quickly switch to alternate file
+nnoremap <leader><leader> <c-^>
 " tmux nav
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-J> :TmuxNavigateDown<cr> <C-W>_
 nnoremap <silent> <C-K> :TmuxNavigateUp<cr> <C-W>_
 nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
+
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+let g:user_emmet_leader_key = '<c-e>'
+
+" align
+" Start interactive EasyAlign in visual mode
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign with a Vim movement
+nmap <Leader>a <Plug>(EasyAlign)
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" vimux
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
+" Inspect runner pane
+map <Leader>vi :VimuxInspectRunner<CR>
+" Zoom the tmux runner pane
+map <Leader>vz :VimuxZoomRunner<CR>
+" Zoom the tmux runner pane
+map <Leader>vc :VimuxCloseRunner<CR>
+
+" fzf - fuzzy file searching
+" I will remove c-F once I got used to leader f
+map <c-F> :FZF<cr>
+map <leader>b :Buffers<cr>
+map <leader>f :Files<cr>
+
+" ripgrep
+map <leader>/ :Rg<cr>
+
+" easymotion
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
 " }}}
 " golang {{{
 let g:go_fmt_command="goimports"
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
 let g:ale_linters = {'go': ['gometalinter', 'gofmt']}
 let g:ale_go_gometalinter_options = '--fast'
 let g:go_highlight_build_constraints = 1
@@ -366,8 +357,6 @@ autocmd BufNewFile,BufRead *.rabl set filetype=ruby
 autocmd Syntax ruby normal zR
 " }}}
 " frontend {{{
-let g:user_emmet_leader_key = '<c-e>'
-
 " react
 let g:user_emmet_settings = {
       \  'javascript.jsx' : {
@@ -404,7 +393,6 @@ function! ExtractBuf()
   let str = execute('ls')
   return substitute(str, '^.*\"\(.*\)\".*$', '\1\n', '')
 endfunction
-
 " }}}
 " dmenu {{{
 " fuzzy finder with dmenu
