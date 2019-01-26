@@ -271,9 +271,10 @@ map <SPACE> <leader>
 map <SPACE><SPACE> <leader><leader>
 
 inoremap fd <esc>
-imap <leader><cr> <esc>o
+
 " quickly switch to alternate file
 nnoremap <leader><leader> <c-^>
+
 " tmux nav
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>
@@ -314,6 +315,8 @@ map <leader>/ :Rg<cr>
 
 " fugitive: git
 map <leader>gs :Gstatus<cr>
+map <leader>gd :Gdiff<cr>
+map <leader>gp :Gpush<cr>
 
 " easymotion
 map <leader>j <Plug>(easymotion-j)
