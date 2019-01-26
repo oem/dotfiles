@@ -312,6 +312,9 @@ map <leader>f :Files<cr>
 " ripgrep
 map <leader>/ :Rg<cr>
 
+" fugitive: git
+map <leader>gs :Gstatus<cr>
+
 " easymotion
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
