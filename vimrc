@@ -46,7 +46,7 @@ Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
 " Ultisnips
 Plug 'SirVer/ultisnips'
-" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
 Plug 'w0rp/ale'
 Plug 'rust-lang/rust.vim'
