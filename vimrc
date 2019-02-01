@@ -24,6 +24,9 @@ Plug 'terryma/vim-multiple-cursors'
 
 Plug 'neomake/neomake'
 
+" python
+Plug 'ambv/black'
+
 "statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -362,6 +365,11 @@ autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
 autocmd BufNewFile,BufRead *.rabl set filetype=ruby
 " unfold initially
 autocmd Syntax ruby normal zR
+" }}}
+" {{{ python
+autocmd BufWritePre *.py execute ':Black'
+let g:neoformat_enabled_python = ['black', 'autopep8', 'yapf', 'docformatter']
+let g:black_linelength=79
 " }}}
 " frontend {{{
 " react
