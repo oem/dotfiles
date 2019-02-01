@@ -89,8 +89,7 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 
 " markdown
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-markdown'
 
 " typescript
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
@@ -126,7 +125,6 @@ set cot+=preview
 
 " statusline
 let g:airline_powerline_fonts = 1
-
 
 " orgmode
 :let g:org_agenda_files=['~/org/*.org', '~/org/projects/*.org']
