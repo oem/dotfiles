@@ -140,7 +140,10 @@ set nofoldenable
 let g:UltiSnipsExpandTrigger="<C-k>"
 
 " neoformat on save
-au BufWrite * :Neoformat
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 nmap <F8> :TagbarToggle<CR>
 
