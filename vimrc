@@ -356,9 +356,7 @@ let g:neoformat_enabled_javascript = ['prettiereslint']
 autocmd FileType javascript set fdm=syntax
 " }}}
 " rust {{{
-let g:rustfmt_autosave = 1
 set hidden
-let g:racer_cmd = "/home/oem/.cargo/bin/racer"
 let $RUST_SRC_PATH="/home/oem/src/rust/src/"
 autocmd FileType rust set fdm=syntax
 " disable ale linting for rust since we are already using the RLS for that
