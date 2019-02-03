@@ -378,7 +378,7 @@ autocmd Syntax ruby normal zR
 " {{{ python
 let g:neoformat_enabled_python = ['yapf', 'autopep8']
 let g:black_linelength=79 " this only affects the :Black command
-let g:black_linelength=79
+let g:ale_linters = { 'python': [] }
 " }}}
 " frontend {{{
 " react
