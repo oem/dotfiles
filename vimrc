@@ -17,10 +17,13 @@ Plug 'junegunn/vim-easy-align'
 Plug 'easymotion/vim-easymotion'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'tomtom/tcomment_vim'
 Plug 'terryma/vim-multiple-cursors'
 
 Plug 'neomake/neomake'
+
+" comments
+Plug 'jbgutierrez/vim-better-comments'
+Plug 'tomtom/tcomment_vim'
 
 " git
 Plug 'tpope/vim-fugitive'
