@@ -132,6 +132,12 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 set cot+=preview
 
+" ale
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+" Enable integration with airline.
+let g:airline#extensions#ale#enabled = 1
+
 " statusline
 let g:airline_powerline_fonts = 1
 
