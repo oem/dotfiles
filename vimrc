@@ -204,12 +204,14 @@ set noswapfile
 set nobackup
 set nowb
 
+" disable highlight search
+set nohlsearch
 
 " show invisibles
 set fillchars+=vert:\ ,eob:\ ,fold:·
 set list
 set listchars=tab:»\ ,eol:«
-map <F4> :noh<CR>
+
 " shows a dollar sign at the end of a change range
 set cpo+=$
 
