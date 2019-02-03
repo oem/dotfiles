@@ -228,6 +228,9 @@ augroup END
 " current dir insertion
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
+" neoformat
+let g:neoformat_only_msg_on_error = 1 " less verbose
+
 " fold fish files and vim files initially
 au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
