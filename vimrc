@@ -376,8 +376,8 @@ autocmd BufNewFile,BufRead *.rabl set filetype=ruby
 autocmd Syntax ruby normal zR
 " }}}
 " {{{ python
-autocmd BufWritePre *.py execute ':Black'
-let g:neoformat_enabled_python = ['black', 'autopep8', 'yapf', 'docformatter']
+let g:neoformat_enabled_python = ['yapf', 'autopep8']
+let g:black_linelength=79 " this only affects the :Black command
 let g:black_linelength=79
 " }}}
 " frontend {{{
