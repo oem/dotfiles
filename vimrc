@@ -66,6 +66,9 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ 'do': 'bash install.sh'
   \ }
 
+" debugging
+Plug 'sebdah/vim-delve'
+
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
 Plug 'thoughtbot/vim-rspec'
@@ -117,6 +120,7 @@ let g:deoplete#omni#functions.javascript = [
       \ 'jspc#omni'
       \]
 
+" LINTING
 " language client
 let g:LanguageClient_serverCommands = {
       \ 'rust': ['rustup', 'run', 'stable', 'rls'],
@@ -139,14 +143,12 @@ set nofoldenable
 
 let g:UltiSnipsExpandTrigger="<C-k>"
 
+" AUTOFORMATTING
 " neoformat on save
 augroup fmt
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
-
-nmap <F8> :TagbarToggle<CR>
-
 
 " neomake
 " autocmd! BufWritePost * Neomake
@@ -296,7 +298,6 @@ nnoremap <silent> <C-J> :TmuxNavigateDown<cr> <C-W>_
 nnoremap <silent> <C-K> :TmuxNavigateUp<cr> <C-W>_
 nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
 
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
 let g:user_emmet_leader_key = '<c-e>'
 
 " align
@@ -350,6 +351,17 @@ let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_auto_sameids = 1
+" see type in the status line
+let g:go_auto_type_info = 1
+au FileType go set noexpandtab
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
+"fuzzy search functions and the like
+au FileType go nmap <leader>gt :GoDeclsDir<cr>
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <f8>  :DlvToggleBreakpoint<cr>
+autocmd FileType go nmap <f5>  :DlvTest<cr>
 " }}}
 " {{{ javascript
 let g:neoformat_enabled_javascript = ['prettiereslint']
