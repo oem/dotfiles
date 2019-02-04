@@ -68,15 +68,13 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 " debugging
 Plug 'sebdah/vim-delve'
+Plug 'fatih/vim-go'
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
-Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-dispatch'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
-
-Plug 'fatih/vim-go'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -99,15 +97,7 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 " markdown
 Plug 'tpope/vim-markdown'
 
-" typescript
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Quramy/tsuquyomi'
-Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/vim-js-pretty-template'
-
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 Plug 'sbdchd/neoformat'
 call plug#end()
