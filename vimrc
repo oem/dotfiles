@@ -217,8 +217,8 @@ set nohlsearch
 
 " show invisibles
 set fillchars+=vert:\ ,eob:\ ,fold:·
-set list
-set listchars=tab:»\ ,eol:«
+" set list
+" set listchars=tab:»\ ,eol:«
 
 " shows a dollar sign at the end of a change range
 set cpo+=$
@@ -243,9 +243,10 @@ let g:neoformat_only_msg_on_error = 1 " less verbose
 au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
-set  background=light
+set  background=dark
 set termguicolors
 colo PaperColor
+let g:airline_theme='badcat'
 " set  background=dark
 " colo onedark
 " let g:airline#extensions#tabline#enabled = 1
