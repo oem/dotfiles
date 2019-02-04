@@ -57,7 +57,6 @@ Plug 'SirVer/ultisnips'
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
 Plug 'w0rp/ale'
-Plug 'rust-lang/rust.vim'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/echodoc'
 
@@ -66,9 +65,12 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ 'do': 'bash install.sh'
   \ }
 
-" debugging
+" go
 Plug 'sebdah/vim-delve'
 Plug 'fatih/vim-go'
+
+" rust
+Plug 'rust-lang/rust.vim'
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
@@ -79,9 +81,11 @@ Plug 'benmills/vimux'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" javascript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
+Plug 'Quramy/vim-js-pretty-template'
 
 " themes
 Plug 'joshdick/onedark.vim'
@@ -96,8 +100,6 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 
 " markdown
 Plug 'tpope/vim-markdown'
-
-Plug 'Quramy/vim-js-pretty-template'
 
 Plug 'sbdchd/neoformat'
 call plug#end()
