@@ -32,10 +32,6 @@ Plug 'airblade/vim-gitgutter'
 " python
 Plug 'ambv/black'
 
-"statusline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 " orgmode
 Plug 'vim-scripts/utl.vim'
 Plug 'inkarkat/vim-SyntaxRange'
@@ -125,13 +121,10 @@ nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 set cot+=preview
 
 " ale
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = 'X'
+let g:ale_sign_warning = '!'
 " Enable integration with airline.
-let g:airline#extensions#ale#enabled = 1
-
-" statusline
-let g:airline_powerline_fonts = 1
+" let g:airline#extensions#ale#enabled = 1
 
 " orgmode
 :let g:org_agenda_files=['~/org/*.org', '~/org/projects/*.org']
@@ -236,11 +229,10 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set  background=dark
-set termguicolors
-colo PaperColor
-let g:airline_theme='badcat'
-" set  background=dark
-" colo onedark
+" set termguicolors
+" colo PaperColor
+let g:airline_theme='serene'
+colo onedark
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
 " hi Search ctermfg=0 ctermbg=4
@@ -279,6 +271,37 @@ let g:fzf_colors =
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+" }}}
+" {{{ statusline
+hi User1 ctermbg=red   ctermfg=black  guibg=red   guifg=black
+
+" Function: display errors from Ale in statusline
+function! LinterStatus() abort
+   let l:counts = ale#statusline#Count(bufnr(''))
+   let l:all_errors = l:counts.error + l:counts.style_error
+   let l:all_non_errors = l:counts.total - l:all_errors
+   return l:counts.total == 0 ? '' : printf(
+   \ 'W:%d E:%d',
+   \ l:all_non_errors,
+   \ l:all_errors
+   \)
+endfunction
+
+set laststatus=2
+set statusline=
+set statusline+=\ %l
+set statusline+=\ %*
+set statusline+=\ ‹‹
+set statusline+=\ %f\ %*
+set statusline+=\ ››
+set statusline+=\ %m
+set statusline+=\ %F
+set statusline+=%=
+set statusline+=%1*%{LinterStatus()}
+set statusline+=%0*\ ‹‹
+set statusline+=\ ::
+set statusline+=\ %n
+set statusline+=\ ››\ %*
 " }}}
 " {{{ Keybindings
 " leader key
