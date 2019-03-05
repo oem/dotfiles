@@ -352,6 +352,7 @@ let g:go_highlight_types = 1
 let g:go_auto_sameids = 1
 " see type in the status line
 let g:go_auto_type_info = 1
+let g:go_list_type = "quickfix"
 au FileType go set noexpandtab
 au FileType go set shiftwidth=4
 au FileType go set softtabstop=4
