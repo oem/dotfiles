@@ -296,7 +296,7 @@ set statusline+=\ ‹‹
 set statusline+=\ %f\ %*
 set statusline+=\ ››
 set statusline+=\ %m
-set statusline+=\ %F
+set statusline +=\ %{fugitive#statusline()}
 set statusline+=%=
 set statusline+=%1*%{LinterStatus()}
 set statusline+=%0*\ ‹‹
