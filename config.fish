@@ -203,6 +203,9 @@ source (pyenv init -|psub)
 source (pyenv virtualenv-init -|psub)
 # }}}
 #{{{ rbenv
+set PATH $HOME/.rbenv/bin $PATH
+set PATH $HOME/.rbenv/shims $PATH
+rbenv rehash >/dev/null ^&1
 status --is-interactive; and source (rbenv init -|psub)
 #}}}
 
