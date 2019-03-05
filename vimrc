@@ -115,6 +115,7 @@ let g:LanguageClient_serverCommands = {
       \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
       \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
       \ 'python': ['~/.pyenv/shims/pyls'],
+      \ 'ruby': ['tcp://localhost:7658']
       \ }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
@@ -138,7 +139,7 @@ let g:UltiSnipsExpandTrigger="<C-k>"
 " neoformat on save
 augroup fmt
   autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
+  autocmd BufWritePre * Neoformat
 augroup END
 
 " neomake
