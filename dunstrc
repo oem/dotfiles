@@ -1,5 +1,5 @@
 [global]
-  font = Cartograph MonoCF Light 30
+  font = Cartograph MonoCF Light 20
 
   # Show how many messages are currently hidden (because of geometry).
   indicate_hidden = yes
