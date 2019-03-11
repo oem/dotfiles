@@ -121,6 +121,13 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 set cot+=preview
 
+let g:LanguageClient_diagnosticsDisplay = {
+  \1: {'name': 'Error', 'texthl': 'ALEError', 'signText': 'X', 'signTexthl': 'ALEErrorSign',},
+  \2: {'name': 'Warning', 'texthl': 'ALEWarning', 'signText': '!', 'signTexthl': 'ALEWarningSign',},
+  \3: {'name': 'Information', 'texthl': 'ALEInfo', 'signText': 'ℹ', 'signTexthl': 'ALEInfoSign',},
+  \4: {'name': 'Hint', 'texthl': 'ALEInfo', 'signText': 'i', 'signTexthl': 'ALEInfoSign',},
+  \}
+
 " ale
 let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '!'
