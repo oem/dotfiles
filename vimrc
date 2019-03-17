@@ -32,10 +32,26 @@ Plug 'airblade/vim-gitgutter'
 " python
 Plug 'ambv/black'
 
+" javascript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'mattn/emmet-vim'
+Plug 'Quramy/vim-js-pretty-template'
+
+" go
+Plug 'sebdah/vim-delve'
+Plug 'fatih/vim-go'
+
+" rust
+Plug 'rust-lang/rust.vim'
+
 " orgmode
 Plug 'vim-scripts/utl.vim'
 Plug 'inkarkat/vim-SyntaxRange'
 Plug 'jceb/vim-orgmode'
+
+" markdown
+Plug 'tpope/vim-markdown'
 
 " api blueprint
 Plug 'kylef/apiblueprint.vim'
@@ -61,12 +77,11 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ 'do': 'bash install.sh'
   \ }
 
-" go
-Plug 'sebdah/vim-delve'
-Plug 'fatih/vim-go'
-
-" rust
-Plug 'rust-lang/rust.vim'
+" themes
+Plug 'joshdick/onedark.vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'tomasiser/vim-code-dark'
+Plug 'KimNorgaard/vim-frign'
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
@@ -77,25 +92,10 @@ Plug 'benmills/vimux'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" javascript
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'mattn/emmet-vim'
-Plug 'Quramy/vim-js-pretty-template'
-
-" themes
-Plug 'joshdick/onedark.vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'tomasiser/vim-code-dark'
-Plug 'KimNorgaard/vim-frign'
-
 " improved incsearch
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
-
-" markdown
-Plug 'tpope/vim-markdown'
 
 Plug 'sbdchd/neoformat'
 call plug#end()
