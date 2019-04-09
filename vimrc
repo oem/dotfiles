@@ -88,6 +88,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tomasiser/vim-code-dark'
 Plug 'KimNorgaard/vim-frign'
+Plug 'axvr/photon.vim'
 
 " improved incsearch
 Plug 'haya14busa/incsearch.vim'
@@ -246,7 +247,7 @@ colo PaperColor
 " hide the empty buffer character
 " highlight EndOfBuffer ctermfg=bg
 
-" hi VertSplit ctermfg=None ctermbg=None
+hi VertSplit ctermfg=None ctermbg=None guibg=None
 " hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
 hi CursorLine ctermbg=None
 " hi Normal guibg=NONE ctermbg=NONE
