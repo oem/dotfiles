@@ -407,6 +407,15 @@ let g:ale_linters = { 'rust': [] }
 " }}}
 " ruby {{{
 let g:rails_default_file='config/database.yml'
+
+let g:neoformat_ruby_rubocop = {
+      \ 'exe': 'bundle',
+      \ 'args': ['exec', 'rubocop', '--auto-correct', '--stdin', '"%:p"', '2>/dev/null', '|', 'sed "1,/^====================$/d"'],
+      \ 'stdin': 1,
+      \ 'stderr': 1
+      \ }
+
+
 " bundler
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 " rack
