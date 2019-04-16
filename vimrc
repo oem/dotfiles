@@ -6,7 +6,6 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 
-Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
@@ -31,6 +30,10 @@ Plug 'airblade/vim-gitgutter'
 
 " python
 Plug 'ambv/black'
+
+" ruby
+Plug 'tpope/vim-rails'
+Plug 'rlue/vim-fold-rspec'
 
 " javascript
 Plug 'pangloss/vim-javascript'
