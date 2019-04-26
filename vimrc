@@ -241,9 +241,8 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " {{{ ui
 set  background=dark
 " set termguicolors
-" colo PaperColor
-let g:airline_theme='serene'
-colo onedark
+colo PaperColor
+" colo onedark
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
 " hi Search ctermfg=0 ctermbg=4
