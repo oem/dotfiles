@@ -63,11 +63,15 @@ URxvt.cursorColor: #ABB2BF
 *color7:     #a89984
 *color15:    #ebdbb2
 
+!for vim mostly:
+!VertSpit
+*color20: #202020
+
 ! ! onedark colors. Sort of.
 ! *foreground: #ABB2BF
 ! *background: #1C1C1C
 
-URxvt.cursorColor: #ABB2BF
+! URxvt.cursorColor: #ABB2BF
 ! !black
 ! *color0:     #1C1C1C
 ! *color8:     #5C6370
@@ -92,8 +96,4 @@ URxvt.cursorColor: #ABB2BF
 ! !white
 ! *color7:     #ABB2BF
 ! *color15:    #F3F3F4
-
-!for vim mostly:
-!VertSpit
-*color20: #202020
 
