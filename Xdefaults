@@ -39,7 +39,7 @@ URxvtFuzzy*internalBorder: 30
 URxvt.cursorColor: #ABB2BF
 
 !black
-*color0:     #a401ad
+*color0:     #04017d
 *color8:     #a401ad
 !red
 *color1:     #a401ad
