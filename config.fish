@@ -198,7 +198,9 @@ function posix-source
 end
 # }}}
 # {{{ python
-#
+set -gx PYENV_ROOT $HOME/.pyenv
+set -gx PATH $PYENV_ROOT/bin $PATH
+
 source (pyenv init -|psub)
 source (pyenv virtualenv-init -|psub)
 # }}}
