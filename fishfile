@@ -1,13 +1,10 @@
-fisherman/await
 edc/bass
 fisherman/fzf
-fisherman/get
 fisherman/getopts
 fishpkg/fish-git-util
 fishpkg/fish-host-info
 fishpkg/fish-humanize-duration
 fishpkg/fish-last-job-id
-fisherman/last_job_id
 oh-my-fish/plugin-node-binpath
 fisherman/nvm
 laughedelic/pisces
@@ -15,3 +12,5 @@ fishpkg/fish-prompt-mono
 fishpkg/fish-pwd-info
 fishpkg/fish-pwd-is-home
 jorgebucaran/fish-spark
+rafaelrinaldi/pure
+oh-my-fish/theme-clearance
