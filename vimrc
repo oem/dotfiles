@@ -121,7 +121,9 @@ let g:LanguageClient_serverCommands = {
       \ }
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-set cot+=preview
+
+" close the preview window after completion is done
+autocmd CompleteDone * silent! pclose!
 
 let g:LanguageClient_diagnosticsDisplay = {
   \1: {'name': 'Error', 'texthl': 'ALEError', 'signText': 'X', 'signTexthl': 'ALEErrorSign',},
@@ -155,6 +157,8 @@ augroup END
 " autocmd! BufWritePost * Neomake
 " let g:neomake_error_sign = {'text': '●', 'texthl': 'NeomakeErrorSign'}
 
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
 
 " incsearch
 map /f <Plug>(incsearch-fuzzy-/)
