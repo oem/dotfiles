@@ -90,7 +90,6 @@ Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'benmills/vimux'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -322,13 +321,6 @@ inoremap fd <esc>
 
 " quickly switch to alternate file
 nnoremap <leader><leader> <c-^>
-
-" tmux nav
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-J> :TmuxNavigateDown<cr> <C-W>_
-nnoremap <silent> <C-K> :TmuxNavigateUp<cr> <C-W>_
-nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
 
 let g:user_emmet_leader_key = '<c-e>'
 
