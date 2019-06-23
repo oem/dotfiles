@@ -157,6 +157,7 @@ augroup END
 " autocmd! BufWritePost * Neomake
 " let g:neomake_error_sign = {'text': '●', 'texthl': 'NeomakeErrorSign'}
 
+set cmdheight=2
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'floating'
 
