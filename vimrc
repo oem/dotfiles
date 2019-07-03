@@ -85,6 +85,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tomasiser/vim-code-dark'
 Plug 'KimNorgaard/vim-frign'
+Plug 'nickaroot/vim-xcode-dark-theme'
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
@@ -244,8 +245,9 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set  background=dark
-" set termguicolors
-colo PaperColor
+set termguicolors
+" colo PaperColor
+colo xcode_dark
 " colo onedark
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
@@ -253,11 +255,11 @@ colo PaperColor
 " hide the empty buffer character
 " highlight EndOfBuffer ctermfg=bg
 
-" hi VertSplit ctermfg=None ctermbg=None
+hi VertSplit ctermfg=None ctermbg=None guifg=None guibg=None
 " hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
 hi CursorLine ctermbg=None
 " hi Normal guibg=NONE ctermbg=NONE
-" hi StatusLine ctermbg=None
+hi StatusLine ctermbg=0 ctermfg=16 guibg=#333333
 
 " gitgutter
 hi GitGutterAdd          ctermfg=2   ctermbg=2  guifg=#718c00 guibg=#718c00
