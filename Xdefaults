@@ -1,8 +1,8 @@
 URxvt.saveLines:         100000
 URxvt.scrollBar:         false
 URxvt.secondaryScroll:   true
-URxvt.font:xft:IBM Plex Mono:style=Bold:pixelsize=16:antialias=true
-! URxvt.font:              -*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*
+! URxvt.font:xft:IBM Plex Mono:style=Bold:pixelsize=16:antialias=true
+URxvt.font:              -*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*
 ! URxvt.font:              -*-tamzenforpowerline-medium-*-*-*-20-*-*-*-*-*-*-*
 URxvt.visualBell:        false
 urxvt*secondaryScreen:   false
@@ -34,39 +34,74 @@ URxvtFuzzy*internalBorder: 30
 ! Xft.antialias: 2
 
 ! custom colors
-*foreground: #ebdbb2
-*background: #1C1C1C
+*foreground: #ffffff
+*background: #1f1f24
 
-URxvt.cursorColor: #ABB2BF
+URxvt.cursorColor: #F9F9F9
 
 !black
 *color0:     #04012d
 *color8:     #a401ad
 !red
-*color1:     #a401ad
-*color9:     #a401ad
+*color1:     #fc6a5d
+*color9:     #fc6a5d
 !green
-*color2:     #bc0b87
-*color10:    #b8bb26
+*color2:     #41b645
+*color10:    #99e8d6
 !yellow
 *color3:     #2e0abc
 *color11:    #fabd2f
 !blue
-*color4:     #376bcc
-*color12:    #83a598
+*color4:     #536991
+*color12:    #9686f5
 !magenta
-*color5:     #bf24ba
-*color13:    #d3869b
+*color5:     #fc5fa3
+*color13:    #fc5fa3
 !cyan
-*color6:     #2362bf
-*color14:    #8ec07c
+*color6:     #8ec07c
+*color14:    #99e8d6
 !white
 *color7:     #a89984
-*color15:    #ebdbb2
+*color15:    #ffffff
 
 !for vim mostly:
 !VertSpit
 *color20: #202020
+
+! ! custom colors
+! *foreground: #ebdbb2
+! *background: #1C1C1C
+!
+! URxvt.cursorColor: #ABB2BF
+!
+! !black
+! *color0:     #04012d
+! *color8:     #a401ad
+! !red
+! *color1:     #a401ad
+! *color9:     #a401ad
+! !green
+! *color2:     #bc0b87
+! *color10:    #b8bb26
+! !yellow
+! *color3:     #2e0abc
+! *color11:    #fabd2f
+! !blue
+! *color4:     #376bcc
+! *color12:    #83a598
+! !magenta
+! *color5:     #bf24ba
+! *color13:    #d3869b
+! !cyan
+! *color6:     #2362bf
+! *color14:    #8ec07c
+! !white
+! *color7:     #a89984
+! *color15:    #ebdbb2
+!
+! !for vim mostly:
+! !VertSpit
+! *color20: #202020
 
 ! ! onedark colors. Sort of.
 ! *foreground: #ABB2BF

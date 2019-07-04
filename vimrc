@@ -245,7 +245,7 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set  background=dark
-set termguicolors
+" set termguicolors
 " colo PaperColor
 colo xcode_dark
 " colo onedark
@@ -259,7 +259,7 @@ hi VertSplit ctermfg=None ctermbg=None guifg=None guibg=None
 " hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
 hi CursorLine ctermbg=None
 " hi Normal guibg=NONE ctermbg=NONE
-hi StatusLine ctermbg=0 ctermfg=16 guibg=#333333
+hi StatusLine ctermfg=1 guibg=#333333
 
 " gitgutter
 hi GitGutterAdd          ctermfg=2   ctermbg=2  guifg=#718c00 guibg=#718c00
