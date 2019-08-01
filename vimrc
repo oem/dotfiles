@@ -490,4 +490,4 @@ function! DmenuOpen(cmd)
 endfunction
 " }}}
 
-" source ~/dotfiles/vim/statusline.vim
+source ~/dotfiles/vim/statusline.vim

@@ -12,34 +12,34 @@ set laststatus=2
 function! RedrawModeColors(mode) " {{{
   " Normal mode
   if a:mode == 'n'
-    hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE
-    hi MyStatuslineFilename ctermfg=4 cterm=none ctermbg=0
-    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=4
+    hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE gui=NONE guibg=NONE guifg=#515b70
+    hi MyStatuslineFilename ctermfg=4 cterm=none ctermbg=0 gui=NONE guibg=#424d5b guifg=#53a5fb
+    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=4 gui=NONE guibg=#515b70 guifg=#53a5fb
   " Insert mode
   elseif a:mode == 'i'
-    hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE
-    hi MyStatuslineFilename ctermfg=1 cterm=none ctermbg=0
-    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=1
+    hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE gui=NONE guibg=NONE guifg=#515b70
+    hi MyStatuslineFilename ctermfg=1 cterm=none ctermbg=0 gui=NONE guibg=#424d5b guifg=#ff0036
+    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=1 gui=NONE guibg=#515b70 guifg=#ff0036
   " Replace mode
   elseif a:mode == 'R'
-    hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE
-    hi MyStatuslineFilename ctermfg=3 cterm=none ctermbg=0
-    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=3
+    hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE gui=NONE guibg=NONE guifg=#515b70
+    hi MyStatuslineFilename ctermfg=3 cterm=none ctermbg=0 gui=NONE guibg=#ff0036 guifg=#fd8f3f
+    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=3 gui=NONE guibg=#515b70 guifg=#fd8f3f
   " Visual mode
   elseif a:mode == 'v' || a:mode == 'V' || a:mode == '^V'
-    hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE
-    hi MyStatuslineFilename ctermfg=5 cterm=none ctermbg=0
-    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=5
+    hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE gui=NONE guibg=NONE guifg=#515b70
+    hi MyStatuslineFilename ctermfg=5 cterm=none ctermbg=0 gui=NONE guibg=#424d5b guifg=#fc5fa3
+    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=5 gui=NONE guibg=#515b70 guifg=#fc5fa3
   " Command mode
   elseif a:mode == 'c'
-    hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE
-    hi MyStatuslineFilename ctermfg=6 cterm=none ctermbg=0
-    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=6
+    hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE gui=NONE guibg=NONE guifg=#515b70
+    hi MyStatuslineFilename ctermfg=6 cterm=none ctermbg=0 gui=NONE guibg=#424d5b guifg=#99e8d5
+    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=6 gui=NONE guibg=#515b70 guifg=#99e8d5
   " Terminal mode
   elseif a:mode == 't'
-    hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE
-    hi MyStatuslineFilename ctermfg=1 cterm=none ctermbg=0
-    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=1
+    hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE gui=NONE guibg=NONE guifg=#515b70
+    hi MyStatuslineFilename ctermfg=1 cterm=none ctermbg=0 gui=NONE guibg=#424d5b guifg=#ff0036
+    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=1 gui=NONE guibg=#515b70 guifg=#ff0036
   endif
   " Return empty string so as not to display anything in the statusline
   return ''
@@ -47,9 +47,9 @@ endfunction
 " }}}
 function! SetModifiedSymbol(modified) " {{{
     if a:modified == 1
-        hi MyStatuslineModifiedBody ctermbg=0 cterm=bold ctermfg=1
+        hi MyStatuslineModifiedBody ctermbg=0 cterm=bold ctermfg=1 gui=bold guibg=#424d5b guifg=#ff0036
     else
-        hi MyStatuslineModifiedBody ctermbg=0 cterm=bold ctermfg=8
+        hi MyStatuslineModifiedBody ctermbg=0 cterm=bold ctermfg=8 gui=bold guibg=#424d5b guifg=#515b70
     endif
     return '●'
 endfunction
@@ -104,18 +104,18 @@ set statusline+=%#MyStatuslineFiletypeBody#%{SetFiletype(&filetype)}
 set statusline+=%#MyStatuslineFiletype#
 
 " Setup the colors
-hi StatusLine          ctermfg=5     ctermbg=NONE     cterm=NONE
-hi StatusLineNC        ctermfg=8     ctermbg=NONE     cterm=bold
+hi StatusLine          ctermfg=5     ctermbg=NONE     cterm=NONE gui=NONE guibg=NONE guifg=#fc5fa3
+hi StatusLineNC        ctermfg=8     ctermbg=NONE     cterm=bold gui=NONE guibg=NONE guifg=#515b70
 
-hi MyStatuslineSeparator ctermfg=0 cterm=NONE ctermbg=NONE
+hi MyStatuslineSeparator ctermfg=0 cterm=NONE ctermbg=NONE gui=NONE guibg=NONE guifg=#424d5b
 
-hi MyStatuslineModified ctermfg=0 cterm=NONE ctermbg=NONE
+hi MyStatuslineModified ctermfg=0 cterm=NONE ctermbg=NONE gui=NONE guibg=NONE guifg=#424d5b
 
-hi MyStatuslineFiletype ctermbg=NONE cterm=NONE ctermfg=0
-hi MyStatuslineFiletypeBody ctermfg=5 cterm=italic ctermbg=0
+hi MyStatuslineFiletype ctermbg=NONE cterm=NONE ctermfg=0 gui=NONE guibg=NONE guifg=#424d5b
+hi MyStatuslineFiletypeBody ctermfg=5 cterm=italic ctermbg=0 gui=italic guibg=#424d5b guifg=#fc5fa3
 
-hi MyStatuslinePercentage ctermfg=0 cterm=NONE ctermbg=NONE
-hi MyStatuslinePercentageBody ctermbg=0 cterm=none ctermfg=6
+hi MyStatuslinePercentage ctermfg=0 cterm=NONE ctermbg=NONE gui=NONE guibg=NONE guifg=#424d5b
+hi MyStatuslinePercentageBody ctermbg=0 cterm=none ctermfg=6 gui=NONE guibg=#424d5b guifg=#99e8d5
 
-hi MyStatuslineLineCol ctermfg=0 cterm=NONE ctermbg=NONE
-hi MyStatuslineLineColBody ctermbg=0 cterm=none ctermfg=2
+hi MyStatuslineLineCol ctermfg=0 cterm=NONE ctermbg=NONE gui=NONE guibg=NONE guifg=#424d5b
+hi MyStatuslineLineColBody ctermbg=0 cterm=none ctermfg=2 gui=NONE guibg=#424d5b guifg=#75b492
