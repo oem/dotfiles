@@ -1,6 +1,7 @@
 # vim:fdm=marker
 
 set fish_greeting ""
+set -x pure_symbol_prompt 
 # colors {{{
 # prompt colors
 set fish_color_error ff8a00
