@@ -245,10 +245,10 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set  background=dark
-" set termguicolors
-colo PaperColor
+set termguicolors
+" colo PaperColor
 " colo onedark
-" colo xcode_dark
+colo xcode_dark
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
 " hi Search ctermfg=0 ctermbg=4
@@ -259,7 +259,7 @@ hi VertSplit ctermfg=234 ctermbg=234 guifg=None guibg=None
 " hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
 " hi CursorLine ctermbg=None
 " hi Normal guibg=NONE ctermbg=NONE
-" hi StatusLine ctermfg=1 guibg=#333333
+hi StatusLine ctermfg=1 guibg=#333333
 
 " gitgutter
 hi GitGutterAdd          ctermfg=2   ctermbg=2  guifg=#718c00 guibg=#718c00
@@ -490,4 +490,4 @@ function! DmenuOpen(cmd)
 endfunction
 " }}}
 
-source ~/dotfiles/vim/statusline.vim
+" source ~/dotfiles/vim/statusline.vim
