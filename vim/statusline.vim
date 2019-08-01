@@ -13,8 +13,8 @@ function! RedrawModeColors(mode) " {{{
   " Normal mode
   if a:mode == 'n'
     hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE gui=NONE guibg=NONE guifg=#515b70
-    hi MyStatuslineFilename ctermfg=4 cterm=none ctermbg=0 gui=NONE guibg=#424d5b guifg=#53a5fb
-    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=4 gui=NONE guibg=#515b70 guifg=#53a5fb
+    hi MyStatuslineFilename ctermfg=3 cterm=none ctermbg=0 gui=NONE guibg=#424d5b guifg=#fd8f3f
+    hi MyStatuslineAccentBody ctermbg=8 cterm=NONE ctermfg=3 gui=NONE guibg=#515b70 guifg=#fd8f3f
   " Insert mode
   elseif a:mode == 'i'
     hi MyStatuslineAccent ctermfg=8 cterm=NONE ctermbg=NONE gui=NONE guibg=NONE guifg=#515b70
