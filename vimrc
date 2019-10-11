@@ -245,10 +245,10 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set  background=dark
-set termguicolors
+" set termguicolors
 " colo PaperColor
-" colo onedark
-colo xcode_dark
+colo onedark
+" colo xcode_dark
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
 " hi Search ctermfg=0 ctermbg=4

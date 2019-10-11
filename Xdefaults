@@ -34,39 +34,39 @@ URxvtFuzzy*internalBorder: 30
 ! Xft.antialias: 2
 
 ! custom colors
-*foreground: #ffffff
-*background: #1f1f24
-
-URxvt.cursorColor: #F9F9F9
-
-!black
-*color0:     #04012d
-*color8:     #a401ad
-!red
-*color1:     #fc6a5d
-*color9:     #fc6a5d
-!green
-*color2:     #41b645
-*color10:    #99e8d6
-!yellow
-*color3:     #2e0abc
-*color11:    #fabd2f
-!blue
-*color4:     #536991
-*color12:    #9686f5
-!magenta
-*color5:     #fc5fa3
-*color13:    #fc5fa3
-!cyan
-*color6:     #8ec07c
-*color14:    #99e8d6
-!white
-*color7:     #a89984
-*color15:    #ffffff
-
-!for vim mostly:
-!VertSpit
-*color20: #202020
+!*foreground: #ffffff
+!*background: #1f1f24
+!
+!URxvt.cursorColor: #F9F9F9
+!
+!!black
+!*color0:     #04012d
+!*color8:     #a401ad
+!!red
+!*color1:     #fc6a5d
+!*color9:     #fc6a5d
+!!green
+!*color2:     #41b645
+!*color10:    #99e8d6
+!!yellow
+!*color3:     #2e0abc
+!*color11:    #fabd2f
+!!blue
+!*color4:     #536991
+!*color12:    #9686f5
+!!magenta
+!*color5:     #fc5fa3
+!*color13:    #fc5fa3
+!!cyan
+!*color6:     #8ec07c
+!*color14:    #99e8d6
+!!white
+!*color7:     #a89984
+!*color15:    #ffffff
+!
+!!for vim mostly:
+!!VertSpit
+!*color20: #202020
 
 ! ! custom colors
 ! *foreground: #ebdbb2
@@ -104,32 +104,32 @@ URxvt.cursorColor: #F9F9F9
 ! *color20: #202020
 
 ! ! onedark colors. Sort of.
-! *foreground: #ABB2BF
-! *background: #1C1C1C
+*foreground: #ABB2BF
+*background: #1C1C1C
 
-! URxvt.cursorColor: #ABB2BF
-! !black
-! *color0:     #1C1C1C
-! *color8:     #5C6370
-! !red
-! *color1:     #E06C75
-! *color9:     #E06C75
-! !green
-! *color2:     #98C379
-! *color10:    #98C379
-! !yellow
-! *color3:     #D19A66
-! *color11:    #D19A66
-! !blue
-! *color4:     #61AFEF
-! *color12:    #61AFEF
-! !magenta
-! *color5:     #C678DD
-! *color13:    #C678DD
-! !cyan
-! *color6:     #56B6C2
-! *color14:    #56B6C2
-! !white
-! *color7:     #ABB2BF
-! *color15:    #F3F3F4
+URxvt.cursorColor: #ABB2BF
+!black
+*color0:     #1C1C1C
+*color8:     #5C6370
+!red
+*color1:     #E06C75
+*color9:     #E06C75
+!green
+*color2:     #98C379
+*color10:    #98C379
+!yellow
+*color3:     #D19A66
+*color11:    #D19A66
+!blue
+*color4:     #61AFEF
+*color12:    #61AFEF
+!magenta
+*color5:     #C678DD
+*color13:    #C678DD
+!cyan
+*color6:     #56B6C2
+*color14:    #56B6C2
+!white
+*color7:     #ABB2BF
+*color15:    #F3F3F4
 
