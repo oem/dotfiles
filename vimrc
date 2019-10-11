@@ -245,7 +245,7 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set  background=dark
-set termguicolors
+" set termguicolors
 " colo PaperColor
 " colo onedark
 colo xcode_dark
