@@ -222,6 +222,7 @@ hi VertSplit ctermfg=234 ctermbg=234 guifg=None guibg=None
 " hi Normal guibg=NONE ctermbg=NONE
 hi StatusLine ctermfg=1
 hi StatusLineNC ctermfg=16 ctermbg=8
+hi Folded ctermbg=None
 
 " gitgutter
 hi GitGutterAdd          ctermfg=2   ctermbg=2  guifg=#718c00 guibg=#718c00
@@ -337,7 +338,8 @@ let g:ale_fix_on_save = 1
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
+\   'javascript': ['prettier', 'eslint'],
+\   'javascript.jsx': ['prettier', 'eslint'],
 \   'ruby': ['rubocop'],
 \   'python': ['autopep8', 'black'],
 \   'rust': ['rustfmt']
