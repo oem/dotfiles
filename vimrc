@@ -102,39 +102,17 @@ call plug#end()
 " }}}
 " plugins config {{{
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-      \ 'tern#Complete',
-      \ 'jspc#omni'
-      \]
 
-" LINTING
-" language client
-let g:LanguageClient_serverCommands = {
-      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-      \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-      \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-      \ 'python': ['~/.pyenv/shims/pyls'],
-      \ 'ruby': ['tcp://localhost:7658']
-      \ }
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+call deoplete#custom#option('sources', {
+\ '_': ['ale', 'tabnine'],
+\})
 
 " close the preview window after completion is done
 autocmd CompleteDone * silent! pclose!
 
-let g:LanguageClient_diagnosticsDisplay = {
-  \1: {'name': 'Error', 'texthl': 'ALEError', 'signText': 'X', 'signTexthl': 'ALEErrorSign',},
-  \2: {'name': 'Warning', 'texthl': 'ALEWarning', 'signText': '!', 'signTexthl': 'ALEWarningSign',},
-  \3: {'name': 'Information', 'texthl': 'ALEInfo', 'signText': 'ℹ', 'signTexthl': 'ALEInfoSign',},
-  \4: {'name': 'Hint', 'texthl': 'ALEInfo', 'signText': 'i', 'signTexthl': 'ALEInfoSign',},
-  \}
-
 " ale
 let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '!'
-" Enable integration with airline.
-" let g:airline#extensions#ale#enabled = 1
 
 " orgmode
 :let g:org_agenda_files=['~/org/*.org', '~/org/projects/*.org']
