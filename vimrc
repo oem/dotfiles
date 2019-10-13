@@ -209,7 +209,7 @@ set  background=dark
 " set termguicolors
 " colo PaperColor
 " colo onedark
-colo xcode_dark
+" colo xcode_dark
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
 " hi Search ctermfg=0 ctermbg=4
@@ -220,7 +220,8 @@ hi VertSplit ctermfg=234 ctermbg=234 guifg=None guibg=None
 " hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
 " hi CursorLine ctermbg=None
 " hi Normal guibg=NONE ctermbg=NONE
-hi StatusLine ctermfg=1 guibg=#333333
+hi StatusLine ctermfg=1
+hi StatusLineNC ctermfg=16 ctermbg=8
 
 " gitgutter
 hi GitGutterAdd          ctermfg=2   ctermbg=2  guifg=#718c00 guibg=#718c00
@@ -251,7 +252,7 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 " }}}
 " {{{ statusline
 hi User1 ctermbg=red   ctermfg=black  guibg=red   guifg=black
-"
+
 " " Function: display errors from Ale in statusline
 function! LinterStatus() abort
    let l:counts = ale#statusline#Count(bufnr(''))
