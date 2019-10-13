@@ -20,6 +20,9 @@ Plug 'terryma/vim-multiple-cursors'
 
 Plug 'neomake/neomake'
 
+" Linting, autofixing
+Plug 'dense-analysis/ale'
+
 " comments
 Plug 'jbgutierrez/vim-better-comments'
 Plug 'tomtom/tcomment_vim'
@@ -75,11 +78,6 @@ Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/echodoc'
 
-Plug 'autozimu/LanguageClient-neovim', {
-  \ 'branch': 'next',
-  \ 'do': 'bash install.sh'
-  \ }
-
 " themes
 Plug 'joshdick/onedark.vim'
 Plug 'NLKNguyen/papercolor-theme'
@@ -100,7 +98,6 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 
-Plug 'sbdchd/neoformat'
 call plug#end()
 " }}}
 " plugins config {{{
@@ -146,17 +143,6 @@ let g:ale_sign_warning = '!'
 set nofoldenable
 
 let g:UltiSnipsExpandTrigger="<C-k>"
-
-" AUTOFORMATTING
-" neoformat on save
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
-
-" neomake
-" autocmd! BufWritePost * Neomake
-" let g:neomake_error_sign = {'text': '●', 'texthl': 'NeomakeErrorSign'}
 
 set cmdheight=2
 let g:echodoc#enable_at_startup = 1
@@ -236,9 +222,6 @@ augroup END
 
 " current dir insertion
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-" neoformat
-let g:neoformat_only_msg_on_error = 1 " less verbose
 
 " fold fish files and vim files initially
 au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
@@ -369,6 +352,18 @@ map <leader>gp :Gpush<cr>
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 " }}}
+" {{{ Linting, LanguageServer and Autofixing
+" autofix on save
+let g:ale_fix_on_save = 1
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'ruby': ['rubocop'],
+\   'python': ['autopep8', 'black'],
+\   'rust': ['rustfmt']
+\}
+" }}}
 " golang {{{
 let g:go_fmt_command="goimports"
 let g:ale_linters = {'go': ['gometalinter', 'gofmt']}
@@ -396,26 +391,15 @@ autocmd FileType go nmap <f8>  :DlvToggleBreakpoint<cr>
 autocmd FileType go nmap <f5>  :DlvTest<cr>
 " }}}
 " {{{ javascript
-let g:neoformat_enabled_javascript = ['prettiereslint']
 autocmd FileType javascript set fdm=syntax
 " }}}
 " rust {{{
 set hidden
 let $RUST_SRC_PATH="/home/oem/src/rust/src/"
 autocmd FileType rust set fdm=syntax
-" disable ale linting for rust since we are already using the RLS for that
-let g:ale_linters = { 'rust': [] }
 " }}}
 " ruby {{{
 let g:rails_default_file='config/database.yml'
-
-let g:neoformat_ruby_rubocop = {
-      \ 'exe': 'bundle',
-      \ 'args': ['exec', 'rubocop', '--auto-correct', '--stdin', '"%:p"', '2>/dev/null', '|', 'sed "1,/^====================$/d"'],
-      \ 'stdin': 1,
-      \ 'stderr': 1
-      \ }
-
 
 " bundler
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
@@ -429,9 +413,7 @@ autocmd BufNewFile,BufRead *.rabl set filetype=ruby
 autocmd Syntax ruby normal zR
 " }}}
 " {{{ python
-let g:neoformat_enabled_python = ['yapf', 'autopep8']
 let g:black_linelength=79 " this only affects the :Black command
-let g:ale_linters = { 'python': [] }
 " }}}
 " frontend {{{
 " react

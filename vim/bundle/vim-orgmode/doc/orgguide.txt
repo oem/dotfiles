@@ -234,6 +234,14 @@ INSTALLATION AND UPGRADE                                 *orgguide-installation*
   dependencies i.e. vim-plug (https://github.com/junegunn/vim-plug), dein.vim
   (https://github.com/Shougo/dein.vim).
 
+  Example using *vim-plug* : 
+>
+    Plug 'jceb/vim-orgmode'
+<
+  Example using *dein.vim* : 
+>
+    call dein#add('jceb/vim-orgmode')
+<
   NOTE: For some functionality vim-orgmode relies on external plugins which
   are mentioned in suggested plugins.
 
@@ -1106,7 +1114,7 @@ to your init.el. Make also sure to specify your path by using the
 Default: "/usr/bin/emacs"
 Path to Emacs executable. Example:
 >
-  :let g:org_export_emacs="~/bin/emcas"
+  :let g:org_export_emacs="~/bin/emacs"
 <
 
                                                           *g:org_export_verbose*
