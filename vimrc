@@ -107,6 +107,11 @@ call deoplete#custom#option('sources', {
 \ '_': ['ale', 'tabnine'],
 \})
 
+call deoplete#custom#var('tabnine', {
+\ 'line_limit': 200,
+\ 'max_num_results': 5,
+\ })
+
 " close the preview window after completion is done
 autocmd CompleteDone * silent! pclose!
 
