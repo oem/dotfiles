@@ -74,7 +74,6 @@ Plug 'epilande/vim-react-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
-Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/echodoc'
 
@@ -347,12 +346,12 @@ let g:ale_fixers = {
 \   'javascript.jsx': ['prettier', 'eslint'],
 \   'ruby': ['rubocop'],
 \   'python': ['autopep8', 'black'],
-\   'rust': ['rustfmt']
+\   'rust': ['rustfmt'],
+\   'go': ['gometalinter', 'gofmt']
 \}
 " }}}
 " golang {{{
 let g:go_fmt_command="goimports"
-let g:ale_linters = {'go': ['gometalinter', 'gofmt']}
 let g:ale_go_gometalinter_options = '--fast'
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
