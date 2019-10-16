@@ -1,7 +1,7 @@
 " vim:fdm=marker
 
 " plugins {{{
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.local/share/nvim/site/bundle')
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
