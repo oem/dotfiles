@@ -83,6 +83,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'tomasiser/vim-code-dark'
 Plug 'KimNorgaard/vim-frign'
 Plug 'nickaroot/vim-xcode-dark-theme'
+Plug 'andreypopp/vim-colors-plain'
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
@@ -224,8 +225,8 @@ hi VertSplit ctermfg=234 ctermbg=234 guifg=None guibg=None
 " hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
 " hi CursorLine ctermbg=None
 " hi Normal guibg=NONE ctermbg=NONE
-hi StatusLine ctermfg=1
-hi StatusLineNC ctermfg=16 ctermbg=8
+hi StatusLine cterm=underline ctermfg=15
+hi StatusLineNC cterm=underline ctermfg=8
 hi Folded ctermbg=None
 
 " gitgutter
