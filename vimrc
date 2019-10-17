@@ -84,6 +84,8 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'KimNorgaard/vim-frign'
 Plug 'nickaroot/vim-xcode-dark-theme'
 Plug 'andreypopp/vim-colors-plain'
+Plug 'tomasr/molokai'
+Plug 'fmoralesc/molokayo'
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
@@ -213,8 +215,8 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 set  background=dark
 " set termguicolors
 " colo PaperColor
-" colo onedark
-" colo xcode_dark
+" colo molokayo
+
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
 " hi Search ctermfg=0 ctermbg=4
@@ -222,12 +224,13 @@ set  background=dark
 " highlight EndOfBuffer ctermfg=bg
 
 " hi VertSplit ctermfg=234 ctermbg=234 guifg=None guibg=None
-hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
+hi VertSplit ctermfg=None ctermbg=None
 " hi CursorLine ctermbg=None
 " hi Normal guibg=NONE ctermbg=NONE
-hi StatusLine cterm=underline ctermfg=15 ctermbg=None
+hi StatusLine cterm=underline ctermfg=7 ctermbg=None
 hi StatusLineNC cterm=underline ctermfg=8 ctermbg=None
 hi Folded ctermbg=None
+hi LineNr ctermbg=None
 
 " gitgutter
 hi GitGutterAdd          ctermfg=2   ctermbg=2  guifg=#718c00 guibg=#718c00
