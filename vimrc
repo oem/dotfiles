@@ -224,7 +224,7 @@ set  background=dark
 " highlight EndOfBuffer ctermfg=bg
 
 " hi VertSplit ctermfg=234 ctermbg=234 guifg=None guibg=None
-hi VertSplit ctermfg=None ctermbg=None
+hi VertSplit ctermfg=None ctermbg=None cterm=None
 " hi CursorLine ctermbg=None
 " hi Normal guibg=NONE ctermbg=NONE
 hi StatusLine cterm=underline ctermfg=7 ctermbg=None
