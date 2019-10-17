@@ -221,12 +221,12 @@ set  background=dark
 " hide the empty buffer character
 " highlight EndOfBuffer ctermfg=bg
 
-hi VertSplit ctermfg=234 ctermbg=234 guifg=None guibg=None
-" hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
+" hi VertSplit ctermfg=234 ctermbg=234 guifg=None guibg=None
+hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
 " hi CursorLine ctermbg=None
 " hi Normal guibg=NONE ctermbg=NONE
-hi StatusLine cterm=underline ctermfg=15
-hi StatusLineNC cterm=underline ctermfg=8
+hi StatusLine cterm=underline ctermfg=15 ctermbg=None
+hi StatusLineNC cterm=underline ctermfg=8 ctermbg=None
 hi Folded ctermbg=None
 
 " gitgutter
@@ -275,17 +275,17 @@ set laststatus=2
 set statusline=
 set statusline+=\ %l
 set statusline+=\ %*
-set statusline+=\ ‹‹
+set statusline+=\ <<
 set statusline+=\ %f\ %*
-set statusline+=\ ››
+set statusline+=\ >>
 set statusline+=\ %m
 set statusline +=\ %{fugitive#statusline()}
 set statusline+=%=
 set statusline+=%1*%{LinterStatus()}
-set statusline+=%0*\ ‹‹
+set statusline+=%0*\ <<
 set statusline+=\ ::
 set statusline+=\ %n
-set statusline+=\ ››\ %*
+set statusline+=\ >>\ %*
 " }}}
 " {{{ Keybindings
 " leader key
