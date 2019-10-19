@@ -23,6 +23,9 @@ Plug 'neomake/neomake'
 " Linting, autofixing
 Plug 'dense-analysis/ale'
 
+" tests
+Plug 'janko/vim-test'
+
 " comments
 Plug 'jbgutierrez/vim-better-comments'
 Plug 'tomtom/tcomment_vim'
@@ -215,7 +218,7 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 set  background=dark
 " set termguicolors
 " colo PaperColor
-" colo molokayo
+colo molokayo
 
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
