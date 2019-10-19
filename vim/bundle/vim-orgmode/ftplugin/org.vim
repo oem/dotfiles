@@ -149,12 +149,11 @@ endif
 
 " * Calendar.vim {{{2
 fun CalendarAction(day, month, year, week, dir)
-	let g:org_timestamp = printf("%04d-%02d-%02d Fri", a:year, a:month, a:day)
-	let datetime_date = printf("datetime.date(%d, %d, %d)", a:year, a:month, a:day)
-	exe s:py_version . "selected_date = " . datetime_date
+	exe s:py_version . "selected_date = " . printf("datetime.date(%d, %d, %d)", a:year, a:month, a:day)
+	exe s:py_version . "org_timestamp = '" . g:org_timestamp_template . "' % date_to_str(selected_date)"
+
 	" get_user_input
-	let msg = printf("Inserting %s | Modify date", g:org_timestamp)
-	exe s:py_version . "modifier = get_user_input('" . msg . "')"
+	exe s:py_version . "modifier = get_user_input(org_timestamp)"
 	" change date according to user input
 	exe s:py_version . "newdate = Date._modify_time(selected_date, modifier)"
 	exe s:py_version . "newdate = date_to_str(newdate)"
@@ -163,7 +162,7 @@ fun CalendarAction(day, month, year, week, dir)
 	" goto previous window
 	exe "wincmd p"
 	exe s:py_version . "timestamp = '" . g:org_timestamp_template . "' % newdate"
-	exe s:py_version . "insert_at_cursor(timestamp)"
+	exe s:py_version . "if modifier != None: insert_at_cursor(timestamp)"
 	" restore calendar_action
 	let g:calendar_action = g:org_calendar_action_backup
 endf

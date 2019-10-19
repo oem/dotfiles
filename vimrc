@@ -1,7 +1,7 @@
 " vim:fdm=marker
 
 " plugins {{{
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.local/share/nvim/site/bundle')
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
@@ -19,6 +19,12 @@ Plug 'tomtom/tlib_vim'
 Plug 'terryma/vim-multiple-cursors'
 
 Plug 'neomake/neomake'
+
+" Linting, autofixing
+Plug 'dense-analysis/ale'
+
+" tests
+Plug 'janko/vim-test'
 
 " comments
 Plug 'jbgutierrez/vim-better-comments'
@@ -71,14 +77,8 @@ Plug 'epilande/vim-react-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
-Plug 'w0rp/ale'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/echodoc'
-
-Plug 'autozimu/LanguageClient-neovim', {
-  \ 'branch': 'next',
-  \ 'do': 'bash install.sh'
-  \ }
 
 " themes
 Plug 'joshdick/onedark.vim'
@@ -86,6 +86,9 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'tomasiser/vim-code-dark'
 Plug 'KimNorgaard/vim-frign'
 Plug 'nickaroot/vim-xcode-dark-theme'
+Plug 'andreypopp/vim-colors-plain'
+Plug 'tomasr/molokai'
+Plug 'fmoralesc/molokayo'
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
@@ -100,44 +103,26 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 
-Plug 'sbdchd/neoformat'
 call plug#end()
 " }}}
 " plugins config {{{
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-      \ 'tern#Complete',
-      \ 'jspc#omni'
-      \]
 
-" LINTING
-" language client
-let g:LanguageClient_serverCommands = {
-      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-      \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-      \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-      \ 'python': ['~/.pyenv/shims/pyls'],
-      \ 'ruby': ['tcp://localhost:7658']
-      \ }
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+call deoplete#custom#option('sources', {
+\ '_': ['ale', 'tabnine'],
+\})
+
+call deoplete#custom#var('tabnine', {
+\ 'line_limit': 200,
+\ 'max_num_results': 5,
+\ })
 
 " close the preview window after completion is done
 autocmd CompleteDone * silent! pclose!
 
-let g:LanguageClient_diagnosticsDisplay = {
-  \1: {'name': 'Error', 'texthl': 'ALEError', 'signText': 'X', 'signTexthl': 'ALEErrorSign',},
-  \2: {'name': 'Warning', 'texthl': 'ALEWarning', 'signText': '!', 'signTexthl': 'ALEWarningSign',},
-  \3: {'name': 'Information', 'texthl': 'ALEInfo', 'signText': 'ℹ', 'signTexthl': 'ALEInfoSign',},
-  \4: {'name': 'Hint', 'texthl': 'ALEInfo', 'signText': 'i', 'signTexthl': 'ALEInfoSign',},
-  \}
-
 " ale
 let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '!'
-" Enable integration with airline.
-" let g:airline#extensions#ale#enabled = 1
 
 " orgmode
 :let g:org_agenda_files=['~/org/*.org', '~/org/projects/*.org']
@@ -146,17 +131,6 @@ let g:ale_sign_warning = '!'
 set nofoldenable
 
 let g:UltiSnipsExpandTrigger="<C-k>"
-
-" AUTOFORMATTING
-" neoformat on save
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
-
-" neomake
-" autocmd! BufWritePost * Neomake
-" let g:neomake_error_sign = {'text': '●', 'texthl': 'NeomakeErrorSign'}
 
 set cmdheight=2
 let g:echodoc#enable_at_startup = 1
@@ -237,9 +211,6 @@ augroup END
 " current dir insertion
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-" neoformat
-let g:neoformat_only_msg_on_error = 1 " less verbose
-
 " fold fish files and vim files initially
 au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
@@ -247,19 +218,22 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 set  background=dark
 " set termguicolors
 " colo PaperColor
-" colo onedark
-colo xcode_dark
+colo molokayo
+
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
 " hi Search ctermfg=0 ctermbg=4
 " hide the empty buffer character
 " highlight EndOfBuffer ctermfg=bg
 
-hi VertSplit ctermfg=234 ctermbg=234 guifg=None guibg=None
-" hi VertSplit ctermfg=237 ctermbg=237 cterm=bold
+" hi VertSplit ctermfg=234 ctermbg=234 guifg=None guibg=None
+hi VertSplit ctermfg=None ctermbg=None cterm=None
 " hi CursorLine ctermbg=None
 " hi Normal guibg=NONE ctermbg=NONE
-hi StatusLine ctermfg=1 guibg=#333333
+hi StatusLine cterm=underline ctermfg=7 ctermbg=None
+hi StatusLineNC cterm=underline ctermfg=8 ctermbg=None
+hi Folded ctermbg=None
+hi LineNr ctermbg=None
 
 " gitgutter
 hi GitGutterAdd          ctermfg=2   ctermbg=2  guifg=#718c00 guibg=#718c00
@@ -290,7 +264,7 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 " }}}
 " {{{ statusline
 hi User1 ctermbg=red   ctermfg=black  guibg=red   guifg=black
-"
+
 " " Function: display errors from Ale in statusline
 function! LinterStatus() abort
    let l:counts = ale#statusline#Count(bufnr(''))
@@ -307,17 +281,17 @@ set laststatus=2
 set statusline=
 set statusline+=\ %l
 set statusline+=\ %*
-set statusline+=\ ‹‹
+set statusline+=\ <<
 set statusline+=\ %f\ %*
-set statusline+=\ ››
+set statusline+=\ >>
 set statusline+=\ %m
 set statusline +=\ %{fugitive#statusline()}
 set statusline+=%=
 set statusline+=%1*%{LinterStatus()}
-set statusline+=%0*\ ‹‹
+set statusline+=%0*\ <<
 set statusline+=\ ::
 set statusline+=\ %n
-set statusline+=\ ››\ %*
+set statusline+=\ >>\ %*
 " }}}
 " {{{ Keybindings
 " leader key
@@ -369,9 +343,24 @@ map <leader>gp :Gpush<cr>
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 " }}}
+" {{{ Linting, LanguageServer and Autofixing
+" autofix on save
+let g:ale_fix_on_save = 1
+
+let g:ale_linters = {'rust': ['rls']}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier', 'eslint'],
+\   'javascript.jsx': ['prettier', 'eslint'],
+\   'ruby': ['rubocop'],
+\   'python': ['autopep8', 'black'],
+\   'rust': ['rustfmt'],
+\   'go': ['gometalinter', 'gofmt']
+\}
+" }}}
 " golang {{{
 let g:go_fmt_command="goimports"
-let g:ale_linters = {'go': ['gometalinter', 'gofmt']}
 let g:ale_go_gometalinter_options = '--fast'
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
@@ -396,26 +385,15 @@ autocmd FileType go nmap <f8>  :DlvToggleBreakpoint<cr>
 autocmd FileType go nmap <f5>  :DlvTest<cr>
 " }}}
 " {{{ javascript
-let g:neoformat_enabled_javascript = ['prettiereslint']
 autocmd FileType javascript set fdm=syntax
 " }}}
 " rust {{{
 set hidden
 let $RUST_SRC_PATH="/home/oem/src/rust/src/"
 autocmd FileType rust set fdm=syntax
-" disable ale linting for rust since we are already using the RLS for that
-let g:ale_linters = { 'rust': [] }
 " }}}
 " ruby {{{
 let g:rails_default_file='config/database.yml'
-
-let g:neoformat_ruby_rubocop = {
-      \ 'exe': 'bundle',
-      \ 'args': ['exec', 'rubocop', '--auto-correct', '--stdin', '"%:p"', '2>/dev/null', '|', 'sed "1,/^====================$/d"'],
-      \ 'stdin': 1,
-      \ 'stderr': 1
-      \ }
-
 
 " bundler
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
@@ -429,9 +407,7 @@ autocmd BufNewFile,BufRead *.rabl set filetype=ruby
 autocmd Syntax ruby normal zR
 " }}}
 " {{{ python
-let g:neoformat_enabled_python = ['yapf', 'autopep8']
 let g:black_linelength=79 " this only affects the :Black command
-let g:ale_linters = { 'python': [] }
 " }}}
 " frontend {{{
 " react
