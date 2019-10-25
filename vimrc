@@ -218,7 +218,7 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 set  background=dark
 " set termguicolors
 " colo PaperColor
-colo molokayo
+" colo molokayo
 
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
