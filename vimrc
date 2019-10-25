@@ -120,10 +120,6 @@ call deoplete#custom#var('tabnine', {
 " close the preview window after completion is done
 autocmd CompleteDone * silent! pclose!
 
-" ale
-let g:ale_sign_error = 'X'
-let g:ale_sign_warning = '!'
-
 " orgmode
 :let g:org_agenda_files=['~/org/*.org', '~/org/projects/*.org']
 
