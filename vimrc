@@ -350,7 +350,7 @@ let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'javascript.jsx': ['prettier', 'eslint'],
 \   'ruby': ['rubocop'],
-\   'python': ['autopep8', 'black'],
+\   'python': ['black','autopep8'],
 \   'rust': ['rustfmt'],
 \   'go': ['gometalinter', 'gofmt']
 \}
