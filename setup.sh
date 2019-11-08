@@ -21,3 +21,7 @@
 
 # git
 [ ! -L ~/.gitconfig ] && ln -s ~/dotfiles/gitconfig ~/.gitconfig
+
+# python
+[ ! -L ~/.flake8 ] && ln -s ~/dotfiles/flake8 ~/.flake8
+
