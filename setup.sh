@@ -24,4 +24,5 @@
 
 # python
 [ ! -L ~/.flake8 ] && ln -s ~/dotfiles/flake8 ~/.flake8
+[ ! -L ~/.pylintrc ] && ln -s ~/dotfiles/.pylintrc ~/.pylintrc
 
