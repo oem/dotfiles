@@ -1,9 +1,15 @@
 #!/bin/sh
 
 # xorg
+if [ ! "$(uname)" = "Darwin" ]; then
 [ ! -L ~/.xinitrc ] && ln -s ~/dotfiles/xinitrc ~/.xinitrc
 [ ! -L ~/.Xdefaults ] && ln -s ~/dotfiles/Xdefaults ~/.Xdefaults
 [ ! -L ~/.xmodmap ] && ln -s ~/dotfiles/xmodmap ~/.xmodmap
+fi
+
+# alacritty
+[ ! -d ~/.config/alacritty ] && mkdir -p ~/.config/alacritty
+[ ! -L ~/.config/alacritty/alacritty.yml ]  && ln -s ~/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 # fish
 [ ! -d ~/.config/fish ] && mkdir -p ~/.config/fish
