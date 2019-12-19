@@ -34,6 +34,9 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" julia
+Plug 'JuliaEditorSupport/julia-vim'
+
 " python
 Plug 'ambv/black'
 
