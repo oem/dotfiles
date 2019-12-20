@@ -214,7 +214,7 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " {{{ ui
 set  background=dark
 " set termguicolors
-" colo PaperColor
+colo PaperColor
 " colo molokayo
 
 " let g:airline#extensions#tabline#enabled = 1
@@ -226,7 +226,7 @@ set  background=dark
 " hi VertSplit ctermfg=234 ctermbg=234 guifg=None guibg=None
 hi VertSplit ctermfg=None ctermbg=None cterm=None
 " hi CursorLine ctermbg=None
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 hi StatusLine cterm=underline ctermfg=7 ctermbg=None
 hi StatusLineNC cterm=underline ctermfg=8 ctermbg=None
 hi Folded ctermbg=None
