@@ -92,6 +92,7 @@ Plug 'nickaroot/vim-xcode-dark-theme'
 Plug 'andreypopp/vim-colors-plain'
 Plug 'tomasr/molokai'
 Plug 'fmoralesc/molokayo'
+Plug 'Lokaltog/vim-monotone'
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
@@ -214,8 +215,9 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " {{{ ui
 set  background=dark
 " set termguicolors
-colo PaperColor
-" colo molokayo
+" colo PaperColor
+" colo molokai
+colo monotone
 
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
