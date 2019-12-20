@@ -106,10 +106,11 @@ font:
     # Font family
     #
     Default:
-      - (macOS) PragmataPro Mono
+      - (macOS) Cascadia Mono
       - (Linux) monospace
       - (Windows) Consolas
-    family: PragmataPro Mono
+    family: IBM Plex Mono
+    style: Medium
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -148,7 +149,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 15.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -182,31 +183,31 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: true
 # Colors (Pencil Dark)
-colors:
-  # Default Colors
-  primary:
-    background: '0x111111'
-    foreground: '0xf1f1f1'
-  # Normal colors
-  normal:
-    black:   '0x212121'
-    red:     '0xc30771'
-    green:   '0x10a778'
-    yellow:  '0xa89c14'
-    blue:    '0x008ec4'
-    magenta: '0x523c79'
-    cyan:    '0x20a5ba'
-    white:   '0xe0e0e0'
-  # Bright colors
-  bright:
-    black:   '0x212121'
-    red:     '0xfb007a'
-    green:   '0x5fd7af'
-    yellow:  '0xf3e430'
-    blue:    '0x20bbfc'
-    magenta: '0x6855de'
-    cyan:    '0x4fb8cc'
-    white:   '0xf1f1f1'
+# colors:
+#   # Default Colors
+#   primary:
+#     background: '0x111111'
+#     foreground: '0xf1f1f1'
+#   # Normal colors
+#   normal:
+#     black:   '0x212121'
+#     red:     '0xc30771'
+#     green:   '0x10a778'
+#     yellow:  '0xa89c14'
+#     blue:    '0x008ec4'
+#     magenta: '0x523c79'
+#     cyan:    '0x20a5ba'
+#     white:   '0xe0e0e0'
+#   # Bright colors
+#   bright:
+#     black:   '0x212121'
+#     red:     '0xfb007a'
+#     green:   '0x5fd7af'
+#     yellow:  '0xf3e430'
+#     blue:    '0x20bbfc'
+#     magenta: '0x6855de'
+#     cyan:    '0x4fb8cc'
+#     white:   '0xf1f1f1'
 
 # Colors (PaperColor - Light)
 # colors:
@@ -238,36 +239,36 @@ colors:
 #     white:   '0xF5F5F5'
 
 # Colors (Hyper)
-# colors:
-#   # Default colors
-#   primary:
-#     background: '0x000000'
-#     foreground: '0xffffff'
-#   cursor:
-#     text: '0xF81CE5'
-#     cursor: '0xffffff'
-#
-#   # Normal colors
-#   normal:
-#     black:   '0x000000'
-#     red:     '0xfe0100'
-#     green:   '0x33ff00'
-#     yellow:  '0xfeff00'
-#     blue:    '0x0066ff'
-#     magenta: '0xcc00ff'
-#     cyan:    '0x00ffff'
-#     white:   '0xd0d0d0'
-#
-#   # Bright colors
-#   bright:
-#     black:   '0x808080'
-#     red:     '0xfe0100'
-#     green:   '0x33ff00'
-#     yellow:  '0xfeff00'
-#     blue:    '0x0066ff'
-#     magenta: '0xcc00ff'
-#     cyan:    '0x00ffff'
-#     white:   '0xFFFFFF'
+colors:
+  # Default colors
+  primary:
+    background: '0x131313'
+    foreground: '0xffffff'
+  cursor:
+    text: '0xF81CE5'
+    cursor: '0xffffff'
+
+  # Normal colors
+  normal:
+    black:   '0x000000'
+    red:     '0xfe0100'
+    green:   '0x33ff00'
+    yellow:  '0xfeff00'
+    blue:    '0x0066ff'
+    magenta: '0xcc00ff'
+    cyan:    '0x00ffff'
+    white:   '0xd0d0d0'
+
+  # Bright colors
+  bright:
+    black:   '0x808080'
+    red:     '0xfe0100'
+    green:   '0x33ff00'
+    yellow:  '0xfeff00'
+    blue:    '0x0066ff'
+    magenta: '0xcc00ff'
+    cyan:    '0x00ffff'
+    white:   '0xFFFFFF'
 
 # Colors (Tomorrow Night Bright)
 #colors:
