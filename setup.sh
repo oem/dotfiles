@@ -32,3 +32,5 @@ fi
 [ ! -L ~/.flake8 ] && ln -s ~/dotfiles/flake8 ~/.flake8
 [ ! -L ~/.pylintrc ] && ln -s ~/dotfiles/.pylintrc ~/.pylintrc
 
+# ranger
+[ ! -L ~/.config/ranger/rc.conf ] && ln -s ~/dotfiles/rc.conf ~/.config/ranger/rc.conf
