@@ -57,11 +57,6 @@ Plug 'fatih/vim-go'
 " rust
 Plug 'rust-lang/rust.vim'
 
-" orgmode
-Plug 'vim-scripts/utl.vim'
-Plug 'inkarkat/vim-SyntaxRange'
-Plug 'jceb/vim-orgmode'
-
 " markdown
 Plug 'tpope/vim-markdown'
 
@@ -93,6 +88,7 @@ Plug 'andreypopp/vim-colors-plain'
 Plug 'tomasr/molokai'
 Plug 'fmoralesc/molokayo'
 Plug 'Lokaltog/vim-monotone'
+Plug 'balanceiskey/vim-framer-syntax'
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
@@ -217,7 +213,7 @@ set  background=dark
 " set termguicolors
 " colo PaperColor
 " colo molokai
-colo monotone
+colo vim-framer-syntax
 
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
