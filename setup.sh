@@ -34,3 +34,8 @@ fi
 
 # ranger
 [ ! -L ~/.config/ranger/rc.conf ] && ln -s ~/dotfiles/rc.conf ~/.config/ranger/rc.conf
+
+# kakoune
+[ ! -d ~/.config/kak ] && mkdir -p ~/.config/kak/{plugins,autoload}
+[ ! -L ~/.config/kak/kakrc ] && ln -s ~/dotfiles/kakrc ~/.config/kak/kakrc
+[ ! -d ~/.config/kak/plugins/plug.kak ] && git clone https://github.com/andreyorst/plug.kak.git ~/.config/kak/plugins/plug.kak
