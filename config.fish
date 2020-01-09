@@ -42,6 +42,7 @@ set -g ce (set_color $fish_color_error)
 # set -g __fish_git_prompt_color_cleanstate green
 # }}}
 # aliases {{{
+alias v='kak'
 alias vi='nvim'
 alias ex='emacs'
 alias e='emacs -nw'
