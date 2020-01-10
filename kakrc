@@ -27,14 +27,9 @@ plug "ul/kak-lsp" do %{
 addhl global/ wrap # wrap lines
 
 # clipboard
-# yank (MacOS)
-hook global NormalKey y|d|c %{ nop %sh{
-      printf %s "$kak_main_reg_dquote" | pbcopy
-}}
-
-# paste (MacOS)
-map global user P '!pbpaste<ret>' -docstring 'paste before selection'
-map global user p '<a-!>pbpaste<ret>' -docstring 'paste after selection'
+plug "lePerdu/kakboard" %{
+    hook global WinCreate .* %{ kakboard-enable }
+}
 
 # space is my leader
 map global normal <space> , -docstring 'leader'
