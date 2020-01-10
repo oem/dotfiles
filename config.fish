@@ -42,7 +42,7 @@ set -g ce (set_color $fish_color_error)
 # set -g __fish_git_prompt_color_cleanstate green
 # }}}
 # aliases {{{
-alias v='kak'
+alias x='kak'
 alias vi='nvim'
 alias ex='emacs'
 alias e='emacs -nw'
@@ -55,7 +55,7 @@ alias b='bundle exec'
 # alias code='code-insiders'
 # }}}
 # env {{{
-set -x EDITOR nvim
+set -x EDITOR kak
 set -gx PATH $HOME/dotfiles/launch $PATH
 set -gx PATH $HOME/dotfiles/fuzzy $PATH
 set -gx PATH $HOME/google-cloud-sdk/bin $PATH
