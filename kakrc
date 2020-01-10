@@ -2,7 +2,8 @@ source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
 # fuzzy
 plug "andreyorst/fzf.kak" config %{
-    map global user f ': fzf-mode<ret>'
+    map global user f '<esc>:fzf-mode<ret>f' -docstring "fzf"
+    map global user b '<esc>:fzf-mode<ret>b' -docstring "fzf buffer"
 } defer "fzf" %{
     set-option global fzf_file_command 'fd'
     set-option global fzf_preview_tmux_height '20%'
