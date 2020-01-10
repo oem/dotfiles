@@ -1,5 +1,9 @@
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
-plug "andreyorst/fzf.kak"
+
+# fuzzy
+plug "andreyorst/fzf.kak" depth-sort
+map global normal <c-f> ': fzf-mode<ret>'
+set global ui_options ncurses_assistant=cat
 
 # define commands to allow splitting with tmux
 define-command -docstring "vsplit [<commands>]: split tmux vertically" \
@@ -16,3 +20,6 @@ define-command -docstring "tabnew [<commands>]: create new tmux window" \
 tabnew -params .. -command-completion %{
         tmux-terminal-window kak -c %val{session} -e "%arg{@}"
 }
+
+alias global vs vsplit
+alias global sp split
