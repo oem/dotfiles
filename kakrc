@@ -1,8 +1,12 @@
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
 # fuzzy
+map -docstring 'all file contents' global user / %{: fzf -kak-cmd %{evaluate-commands} -items-cmd %{rg --column --line-number --no-heading --color=never --smart-case ''} -filter %{sed -e 's/\([^:]*\):\([^:]*\):\([^:]*\):.*/edit -existing \1 \2 \3/'}<ret>}
+
 plug "andreyorst/fzf.kak" config %{
+    map global user d '<esc>:fzf-mode<ret>' -docstring "fzf all"
     map global user f '<esc>:fzf-mode<ret>f' -docstring "fzf"
+    # map global user / '<esc>:fzf-mode<ret>g' -docstring "fzf search"
     map global user b '<esc>:fzf-mode<ret>b' -docstring "fzf buffer"
 } defer "fzf" %{
     set-option global fzf_file_command 'fd'
@@ -10,7 +14,7 @@ plug "andreyorst/fzf.kak" config %{
     set-option global fzf_highlight_command 'bat'
 }
 
-set global ui_options ncurses_assistant=cat
+set global ui_options ncurses_assistant=none
 
 # fd instead of esc
 hook global InsertChar d %{ try %{
@@ -22,6 +26,23 @@ hook global InsertChar d %{ try %{
 plug "ul/kak-lsp" do %{
     cargo build --release --locked
     cargo install --force --path .
+} config %{
+    set-option global lsp_completion_trigger "execute-keys 'h<a-h><a-k>\S[^\h\n,=;*(){}\[\]]\z<ret>'"
+    set-option global lsp_diagnostic_line_error_sign "!"
+    set-option global lsp_diagnostic_line_warning_sign "?"
+    hook global WinSetOption filetype=(c|cpp|go|rust) %{
+        map window user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
+        lsp-enable-window
+        lsp-auto-hover-enable
+        lsp-auto-hover-insert-mode-disable
+        set-option window lsp_hover_anchor true
+        set-face window DiagnosticError default+u
+        set-face window DiagnosticWarning default+u
+    }
+    hook global WinSetOption filetype=rust %{
+        set-option window lsp_server_configuration rust.clippy_preference="on"
+    }
+    hook global KakEnd .* lsp-exit
 }
 
 # ui
@@ -119,11 +140,24 @@ hook global WinSetOption filetype=rust %{
       set window formatcmd 'rustfmt'
 }
 
+# go
+hook global WinSetOption filetype=go %{
+      set window formatcmd 'gofmt'
+}
+
 # ruby
 hook global WinSetOption filetype=ruby %{
     set-option window lintcmd 'run() { cat "$1" | /Users/oem/.rbenv/shims/rubocop -s "$kak_buffile"; } && run '
-    set-option window formatcmd '/Users/oem/.rbenv/shims/rubocop --auto-correct "$kak_buffile"'
+    set-option window formatcmd '/Users/oem/.rbenv/shims/rubocop -a "$kak_buffile"'
     lint-enable
+}
+
+# python
+hook global WinSetOption filetype=python %{
+  jedi-enable-autocomplete
+  lint-enable
+  set-option global lintcmd 'flake8'
+  set window formatcmd 'black'
 }
 
 set-option global indentwidth 2
