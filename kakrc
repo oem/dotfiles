@@ -149,8 +149,9 @@ hook global WinSetOption filetype=go %{
 # ruby
 hook global WinSetOption filetype=ruby %{
     set-option window lintcmd 'run() { cat "$1" | rubocop "$kak_buffile"; } && run '
-    set-option window formatcmd 'rubocop -a "$kak_buffile"'
+    set-option window formatcmd 'rubocop -c .rubocop.yml -a "$kak_buffile"'
     lint-enable
+    lint
 }
 
 # python
@@ -162,7 +163,7 @@ hook global WinSetOption filetype=python %{
 }
 
 set-option global indentwidth 2
-hook global BufWritePre .* %{
+hook global BufWritePre filetype=(rust|go|python) %{
     evaluate-commands %sh{
         if [ -n "$kak_opt_formatcmd" ]; then
           printf "format-buffer\n"
