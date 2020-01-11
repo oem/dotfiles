@@ -134,6 +134,8 @@ hook global InsertCompletionHide .* %{
     unmap window insert <s-tab> <c-p>
 }
 
+# languages
+
 # rust
 hook global WinSetOption filetype=rust %{
       set window formatcmd 'rustfmt'
@@ -154,9 +156,9 @@ hook global WinSetOption filetype=ruby %{
 # python
 hook global WinSetOption filetype=python %{
     jedi-enable-autocomplete
+    set global lintcmd kak_pylint
+    set window formatcmd 'black -q  -'
     lint-enable
-    set-option global lintcmd 'flake8'
-    set window formatcmd 'black'
 }
 
 set-option global indentwidth 2
