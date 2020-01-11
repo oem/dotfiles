@@ -6,7 +6,6 @@ map -docstring 'all file contents' global user / %{: fzf -kak-cmd %{evaluate-com
 plug "andreyorst/fzf.kak" config %{
     map global user d '<esc>:fzf-mode<ret>' -docstring "fzf all"
     map global user f '<esc>:fzf-mode<ret>f' -docstring "fzf"
-    # map global user / '<esc>:fzf-mode<ret>g' -docstring "fzf search"
     map global user b '<esc>:fzf-mode<ret>b' -docstring "fzf buffer"
 } defer "fzf" %{
     set-option global fzf_file_command 'fd'
@@ -30,7 +29,7 @@ plug "ul/kak-lsp" do %{
     set-option global lsp_completion_trigger "execute-keys 'h<a-h><a-k>\S[^\h\n,=;*(){}\[\]]\z<ret>'"
     set-option global lsp_diagnostic_line_error_sign "!"
     set-option global lsp_diagnostic_line_warning_sign "?"
-    hook global WinSetOption filetype=(c|cpp|go|rust) %{
+    hook global WinSetOption filetype=(c|cpp|go|rust|ruby) %{
         map window user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
         lsp-enable-window
         lsp-auto-hover-enable
@@ -147,32 +146,34 @@ hook global WinSetOption filetype=go %{
 
 # ruby
 hook global WinSetOption filetype=ruby %{
-    set-option window lintcmd 'run() { cat "$1" | /Users/oem/.rbenv/shims/rubocop -s "$kak_buffile"; } && run '
-    set-option window formatcmd '/Users/oem/.rbenv/shims/rubocop -a "$kak_buffile"'
+    set-option window lintcmd 'run() { cat "$1" | rubocop "$kak_buffile"; } && run '
+    set-option window formatcmd 'rubocop -a "$kak_buffile"'
     lint-enable
 }
 
 # python
 hook global WinSetOption filetype=python %{
-  jedi-enable-autocomplete
-  lint-enable
-  set-option global lintcmd 'flake8'
-  set window formatcmd 'black'
+    jedi-enable-autocomplete
+    lint-enable
+    set-option global lintcmd 'flake8'
+    set window formatcmd 'black'
 }
 
 set-option global indentwidth 2
 hook global BufWritePre .* %{
-  evaluate-commands %sh{
-    if [ -n "$kak_opt_formatcmd" ]; then
-      printf "format-buffer\n"
-    else
-      printf "\n"
-    fi
-  }
+    evaluate-commands %sh{
+        if [ -n "$kak_opt_formatcmd" ]; then
+          printf "format-buffer\n"
+        else
+          printf "\n"
+        fi
+    }
 }
 
 hook global WinCreate .* %{ try %{
+    set-face global Whitespace 'rgb:444444'
+    set-face global BufferPadding 'rgb:131313'
     add-highlighter buffer/matching         show-matching
     add-highlighter buffer/wrap             wrap -word -indent -marker '↪'
-    add-highlighter buffer/show-whitespaces show-whitespaces -lf ' ' -spc ' ' -nbsp '⋅'
+    add-highlighter buffer/show-whitespaces show-whitespaces -lf '¶' -spc '⋅' -nbsp '⋅'
 }}
