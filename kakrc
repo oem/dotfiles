@@ -46,7 +46,6 @@ plug "ul/kak-lsp" do %{
 
 # ui
 addhl global/ wrap # wrap lines
-set-option global indentwidth 2
 
 hook global WinCreate .* %{ try %{
     set-face global Whitespace 'rgb:444444'
@@ -55,6 +54,9 @@ hook global WinCreate .* %{ try %{
     add-highlighter buffer/wrap             wrap -word -indent -marker '↪'
     add-highlighter buffer/show-whitespaces show-whitespaces -lf '¶' -spc '⋅' -nbsp '⋅'
 }}
+
+hook global BufWritePost .* %{ git show-diff }
+hook global BufReload    .* %{ git show-diff }
 
 # clipboard
 plug "lePerdu/kakboard" %{
@@ -84,47 +86,6 @@ tabnew -params .. -command-completion %{
 
 alias global vs vsplit
 alias global sp split
-
-# switching to cli tools
-def suspend-and-resume \
-    -override \
-    -params 1..2 \
-    -docstring 'suspend-and-resume <cli command> [<kak command after resume>]' \
-    %{ evaluate-commands %sh{
-
-    nohup sh -c "sleep 0.01; osascript -e 'tell application \"System Events\" to keystroke \"$1 && fg\\n\" '" > /dev/null 2>&1 &
-    /bin/kill -SIGTSTP $kak_client_pid
-    if [ ! -z "$2" ]; then
-        echo "$2"
-    fi
-}}
-
-# ranger
-def for-each-line \
-    -docstring "for-each-line <command> <path to file>: run command with the value of each line in the file" \
-    -params 2 \
-    %{ evaluate-commands %sh{
-
-    while read f; do
-        printf "$1 $f\n"
-    done < "$2"
-}}
-
-def toggle-ranger %{
-    suspend-and-resume \
-        "ranger --choosefiles=/tmp/ranger-files-%val{client_pid}" \
-        "for-each-line edit /tmp/ranger-files-%val{client_pid}"
-}
-
-map global user r ': toggle-ranger<ret>' -docstring 'select files in ranger'
-
-
-declare-user-mode tig
-map global tig b ': tig-blame<ret>' -docstring 'show blame (with tig)'
-map global tig s ': suspend-and-resume "tig status"<ret>' -docstring 'show git status (with tig)'
-map global tig m ': suspend-and-resume "tig"<ret>' -docstring 'show main view (with tig)'
-
-map global user t ': enter-user-mode tig<ret>' -docstring 'tig commands'
 
 # tab completion
 hook global InsertCompletionShow .* %{
