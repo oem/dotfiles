@@ -46,6 +46,15 @@ plug "ul/kak-lsp" do %{
 
 # ui
 addhl global/ wrap # wrap lines
+set-option global indentwidth 2
+
+hook global WinCreate .* %{ try %{
+    set-face global Whitespace 'rgb:444444'
+    set-face global BufferPadding 'rgb:131313'
+    add-highlighter buffer/matching         show-matching
+    add-highlighter buffer/wrap             wrap -word -indent -marker '↪'
+    add-highlighter buffer/show-whitespaces show-whitespaces -lf '¶' -spc '⋅' -nbsp '⋅'
+}}
 
 # clipboard
 plug "lePerdu/kakboard" %{
@@ -120,10 +129,6 @@ map global user t ': enter-user-mode tig<ret>' -docstring 'tig commands'
 # tab completion
 hook global InsertCompletionShow .* %{
     try %{
-        # this command temporarily removes cursors preceded by whitespace;
-        # if there are no cursors left, it raises an error, does not
-        # continue to execute the mapping commands, and the error is eaten
-        # by the `try` command so no warning appears.
         execute-keys -draft 'h<a-K>\h<ret>'
         map window insert <tab> <c-n>
         map window insert <s-tab> <c-p>
@@ -150,8 +155,10 @@ hook global WinSetOption filetype=go %{
 hook global WinSetOption filetype=ruby %{
     set-option window lintcmd 'run() { cat "$1" | rubocop "$kak_buffile"; } && run '
     set-option window formatcmd 'rubocop -c .rubocop.yml -a "$kak_buffile"'
+    set-option window indentwidth 2
     lint-enable
     lint
+    hook buffer BufWritePost .* lint
 }
 
 # python
@@ -160,23 +167,7 @@ hook global WinSetOption filetype=python %{
     set global lintcmd kak_pylint
     set window formatcmd 'black -q  -'
     lint-enable
+    lint
+    hook buffer BufWritePre .* format
+    hook buffer BufWritePost .* lint
 }
-
-set-option global indentwidth 2
-hook global BufWritePre filetype=(rust|go|python) %{
-    evaluate-commands %sh{
-        if [ -n "$kak_opt_formatcmd" ]; then
-          printf "format-buffer\n"
-        else
-          printf "\n"
-        fi
-    }
-}
-
-hook global WinCreate .* %{ try %{
-    set-face global Whitespace 'rgb:444444'
-    set-face global BufferPadding 'rgb:131313'
-    add-highlighter buffer/matching         show-matching
-    add-highlighter buffer/wrap             wrap -word -indent -marker '↪'
-    add-highlighter buffer/show-whitespaces show-whitespaces -lf '¶' -spc '⋅' -nbsp '⋅'
-}}
