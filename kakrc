@@ -50,6 +50,7 @@ addhl global/ wrap # wrap lines
 hook global WinCreate .* %{ try %{
     set-face global Whitespace 'rgb:444444'
     set-face global BufferPadding 'rgb:131313'
+    set-face global WrapMarker 'rgb:444444'
     add-highlighter buffer/matching         show-matching
     add-highlighter buffer/wrap             wrap -word -indent -marker '↪'
     add-highlighter buffer/show-whitespaces show-whitespaces -lf '¶' -spc '⋅' -nbsp '⋅'
@@ -115,15 +116,18 @@ hook global WinSetOption filetype=go %{
 # ruby
 hook global WinSetOption filetype=ruby %{
     set-option window lintcmd 'run() { cat "$1" | rubocop "$kak_buffile"; } && run '
-    set-option window formatcmd 'rubocop -c .rubocop.yml -a "$kak_buffile"'
+    set-option current formatcmd "(bundle exec rubocop -o /dev/null -x -s %val{bufname} | tail -n +2)"
     set-option window indentwidth 2
     lint-enable
     lint
+    git show-diff
+    hook buffer BufWritePre .* format
     hook buffer BufWritePost .* lint
 }
 
 # python
 hook global WinSetOption filetype=python %{
+    set-option global lsp_server_configuration pyls.configurationSources=["flake8"]
     jedi-enable-autocomplete
     set global lintcmd kak_pylint
     set window formatcmd 'black -q  -'
