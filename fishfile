@@ -6,12 +6,8 @@ fishpkg/fish-host-info
 fishpkg/fish-humanize-duration
 fishpkg/fish-last-job-id
 oh-my-fish/plugin-node-binpath
-fisherman/nvm
 laughedelic/pisces
 fishpkg/fish-prompt-mono
 fishpkg/fish-pwd-info
 fishpkg/fish-pwd-is-home
 jorgebucaran/fish-spark
-rafaelrinaldi/pure
-oh-my-fish/theme-clearance
-matchai/spacefish
