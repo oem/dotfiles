@@ -65,12 +65,15 @@ set -gx LC_ALL en_US.UTF-8
 # set -gx JAVA_HOME (/usr/libexec/java_home)
 set -gx NODE_PATH "/usr/local/lib/node_modules"
 set -gx N_PREFIX "/Users/oem"
+set -gx PATH $N_PREFIX/bin $PATH
 set -gx FZF_DEFAULT_COMMAND "fd --type f"
 # }}}
 # keybindings {{{
 function fish_user_key_bindings
   fzf_key_bindings
 end
+bind \cw backward-kill-word
+
 # }}}
 # ssh {{{
 setenv SSH_ENV $HOME/.ssh/environment

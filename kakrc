@@ -29,7 +29,7 @@ plug "ul/kak-lsp" do %{
     set-option global lsp_completion_trigger "execute-keys 'h<a-h><a-k>\S[^\h\n,=;*(){}\[\]]\z<ret>'"
     set-option global lsp_diagnostic_line_error_sign "!"
     set-option global lsp_diagnostic_line_warning_sign "?"
-    hook global WinSetOption filetype=(c|cpp|go|rust|ruby) %{
+    hook global WinSetOption filetype=(c|cpp|go|rust|ruby|javascript) %{
         map window user "l" ": enter-user-mode lsp<ret>" -docstring "LSP mode"
         lsp-enable-window
         lsp-auto-hover-enable
@@ -136,3 +136,10 @@ hook global WinSetOption filetype=python %{
     hook buffer BufWritePre .* format
     hook buffer BufWritePost .* lint
 }
+
+# frontend stuff
+hook global WinSetOption filetype=(javascript|typescript|css|scss|json|markdown|yaml|html) %{
+        set-option buffer formatcmd "prettier --stdin-filepath=%val{buffile}"
+            hook buffer -group format BufWritePre .* format
+}
+
