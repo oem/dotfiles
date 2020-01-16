@@ -106,11 +106,13 @@ hook global InsertCompletionHide .* %{
 # rust
 hook global WinSetOption filetype=rust %{
       set window formatcmd 'rustfmt'
+      hook buffer BufWritePre .* format
 }
 
 # go
 hook global WinSetOption filetype=go %{
       set window formatcmd 'gofmt'
+      hook buffer BufWritePre .* format
 }
 
 # ruby
