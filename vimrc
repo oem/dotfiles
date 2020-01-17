@@ -213,7 +213,6 @@ set  background=dark
 " set termguicolors
 " colo PaperColor
 " colo molokai
-colo xcode_dark
 
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
