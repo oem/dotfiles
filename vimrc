@@ -215,20 +215,19 @@ set  background=dark
 " colo molokai
 colo xcode_dark
 
-" let g:airline#extensions#tabline#enabled = 1
 " different highlight color
 " hi Search ctermfg=0 ctermbg=4
 " hide the empty buffer character
 " highlight EndOfBuffer ctermfg=bg
 
-" hi VertSplit ctermfg=234 ctermbg=234 guifg=None guibg=None
 hi VertSplit ctermfg=None ctermbg=None cterm=None
 " hi CursorLine ctermbg=None
 " hi Normal guibg=NONE ctermbg=NONE
 hi StatusLine cterm=NONE ctermfg=7 ctermbg=None
 hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None
-hi Folded ctermbg=None
+hi Folded ctermbg=237 ctermfg=15
 hi LineNr ctermbg=None
+hi Visual ctermbg=4
 
 " gitgutter
 hi GitGutterAdd          ctermfg=2   ctermbg=2  guifg=#718c00 guibg=#718c00
