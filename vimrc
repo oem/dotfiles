@@ -213,6 +213,7 @@ set  background=dark
 " set termguicolors
 " colo PaperColor
 " colo molokai
+colo xcode_dark
 
 " let g:airline#extensions#tabline#enabled = 1
 " different highlight color
@@ -223,7 +224,7 @@ set  background=dark
 " hi VertSplit ctermfg=234 ctermbg=234 guifg=None guibg=None
 hi VertSplit ctermfg=None ctermbg=None cterm=None
 " hi CursorLine ctermbg=None
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 hi StatusLine cterm=NONE ctermfg=7 ctermbg=None
 hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None
 hi Folded ctermbg=None
