@@ -224,8 +224,8 @@ set  background=dark
 hi VertSplit ctermfg=None ctermbg=None cterm=None
 " hi CursorLine ctermbg=None
 hi Normal guibg=NONE ctermbg=NONE
-hi StatusLine cterm=underline ctermfg=7 ctermbg=None
-hi StatusLineNC cterm=underline ctermfg=8 ctermbg=None
+hi StatusLine cterm=NONE ctermfg=7 ctermbg=None
+hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None
 hi Folded ctermbg=None
 hi LineNr ctermbg=None
 
