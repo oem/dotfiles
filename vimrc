@@ -339,7 +339,10 @@ map <leader>k <Plug>(easymotion-k)
 " autofix on save
 let g:ale_fix_on_save = 1
 
-let g:ale_linters = {'rust': ['rls'], 'ruby': ['solargraph', 'standardrb', 'rubocop']}
+let g:ale_linters = {
+      \ 'rust': ['rls'],
+      \ 'ruby': ['solargraph', 'standardrb', 'rubocop']
+      \ }
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -351,6 +354,7 @@ let g:ale_fixers = {
 \   'go': ['gometalinter', 'gofmt']
 \}
 
+let g:ale_sign_error = '!!'
 map <leader>gd :ALEGoToDefinition<cr>
 nmap <silent> [g <Plug>(ale_previous_wrap)
 nmap <silent> ]g <Plug>(ale_next_wrap)
