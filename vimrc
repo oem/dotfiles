@@ -331,11 +331,6 @@ map <leader>l :Lines<cr>
 " ripgrep
 map <leader>/ :Rg<cr>
 
-" fugitive: git
-map <leader>gs :Gstatus<cr>
-map <leader>gd :Gdiff<cr>
-map <leader>gp :Gpush<cr>
-
 " easymotion
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
@@ -350,11 +345,15 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier', 'eslint'],
 \   'javascript.jsx': ['prettier', 'eslint'],
-\   'ruby': ['rubocop'],
+\   'ruby': ['standardrb', 'rubocop', 'solargraph'],
 \   'python': ['black'],
 \   'rust': ['rustfmt'],
 \   'go': ['gometalinter', 'gofmt']
 \}
+
+map <leader>gd :ALEGoToDefinition<cr>
+nmap <silent> [g <Plug>(ale_previous_wrap)
+nmap <silent> ]g <Plug>(ale_next_wrap)
 " }}}
 " golang {{{
 let g:go_fmt_command="goimports"
