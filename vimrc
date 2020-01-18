@@ -210,9 +210,6 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set  background=dark
-" set termguicolors
-" colo PaperColor
-" colo molokai
 colo xcode_dark
 
 " different highlight color
