@@ -339,13 +339,13 @@ map <leader>k <Plug>(easymotion-k)
 " autofix on save
 let g:ale_fix_on_save = 1
 
-let g:ale_linters = {'rust': ['rls']}
+let g:ale_linters = {'rust': ['rls'], 'ruby': ['solargraph', 'standardrb', 'rubocop']}
 
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['prettier', 'eslint'],
 \   'javascript.jsx': ['prettier', 'eslint'],
-\   'ruby': ['standardrb', 'rubocop', 'solargraph'],
+\   'ruby': ['rubocop'],
 \   'python': ['black'],
 \   'rust': ['rustfmt'],
 \   'go': ['gometalinter', 'gofmt']
