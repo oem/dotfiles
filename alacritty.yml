@@ -239,6 +239,7 @@ font:
 #     white:   '0xF5F5F5'
 
 # Colors (Hyper)
+# draw_bold_text_with_bright_colors: false
 colors:
   # Default colors
   primary:

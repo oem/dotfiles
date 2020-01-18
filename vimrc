@@ -210,7 +210,7 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set  background=dark
-colo xcode_dark
+colo PaperColor
 
 " different highlight color
 " hi Search ctermfg=0 ctermbg=4
@@ -234,10 +234,10 @@ hi GitGutterChangeDelete ctermfg=13  ctermbg=13 guifg=#d6225e guibg=#d6225e
 set updatetime=100
 
 " ale
-hi ALEWarning ctermbg=100 ctermfg=15
-hi ALEError ctermbg=202 ctermfg=15
-hi ALEErrorSign ctermbg=202
-hi ALEWarningSign ctermbg=100
+" hi ALEWarning ctermbg=100 ctermfg=15
+" hi ALEError ctermbg=202 ctermfg=15
+" hi ALEErrorSign ctermbg=202
+" hi ALEWarningSign ctermbg=100
 
 " fzf styling
 let g:fzf_colors =
