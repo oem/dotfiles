@@ -55,7 +55,7 @@ alias b='bundle exec'
 # alias code='code-insiders'
 # }}}
 # env {{{
-set -x EDITOR nvim
+set -x EDITOR kak
 set -gx PATH $HOME/dotfiles/launch $PATH
 set -gx PATH $HOME/dotfiles/fuzzy $PATH
 set -gx PATH $HOME/google-cloud-sdk/bin $PATH
