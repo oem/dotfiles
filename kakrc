@@ -111,7 +111,7 @@ hook global WinSetOption filetype=rust %{
 
 # go
 hook global WinSetOption filetype=go %{
-      set window formatcmd 'gofmt'
+      set window formatcmd 'goimports'
       hook buffer BufWritePre .* format
 }
 
