@@ -83,6 +83,10 @@ map global normal <space> , -docstring 'leader'
 map global normal <backspace> <space> -docstring 'remove all sels except main'
 map global normal <a-backspace> <a-space> -docstring 'remove main sel'
 
+# Helpers
+map global normal '#' :comment-line<ret>
+define-command mkdir %{ nop %sh{ mkdir -p $(dirname $kak_buffile) } }
+
 # comands to split via tmux but stay in the same session
 define-command -docstring "vsplit [<commands>]: split tmux vertically" \
 vsplit -params .. -command-completion %{
