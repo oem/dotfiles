@@ -47,6 +47,20 @@ plug "ul/kak-lsp" do %{
 # ui
 addhl global/ wrap # wrap lines
 
+# highlight the word under the cursor
+declare-option -hidden regex curword
+set-face global CurWord default,rgb:2a2a2a
+
+hook global NormalIdle .* %{
+        eval -draft %{ try %{
+                    exec <space><a-i>w <a-k>\A\w+\z<ret>
+                            set-option buffer curword "\b\Q%val{selection}\E\b"
+        } catch %{
+                    set-option buffer curword ''
+        } }
+}
+add-highlighter global/ dynregex '%opt{curword}' 0:CurWord
+
 hook global WinCreate .* %{ try %{
     set-face global Whitespace 'rgb:444444'
     set-face global BufferPadding 'rgb:131313'
