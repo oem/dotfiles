@@ -141,7 +141,7 @@ hook global WinSetOption filetype=ruby %{
     lint-enable
     lint
     git show-diff
-    # hook buffer BufWritePre .* format
+    hook buffer BufWritePre .* format
     hook buffer BufWritePost .* lint
 }
 
