@@ -182,31 +182,31 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: true
 # Colors (Pencil Dark)
-colors:
-  # Default Colors
-  primary:
-    background: "0x111111"
-    foreground: "0xf1f1f1"
-  # Normal colors
-  normal:
-    black: "0x212121"
-    red: "0xc30771"
-    green: "0x10a778"
-    yellow: "0xa89c14"
-    blue: "0x008ec4"
-    magenta: "0x523c79"
-    cyan: "0x20a5ba"
-    white: "0xe0e0e0"
-  # Bright colors
-  bright:
-    black: "0x212121"
-    red: "0xfb007a"
-    green: "0x5fd7af"
-    yellow: "0xf3e430"
-    blue: "0x20bbfc"
-    magenta: "0x6855de"
-    cyan: "0x4fb8cc"
-    white: "0xf1f1f1"
+#colors:
+# Default Colors
+#   primary:
+#     background: "0x111111"
+#     foreground: "0xf1f1f1"
+#   # Normal colors
+#   normal:
+#     black: "0x212121"
+#     red: "0xc30771"
+#     green: "0x10a778"
+#     yellow: "0xa89c14"
+#     blue: "0x008ec4"
+#     magenta: "0x523c79"
+#     cyan: "0x20a5ba"
+#     white: "0xe0e0e0"
+#   # Bright colors
+#   bright:
+#     black: "0x212121"
+#     red: "0xfb007a"
+#     green: "0x5fd7af"
+#     yellow: "0xf3e430"
+#     blue: "0x20bbfc"
+#     magenta: "0x6855de"
+#     cyan: "0x4fb8cc"
+#     white: "0xf1f1f1"
 
 # Colors (PaperColor - Light)
 # colors:
@@ -238,60 +238,58 @@ colors:
 #     white:   '0xF5F5F5'
 
 # Colors (Pencil)
-# color:
-#   primary: background:"0x212121"
-#     foreground:"0xffffff"
-#   cursor: text:"0xffffff"
-#     cursor:"0x20BBFC"
-#   normal: black:"0x212121"
-#     red:"0xc30771"
-#     green:"0x10A778"
-#     yellow:"0xA89C14"
-#     blue:"0x008EC4"
-#     magenta:"0x523C79"
-#     cyan:"0x20A5BA"
-#     white:"0xd9d9d9"
-#   bright: black:"0x424242"
-#     red:"0xfb007a"
-#     green:"0x5FD7AF"
-#     yellow:"0xF3E430"
-#     blue:"0x20BBFC"
-#     magenta:"0x6855DE"
-#     cyan:"0x4FB8CC"
-#     white:"0xf1f1f1"
+#color:
+#  primary: background:"0x212121"
+#    foreground:"0xffffff"
+#  cursor: text:"0xffffff"
+#    cursor:"0x20BBFC"
+#  normal: black:"0x212121"
+#    red:"0xc30771"
+#    green:"0x10A778"
+#    yellow:"0xA89C14"
+#    blue:"0x008EC4"
+#    magenta:"0x523C79"
+#    cyan:"0x20A5BA"
+#    white:"0xd9d9d9"
+#  bright: black:"0x424242"
+#    red:"0xfb007a"
+#    green:"0x5FD7AF"
+#    yellow:"0xF3E430"
+#    blue:"0x20BBFC"
+#    magenta:"0x6855DE"
+#    cyan:"0x4FB8CC"
+#    white:"0xf1f1f1"
 
 # Colors (Hyper)
-# draw_bold_text_with_bright_colors: false
-# colors:
-#   # Default colors
-#   primary:
-#     background: "0x131313"
-#     foreground: "0xffffff"
-#   cursor:
-#     text: "0xF81CE5"
-#     cursor: "0xffffff"
-
-#   # Normal colors
-#   normal:
-#     black: "0x000000"
-#     red: "0xfe0100"
-#     green: "0x33ff00"
-#     yellow: "0xfeff00"
-#     blue: "0x0066ff"
-#     magenta: "0xcc00ff"
-#     cyan: "0x00ffff"
-#     white: "0xd0d0d0"
-
-#   # Bright colors
-#   bright:
-#     black: "0x808080"
-#     red: "0xfe0100"
-#     green: "0x33ff00"
-#     yellow: "0xfeff00"
-#     blue: "0x0066ff"
-#     magenta: "0xcc00ff"
-#     cyan: "0x00ffff"
-#     white: "0xFFFFFF"
+draw_bold_text_with_bright_colors: false
+colors:
+  # Default colors
+  primary:
+    background: "0x131313"
+    foreground: "0xffffff"
+  cursor:
+    text: "0xF81CE5"
+    cursor: "0xffffff"
+  # Normal colors
+  normal:
+    black: "0x000000"
+    red: "0xfe0100"
+    green: "0x33ff00"
+    yellow: "0xfeff00"
+    blue: "0x0066ff"
+    magenta: "0xcc00ff"
+    cyan: "0x00ffff"
+    white: "0xd0d0d0"
+  # Bright colors
+  bright:
+    black: "0x808080"
+    red: "0xfe0100"
+    green: "0x33ff00"
+    yellow: "0xfeff00"
+    blue: "0x0066ff"
+    magenta: "0xcc00ff"
+    cyan: "0x00ffff"
+    white: "0xFFFFFF"
 
 # Colors (Tomorrow Night Bright)
 #colors:
