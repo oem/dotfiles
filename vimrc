@@ -89,6 +89,7 @@ Plug 'tomasr/molokai'
 Plug 'fmoralesc/molokayo'
 Plug 'Lokaltog/vim-monotone'
 Plug 'balanceiskey/vim-framer-syntax'
+Plug 'jdsimcoe/hyper.vim'
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
@@ -210,7 +211,7 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set  background=dark
-" colo PaperColor
+colo PaperColor
 
 " different highlight color
 " hi Search ctermfg=0 ctermbg=4
