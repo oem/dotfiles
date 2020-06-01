@@ -45,6 +45,11 @@ plug "ul/kak-lsp" do %{
 }
 
 # ui
+
+plug "markolenik/kakoune-darkokai-theme" domain "gitlab.com" theme config %{
+        colorscheme darkokai
+}
+
 addhl global/ wrap # wrap lines
 
 # highlight the word under the cursor
