@@ -60,9 +60,6 @@ Plug 'rust-lang/rust.vim'
 " markdown
 Plug 'tpope/vim-markdown'
 
-" api blueprint
-Plug 'kylef/apiblueprint.vim'
-
 " auto complete and other insert mode completions, like snippets
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " auto completion for go
