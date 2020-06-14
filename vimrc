@@ -336,7 +336,7 @@ map <leader>k <Plug>(easymotion-k)
 let g:ale_fix_on_save = 1
 
 let g:ale_linters = {
-      \ 'rust': ['rls'],
+      \ 'rust': ['rls', 'analyzer'],
       \ 'ruby': ['solargraph', 'standardrb', 'rubocop']
       \ }
 
