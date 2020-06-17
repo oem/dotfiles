@@ -80,11 +80,10 @@ Plug 'joshdick/onedark.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tomasiser/vim-code-dark'
 Plug 'KimNorgaard/vim-frign'
-Plug 'andreypopp/vim-colors-plain'
 Plug 'tomasr/molokai'
 Plug 'fmoralesc/molokayo'
-Plug 'Lokaltog/vim-monotone'
 Plug 'balanceiskey/vim-framer-syntax'
+Plug 'reedes/vim-colors-pencil'
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
@@ -206,7 +205,7 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set  background=dark
-colo PaperColor
+colo pencil
 
 " different highlight color
 " hi Search ctermfg=0 ctermbg=4
