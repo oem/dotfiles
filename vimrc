@@ -217,7 +217,7 @@ hi VertSplit ctermfg=None ctermbg=None cterm=None
 " hi Normal guibg=NONE ctermbg=NONE
 hi StatusLine cterm=NONE ctermfg=7 ctermbg=None
 hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None
-hi Folded ctermbg=237 ctermfg=15
+" hi Folded ctermbg=237 ctermfg=15
 hi LineNr ctermbg=None
 hi Visual ctermbg=4
 
