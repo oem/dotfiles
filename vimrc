@@ -214,8 +214,8 @@ colo pencil
 " highlight EndOfBuffer ctermfg=bg
 
 hi VertSplit ctermfg=None ctermbg=None cterm=None
-" hi CursorLine ctermbg=None
-" hi Normal guibg=NONE ctermbg=NONE
+" hi CursorLine ctermbg=17
+hi Normal guibg=NONE ctermbg=NONE
 hi StatusLine cterm=NONE ctermfg=7 ctermbg=None
 hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None
 " hi Folded ctermbg=237 ctermfg=15
