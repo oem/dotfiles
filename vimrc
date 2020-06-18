@@ -90,8 +90,10 @@ Plug 'nacitar/terminalkeys.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+Plug 'lotabout/skim.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
 
 " improved incsearch
 Plug 'haya14busa/incsearch.vim'
