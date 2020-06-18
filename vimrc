@@ -103,7 +103,7 @@ call plug#end()
 " plugins config {{{
 let g:deoplete#enable_at_startup = 1
 
-call deoplete#custom#source('ale', 'rank', 999)
+call deoplete#custom#source('ale', 'rank', 1999)
 
 call deoplete#custom#var('tabnine', {
 \ 'line_limit': 200,
