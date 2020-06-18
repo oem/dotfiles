@@ -219,14 +219,5 @@ rbenv rehash >/dev/null ^&1
 status --is-interactive; and source (rbenv init -|psub)
 #}}}
 
+starship init fish | source
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /Users/oem/src/njiuko/comdirect_alexa/node_modules/tabtab/.completions/serverless.fish ]; and . /Users/oem/src/njiuko/comdirect_alexa/node_modules/tabtab/.completions/serverless.fish
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /Users/oem/src/njiuko/comdirect_alexa/node_modules/tabtab/.completions/sls.fish ]; and . /Users/oem/src/njiuko/comdirect_alexa/node_modules/tabtab/.completions/sls.fish
-
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[ -f /Users/oembot/code/njiuko/comdirect_alexa/lambda/custom/node_modules/tabtab/.completions/slss.fish ]; and . /Users/oembot/code/njiuko/comdirect_alexa/lambda/custom/node_modules/tabtab/.completions/slss.fish
