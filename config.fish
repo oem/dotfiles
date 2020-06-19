@@ -48,6 +48,7 @@ alias ex='emacs'
 alias e='emacs -nw'
 alias l='ls -la'
 alias ll= 'ls -lah'
+alias cat='bat -p'
 # alias l='exa -la'
 # alias ll='exa -lah'
 alias dir='ls -lht | less'
@@ -220,4 +221,3 @@ status --is-interactive; and source (rbenv init -|psub)
 #}}}
 
 starship init fish | source
-
