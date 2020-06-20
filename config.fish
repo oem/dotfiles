@@ -48,10 +48,11 @@ alias e='emacs -nw'
 alias l='ls -la'
 alias ll= 'ls -lah'
 alias cat='bat -p'
-# alias l='exa -la'
-# alias ll='exa -lah'
+alias l='exa -la'
+alias ll='exa -lah'
 alias dir='ls -lht | less'
 alias b='bundle exec'
+alias c='cargo'
 # alias code='code-insiders'
 # }}}
 # env {{{
