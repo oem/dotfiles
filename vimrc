@@ -337,7 +337,8 @@ let g:ale_fix_on_save = 1
 
 let g:ale_linters = {
       \ 'rust': ['rls', 'analyzer'],
-      \ 'ruby': ['solargraph', 'standardrb', 'rubocop']
+      \ 'ruby': ['solargraph', 'standardrb', 'rubocop'],
+      \ 'python': ['mypy', 'flake8', 'pylint']
       \ }
 
 let g:ale_fixers = {
