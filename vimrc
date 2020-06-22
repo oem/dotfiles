@@ -23,12 +23,8 @@ Plug 'neomake/neomake'
 " Linting, autofixing
 Plug 'dense-analysis/ale'
 
-" tests
-Plug 'janko/vim-test'
-
 " comments
-Plug 'jbgutierrez/vim-better-comments'
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
 
 " git
 Plug 'tpope/vim-fugitive'
