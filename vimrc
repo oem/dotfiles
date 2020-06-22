@@ -39,6 +39,7 @@ Plug 'JuliaEditorSupport/julia-vim'
 
 " python
 Plug 'ambv/black'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 " ruby
 Plug 'tpope/vim-rails'
