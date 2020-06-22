@@ -58,16 +58,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-markdown'
 
 " auto complete and other insert mode completions, like snippets
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-" auto completion for go
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-" ES2015 code snippets (Optional)
-Plug 'epilande/vim-es2015-snippets'
-" React code snippets
-Plug 'epilande/vim-react-snippets'
-" Ultisnips
-Plug 'SirVer/ultisnips'
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/echodoc'
@@ -100,14 +91,6 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 call plug#end()
 " }}}
 " plugins config {{{
-let g:deoplete#enable_at_startup = 1
-
-call deoplete#custom#source('ale', 'rank', 1999)
-
-call deoplete#custom#var('tabnine', {
-\ 'line_limit': 200,
-\ 'max_num_results': 5,
-\ })
 
 " close the preview window after completion is done
 autocmd CompleteDone * silent! pclose!
@@ -402,6 +385,7 @@ autocmd Syntax ruby normal zR
 " }}}
 " {{{ python
 let g:black_linelength=79 " this only affects the :Black command
+au BufNewFile,BufRead *.py set foldmethod=indent
 " }}}
 " frontend {{{
 " react
