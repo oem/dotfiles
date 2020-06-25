@@ -17,9 +17,9 @@ window:
   #
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
-  #dimensions:
-  #  columns: 0
-  #  lines: 0
+  dimensions:
+    columns: 170
+    lines: 30
 
   # Window position (changes require restart)
   #
@@ -60,7 +60,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: SimpleFullscreen
+  startup_mode: Windowed
 
   # Window title
   title: Terminal
