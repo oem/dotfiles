@@ -199,7 +199,8 @@ hi Normal guibg=NONE ctermbg=NONE
 hi StatusLine cterm=NONE ctermfg=7 ctermbg=None
 hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None
 " hi Folded ctermbg=237 ctermfg=15
-hi LineNr ctermbg=None
+hi LineNr ctermbg=None ctermfg=236
+hi CursorLineNr ctermfg=4
 " hi Visual ctermbg=4
 
 " gitgutter
