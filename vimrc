@@ -103,7 +103,7 @@ set nofoldenable
 
 let g:UltiSnipsExpandTrigger="<C-k>"
 
-set cmdheight=2
+set cmdheight=1
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'floating'
 
@@ -276,6 +276,24 @@ inoremap fd <esc>
 " quickly switch to alternate file
 nnoremap <leader><leader> <c-^>
 
+" CoC keybindings
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+
 let g:user_emmet_leader_key = '<c-e>'
 
 " align
@@ -284,18 +302,6 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign with a Vim movement
 nmap <Leader>a <Plug>(EasyAlign)
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" vimux
-" Prompt for a command to run
-map <Leader>vp :VimuxPromptCommand<CR>
-" Run last command executed by VimuxRunCommand
-map <Leader>vl :VimuxRunLastCommand<CR>
-" Inspect runner pane
-map <Leader>vi :VimuxInspectRunner<CR>
-" Zoom the tmux runner pane
-map <Leader>vz :VimuxZoomRunner<CR>
-" Zoom the tmux runner pane
-map <Leader>vc :VimuxCloseRunner<CR>
 
 " fzf - fuzzy file searching
 " I will remove c-F once I got used to leader f
