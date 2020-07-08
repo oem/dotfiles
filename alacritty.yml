@@ -107,7 +107,7 @@ font:
       - (Linux) monospace
       - (Windows) Consolas
     family: iA Writer Mono V
-    style: Text
+    style: Bold
   bold:
     Default:
       - (macOS) Cascadia Mono
