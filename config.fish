@@ -221,3 +221,4 @@ status --is-interactive; and source (rbenv init -|psub)
 #}}}
 
 starship init fish | source
+set -g fish_user_paths "/usr/local/opt/binutils/bin" $fish_user_paths
