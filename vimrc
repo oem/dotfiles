@@ -20,6 +20,8 @@ Plug 'terryma/vim-multiple-cursors'
 
 Plug 'neomake/neomake'
 
+Plug 'jalvesaq/vimcmdline'
+
 " Linting, autofixing
 Plug 'dense-analysis/ale'
 
@@ -211,10 +213,10 @@ hi GitGutterChangeDelete ctermfg=13  ctermbg=13 guifg=#d6225e guibg=#d6225e
 set updatetime=100
 
 " ale
-hi ALEWarning ctermbg=100 ctermfg=15
-hi ALEError ctermbg=202 ctermfg=15
-hi ALEErrorSign ctermbg=202
-hi ALEWarningSign ctermbg=100
+" hi ALEWarning ctermbg=100 ctermfg=15
+" hi ALEError ctermbg=202 ctermfg=15
+" hi ALEErrorSign ctermbg=202
+" hi ALEWarningSign ctermbg=100
 
 " fzf styling
 let g:fzf_colors =
@@ -393,6 +395,10 @@ autocmd Syntax ruby normal zR
 " {{{ python
 let g:black_linelength=79 " this only affects the :Black command
 au BufNewFile,BufRead *.py set foldmethod=indent
+" }}}
+" {{{julia
+au VimEnter,BufRead,BufNewFile *.jl set filetype=julia
+let cmdline_in_buffer = 0
 " }}}
 " frontend {{{
 " react
