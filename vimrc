@@ -116,8 +116,6 @@ map g/ <Plug>(incsearch-fuzzy-stay)
 
 "easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-nmap s <Plug>(easymotion-s2)
-nmap s <Plug>(easymotion-overwin-f)
 let g:EasyMotion_smartcase = 1
 
 " incsearch.vim x fuzzy x vim-easymotion
