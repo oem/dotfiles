@@ -212,6 +212,12 @@ set updatetime=100
 
 hi Pmenu ctermbg=0
 
+" ale
+hi ALEWarning ctermbg=100 ctermfg=15
+hi ALEError ctermbg=202 ctermfg=15
+hi ALEErrorSign ctermbg=202
+hi ALEWarningSign ctermbg=100
+
 " fzf styling
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -302,7 +308,7 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " fzf - fuzzy file searching
 " I will remove c-F once I got used to leader f
-map <c-F> :FZF<cr>
+map <c-F> :Files<cr>
 map <leader>b :Buffers<cr>
 map <leader>f :Files<cr>
 map <leader>l :Lines<cr>
