@@ -337,7 +337,7 @@ let g:ale_fixers = {
 \   'ruby': ['rubocop'],
 \   'python': ['black'],
 \   'rust': ['rustfmt'],
-\   'go': ['gometalinter', 'gofmt']
+\   'go': ['gofmt', 'goimports']
 \}
 
 let g:ale_sign_error = '!!'
