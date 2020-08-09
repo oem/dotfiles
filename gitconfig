@@ -19,6 +19,7 @@
   ui = true
 [core]
 	excludesfile = /Users/oem/.gitignore
+  pager = delta
 [push]
 	default = upstream
 [help]
@@ -30,3 +31,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[interactive]
+  diffFilter = delta --color-only
