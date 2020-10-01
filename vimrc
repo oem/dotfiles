@@ -324,6 +324,9 @@ map <leader>k <Plug>(easymotion-k)
 " autofix on save
 let g:ale_fix_on_save = 1
 
+let g:ale_python_pylint_change_directory=0
+let g:ale_python_flake8_change_directory=0
+
 let g:ale_linters = {
       \ 'rust': ['rls', 'analyzer'],
       \ 'ruby': ['solargraph', 'standardrb', 'rubocop'],

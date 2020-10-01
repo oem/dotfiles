@@ -103,17 +103,17 @@ font:
   # Normal (roman) font face
   normal:
     Default:
-      - (macOS) Cascadia Mono
+      - (macOS) PragmataPro Mono
       - (Linux) monospace
       - (Windows) Consolas
-    family: iA Writer Mono V
+    family: PragmataPro Mono
     style: Bold
   bold:
     Default:
-      - (macOS) Cascadia Mono
+      - (macOS) PragmataPro Mono
       - (Linux) monospace
       - (Windows) Consolas
-    family: iA Writer Mono V
+    family: PragmantaPro Mono
     style: Bold
 
     # The `style` can be specified to pick a specific face.
