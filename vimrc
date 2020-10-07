@@ -400,6 +400,7 @@ au BufNewFile,BufRead *.py set foldmethod=indent
 " }}}
 " {{{julia
 au VimEnter,BufRead,BufNewFile *.jl set filetype=julia
+au FileType julia set shiftwidth=4
 let cmdline_in_buffer = 0
 " }}}
 " frontend {{{
