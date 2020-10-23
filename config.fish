@@ -54,6 +54,7 @@ alias dir='ls -lht | less'
 alias b='bundle exec'
 alias c='cargo'
 alias j='julia'
+alias dc='docker-compose'
 # alias code='code-insiders'
 # }}}
 # env {{{
