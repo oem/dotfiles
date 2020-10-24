@@ -35,6 +35,9 @@ Plug 'airblade/vim-gitgutter'
 " julia
 Plug 'JuliaEditorSupport/julia-vim'
 
+" elm
+Plug 'elmcast/elm-vim'
+
 " python
 Plug 'ambv/black'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
