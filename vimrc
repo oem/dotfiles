@@ -22,6 +22,9 @@ Plug 'neomake/neomake'
 
 Plug 'jalvesaq/vimcmdline'
 
+" Minimap
+Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
+
 " Linting, autofixing
 Plug 'dense-analysis/ale'
 
@@ -101,7 +104,10 @@ call plug#end()
 autocmd CompleteDone * silent! pclose!
 
 " orgmode
-:let g:org_agenda_files=['~/org/*.org', '~/org/projects/*.org']
+let g:org_agenda_files=['~/org/*.org', '~/org/projects/*.org']
+
+" Minimap
+let g:minimap_auto_start=1
 
 " folding
 set nofoldenable
