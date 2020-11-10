@@ -227,3 +227,4 @@ set -g fish_user_paths "/usr/local/opt/binutils/bin" $fish_user_paths
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
 
+zoxide init fish | source
