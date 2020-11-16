@@ -1,5 +1,5 @@
 add_newline = true
 
 [[battery.display]]
-threshold = 10
 style = "bold red"
+threshold = 10
