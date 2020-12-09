@@ -80,6 +80,7 @@ Plug 'tomasr/molokai'
 Plug 'fmoralesc/molokayo'
 Plug 'balanceiskey/vim-framer-syntax'
 Plug 'reedes/vim-colors-pencil'
+Plug 'fxn/vim-monochrome'
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
@@ -196,7 +197,7 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set  background=dark
-colo pencil
+colo monochrome
 
 " hi Search ctermfg=0 ctermbg=4
 " hide the empty buffer character
@@ -211,6 +212,8 @@ hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None
 hi LineNr ctermbg=None ctermfg=236
 hi CursorLineNr ctermfg=4
 " hi Visual ctermbg=4
+
+hi SignColumn ctermbg=None
 
 " gitgutter
 hi GitGutterAdd          ctermfg=2   ctermbg=2  guifg=#718c00 guibg=#718c00
