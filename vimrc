@@ -80,7 +80,7 @@ Plug 'tomasr/molokai'
 Plug 'fmoralesc/molokayo'
 Plug 'balanceiskey/vim-framer-syntax'
 Plug 'reedes/vim-colors-pencil'
-Plug 'fxn/vim-monochrome'
+Plug 'Lokaltog/vim-monotone'
 
 Plug 'jamessan/vim-gnupg'
 Plug 'nacitar/terminalkeys.vim'
@@ -197,7 +197,7 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set  background=dark
-colo monochrome
+colo monotone
 
 " hi Search ctermfg=0 ctermbg=4
 " hide the empty buffer character
@@ -213,6 +213,7 @@ hi LineNr ctermbg=None ctermfg=236
 hi CursorLineNr ctermfg=4
 " hi Visual ctermbg=4
 
+" we don't want the gutter to have any color by default
 hi SignColumn ctermbg=None
 
 " gitgutter
