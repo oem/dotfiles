@@ -107,7 +107,7 @@ font:
       - (Linux) monospace
       - (Windows) Consolas
     family: PragmataPro Mono
-    style: Bold
+    style: Regular
   bold:
     Default:
       - (macOS) PragmataPro Mono
