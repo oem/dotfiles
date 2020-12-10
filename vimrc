@@ -195,7 +195,7 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set  background=dark
-colo monotone
+colo pencil
 
 " hi Search ctermfg=0 ctermbg=4
 " hide the empty buffer character
@@ -209,6 +209,7 @@ hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None
 hi Folded ctermbg=233 ctermfg=238
 hi LineNr ctermbg=None ctermfg=236
 hi CursorLineNr ctermfg=4
+hi Comment ctermfg=238
 " hi Visual ctermbg=4
 
 " we don't want the gutter to have any color by default
