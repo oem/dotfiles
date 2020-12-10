@@ -77,8 +77,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'tomasiser/vim-code-dark'
 Plug 'KimNorgaard/vim-frign'
 Plug 'tomasr/molokai'
-Plug 'fmoralesc/molokayo'
-Plug 'balanceiskey/vim-framer-syntax'
 Plug 'reedes/vim-colors-pencil'
 Plug 'Lokaltog/vim-monotone'
 
@@ -208,7 +206,7 @@ hi VertSplit ctermfg=None ctermbg=None cterm=None
 hi Normal guibg=NONE ctermbg=NONE
 hi StatusLine cterm=NONE ctermfg=7 ctermbg=None
 hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None
-" hi Folded ctermbg=237 ctermfg=15
+hi Folded ctermbg=233 ctermfg=238
 hi LineNr ctermbg=None ctermfg=236
 hi CursorLineNr ctermfg=4
 " hi Visual ctermbg=4
