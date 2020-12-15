@@ -3,3 +3,7 @@ add_newline = true
 [[battery.display]]
 style = "bold red"
 threshold = 10
+
+[character]
+success_symbol = "[λ](bold green)"
+error_symbol = "[λ](bold red)"
