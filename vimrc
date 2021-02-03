@@ -23,7 +23,7 @@ Plug 'neomake/neomake'
 Plug 'jalvesaq/vimcmdline'
 
 " Minimap
-Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
+" Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
 
 " Linting, autofixing
 Plug 'dense-analysis/ale'
@@ -106,7 +106,7 @@ autocmd CompleteDone * silent! pclose!
 let g:org_agenda_files=['~/org/*.org', '~/org/projects/*.org']
 
 " Minimap
-let g:minimap_auto_start=1
+" let g:minimap_auto_start=1
 
 " folding
 set nofoldenable
@@ -340,7 +340,7 @@ let g:ale_python_pylint_change_directory=0
 let g:ale_python_flake8_change_directory=0
 
 let g:ale_linters = {
-      \ 'rust': ['rls', 'analyzer'],
+      \ 'rust': ['analyzer'],
       \ 'ruby': ['solargraph', 'standardrb', 'rubocop'],
       \ 'python': ['mypy', 'flake8', 'pylint']
       \ }
