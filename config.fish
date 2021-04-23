@@ -227,7 +227,6 @@ set -g fish_user_paths "/usr/local/opt/binutils/bin" $fish_user_paths
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
 
-zoxide init fish | source
 # ghcup-env
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
 test -f /Users/oem/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin /Users/oem/.ghcup/bin $PATH
