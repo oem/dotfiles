@@ -1,5 +1,4 @@
 edc/bass
-fisherman/fzf
 fisherman/getopts
 fishpkg/fish-git-util
 fishpkg/fish-host-info
@@ -11,3 +10,4 @@ fishpkg/fish-prompt-mono
 fishpkg/fish-pwd-info
 fishpkg/fish-pwd-is-home
 jorgebucaran/fish-spark
+jethrokuan/fzf

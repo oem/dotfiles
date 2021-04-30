@@ -87,8 +87,6 @@ Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'junegunn/fzf.vim'
 
 " improved incsearch
 Plug 'haya14busa/incsearch.vim'
@@ -452,6 +450,9 @@ function! ExtractBuf()
   let str = execute('ls')
   return substitute(str, '^.*\"\(.*\)\".*$', '\1\n', '')
 endfunction
+" }}}
+" fuzzy things {{{
+" command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
 " }}}
 " dmenu {{{
 " fuzzy finder with dmenu

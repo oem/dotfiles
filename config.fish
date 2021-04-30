@@ -72,9 +72,9 @@ set -gx PATH $N_PREFIX/bin $PATH
 set -gx FZF_DEFAULT_COMMAND "fd --type f"
 # }}}
 # keybindings {{{
-function fish_user_key_bindings
-  fzf_key_bindings
-end
+# function fish_user_key_bindings
+#   fzf_key_bindings
+# end
 bind \cw backward-kill-word
 
 # }}}
