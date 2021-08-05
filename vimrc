@@ -35,6 +35,9 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'TimUntersberger/neogit'
+
 " julia
 Plug 'JuliaEditorSupport/julia-vim'
 
