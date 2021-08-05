@@ -29,3 +29,6 @@ vim/bundle/vim-powerline
 vim/bundle/vim-surround
 vim/bundle/vim-jade
 .emacs.d/backups
+emacs/elpa
+emacs/auto-save-list
+
