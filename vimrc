@@ -206,7 +206,7 @@ au BufReadPost,BufNewFile .vimrc,vimrc,*.fish normal zM
 " }}}
 " {{{ ui
 set background=dark
-colo PaperColor
+colo pencil
 
 " hi Search ctermfg=0 ctermbg=4
 " hide the empty buffer character
