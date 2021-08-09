@@ -330,8 +330,6 @@ nmap <Leader>a <Plug>(EasyAlign)
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " fzf - fuzzy file searching
-" I will remove c-F once I got used to leader f
-map <c-F> :Files<cr>
 map <leader>b :Buffers<cr>
 map <leader>f :Files<cr>
 map <leader>l :Lines<cr>
