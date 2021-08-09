@@ -426,7 +426,6 @@ let g:ale_python_pylint_change_directory=0
 let g:ale_python_flake8_change_directory=0
 
 let g:ale_linters = {
-      \ 'rust': ['analyzer'],
       \ 'ruby': ['solargraph', 'standardrb', 'rubocop'],
       \ 'python': ['mypy', 'flake8', 'pylint']
       \ }
