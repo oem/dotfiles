@@ -445,6 +445,14 @@ map <leader>gd :ALEGoToDefinition<cr>
 nmap <silent> [g <Plug>(ale_previous_wrap)
 nmap <silent> ]g <Plug>(ale_next_wrap)
 " }}}
+" {{{ git
+lua <<EOF
+local neogit = require("neogit")
+neogit.setup {
+  disable_commit_confirmation = true
+  }
+EOF
+" }}}
 " golang {{{
 let g:go_fmt_command="goimports"
 let g:go_highlight_build_constraints = 1
