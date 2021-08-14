@@ -156,7 +156,13 @@
 (use-package org
   :hook (org-mode . oem/org-mode-setup)
   :config
-  (setq org-ellipsis " ✜"))
+  (setq org-ellipsis " ✜")
+
+  (setq org-agenda-files
+	'("/Users/oem/orgfiles/tasks.org"))
+  (setq org-agenda-start-with-log-mode t)
+  (setq org-log-done 'time)
+  (setq org-log-into-drawer t)
 
 (use-package org-bullets
   :after org
