@@ -14,6 +14,6 @@ xmodmap ~/.xmodmap
 urxvtd -f
 
 dunst &
-exec /home/oem/dotfiles/dwm-statusbar &
-exec /home/oem/dotfiles/dwm-start
+exec /home/oem/src/oem/dotfiles/dwm-statusbar &
+exec /home/oem/src/oem/dotfiles/dwm-start
 
