@@ -59,15 +59,15 @@ alias dc='docker-compose'
 # }}}
 # env {{{
 set -x EDITOR nvim
-set -gx PATH $HOME/dotfiles/launch $PATH
-set -gx PATH $HOME/dotfiles/fuzzy $PATH
+set -gx PATH $HOME/src/oem/dotfiles/launch $PATH
+set -gx PATH $HOME/src/oem/dotfiles/fuzzy $PATH
 set -gx PATH $HOME/google-cloud-sdk/bin $PATH
 set -gx LANG en_US.UTF-8
 set -gx LANGUAGE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
 # set -gx JAVA_HOME (/usr/libexec/java_home)
 set -gx NODE_PATH "/usr/local/lib/node_modules"
-set -gx N_PREFIX "/Users/oem"
+set -gx N_PREFIX "/home/oem"
 set -gx PATH $N_PREFIX/bin $PATH
 set -gx FZF_DEFAULT_COMMAND "fd --type f"
 # }}}
@@ -218,7 +218,6 @@ status --is-interactive; and pyenv virtualenv-init - | source
 #{{{ rbenv
 set PATH $HOME/.rbenv/bin $PATH
 set PATH $HOME/.rbenv/shims $PATH
-rbenv rehash >/dev/null ^&1
 status --is-interactive; and source (rbenv init -|psub)
 #}}}
 
