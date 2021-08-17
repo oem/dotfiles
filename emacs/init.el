@@ -11,11 +11,11 @@
 (setq ring-bell-function #'ignore) ; no thank you
 
 ;; UI
-(set-face-attribute 'default nil :font "PragmataPro Mono" :height 140 :weight 'normal)
+(set-face-attribute 'default nil :font "PragmataPro Mono" :height 100 :weight 'normal)
 (setq-default line-spacing 10)
 
-(set-face-attribute 'fixed-pitch nil :font "PragmataPro Mono" :weight 'normal :height 140)
-(set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular :height 150)
+(set-face-attribute 'fixed-pitch nil :font "PragmataPro Mono" :weight 'normal :height 100)
+(set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular :height 100)
 
 (toggle-frame-maximized)
 
@@ -159,7 +159,7 @@
   (setq org-ellipsis " ✜")
 
   (setq org-agenda-files
-	'("/Users/oem/orgfiles/tasks.org"))
+	'("/home/oem/sync/brain/inbox.org"))
   (setq org-agenda-start-with-log-mode t)
   (setq org-log-done 'time)
   (setq org-log-into-drawer t))
@@ -210,6 +210,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("234dbb732ef054b109a9e5ee5b499632c63cc24f7c2383a849815dacc1727cb6" default))
+ '(org-agenda-files nil)
  '(package-selected-packages
    '(visual-fill-column visual-fill visual-fill-mode org-indent org-bullets hydra vterm ivy-rich key-chord evil-collection which-key use-package helpful general evil doom-themes doom-modeline counsel)))
 (custom-set-faces
