@@ -11,11 +11,15 @@
 (setq ring-bell-function #'ignore) ; no thank you
 
 ;; UI
-(set-face-attribute 'default nil :font "PragmataPro Mono" :height 100 :weight 'normal)
+(pcase system-type
+  ((or 'gnu/linux 'windows-nt 'cygwin)
+   (set-face-attribute 'default nil :font "PragmataPro Mono" :height 100 :weight 'normal))
+  ('darwin (set-face-attribute 'default nil :font "PragmataPro Mono" :height 150 :weight 'normal)))
+
 (setq-default line-spacing 10)
 
-(set-face-attribute 'fixed-pitch nil :font "PragmataPro Mono" :weight 'normal :height 100)
-(set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular :height 100)
+(set-face-attribute 'fixed-pitch nil :font "PragmataPro Mono" :weight 'normal)
+(set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular)
 
 (toggle-frame-maximized)
 
