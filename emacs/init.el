@@ -13,12 +13,12 @@
 ;; UI
 (pcase system-type
   ((or 'gnu/linux 'windows-nt 'cygwin)
-   (set-face-attribute 'default nil :font "IBM Plex Mono" :height 80 :weight 'demibold))
-  ('darwin (set-face-attribute 'default nil :font "IBM Plex Mono" :height 150 :weight 'normal)))
+   (set-face-attribute 'default nil :font "PragmataPro Mono" :height 80 :weight 'bold))
+  ('darwin (set-face-attribute 'default nil :font "PragmataPro Mono" :height 140 :weight 'bold)))
 
 (setq-default line-spacing 10)
 
-(set-face-attribute 'fixed-pitch nil :font "IBM Plex Mono" :weight 'demibold)
+(set-face-attribute 'fixed-pitch nil :font "PragmataPro Mono" :weight 'bold)
 (set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular)
 
 (toggle-frame-maximized)
@@ -167,9 +167,16 @@
    '(org-directory "~/sync/brain")
    '(org-agenda-files (list org-directory)))
 
+  (setq org-todo-keywords
+	'((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+	  (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
+
   (setq org-agenda-start-with-log-mode t)
   (setq org-log-done 'time)
   (setq org-log-into-drawer t))
+
+(oem/leader-key-def
+  "oa" '(org-agenda :which-text "org-agenda"))
 
 (use-package org-bullets
   :after org
