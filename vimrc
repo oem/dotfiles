@@ -370,6 +370,9 @@ nvim_lsp.rust_analyzer.setup({ on_attach=on_attach })
 -- Enable solargraph/ruby
 nvim_lsp.solargraph.setup({})
 
+-- Enable typescript/javascript
+nvim_lsp.tsserver.setup{}
+
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
