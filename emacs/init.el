@@ -13,12 +13,12 @@
 ;; UI
 (pcase system-type
   ((or 'gnu/linux 'windows-nt 'cygwin)
-   (set-face-attribute 'default nil :font "PragmataPro Mono" :height 100 :weight 'normal))
-  ('darwin (set-face-attribute 'default nil :font "PragmataPro Mono" :height 150 :weight 'normal)))
+   (set-face-attribute 'default nil :font "IBM Plex Mono" :height 80 :weight 'demibold))
+  ('darwin (set-face-attribute 'default nil :font "IBM Plex Mono" :height 150 :weight 'normal)))
 
 (setq-default line-spacing 10)
 
-(set-face-attribute 'fixed-pitch nil :font "PragmataPro Mono" :weight 'normal)
+(set-face-attribute 'fixed-pitch nil :font "IBM Plex Mono" :weight 'demibold)
 (set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular)
 
 (toggle-frame-maximized)
@@ -157,13 +157,16 @@
   (variable-pitch-mode 1)
   (visual-line-mode 1))
 
+
 (use-package org
   :hook (org-mode . oem/org-mode-setup)
   :config
   (setq org-ellipsis " ✜")
 
-  (setq org-agenda-files
-	'("/home/oem/sync/brain/inbox.org"))
+  (custom-set-variables
+   '(org-directory "~/sync/brain")
+   '(org-agenda-files (list org-directory)))
+
   (setq org-agenda-start-with-log-mode t)
   (setq org-log-done 'time)
   (setq org-log-into-drawer t))
