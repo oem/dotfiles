@@ -18,7 +18,7 @@
 [color]
   ui = true
 [core]
-	excludesfile = /home/oem/.gitignore
+	excludesfile = ~/.gitignore
   pager = delta
 [push]
 	default = upstream
