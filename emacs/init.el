@@ -8,13 +8,25 @@
 (menu-bar-mode -1) ; Disable menu bar
 
 (setq visible-bell nil)
-(setq ring-bell-function #'ignore) ; no thank you
+(setq ring-bell-function 'ignore) ; no thank you
+
+(setq make-backup-files nil) ; stop creating backup~ files
+(setq auto-save-default nil) ; stop creating #autosave# files
 
 ;; UI
+(setq show-paren-delay 0)
+(show-paren-mode 1)  ; The build-in parenthesis matching is great!
+
 (pcase system-type
   ((or 'gnu/linux 'windows-nt 'cygwin)
-   (set-face-attribute 'default nil :font "PragmataPro Mono" :height 80 :weight 'bold))
-  ('darwin (set-face-attribute 'default nil :font "PragmataPro Mono" :height 140 :weight 'bold)))
+   (set-face-attribute 'default nil :font "PragmataPro Mono" :height 70 :weight 'bold))
+  ('darwin
+   (set-face-attribute 'default nil :font "PragmataPro Mono" :height 140 :weight 'bold)
+
+   ;; for mac os: transparent titlebar without icons
+   (add-to-list 'default-frame-alist  '(ns-transparent-titlebar . t))
+   (setq ns-use-proxy-icon nil)
+   (setq frame-title-format nil)))
 
 (setq-default line-spacing 10)
 
@@ -22,6 +34,7 @@
 (set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular)
 
 (toggle-frame-maximized)
+
 
 
 ;; Initialize package sources
@@ -157,23 +170,32 @@
   (variable-pitch-mode 1)
   (visual-line-mode 1))
 
-
 (use-package org
   :hook (org-mode . oem/org-mode-setup)
   :config
   (setq org-ellipsis " ✜")
 
-  (custom-set-variables
-   '(org-directory "~/sync/brain")
-   '(org-agenda-files (list org-directory)))
-
   (setq org-todo-keywords
 	'((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
 	  (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
 
+  (setq org-agenda-files (list "~/sync/brain"))
   (setq org-agenda-start-with-log-mode t)
+  (setq org-agenda-window-setup 'current-window)
   (setq org-log-done 'time)
-  (setq org-log-into-drawer t))
+  (setq org-log-into-drawer t)
+
+  ;; custom org agenda views
+  (setq org-agenda-custom-commands
+	'(("d" "Dashboard"
+	   ((agenda "" ((org-deadline-warning-days 7)))
+	    (todo "NEXT"
+		  ((org-agenda-overriding-header "Next Tasks")))
+	    (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
+
+	  ("n" "Next Tasks"
+	   ((todo "NEXT"
+		  ((org-agenda-overriding-header "Next Tasks"))))))))
 
 (oem/leader-key-def
   "oa" '(org-agenda :which-text "org-agenda"))
@@ -186,9 +208,9 @@
 
 (require 'org-indent)
 
-(dolist (face '((org-level-1 . 2.6)
-		(org-level-2 . 2.0)
-		(org-level-3 . 1.6)
+(dolist (face '((org-level-1 . 2.8)
+		(org-level-2 . 2.2)
+		(org-level-3 . 1.8)
 		(org-level-4 . 1.4)
 		(org-level-5 . 1.2)
 		(org-level-6 . 1.1)
@@ -213,23 +235,3 @@
 
 (use-package visual-fill-column
   :hook (org-mode . oem/org-mode-visual-fill))
-
-
-;; key bindings
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("234dbb732ef054b109a9e5ee5b499632c63cc24f7c2383a849815dacc1727cb6" default))
- '(org-agenda-files nil)
- '(package-selected-packages
-   '(visual-fill-column visual-fill visual-fill-mode org-indent org-bullets hydra vterm ivy-rich key-chord evil-collection which-key use-package helpful general evil doom-themes doom-modeline counsel)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
