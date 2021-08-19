@@ -185,6 +185,19 @@
   (setq org-log-done 'time)
   (setq org-log-into-drawer t)
 
+  ;; org habit
+  (require 'org-habit)
+  (add-to-list 'org-modules 'org-habit)
+  (setq org-habit-graph-column 60)
+
+  ;; org refile targets
+  (setq org-refile-targets
+	'(("archive.org" :maxlevel . 1)
+	  ("tasks.org" :maxlevel . 1)))
+
+  ;; save org buffers after refiling
+  (advice-add 'org-refile :after 'org-save-all-org-buffers)
+
   ;; custom org agenda views
   (setq org-agenda-custom-commands
 	'(("d" "Dashboard"
@@ -195,7 +208,13 @@
 
 	  ("n" "Next Tasks"
 	   ((todo "NEXT"
-		  ((org-agenda-overriding-header "Next Tasks"))))))))
+		  ((org-agenda-overriding-header "Next Tasks")))))))
+
+  (setq org-capture-templates
+	`(("t" "Tasks / Projects")
+	  ("tt" "Task" entry (file+olp "~/sync/brain/tasks.org" "Inbox")
+	   "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)))
+  )
 
 (oem/leader-key-def
   "oa" '(org-agenda :which-text "org-agenda"))
