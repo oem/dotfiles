@@ -152,6 +152,9 @@
 	 :map minibuffer-local-map
 	 ("C-r" . 'counsel-minibuffer-history)))
 
+(oem/leader-key-def
+  "ff" '(find-file :which-text "find file"))
+
 (use-package helpful
   :custom
   (counsel-describe-function-function #'helpful-callable)
@@ -179,7 +182,9 @@
 	'((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
 	  (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
 
-  (setq org-agenda-files (list "~/sync/brain"))
+  (load-library "find-lisp")
+  (setq org-agenda-files
+	(find-lisp-find-files "~/sync/brain/" "\.org$"))
   (setq org-agenda-start-with-log-mode t)
   (setq org-agenda-window-setup 'current-window)
   (setq org-log-done 'time)
@@ -192,8 +197,8 @@
 
   ;; org refile targets
   (setq org-refile-targets
-	'(("archive.org" :maxlevel . 1)
-	  ("tasks.org" :maxlevel . 1)))
+	'(("archive.org" :maxlevel . 3)
+	  ("tasks.org" :maxlevel . 2)))
 
   ;; save org buffers after refiling
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
@@ -213,11 +218,15 @@
   (setq org-capture-templates
 	`(("t" "Tasks / Projects")
 	  ("tt" "Task" entry (file+olp "~/sync/brain/tasks.org" "Inbox")
-	   "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)))
-  )
+	   "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+	("m" "Metrics")
+	("mw" "Water" table-line (file+headline "~/sync/brain/metrics.org" "Water")
+	 "| %U | %^{Glasses} |" :kill-buffer t))))
 
 (oem/leader-key-def
-  "oa" '(org-agenda :which-text "org-agenda"))
+  "oa" '(org-agenda :which-text "org-agenda")
+  "or" '(org-refile :which-text "org-refile")
+  "oc" '(org-capture :which-text "org-capture"))
 
 (use-package org-bullets
   :after org
