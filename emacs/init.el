@@ -12,6 +12,8 @@
 
 (setq make-backup-files nil) ; stop creating backup~ files
 (setq auto-save-default nil) ; stop creating #autosave# files
+(setq x-select-enable-clipboard t)
+(setq x-select-enable-primary t)
 
 ;; UI
 (setq show-paren-delay 0)
