@@ -215,7 +215,26 @@
 
 	  ("n" "Next Tasks"
 	   ((todo "NEXT"
-		  ((org-agenda-overriding-header "Next Tasks")))))))
+		  ((org-agenda-overriding-header "Next Tasks")))))
+
+	  ("W" "Work Tasks" tags-todo "+work")
+
+	  ("w" "Workflow Status"
+	   ((todo "WAIT"
+		  ((org-agenda-overriding-header "Waiting on External")))
+	    (todo "PLAN"
+		  ((org-agenda-overriding-header "In Planning")))
+	    (todo "BACKLOG"
+		  ((org-agenda-overriding-header "Backlog")))
+	    (todo "ACTIVE"
+		  ((org-agenda-overriding-header "Active")))
+	    (todo "REVIEW"
+		  ((org-agenda-overriding-header "In Review")))
+	    (todo "COMPLETED"
+		  ((org-agenda-overriding-header "Completed")))
+	    (todo "CANC"
+		  ((org-agenda-overriding-header "Cancelled")))
+	    ))))
 
   (setq org-capture-templates
 	`(("t" "Tasks / Projects")
