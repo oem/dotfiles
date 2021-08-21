@@ -242,7 +242,9 @@
 	   "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
 	("m" "Metrics")
 	("mw" "Water" table-line (file+headline "~/sync/brain/metrics.org" "Water")
-	 "| %U | %^{Glasses} |" :kill-buffer t))))
+	 "| %U | %^{Glasses} |" :kill-buffer t)
+	("mW" "Weight" table-line (file+headline "~/sync/brain/metrics.org" "Weight")
+	 "| %U | %^{kg} | %^{notes} |" :kill-buffer t)))
 
 (oem/leader-key-def
   "oa" '(org-agenda :which-text "org-agenda")
