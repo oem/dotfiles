@@ -35,9 +35,9 @@ Plug 'nvim-lua/lsp_extensions.nvim'
 " Autocompletion framework for built-in LSP
 Plug 'nvim-lua/completion-nvim'
 
-Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'ray-x/navigator.lua'
+" Plug 'ray-x/guihua.lua', {'do': 'cd lua/fzy && make' }
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'ray-x/navigator.lua'
 
 " Linting, autofixing
 
@@ -379,7 +379,7 @@ nvim_lsp.solargraph.setup({})
 nvim_lsp.tsserver.setup{}
 
 
-require'navigator'.setup()
+-- require'navigator'.setup()
 
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
