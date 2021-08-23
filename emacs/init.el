@@ -18,10 +18,9 @@
 ;; UI
 (setq show-paren-delay 0)
 (show-paren-mode 1)  ; The build-in parenthesis matching is great!
-
 (pcase system-type
   ((or 'gnu/linux 'windows-nt 'cygwin)
-   (set-face-attribute 'default nil :font "PragmataPro Mono" :height 70 :weight 'bold))
+   (set-face-attribute 'default nil :family "Tamsyn" :height 100 :weight 'normal))
   ('darwin
    (set-face-attribute 'default nil :font "PragmataPro Mono" :height 140 :weight 'bold)
 
@@ -32,7 +31,7 @@
 
 (setq-default line-spacing 10)
 
-(set-face-attribute 'fixed-pitch nil :font "PragmataPro Mono" :weight 'bold)
+(set-face-attribute 'fixed-pitch nil :family "Tamsyn" :weight 'normal)
 (set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular)
 
 (toggle-frame-maximized)
@@ -290,3 +289,16 @@
 
 (use-package visual-fill-column
   :hook (org-mode . oem/org-mode-visual-fill))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(which-key visual-fill-column use-package poet-theme org-bullets key-chord ivy-rich hydra helpful general evil-collection doom-themes doom-modeline counsel)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
