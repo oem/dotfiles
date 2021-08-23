@@ -132,7 +132,7 @@
 
 (use-package key-chord
   :init
-  (setq key-chord-two-keys-delay 0.5)
+  (setq key-chord-two-keys-delay 0.3)
   (key-chord-define evil-insert-state-map "fd" 'evil-normal-state)
   :config
   (key-chord-mode 1))
@@ -145,6 +145,7 @@
   ("f" nil "finished" :exit t))
 
 (oem/leader-key-def
+  "t" '(:ignore t :which-key "text")
   "ts" '(hydra-text-scale/body :which-text "text scale"))
 
 (use-package counsel
@@ -155,6 +156,7 @@
 	 ("C-r" . 'counsel-minibuffer-history)))
 
 (oem/leader-key-def
+  "f" '(:ignore t :which-key "file")
   "ff" '(find-file :which-text "find file"))
 
 (use-package helpful
@@ -247,6 +249,7 @@
 	 "| %U | %^{kg} | %^{notes} |" :kill-buffer t))))
 
 (oem/leader-key-def
+  "o" '(:ignore t :which-key "org")
   "oa" '(org-agenda :which-text "org-agenda")
   "or" '(org-refile :which-text "org-refile")
   "oc" '(org-capture :which-text "org-capture"))
@@ -272,6 +275,7 @@
 ;; we don't want variable fonts for everything in org mode:
 (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
 (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-date nil :inherit 'fixed-pitch)
 (set-face-attribute 'org-code nil :inherit '(shadow fixed-pitch))
 (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
 (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
