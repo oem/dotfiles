@@ -133,7 +133,9 @@
 
 (oem/leader-key-def
   "f" '(:ignore t :which-key "file")
-  "ff" '(find-file :which-text "find file"))
+  "ff" '(find-file :which-text "find file")
+  "fd" '(:ignore t :which-key "find dotfiles")
+  "fde" '(lambda () (interactive) (find-file (expand-file-name "~/src/oem/dotfiles/emacs/emacs.org"))))
 
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
@@ -300,4 +302,5 @@
     (let ((org-confirm-babel-evaluate nil))
       (org-babel-tangle))))
 
-(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'oem/org-babel-tangle-config)))
+(add-hook 'org-mode-hook
+          (lambda () (add-hook 'after-save-hook #'oem/org-babel-tangle-config)))
