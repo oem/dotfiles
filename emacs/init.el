@@ -1,4 +1,3 @@
-;; Sane defaults
 (setq inhibit-startup-message t) ; disable startup message
 
 (scroll-bar-mode -1) ; Disable visible scrollbar
@@ -10,14 +9,12 @@
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore) ; no thank you
 
-(setq make-backup-files nil) ; stop creating backup~ files
-(setq auto-save-default nil) ; stop creating #autosave# files
 (setq x-select-enable-clipboard t)
 (setq x-select-enable-primary t)
 
-;; UI
-(setq show-paren-delay 0)
-(show-paren-mode 1)  ; The build-in parenthesis matching is great!
+(setq make-backup-files nil) ; stop creating backup~ files
+(setq auto-save-default nil) ; stop creating #autosave# files
+
 (pcase system-type
   ((or 'gnu/linux 'windows-nt 'cygwin)
    (set-face-attribute 'default nil :family "Tamsyn" :height 100 :weight 'normal))
@@ -36,57 +33,21 @@
 
 (toggle-frame-maximized)
 
-
-
-;; Initialize package sources
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
-			 ("elpa" . "https://elpa.gnu.org/packages/")))
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
 
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
 
-;; Initialize use-package
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
 (require 'use-package)
 (setq use-package-always-ensure t)
-
-;; Packages
-(use-package swiper
-  :ensure t)
-
-(use-package ivy
-  :diminish
-  :bind (("C-s" . swiper)
-	 :map ivy-minibuffer-map
-	 ("TAB" . ivy-alt-done)
-	 ("C-l" . ivy-alt-done)
-	 ("C-j" . ivy-next-line)
-	 ("C-k" . ivy-previous-line)
-	 :map ivy-switch-buffer-map
-	 ("C-k" . ivy-previous-line)
-	 ("C-l" . ivy-done)
-	 ("C-d" . ivy-switch-buffer-kill)
-	 :map ivy-reverse-i-search-map
-	 ("C-k" . ivy-previous-line)
-	 ("C-d" . ivy-reverse-i-search-kill))
-  :config
-  (ivy-mode 1))
-
-(use-package ivy-rich)
-
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1)
-  :custom (doom-modeline-height 35))
-
-(use-package doom-themes
-  :init (load-theme 'doom-dark+ t))
 
 (use-package which-key
   :init (which-key-mode)
@@ -147,16 +108,39 @@
   "t" '(:ignore t :which-key "text")
   "ts" '(hydra-text-scale/body :which-text "text scale"))
 
-(use-package counsel
-  :bind (("M-x" . counsel-M-x)
-	 ("C-x b" . counsel-ibuffer)
-	 ("C-x C-f" . counsel-find-file)
-	 :map minibuffer-local-map
-	 ("C-r" . 'counsel-minibuffer-history)))
+(use-package swiper
+  :ensure t)
+
+(use-package ivy
+  :diminish
+  :bind (("C-s" . swiper)
+         :map ivy-minibuffer-map
+         ("TAB" . ivy-alt-done)
+         ("C-l" . ivy-alt-done)
+         ("C-j" . ivy-next-line)
+         ("C-k" . ivy-previous-line)
+         :map ivy-switch-buffer-map
+         ("C-k" . ivy-previous-line)
+         ("C-l" . ivy-done)
+         ("C-d" . ivy-switch-buffer-kill)
+         :map ivy-reverse-i-search-map
+         ("C-k" . ivy-previous-line)
+         ("C-d" . ivy-reverse-i-search-kill))
+  :config
+  (ivy-mode 1))
+
+(use-package ivy-rich)
 
 (oem/leader-key-def
   "f" '(:ignore t :which-key "file")
   "ff" '(find-file :which-text "find file"))
+
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+         ("C-x b" . counsel-ibuffer)
+         ("C-x C-f" . counsel-find-file)
+         :map minibuffer-local-map
+         ("C-r" . 'counsel-minibuffer-history)))
 
 (use-package helpful
   :custom
@@ -168,9 +152,16 @@
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
 
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :custom (doom-modeline-height 35))
+
+(use-package doom-themes
+  :init (load-theme 'doom-dark+ t))
+
 (use-package all-the-icons)
 
-;; org mode
 (defun oem/org-mode-setup ()
   (org-indent-mode)
   (variable-pitch-mode 1)
@@ -182,12 +173,12 @@
   (setq org-ellipsis " ✜")
 
   (setq org-todo-keywords
-	'((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
-	  (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
+        '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+          (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
 
   (load-library "find-lisp")
   (setq org-agenda-files
-	(find-lisp-find-files "~/sync/brain/" "\.org$"))
+        (find-lisp-find-files "~/sync/brain/" "\.org$"))
   (setq org-agenda-start-with-log-mode t)
   (setq org-agenda-window-setup 'current-window)
   (setq org-log-done 'time)
@@ -200,52 +191,52 @@
 
   ;; org refile targets
   (setq org-refile-targets
-	'(("archive.org" :maxlevel . 3)
-	  ("tasks.org" :maxlevel . 2)))
+        '(("archive.org" :maxlevel . 3)
+          ("tasks.org" :maxlevel . 2)))
 
   ;; save org buffers after refiling
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
 
   ;; custom org agenda views
   (setq org-agenda-custom-commands
-	'(("d" "Dashboard"
-	   ((agenda "" ((org-deadline-warning-days 7)))
-	    (todo "NEXT"
-		  ((org-agenda-overriding-header "Next Tasks")))
-	    (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
+        '(("d" "Dashboard"
+           ((agenda "" ((org-deadline-warning-days 7)))
+            (todo "NEXT"
+                  ((org-agenda-overriding-header "Next Tasks")))
+            (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
 
-	  ("n" "Next Tasks"
-	   ((todo "NEXT"
-		  ((org-agenda-overriding-header "Next Tasks")))))
+          ("n" "Next Tasks"
+           ((todo "NEXT"
+                  ((org-agenda-overriding-header "Next Tasks")))))
 
-	  ("W" "Work Tasks" tags-todo "+work")
+          ("W" "Work Tasks" tags-todo "+work")
 
-	  ("w" "Workflow Status"
-	   ((todo "WAIT"
-		  ((org-agenda-overriding-header "Waiting on External")))
-	    (todo "PLAN"
-		  ((org-agenda-overriding-header "In Planning")))
-	    (todo "BACKLOG"
-		  ((org-agenda-overriding-header "Backlog")))
-	    (todo "ACTIVE"
-		  ((org-agenda-overriding-header "Active")))
-	    (todo "REVIEW"
-		  ((org-agenda-overriding-header "In Review")))
-	    (todo "COMPLETED"
-		  ((org-agenda-overriding-header "Completed")))
-	    (todo "CANC"
-		  ((org-agenda-overriding-header "Cancelled")))
-	    ))))
+          ("w" "Workflow Status"
+           ((todo "WAIT"
+                  ((org-agenda-overriding-header "Waiting on External")))
+            (todo "PLAN"
+                  ((org-agenda-overriding-header "In Planning")))
+            (todo "BACKLOG"
+                  ((org-agenda-overriding-header "Backlog")))
+            (todo "ACTIVE"
+                  ((org-agenda-overriding-header "Active")))
+            (todo "REVIEW"
+                  ((org-agenda-overriding-header "In Review")))
+            (todo "COMPLETED"
+                  ((org-agenda-overriding-header "Completed")))
+            (todo "CANC"
+                  ((org-agenda-overriding-header "Cancelled")))
+            ))))
 
   (setq org-capture-templates
-	`(("t" "Tasks / Projects")
-	  ("tt" "Task" entry (file+olp "~/sync/brain/tasks.org" "Inbox")
-	   "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
-	("m" "Metrics")
-	("mw" "Water" table-line (file+headline "~/sync/brain/metrics.org" "Water")
-	 "| %U | %^{Glasses} |" :kill-buffer t)
-	("mW" "Weight" table-line (file+headline "~/sync/brain/metrics.org" "Weight")
-	 "| %U | %^{kg} | %^{notes} |" :kill-buffer t))))
+        `(("t" "Tasks / Projects")
+          ("tt" "Task" entry (file+olp "~/sync/brain/tasks.org" "Inbox")
+           "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+          ("m" "Metrics")
+          ("mw" "Water" table-line (file+headline "~/sync/brain/metrics.org" "Water")
+           "| %U | %^{Glasses} |" :kill-buffer t)
+          ("mW" "Weight" table-line (file+headline "~/sync/brain/metrics.org" "Weight")
+           "| %U | %^{kg} | %^{notes} |" :kill-buffer t))))
 
 (oem/leader-key-def
   "o" '(:ignore t :which-key "org")
@@ -262,13 +253,13 @@
 (require 'org-indent)
 
 (dolist (face '((org-level-1 . 2.8)
-		(org-level-2 . 2.2)
-		(org-level-3 . 1.8)
-		(org-level-4 . 1.4)
-		(org-level-5 . 1.2)
-		(org-level-6 . 1.1)
-		(org-level-7 . 1.1)
-		(org-level-8 . 1.1)))
+                (org-level-2 . 2.2)
+                (org-level-3 . 1.8)
+                (org-level-4 . 1.4)
+                (org-level-5 . 1.2)
+                (org-level-6 . 1.1)
+                (org-level-7 . 1.1)
+                (org-level-8 . 1.1)))
   (set-face-attribute (car face) nil :font "Avenir Next LT Pro" :weight 'bold :height (cdr face)))
 
 ;; we don't want variable fonts for everything in org mode:
@@ -284,21 +275,29 @@
 
 (defun oem/org-mode-visual-fill ()
   (setq visual-fill-column-width 100
-	visual-fill-column-center-text t)
+        visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
 (use-package visual-fill-column
   :hook (org-mode . oem/org-mode-visual-fill))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(which-key visual-fill-column use-package poet-theme org-bullets key-chord ivy-rich hydra helpful general evil-collection doom-themes doom-modeline counsel)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+(setq org-confirm-babel-evaluate nil)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)))
+
+(require 'org-tempo)
+
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+
+(defun oem/org-babel-tangle-config ()
+  (when (string-equal (buffer-file-name)
+                      (expand-file-name "~/src/oem/dotfiles/emacs/emacs.org"))
+    (let ((org-confirm-babel-evaluate nil))
+      (org-babel-tangle))))
+
+(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'oem/org-babel-tangle-config)))

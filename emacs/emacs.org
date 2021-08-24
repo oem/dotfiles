@@ -1,4 +1,5 @@
 #+title Emacs Configuration
+#+PROPERTY: header-args:emacs-lisp :tangle ./init.el
 
 * Be Literate
 This file will generate [[file:init.el][init.el]] which can be loaded by Emacs on startup.
@@ -34,7 +35,7 @@ Not a fan of the backup~ and #autosave# files, I usually just find them clutteri
 #+begin_src emacs-lisp
   (pcase system-type
     ((or 'gnu/linux 'windows-nt 'cygwin)
-     (set-face-attribute 'default nil :family "Tamsyn" :height 60 :weight 'normal))
+     (set-face-attribute 'default nil :family "Tamsyn" :height 100 :weight 'normal))
     ('darwin
      (set-face-attribute 'default nil :font "PragmataPro Mono" :height 140 :weight 'bold)
 
@@ -197,7 +198,6 @@ For cycling things.
            :map minibuffer-local-map
            ("C-r" . 'counsel-minibuffer-history)))
 #+end_src
-
 
 * Help
 #+begin_src emacs-lisp
@@ -374,4 +374,20 @@ For cycling things.
   (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
   (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
   (add-to-list 'org-structure-template-alist '("py" . "src python"))
+#+end_src
+
+** Setting up the config
+Apply the same configuration to every block:
+#+PROPERTY: header-args:emacs-lisp :tangle ./init.el
+
+** Auto-tangle config file
+We want to tangle this file whenever we save changes.
+#+begin_src emacs-lisp
+  (defun oem/org-babel-tangle-config ()
+    (when (string-equal (buffer-file-name)
+                        (expand-file-name "~/src/oem/dotfiles/emacs/emacs.org"))
+      (let ((org-confirm-babel-evaluate nil))
+        (org-babel-tangle))))
+
+  (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'oem/org-babel-tangle-config)))
 #+end_src
