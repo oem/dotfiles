@@ -154,6 +154,43 @@
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
 
+(use-package flycheck)
+
+(defun oem/rustic-mode-hook ()
+  (when buffer-file-name
+    (setq-local  buffer-save-without-query t)))
+
+(use-package rustic
+  :config
+  (setq rustic-lsp-client 'lsp-mode
+        rustic-lsp-server 'rust-analyzer
+        rustic-analuzer-command '("/usr/local/bin/rust-analyzer"))
+  (setq rustic-format-on-save t)
+  (setq rust-format-on-save t)
+  (add-hook 'rustic-mode-hook 'oem/rustic-mode-hook))
+
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :custom
+  (lsp-rust-analyzer-server-display-inlay-hints t)
+  :config
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+  (setq lsp-headerline-breadcrumb-enable nil)
+  :hook (
+         (rust-mode . lsp-deferred)
+         (lsp-mode . lsp-enable-which-key-integration)))
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :custom
+  (lsp-ui-peek-always-show t)
+  (lsp-ui-sideline-show-hover t)
+  (lsp-ui-doc-enable nil))
+
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1)
@@ -220,6 +257,8 @@
                   ((org-agenda-overriding-header "In Planning")))
             (todo "BACKLOG"
                   ((org-agenda-overriding-header "Backlog")))
+            (todo "READY"
+                  ((org-agenda-overriding-header "Ready")))
             (todo "ACTIVE"
                   ((org-agenda-overriding-header "Active")))
             (todo "REVIEW"
