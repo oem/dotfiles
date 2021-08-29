@@ -1,22 +1,26 @@
 # Increase volume
-"sh $HOME/dotfiles/sound.sh up"
+"sh $HOME/src/oem/dotfiles/sound.sh up"
     m:0x0 + c:123
     XF86AudioRaiseVolume
 
 # Decrease volume
-"sh $HOME/dotfiles/sound.sh down"
+"sh $HOME/src/oem/dotfiles/sound.sh down"
     m:0x0 + c:122
     XF86AudioLowerVolume
 
 # Toggle mute
-"sh $HOME/dotfiles/sound.sh mute"
+"sh $HOME/src/oem/dotfiles/sound.sh mute"
     m:0x0 + c:121
     XF86AudioMute
 
-"sh $HOME/dotfiles/brightness.sh inc"
+"sh $HOME/src/oem/dotfiles/brightness.sh inc"
     m:0x0 + c:233
     XF86MonBrightnessUp
 
-"sh $HOME/dotfiles/brightness.sh dec"
+"sh $HOME/src/oem/dotfiles/brightness.sh dec"
     m:0x0 + c:232
     XF86MonBrightnessDown
+
+# Mute microphone
+"pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+   XF86AudioMicMute
