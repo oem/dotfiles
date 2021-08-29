@@ -3,7 +3,7 @@
 
 * Be Literate
 This file will generate [[file:init.el][init.el]] which can be loaded by Emacs on startup.
-Maybe some things look familiar? I followed the really helpful [[https://www.youtube.com/c/SystemCrafters][Systemcrafters]] youtube channel on how to configure Emacs from scratch. 
+Maybe some things look familiar? I followed the really helpful [[https://www.youtube.com/c/SystemCrafters][Systemcrafters]] youtube channel on how to configure Emacs from scratch.
 
 * Sane Defaults
 #+begin_src emacs-lisp
@@ -65,7 +65,7 @@ You can always run package-refresh-contents in case that a package was not found
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
   (package-initialize)
   (unless package-archive-contents
-    (package-refresh-contents)) 
+    (package-refresh-contents))
 #+end_src
 
 ** initialize use-package
@@ -193,6 +193,29 @@ For cycling things.
     "fde" '(lambda () (interactive) (find-file (expand-file-name "~/src/oem/dotfiles/emacs/emacs.org"))))
 #+end_src
 
+** finding projects
+*** projectile
+#+begin_src emacs-lisp
+  (use-package projectile
+    :diminish projectile-mode
+    :config (projectile-mode)
+    :custom ((projectile-completion-system 'ivy))
+    :bind-keymap
+    ("C-c p" . projectile-command-map)
+    :init
+    (when (file-directory-p "~/src")
+      (setq projectile-project-search-path '("~/src")))
+    (setq projectile-switch-project-action #'projectile-dired))
+
+  (use-package counsel-projectile
+    :config (counsel-projectile-mode))
+
+  (oem/leader-key-def
+    "p" '(:ignore t :which-key "projects")
+    "pf" '(projectile-find-file :which-text "find file in project")
+    "pp" '(projectile-switch-project :which-text "switch projects"))
+#+end_src
+
 * Completing things
 ** counsel
 #+begin_src emacs-lisp
@@ -292,6 +315,7 @@ For cycling things.
 ** commenting things
 #+begin_src emacs-lisp
   (use-package evil-nerd-commenter)
+
   (oem/leader-key-def
     "/" '(evilnc-comment-or-uncomment-lines :which-key "comment"))
 #+end_src

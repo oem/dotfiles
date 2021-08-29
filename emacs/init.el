@@ -138,6 +138,25 @@
   "fd" '(:ignore t :which-key "find dotfiles")
   "fde" '(lambda () (interactive) (find-file (expand-file-name "~/src/oem/dotfiles/emacs/emacs.org"))))
 
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/src")
+    (setq projectile-project-search-path '("~/src")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
+(oem/leader-key-def
+  "p" '(:ignore t :which-key "projects")
+  "pf" '(projectile-find-file :which-text "find file in project")
+  "pp" '(projectile-switch-project :which-text "switch projects"))
+
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
          ("C-x b" . counsel-ibuffer)
@@ -207,6 +226,7 @@
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 
 (use-package evil-nerd-commenter)
+
 (oem/leader-key-def
   "/" '(evilnc-comment-or-uncomment-lines :which-key "comment"))
 
