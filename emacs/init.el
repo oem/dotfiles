@@ -145,6 +145,20 @@
          :map minibuffer-local-map
          ("C-r" . 'counsel-minibuffer-history)))
 
+(use-package company
+  :after lsp-mode
+  :hook (progr-mode . company-mode)
+  :bind (:map company-active-map
+              ("<tab>" . company-complete-selection))
+  (:map lsp-mode-map
+        ("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
+
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
 (use-package helpful
   :custom
   (counsel-describe-function-function #'helpful-callable)
@@ -188,9 +202,13 @@
   :custom
   (lsp-ui-peek-always-show t)
   (lsp-ui-sideline-show-hover t)
-  (lsp-ui-doc-enable nil))
+  (lsp-ui-doc-position 'bottom))
 
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+
+(use-package evil-nerd-commenter)
+(oem/leader-key-def
+  "/" '(evilnc-comment-or-uncomment-lines :which-key "comment"))
 
 (use-package doom-modeline
   :ensure t

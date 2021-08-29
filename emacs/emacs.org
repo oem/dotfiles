@@ -204,6 +204,23 @@ For cycling things.
            ("C-r" . 'counsel-minibuffer-history)))
 #+end_src
 
+** company mode
+#+begin_src emacs-lisp
+  (use-package company
+    :after lsp-mode
+    :hook (progr-mode . company-mode)
+    :bind (:map company-active-map
+                ("<tab>" . company-complete-selection))
+    (:map lsp-mode-map
+          ("<tab>" . company-indent-or-complete-common))
+    :custom
+    (company-minimum-prefix-length 1)
+    (company-idle-delay 0.0))
+
+  (use-package company-box
+    :hook (company-mode . company-box-mode))
+#+end_src
+
 * Help
 #+begin_src emacs-lisp
   (use-package helpful
@@ -223,7 +240,7 @@ For cycling things.
   (use-package flycheck)
 #+end_src
 
-* LSP
+* Development
 ** languages
 *** rust
 #+begin_src emacs-lisp
@@ -267,9 +284,16 @@ For cycling things.
     :custom
     (lsp-ui-peek-always-show t)
     (lsp-ui-sideline-show-hover t)
-    (lsp-ui-doc-enable nil))
+    (lsp-ui-doc-position 'bottom))
 
   (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+#+end_src
+
+** commenting things
+#+begin_src emacs-lisp
+  (use-package evil-nerd-commenter)
+  (oem/leader-key-def
+    "/" '(evilnc-comment-or-uncomment-lines :which-key "comment"))
 #+end_src
 
 * Themes
