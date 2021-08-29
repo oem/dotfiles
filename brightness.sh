@@ -3,8 +3,8 @@
 STEP="10"    # Anything you like.
 
 # Set volume
-INC="/usr/bin/xbacklight -inc"
-DEC="/usr/bin/xbacklight -dec"
+INC="sudo /usr/bin/xbacklight -inc"
+DEC="sudo /usr/bin/xbacklight -dec"
 
 case "$1" in
   "inc")
