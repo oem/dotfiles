@@ -108,9 +108,8 @@
   "t" '(:ignore t :which-key "text")
   "ts" '(hydra-text-scale/body :which-text "text scale")
   "tf" '(:ignore t :which-key "fonts")
-
-  "tfF" '(lambda () (interactive) (set-face-font 'default "PragmataPro Mono") :which-text "set scalable fixed font")
-  "tff" '(lambda () (interactive) (set-face-font 'default "Tamsyn") :which-text "set bitmap fixed font"))
+  "tfF" '(lambda () (interactive) (set-face-attribute 'default nil :family "PragmataPro Mono" :height 140 :weight 'bold))
+  "tff" '(lambda () (interactive) (set-face-attribute 'default nil :family "Tamsyn" :height 100 :weight 'normal)))
 
 (use-package swiper
   :ensure t)
