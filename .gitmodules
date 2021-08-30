@@ -1,0 +1,3 @@
+[submodule "vim/bundle/orgmode.nvim"]
+	path = vim/bundle/orgmode.nvim
+	url = https://github.com/kristijanhusak/orgmode.nvim.git

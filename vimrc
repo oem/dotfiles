@@ -111,6 +111,10 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 
+" Org mode
+Plug 'kristijanhusak/orgmode.nvim'
+
+
 call plug#end()
 " }}}
 " plugins config {{{
@@ -119,7 +123,14 @@ call plug#end()
 autocmd CompleteDone * silent! pclose!
 
 " orgmode
-let g:org_agenda_files=['~/org/*.org', '~/org/projects/*.org']
+
+lua <<EOF
+require('orgmode').setup({
+  org_agenda_files = {'~/sync/brain/*'},
+  org_default_notes_file = '~/sync/brain/refile.org',
+  org_todo_keywords = {'TODO(t)', 'NEXT(n)', '|', 'DONE(d)'},
+})
+EOF
 
 " Minimap
 " let g:minimap_auto_start=1
