@@ -178,6 +178,12 @@
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
+(use-package magit)
+
+(oem/leader-key-def
+  "g" '(:ignore t :which-key "version control")
+  "gg" '(magit-status :which-key "status"))
+
 (use-package helpful
   :custom
   (counsel-describe-function-function #'helpful-callable)
@@ -220,8 +226,8 @@
   :commands lsp-ui-mode
   :custom
   (lsp-ui-peek-always-show t)
-  (lsp-ui-sideline-show-hover t)
-  (lsp-ui-doc-position 'bottom))
+  (lsp-ui-sideline-show-hover nil)
+  (lsp-ui-doc-enable nil))
 
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 
