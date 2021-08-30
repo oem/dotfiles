@@ -1,4 +1,4 @@
-#+title Emacs Configuration
+#+TITLE: Emacs Configuration
 #+PROPERTY: header-args:emacs-lisp :tangle ./init.el
 
 * Be Literate
@@ -143,6 +143,7 @@ Can't live without vim keybindings.
 
 ** hydra
 For cycling things.
+I also snug in some keybindings to change to a larger font quickly. I personally prefer my beloved Tamsyn font, but not everyone can read it easily when pairing.
 #+begin_src emacs-lisp
   (use-package hydra)
   (defhydra hydra-text-scale (:timeout 4)
