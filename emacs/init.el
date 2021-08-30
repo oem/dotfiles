@@ -15,24 +15,6 @@
 (setq make-backup-files nil) ; stop creating backup~ files
 (setq auto-save-default nil) ; stop creating #autosave# files
 
-(pcase system-type
-  ((or 'gnu/linux 'windows-nt 'cygwin)
-   (set-face-attribute 'default nil :family "Tamsyn" :height 100 :weight 'normal))
-  ('darwin
-   (set-face-attribute 'default nil :font "PragmataPro Mono" :height 140 :weight 'bold)
-
-   ;; for mac os: transparent titlebar without icons
-   (add-to-list 'default-frame-alist  '(ns-transparent-titlebar . t))
-   (setq ns-use-proxy-icon nil)
-   (setq frame-title-format nil)))
-
-(setq-default line-spacing 10)
-
-(set-face-attribute 'fixed-pitch nil :family "Tamsyn" :weight 'normal)
-(set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular)
-
-(toggle-frame-maximized)
-
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("org" . "https://orgmode.org/elpa/")
@@ -245,9 +227,28 @@
   :custom (doom-modeline-height 35))
 
 (use-package doom-themes
-  :init (load-theme 'doom-dark+ t))
+  :init (load-theme 'doom-plain-dark t))
 
 (use-package all-the-icons)
+
+(pcase system-type
+  ((or 'gnu/linux 'windows-nt 'cygwin)
+   (set-face-attribute 'default nil :family "Tamsyn" :height 100 :weight 'normal))
+  ('darwin
+   (set-face-attribute 'default nil :font "PragmataPro Mono" :height 140 :weight 'bold)
+
+   ;; for mac os: transparent titlebar without icons
+   (add-to-list 'default-frame-alist  '(ns-transparent-titlebar . t))
+   (setq ns-use-proxy-icon nil)
+   (setq frame-title-format nil)))
+
+(setq-default line-spacing 10)
+
+(set-face-attribute 'fixed-pitch nil :family "Tamsyn" :weight 'normal)
+(set-face-attribute 'org-block nil :family "Tamsyn" :weight 'normal)
+(set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular)
+
+(toggle-frame-maximized)
 
 (defun oem/org-mode-setup ()
   (org-indent-mode)
