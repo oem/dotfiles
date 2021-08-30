@@ -9,6 +9,7 @@
 
 ## programs used and customized
 
+* emacs
 * neovim
 * urxvt
 * tmux
