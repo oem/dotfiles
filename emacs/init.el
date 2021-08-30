@@ -106,7 +106,11 @@
 
 (oem/leader-key-def
   "t" '(:ignore t :which-key "text")
-  "ts" '(hydra-text-scale/body :which-text "text scale"))
+  "ts" '(hydra-text-scale/body :which-text "text scale")
+  "tf" '(:ignore t :which-key "fonts")
+
+  "tfF" '(lambda () (interactive) (set-face-font 'default "PragmataPro Mono") :which-text "set scalable fixed font")
+  "tff" '(lambda () (interactive) (set-face-font 'default "Tamsyn") :which-text "set bitmap fixed font"))
 
 (use-package swiper
   :ensure t)
