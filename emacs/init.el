@@ -205,6 +205,7 @@
   (setq lsp-headerline-breadcrumb-enable nil)
   :hook (
          (rust-mode . lsp-deferred)
+         (ruby-mode . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration)))
 
 (use-package lsp-ui
@@ -245,8 +246,11 @@
 (setq-default line-spacing 10)
 
 (set-face-attribute 'fixed-pitch nil :family "Tamsyn" :weight 'normal)
-(set-face-attribute 'org-block nil :family "Tamsyn" :weight 'normal)
 (set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular)
+
+(set-face-attribute 'org-block-begin-line nil :family "Tamsyn" :weight 'normal)
+(set-face-attribute 'org-block-end-line nil :family "Tamsyn" :weight 'normal)
+(set-face-attribute 'org-block nil :family "Tamsyn" :weight 'normal)
 
 (toggle-frame-maximized)
 
@@ -291,6 +295,8 @@
            ((agenda "" ((org-deadline-warning-days 7)))
             (todo "NEXT"
                   ((org-agenda-overriding-header "Next Tasks")))
+            (todo "ACTIVE"
+                  ((org-agenda-overriding-header "Active Tasks")))
             (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
 
           ("n" "Next Tasks"

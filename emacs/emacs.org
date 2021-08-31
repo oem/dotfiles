@@ -3,7 +3,11 @@
 
 * Be Literate
 This file will generate [[file:init.el][init.el]] which can be loaded by Emacs on startup.
-Maybe some things look familiar? I followed the really helpful [[https://www.youtube.com/c/SystemCrafters][Systemcrafters]] youtube channel on how to configure Emacs from scratch.
+
+** Inspirations
+Maybe some things look familiar? 
+These sources helped me a lot building my own emacs configuration - well that sounds like it's a finished task, but we all know that this will be tinkered upon forever.
+- [[https://www.youtube.com/c/SystemCrafters][Systemcrafters]] youtube channel
 
 * Sane Defaults
 #+begin_src emacs-lisp
@@ -293,6 +297,7 @@ I also snug in some keybindings to change to a larger font quickly. I personally
     (setq lsp-headerline-breadcrumb-enable nil)
     :hook (
            (rust-mode . lsp-deferred)
+           (ruby-mode . lsp-deferred)
            (lsp-mode . lsp-enable-which-key-integration)))
 #+end_src
 
@@ -344,8 +349,11 @@ I also snug in some keybindings to change to a larger font quickly. I personally
   (setq-default line-spacing 10)
 
   (set-face-attribute 'fixed-pitch nil :family "Tamsyn" :weight 'normal)
-  (set-face-attribute 'org-block nil :family "Tamsyn" :weight 'normal)
   (set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular)
+
+  (set-face-attribute 'org-block-begin-line nil :family "Tamsyn" :weight 'normal)
+  (set-face-attribute 'org-block-end-line nil :family "Tamsyn" :weight 'normal)
+  (set-face-attribute 'org-block nil :family "Tamsyn" :weight 'normal)
 
   (toggle-frame-maximized)
 #+end_src
@@ -394,6 +402,8 @@ I also snug in some keybindings to change to a larger font quickly. I personally
              ((agenda "" ((org-deadline-warning-days 7)))
               (todo "NEXT"
                     ((org-agenda-overriding-header "Next Tasks")))
+              (todo "ACTIVE"
+                    ((org-agenda-overriding-header "Active Tasks")))
               (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
 
             ("n" "Next Tasks"
