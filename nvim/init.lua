@@ -166,7 +166,7 @@ bo.expandtab = true -- we need to overwrite this for go buffers
 
 -- Statusline
 o.laststatus = 2
-o.statusline = " %l %* << %{pathshorten(expand('%:f'))} %* >> %m %{fugitive#statusline()}=%="
+o.statusline = " :: %n %* << %{pathshorten(expand('%:f'))} %* >> %m %= %0* << %l :: %p >> %*"
 
 -- UI
 cmd [[ colo pencil ]]
