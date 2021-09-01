@@ -135,6 +135,14 @@ require('packer').startup(function()
 	-- Pretty symbols
   use 'kyazdani42/nvim-web-devicons'
 
+  -- Statusline
+	use {
+		'famiu/feline.nvim',
+		config = function()
+			require('feline').setup({ preset = 'noicon' })
+		end
+	}
+
 	-- Notes
   use { { 'kristijanhusak/orgmode.nvim', opt = true }, { 'akinsho/org-bullets.nvim', opt = true } }	
 end)
@@ -165,7 +173,6 @@ bo.expandtab = true -- we need to overwrite this for go buffers
 
 -- Statusline
 o.laststatus = 2
-o.statusline = " :: %n %* << %{pathshorten(expand('%:f'))} %* >> %m %= %0* << %l :: %p >> %*"
 
 -- UI
 cmd [[ colo pencil ]]
