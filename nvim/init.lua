@@ -168,6 +168,7 @@ o.shiftwidth = 2
 o.backspace = "indent,eol,start"
 o.shell = "/bin/bash" -- remain posix compatible, even when using fish otherwise
 o.background = "dark"
+o.updatetime=300
 
 -- window-local options
 wo.number = false
@@ -199,6 +200,7 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
   update_in_insert = true,
 }
 )
+autocmd(nil, 'CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()', nil)
 
 -- Linting and fixing
 vim.g.ale_fixers = {   
