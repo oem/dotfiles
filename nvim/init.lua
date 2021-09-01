@@ -202,6 +202,9 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
 )
 autocmd(nil, 'CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()', nil)
 
+-- enable inline hints
+autocmd(nil, 'CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * lua require\'lsp_extensions\'.inlay_hints{ prefix = "", highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }', nil)
+
 -- Linting and fixing
 vim.g.ale_fixers = {   
   ruby = { 'rubocop' },
@@ -212,6 +215,7 @@ vim.g.ale_fixers = {
 }
 vim.g.ale_fixers['*'] = { 'remove_trailing_lines', 'trim_whitespace'}
 vim.g.ale_fix_on_save = 1
+vim.g.ale_rust_rustfmt_options= '--edition 2018'
 
 vim.g.ale_linters = {
   ruby = { 'solargraph', 'standardrb', 'rubocop' },
