@@ -7,5 +7,8 @@ require('gitsigns').setup {
     changedelete = { hl = 'PurpleSign', text = '│', numhl = 'GitSignsChangeNr' },
   },
 	signcolumn = true,
-  keymaps = {},
+  keymaps = {
+		['n ]g'] = '<cmd>lua require"gitsigns".next_hunk()<cr>',
+		['n [g'] = '<cmd>lua require"gitsigns".prev_hunk()<cr>',
+	},
 }
