@@ -1,5 +1,22 @@
 -- neovim configuration: this is expected to be in ~/.config/nvim
 
+-- Aliases
+local cmd = vim.cmd
+local fn = vim.fn
+local o = vim.o
+local bo = vim.bo
+local wo = vim.wo
+
+-- Keybindings
+local map = require('config.utils').map
+local silent = { silent = true }
+local noremap = { noremap = true }
+
+vim.g.mapleader = " "
+map('i', 'fd', [[<esc>]], silent) -- alternative escape
+map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], noremap) -- current dir
+map('n', '<leader><leader>', [[<c-^>]], noremap)
+
 -- Package Manager
 -- Bootstrapping
 local fn = vim.fn
@@ -49,12 +66,21 @@ require('packer').startup(function()
 
   -- Git
   use {
-    { 'tpope/vim-fugitive', cmd = { 'Git', 'Gstatus', 'Gblame', 'Gpush', 'Gpull' }, disable = true },
+    { 'tpope/vim-fugitive', cmd = { 'Git', 'Gstatus', 'Gblame', 'Gpush', 'Gpull' } },
     {
       'lewis6991/gitsigns.nvim',
       requires = { 'nvim-lua/plenary.nvim' },
     },
-    { 'TimUntersberger/neogit', cmd = 'Neogit' },
+    {
+			'TimUntersberger/neogit',
+			cmd = 'Neogit',
+			config = function()
+				require('neogit').setup {
+					disable_commit_confirmation = true
+				}
+			end,
+			setup = [[require('config.neogit')]]
+		},
   }
 
 
@@ -63,6 +89,7 @@ require('packer').startup(function()
     'onsails/lspkind-nvim',
     'neovim/nvim-lspconfig',
     'nvim-lua/lsp-status.nvim',
+		'nvim-lua/lsp_extensions.nvim',
     'folke/trouble.nvim',
     'ray-x/lsp_signature.nvim',
     'kosayoda/nvim-lightbulb',
@@ -101,21 +128,21 @@ require('packer').startup(function()
 
   -- Moving
   use 'tpope/vim-unimpaired'
+	use 'christoomey/vim-tmux-navigator'
 
   -- Debugger
   -- UI
   use 'reedes/vim-colors-pencil'
-end)
+	-- Pretty symbols
+  use 'kyazdani42/nvim-web-devicons'
 
--- Aliases
-local cmd = vim.cmd
-local o = vim.o
-local bo = vim.bo
-local wo = vim.wo
+	-- Notes
+  use { { 'kristijanhusak/orgmode.nvim', opt = true }, { 'akinsho/org-bullets.nvim', opt = true } }	
+end)
 
 -- Options
 -- global options
-o.smartcase = true
+o.ignorecase = true
 o.swapfile = false
 o.backup = false
 o.wb = false
@@ -137,10 +164,14 @@ wo.number = false
 -- buffer-local options
 bo.expandtab = true -- we need to overwrite this for go buffers
 
+-- Statusline
+o.laststatus = 2
+o.statusline = " %l %* << %{pathshorten(expand('%:f'))} %* >> %m %{fugitive#statusline()}=%="
+
 -- UI
 cmd [[ colo pencil ]]
 
-cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=234 cterm=None]]
+cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None]]
 cmd [[au VimEnter * hi Normal guibg=NONE ctermbg=NONE]]
 cmd [[au VimEnter * hi StatusLine cterm=NONE ctermfg=7 ctermbg=None]]
 cmd [[au VimEnter * hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None]]
@@ -154,6 +185,3 @@ cmd [[au VimEnter * hi GitGutterChange       ctermfg=3   ctermbg=3  guifg=#8959a
 cmd [[au VimEnter * hi GitGutterDelete       ctermfg=1   ctermbg=1  guifg=#d75e00 guibg=#d75e00]]
 cmd [[au VimEnter * hi GitGutterChangeDelete ctermfg=13  ctermbg=13 guifg=#d6225e guibg=#d6225e]]
 
--- Keybindings
-vim.g.mapleader = " "
-cmd [[ inoremap fd <esc> ]]
