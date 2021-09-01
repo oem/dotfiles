@@ -1,4 +1,4 @@
--- neovim configuration: this is expected to be in ~/.config/nvim
+-- neovim configuration: Symlink ~/.config/nvim to this nvim directory
 
 -- Aliases
 local cmd = vim.cmd
@@ -30,7 +30,6 @@ end
 require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-
 
   -- Search
   use {
