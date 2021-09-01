@@ -113,6 +113,11 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/cmp_luasnip"
   },
+  ["feline.nvim"] = {
+    config = { "\27LJ\1\2I\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1\vpreset\vnoicon\nsetup\vfeline\frequire\0" },
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/feline.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
@@ -120,6 +125,10 @@ _G.packer_plugins = {
   ["lsp-status.nvim"] = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/lsp-status.nvim"
+  },
+  ["lsp_extensions.nvim"] = {
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
@@ -131,12 +140,13 @@ _G.packer_plugins = {
   },
   neogit = {
     commands = { "Neogit" },
+    config = { "\27LJ\1\2X\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1 disable_commit_confirmation\2\nsetup\vneogit\frequire\0" },
     loaded = false,
     needs_bufread = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/neogit"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-buffer", "cmp_luasnip", "cmp-nvim-lua", "cmp-path" },
+    after = { "cmp-buffer", "cmp_luasnip", "cmp-path", "cmp-nvim-lua" },
     config = { "require('config.cmp')" },
     loaded = false,
     needs_bufread = false,
@@ -161,6 +171,20 @@ _G.packer_plugins = {
   ["nvim-treesitter-textobjects"] = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+  },
+  ["org-bullets.nvim"] = {
+    loaded = false,
+    needs_bufread = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/opt/org-bullets.nvim"
+  },
+  ["orgmode.nvim"] = {
+    loaded = false,
+    needs_bufread = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/opt/orgmode.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -211,9 +235,19 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/vim-colors-pencil"
   },
+  ["vim-fugitive"] = {
+    commands = { "Git", "Git status", "Git blame", "Git push", "Git pull" },
+    loaded = false,
+    needs_bufread = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/opt/vim-fugitive"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/vim-surround"
+  },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator"
   },
   ["vim-unimpaired"] = {
     loaded = true,
@@ -250,14 +284,27 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
+-- Setup for: neogit
+time([[Setup for neogit]], true)
+require('config.neogit')
+time([[Setup for neogit]], false)
 -- Setup for: telescope.nvim
 time([[Setup for telescope.nvim]], true)
 require('config.telescope_setup')
 time([[Setup for telescope.nvim]], false)
+-- Config for: feline.nvim
+time([[Config for feline.nvim]], true)
+try_loadstring("\27LJ\1\2I\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1\vpreset\vnoicon\nsetup\vfeline\frequire\0", "config", "feline.nvim")
+time([[Config for feline.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[au CmdUndefined Git status ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Neogit lua require("packer.load")({'neogit'}, { cmd = "Neogit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[au CmdUndefined Git blame ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
+pcall(vim.cmd, [[au CmdUndefined Git pull ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Git lua require("packer.load")({'vim-fugitive'}, { cmd = "Git", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[au CmdUndefined Git push ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
