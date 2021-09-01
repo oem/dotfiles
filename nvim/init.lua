@@ -221,6 +221,13 @@ vim.g.ale_python_flake8_change_directory = 0
 -- UI
 cmd [[ colo pencil ]]
 
+-- Cursorlines
+autocmd('CursorLine', {
+	'VimEnter,WinEnter,BufWinEnter * setlocal cursorline',
+	'WinLeave * setlocal nocursorline'
+}, true)
+
+-- colors
 cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None]]
 cmd [[au VimEnter * hi Normal guibg=NONE ctermbg=NONE]]
 cmd [[au VimEnter * hi StatusLine cterm=NONE ctermfg=7 ctermbg=None]]
