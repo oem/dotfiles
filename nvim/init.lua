@@ -1,4 +1,4 @@
--- neovim configuration: Symlink ~/.config/nvim to this nvim directory
+-- neovim configuration: Symlink ~/.config/nvim to this nvim directory.
 
 -- Aliases
 local cmd = vim.cmd
@@ -66,10 +66,11 @@ require('packer').startup(function()
   -- Git
   use {
     { 'tpope/vim-fugitive', cmd = { 'Git', 'Git status', 'Git blame', 'Git push', 'Git pull' } },
-    {
-      'lewis6991/gitsigns.nvim',
-      requires = { 'nvim-lua/plenary.nvim' },
-    },
+		{
+			'lewis6991/gitsigns.nvim',
+			requires = { 'nvim-lua/plenary.nvim' },
+			config = [[require('config.gitsigns')]],
+		},
     {
 			'TimUntersberger/neogit',
 			cmd = 'Neogit',
