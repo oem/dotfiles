@@ -73,6 +73,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/LuaSnip"
   },
+  ale = {
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/ale"
+  },
   ["cmp-buffer"] = {
     after_files = { "/home/oem/.local/share/nvim/site/pack/packer/opt/cmp-buffer/after/plugin/cmp_buffer.lua" },
     load_after = {
@@ -119,6 +123,7 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/feline.nvim"
   },
   ["gitsigns.nvim"] = {
+    config = { "require('config.gitsigns')" },
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
@@ -146,7 +151,7 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/neogit"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-buffer", "cmp_luasnip", "cmp-path", "cmp-nvim-lua" },
+    after = { "cmp-buffer", "cmp_luasnip", "cmp-nvim-lua", "cmp-path" },
     config = { "require('config.cmp')" },
     loaded = false,
     needs_bufread = false,
@@ -292,6 +297,10 @@ time([[Setup for neogit]], false)
 time([[Setup for telescope.nvim]], true)
 require('config.telescope_setup')
 time([[Setup for telescope.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('config.gitsigns')
+time([[Config for gitsigns.nvim]], false)
 -- Config for: feline.nvim
 time([[Config for feline.nvim]], true)
 try_loadstring("\27LJ\1\2I\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1\vpreset\vnoicon\nsetup\vfeline\frequire\0", "config", "feline.nvim")

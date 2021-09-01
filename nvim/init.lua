@@ -9,6 +9,7 @@ local wo = vim.wo
 
 -- Keybindings
 local map = require('config.utils').map
+local autocmd = require('config.utils').autocmd
 local silent = { silent = true }
 local noremap = { noremap = true }
 
@@ -66,30 +67,29 @@ require('packer').startup(function()
   -- Git
   use {
     { 'tpope/vim-fugitive', cmd = { 'Git', 'Git status', 'Git blame', 'Git push', 'Git pull' } },
-		{
-			'lewis6991/gitsigns.nvim',
-			requires = { 'nvim-lua/plenary.nvim' },
-			config = [[require('config.gitsigns')]],
-		},
     {
-			'TimUntersberger/neogit',
-			cmd = 'Neogit',
-			config = function()
-				require('neogit').setup {
-					disable_commit_confirmation = true
-				}
-			end,
-			setup = [[require('config.neogit')]]
-		},
+      'lewis6991/gitsigns.nvim',
+      requires = { 'nvim-lua/plenary.nvim' },
+      config = [[require('config.gitsigns')]],
+    },
+    {
+      'TimUntersberger/neogit',
+      cmd = 'Neogit',
+      config = function()
+        require('neogit').setup {
+          disable_commit_confirmation = true
+        }
+      end,
+      setup = [[require('config.neogit')]]
+    },
   }
-
 
   -- Completion and linting
   use {
     'onsails/lspkind-nvim',
     'neovim/nvim-lspconfig',
     'nvim-lua/lsp-status.nvim',
-		'nvim-lua/lsp_extensions.nvim',
+    'nvim-lua/lsp_extensions.nvim',
     'folke/trouble.nvim',
     'ray-x/lsp_signature.nvim',
     'kosayoda/nvim-lightbulb',
@@ -110,6 +110,9 @@ require('packer').startup(function()
     event = 'InsertEnter *',
   }
 
+  -- Linting and fixing
+  use 'dense-analysis/ale'
+
   -- Highlights
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -128,23 +131,23 @@ require('packer').startup(function()
 
   -- Moving
   use 'tpope/vim-unimpaired'
-	use 'christoomey/vim-tmux-navigator'
+  use 'christoomey/vim-tmux-navigator'
 
   -- Debugger
   -- UI
   use 'reedes/vim-colors-pencil'
-	-- Pretty symbols
+  -- Pretty symbols
   use 'kyazdani42/nvim-web-devicons'
 
   -- Statusline
-	use {
-		'famiu/feline.nvim',
-		config = function()
-			require('feline').setup({ preset = 'noicon' })
-		end
-	}
+  use {
+    'famiu/feline.nvim',
+    config = function()
+      require('feline').setup({ preset = 'noicon' })
+    end
+  }
 
-	-- Notes
+  -- Notes
   use { { 'kristijanhusak/orgmode.nvim', opt = true }, { 'akinsho/org-bullets.nvim', opt = true } }	
 end)
 
@@ -174,6 +177,46 @@ bo.expandtab = true -- we need to overwrite this for go buffers
 
 -- Statusline
 o.laststatus = 2
+
+-- LSP
+-- nvim_lsp object
+local nvim_lsp = require'lspconfig'
+
+-- Enable rust_analyzer
+nvim_lsp.rust_analyzer.setup({})   
+
+-- Enable solargraph/ruby
+nvim_lsp.solargraph.setup({})
+
+-- Enable typescript/javascript
+nvim_lsp.tsserver.setup{}
+
+-- Enable diagnostics
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = true,
+  signs = true,
+  update_in_insert = true,
+}
+)
+
+-- Linting and fixing
+vim.g.ale_fixers = {   
+  ruby = { 'rubocop' },
+  rust = { 'rustfmt' },
+  python = { 'black' },
+  go = { 'gofmt', 'goimports' },
+  javascript = { 'prettier', 'eslint' },
+}
+vim.g.ale_fixers['*'] = { 'remove_trailing_lines', 'trim_whitespace'}
+vim.g.ale_fix_on_save = 1
+
+vim.g.ale_linters = {
+  ruby = { 'solargraph', 'standardrb', 'rubocop' },
+  python = { 'mypy', 'flake8', 'pylint' },
+}
+vim.g.ale_python_pylint_change_directory = 0
+vim.g.ale_python_flake8_change_directory = 0
 
 -- UI
 cmd [[ colo pencil ]]
