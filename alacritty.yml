@@ -107,7 +107,7 @@ font:
       - (Linux) monospace
       - (Windows) Consolas
     family: Cartograph CF
-    style: Normal
+    style: Regular
   bold:
     Default:
       - (macOS) PragmataPro Mono
