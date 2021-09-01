@@ -1,4 +1,5 @@
 local map_key = vim.api.nvim_set_keymap
+local cmd = vim.cmd
 
 local function autocmd(group, cmds, clear)
   clear = clear == nil and false or clear
