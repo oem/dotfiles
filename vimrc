@@ -477,6 +477,10 @@ neogit.setup {
   disable_commit_confirmation = true
   }
 EOF
+
+nmap <Leader>gg :Neogit<cr>
+nmap <Leader>gb :Git blame<cr>
+
 " }}}
 " golang {{{
 let g:go_fmt_command="goimports"
