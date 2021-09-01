@@ -121,7 +121,7 @@
   "ff" '(find-file :which-key "find file")
   "fr" '(counsel-buffer-or-recentf :which-key "recent files")
   "fd" '(:ignore t :which-key "find dotfiles")
-  "fde" '(lambda () (interactive) (find-file (expand-file-name "~/src/oem/dotfiles/emacs/emacs.org"))))
+  "fc" '(lambda () (interactive) (find-file (expand-file-name "~/src/oem/dotfiles/emacs/emacs.org"))))
 
 (use-package projectile
   :diminish projectile-mode

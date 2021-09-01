@@ -177,7 +177,7 @@ I also snug in some keybindings to change to a larger font quickly. I personally
     "ff" '(find-file :which-key "find file")
     "fr" '(counsel-buffer-or-recentf :which-key "recent files")
     "fd" '(:ignore t :which-key "find dotfiles")
-    "fde" '(lambda () (interactive) (find-file (expand-file-name "~/src/oem/dotfiles/emacs/emacs.org"))))
+    "fc" '(lambda () (interactive) (find-file (expand-file-name "~/src/oem/dotfiles/emacs/emacs.org"))))
 #+end_src
 
 ** finding projects
