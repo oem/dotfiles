@@ -17,6 +17,7 @@ vim.g.mapleader = " "
 map('i', 'fd', [[<esc>]], silent) -- alternative escape
 map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], noremap) -- current dir
 map('n', '<leader><leader>', [[<c-^>]], noremap)
+map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { noremap = true, silent = true })
 
 -- Package Manager
 -- Bootstrapping
