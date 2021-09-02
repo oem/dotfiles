@@ -184,7 +184,7 @@ end
 # }}}
 # {{{ python
 set -gx PYENV_ROOT $HOME/.pyenv
-set -gx PATH $PYENV_ROOT/bin $PATH
+set -gx PATH $PYENV_ROOT/shims $PATH
 set -gx PATH $HOME/.local/bin $PATH
 
 status --is-interactive; and pyenv init - | source
