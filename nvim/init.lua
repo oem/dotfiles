@@ -263,4 +263,8 @@ cmd [[au VimEnter * hi LineNr ctermbg=None ctermfg=236]]
 cmd [[au VimEnter * hi CursorLineNr ctermfg=4]]
 cmd [[au VimEnter * hi Comment ctermfg=238]]
 cmd [[au VimEnter * hi SignColumn ctermbg=None]]
+cmd [[au VimEnter * hi GreenSign ctermfg=10]]
+cmd [[au VimEnter * hi BlueSign ctermfg=12]]
+cmd [[au VimEnter * hi RedSign ctermfg=9]]
+cmd [[au VimEnter * hi PurpleSign ctermfg=13]]
 
