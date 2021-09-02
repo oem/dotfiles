@@ -268,6 +268,15 @@
         '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
           (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
 
+  (setq org-tag-alist
+        '((:startgroup)
+          ; put mutually exclusive tags here
+          (:endgroup)
+          ("@errand" . ?E)
+          ("agenda" . ?a)
+          ("planning" . ?p)
+          ("idea" . ?i)))
+
   (load-library "find-lisp")
   (setq org-agenda-files
         (find-lisp-find-files "~/sync/brain/" "\.org$"))
@@ -295,9 +304,9 @@
            ((agenda "" ((org-deadline-warning-days 7)))
             (todo "NEXT"
                   ((org-agenda-overriding-header "Next Tasks")))
+            (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))
             (todo "ACTIVE"
-                  ((org-agenda-overriding-header "Active Tasks")))
-            (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
+                  ((org-agenda-overriding-header "Active Tasks")))))
 
           ("n" "Next Tasks"
            ((todo "NEXT"
