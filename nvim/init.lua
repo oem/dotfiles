@@ -169,6 +169,7 @@ o.updatetime=300
 
 -- window-local options
 wo.number = false
+wo.signcolumn = 'yes'
 
 -- buffer-local options
 bo.expandtab = true -- we need to overwrite this for go buffers

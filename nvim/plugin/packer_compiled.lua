@@ -151,7 +151,7 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/neogit"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-buffer", "cmp_luasnip", "cmp-nvim-lua", "cmp-path" },
+    after = { "cmp-buffer", "cmp_luasnip", "cmp-path", "cmp-nvim-lua" },
     config = { "require('config.cmp')" },
     loaded = false,
     needs_bufread = false,
@@ -180,16 +180,6 @@ _G.packer_plugins = {
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
-  },
-  ["org-bullets.nvim"] = {
-    loaded = false,
-    needs_bufread = true,
-    path = "/home/oem/.local/share/nvim/site/pack/packer/opt/org-bullets.nvim"
-  },
-  ["orgmode.nvim"] = {
-    loaded = false,
-    needs_bufread = true,
-    path = "/home/oem/.local/share/nvim/site/pack/packer/opt/orgmode.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
