@@ -139,10 +139,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
   },
-  ["lspkind-nvim"] = {
-    loaded = true,
-    path = "/home/oem/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
-  },
   neogit = {
     commands = { "Neogit" },
     config = { "\27LJ\1\2X\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1 disable_commit_confirmation\2\nsetup\vneogit\frequire\0" },
@@ -160,7 +156,7 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "nvim-autopairs", "cmp-buffer", "cmp_luasnip", "cmp-nvim-lua", "cmp-path" },
+    after = { "nvim-autopairs", "cmp-buffer", "cmp_luasnip", "cmp-path", "cmp-nvim-lua" },
     config = { "require('config.cmp')" },
     loaded = false,
     needs_bufread = false,
@@ -185,10 +181,6 @@ _G.packer_plugins = {
   ["nvim-treesitter-textobjects"] = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
-  },
-  ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,

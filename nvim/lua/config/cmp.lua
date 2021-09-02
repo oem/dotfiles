@@ -1,5 +1,4 @@
 local cmp = require 'cmp'
-local lspkind = require 'lspkind'
 local luasnip = require 'luasnip'
 
 local function check_backspace()
@@ -20,12 +19,6 @@ cmp.setup {
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
-    end,
-  },
-  formatting = {
-    format = function(_, vim_item)
-      vim_item.kind = lspkind.presets.default[vim_item.kind] .. ' ' .. vim_item.kind
-      return vim_item
     end,
   },
   mapping = {

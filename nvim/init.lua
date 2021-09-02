@@ -85,7 +85,6 @@ require('packer').startup(function()
 
   -- Completion and linting
   use {
-    'onsails/lspkind-nvim',
     'neovim/nvim-lspconfig',
     'nvim-lua/lsp-status.nvim',
     'nvim-lua/lsp_extensions.nvim',
@@ -135,8 +134,6 @@ require('packer').startup(function()
   -- Debugger
   -- UI
   use 'reedes/vim-colors-pencil'
-  -- Pretty symbols
-  use 'kyazdani42/nvim-web-devicons'
 
 	-- show trailing whitespace
 	use 'ntpeters/vim-better-whitespace'
