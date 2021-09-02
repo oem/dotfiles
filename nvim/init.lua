@@ -146,9 +146,6 @@ require('packer').startup(function()
       require('feline').setup({ preset = 'noicon' })
     end
   }
-
-  -- Notes
-  use { { 'kristijanhusak/orgmode.nvim', opt = true }, { 'akinsho/org-bullets.nvim', opt = true } }	
 end)
 
 -- Options
