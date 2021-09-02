@@ -103,17 +103,17 @@ font:
   # Normal (roman) font face
   normal:
     Default:
-      - (macOS) Cartograph CF
+      - (macOS) TerminessTTF Nerd Font
       - (Linux) monospace
       - (Windows) Consolas
-    family: Cartograph CF
-    style: Regular
+    family: TerminessTTF Nerd Font
+    style: Medium
   bold:
     Default:
-      - (macOS) Cartograph CF
+      - (macOS) TerminessTTF Nerd Font
       - (Linux) monospace
       - (Windows) Consolas
-    family: Cartograph CF
+    family: TerminessTTF Nerd Font
     style: Bold
 
     # The `style` can be specified to pick a specific face.
@@ -153,7 +153,7 @@ font:
   #style: Bold Italic
 
   # Point size
-  size: 12
+  size: 11
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
