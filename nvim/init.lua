@@ -181,8 +181,8 @@ o.shell = "/bin/bash" -- remain posix compatible, even when using fish otherwise
 o.background = "dark"
 o.updatetime=300
 vim.opt.listchars = {
-	space = "⋅",
-	eol = "↴",
+	space = "·",
+	eol = "<",
 }
 
 -- window-local options
