@@ -145,6 +145,10 @@ require('packer').startup(function()
 			require('indent_blankline').setup{ show_end_of_line = true, space_char_blankline = " " }
 		end
 	}
+
+	-- show trailing whitespace
+	use 'ntpeters/vim-better-whitespace'
+
   -- Statusline
   use {
     'famiu/feline.nvim',
@@ -192,7 +196,7 @@ o.laststatus = 2
 local nvim_lsp = require'lspconfig'
 
 -- Enable rust_analyzer
-nvim_lsp.rust_analyzer.setup({})   
+nvim_lsp.rust_analyzer.setup({})
 
 -- Enable solargraph/ruby
 nvim_lsp.solargraph.setup({})
@@ -218,14 +222,13 @@ local options = { noremap = true, silent = true }
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
 
 -- Linting and fixing
-vim.g.ale_fixers = {   
+vim.g.ale_fixers = {
   ruby = { 'rubocop' },
   rust = { 'rustfmt' },
   python = { 'black' },
   go = { 'gofmt', 'goimports' },
   javascript = { 'prettier', 'eslint' },
 }
-vim.g.ale_fixers['*'] = { 'remove_trailing_lines', 'trim_whitespace'}
 vim.g.ale_fix_on_save = 1
 vim.g.ale_rust_rustfmt_options= '--edition 2018'
 
@@ -238,6 +241,10 @@ vim.g.ale_python_flake8_change_directory = 0
 
 -- UI
 cmd [[ colo pencil ]]
+
+-- strip whitespace on save
+vim.g.strip_whitespace_on_save = 1
+vim.g.strip_whitespace_confirm = 0
 
 -- Cursorlines
 autocmd('CursorLine', {
@@ -255,8 +262,4 @@ cmd [[au VimEnter * hi LineNr ctermbg=None ctermfg=236]]
 cmd [[au VimEnter * hi CursorLineNr ctermfg=4]]
 cmd [[au VimEnter * hi Comment ctermfg=238]]
 cmd [[au VimEnter * hi SignColumn ctermbg=None]]
-cmd [[au VimEnter * hi GitGutterAdd          ctermfg=2   ctermbg=2  guifg=#718c00 guibg=#718c00]]
-cmd [[au VimEnter * hi GitGutterChange       ctermfg=3   ctermbg=3  guifg=#8959a8 guibg=#8959a8]]
-cmd [[au VimEnter * hi GitGutterDelete       ctermfg=1   ctermbg=1  guifg=#d75e00 guibg=#d75e00]]
-cmd [[au VimEnter * hi GitGutterChangeDelete ctermfg=13  ctermbg=13 guifg=#d6225e guibg=#d6225e]]
 
