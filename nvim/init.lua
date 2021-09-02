@@ -206,8 +206,6 @@ autocmd(nil, 'CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost
 -- code navigation
 local options = { noremap = true, silent = true }
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
-map('n', '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<cr>')
-map('n', '<leader>lr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
 -- Linting and fixing
 vim.g.ale_fixers = {   
