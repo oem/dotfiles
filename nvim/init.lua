@@ -17,7 +17,6 @@ vim.g.mapleader = " "
 map('i', 'fd', [[<esc>]], silent) -- alternative escape
 map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], noremap) -- current dir
 map('n', '<leader><leader>', [[<c-^>]], noremap)
-map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { noremap = true, silent = true })
 
 -- Package Manager
 -- Bootstrapping
@@ -205,6 +204,12 @@ autocmd(nil, 'CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()', nil)
 
 -- enable inline hints
 autocmd(nil, 'CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * lua require\'lsp_extensions\'.inlay_hints{ prefix = "", highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }', nil)
+
+-- code navigation
+local options = { noremap = true, silent = true }
+map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
+map('n', '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<cr>')
+map('n', '<leader>lr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
 -- Linting and fixing
 vim.g.ale_fixers = {   
