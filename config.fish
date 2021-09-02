@@ -187,8 +187,8 @@ set -gx PYENV_ROOT $HOME/.pyenv
 set -gx PATH $PYENV_ROOT/shims $PATH
 set -gx PATH $HOME/.local/bin $PATH
 
-status --is-interactive; and pyenv init - | source
-status --is-interactive; and pyenv virtualenv-init - | source
+status --is-interactive; and pyenv init - --no-rehash | source
+# status --is-interactive; and pyenv virtualenv-init - | source
 # }}}
 #{{{ rbenv
 set PATH $HOME/.rbenv/bin $PATH
