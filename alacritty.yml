@@ -103,14 +103,14 @@ font:
   # Normal (roman) font face
   normal:
     Default:
-      - (macOS) PragmataPro Mono
+      - (macOS) Cartograph CF
       - (Linux) monospace
       - (Windows) Consolas
     family: Cartograph CF
-    style: Regular
+    style: Light
   bold:
     Default:
-      - (macOS) PragmataPro Mono
+      - (macOS) Cartograph CF
       - (Linux) monospace
       - (Windows) Consolas
     family: Cartograph CF
