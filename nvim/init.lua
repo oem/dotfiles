@@ -138,18 +138,6 @@ require('packer').startup(function()
   -- Pretty symbols
   use 'kyazdani42/nvim-web-devicons'
 
-	-- show indentation levels
-	use {
-		'lukas-reineke/indent-blankline.nvim',
-		config = function()
-			require('indent_blankline').setup{
-				show_end_of_line = true,
-				space_char_blankline = " ",
-				show_current_context = true,
-			}
-		end
-	}
-
 	-- show trailing whitespace
 	use 'ntpeters/vim-better-whitespace'
 
@@ -180,6 +168,7 @@ o.backspace = "indent,eol,start"
 o.shell = "/bin/bash" -- remain posix compatible, even when using fish otherwise
 o.background = "dark"
 o.updatetime=300
+o.cursorcolumn= true
 vim.opt.listchars = {
 	space = "·",
 	eol = "<",
