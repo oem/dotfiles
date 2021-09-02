@@ -248,6 +248,11 @@ autocmd('CursorLine', {
 	'WinLeave * setlocal nocursorline'
 }, true)
 
+autocmd('CursorColumn', {
+	'VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn',
+	'WinLeave * setlocal nocursorcolumn'
+}, true)
+
 -- colors
 cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None]]
 cmd [[au VimEnter * hi Normal guibg=NONE ctermbg=NONE]]
