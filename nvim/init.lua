@@ -273,4 +273,8 @@ cmd [[au VimEnter * hi GreenSign ctermfg=10]]
 cmd [[au VimEnter * hi BlueSign ctermfg=12]]
 cmd [[au VimEnter * hi RedSign ctermfg=9]]
 cmd [[au VimEnter * hi PurpleSign ctermfg=13]]
+cmd [[au VimEnter * hi ALEWarning ctermbg=None]]
+cmd [[au VimEnter * hi ALEError ctermbg=None]]
+cmd [[au VimEnter * hi ALEWarningSign ctermbg=None]]
+cmd [[au VimEnter * hi ALEErrorSign ctermbg=None]]
 
