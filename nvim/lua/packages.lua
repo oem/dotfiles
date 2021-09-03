@@ -71,9 +71,15 @@ require('packer').startup(function()
     'nvim-lua/lsp-status.nvim',
     'nvim-lua/lsp_extensions.nvim',
     'folke/trouble.nvim',
-    'ray-x/lsp_signature.nvim',
     'kosayoda/nvim-lightbulb',
   }
+
+	use {
+    'ray-x/lsp_signature.nvim',
+		config = function()
+			require 'lsp_signature'.setup()
+		end
+	}
 
   -- Completion
   use {

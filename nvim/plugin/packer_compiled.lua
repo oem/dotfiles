@@ -136,6 +136,7 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim"
   },
   ["lsp_signature.nvim"] = {
+    config = { "\27LJ\1\2;\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\18lsp_signature\frequire\0" },
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
   },
@@ -292,14 +293,18 @@ time([[Setup for neogit]], false)
 time([[Setup for telescope.nvim]], true)
 require('config.telescope_setup')
 time([[Setup for telescope.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require('config.gitsigns')
-time([[Config for gitsigns.nvim]], false)
+-- Config for: lsp_signature.nvim
+time([[Config for lsp_signature.nvim]], true)
+try_loadstring("\27LJ\1\2;\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\18lsp_signature\frequire\0", "config", "lsp_signature.nvim")
+time([[Config for lsp_signature.nvim]], false)
 -- Config for: feline.nvim
 time([[Config for feline.nvim]], true)
 try_loadstring("\27LJ\1\2I\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1\vpreset\vnoicon\nsetup\vfeline\frequire\0", "config", "feline.nvim")
 time([[Config for feline.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('config.gitsigns')
+time([[Config for gitsigns.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
