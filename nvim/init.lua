@@ -67,8 +67,11 @@ nvim_lsp.solargraph.setup({})
 -- Enable typescript/javascript
 nvim_lsp.tsserver.setup{}
 
---  Enable python/pyright
+--  Enable python/pyright_
 require'lspconfig'.pyright.setup{}
+
+-- Enable elm language server
+require'lspconfig'.elmls.setup{}
 
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -94,6 +97,7 @@ vim.g.ale_fixers = {
   python = { 'black' },
   go = { 'gofmt', 'goimports' },
   javascript = { 'prettier', 'eslint' },
+	elm = { 'elm-format' },
 }
 vim.g.ale_fix_on_save = 1
 vim.g.ale_rust_rustfmt_options= '--edition 2018'
@@ -101,6 +105,7 @@ vim.g.ale_rust_rustfmt_options= '--edition 2018'
 vim.g.ale_linters = {
   ruby = { 'solargraph', 'standardrb', 'rubocop' },
   python = { 'mypy', 'flake8', 'pylint' },
+	elm = {},
 }
 vim.g.ale_python_pylint_change_directory = 0
 vim.g.ale_python_flake8_change_directory = 0
