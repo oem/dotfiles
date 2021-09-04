@@ -157,15 +157,11 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "nvim-autopairs", "cmp-buffer", "cmp_luasnip", "cmp-path", "cmp-nvim-lua" },
+    after = { "nvim-autopairs", "cmp-nvim-lua", "cmp-buffer", "cmp_luasnip", "cmp-path" },
     config = { "require('config.cmp')" },
     loaded = false,
     needs_bufread = false,
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/nvim-cmp"
-  },
-  ["nvim-lightbulb"] = {
-    loaded = true,
-    path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-lightbulb"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
