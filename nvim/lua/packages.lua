@@ -114,6 +114,14 @@ require('packer').startup(function()
     run = ':TSUpdate',
   }
 
+	-- Some additional functionality on top of the lsp
+	use {
+		'simrat39/rust-tools.nvim',
+		config=function()
+			require('rust-tools').setup({})
+		end
+	}
+
   -- Commenting
   use 'tomtom/tcomment_vim'
 
