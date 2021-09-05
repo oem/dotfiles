@@ -183,6 +183,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
+  ["papercolor-theme"] = {
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/papercolor-theme"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/plenary.nvim"

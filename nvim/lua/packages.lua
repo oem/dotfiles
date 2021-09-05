@@ -135,6 +135,7 @@ require('packer').startup(function()
   -- Debugger
   -- UI
   use 'reedes/vim-colors-pencil'
+	use 'NLKNguyen/papercolor-theme'
 
 	-- show trailing whitespace
 	use 'ntpeters/vim-better-whitespace'
