@@ -407,3 +407,5 @@
 
 (add-hook 'org-mode-hook
           (lambda () (add-hook 'after-save-hook #'oem/org-babel-tangle-config)))
+
+(use-package org-roam)

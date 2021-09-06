@@ -537,3 +537,9 @@ We want to tangle this file whenever we save changes.
   (add-hook 'org-mode-hook
             (lambda () (add-hook 'after-save-hook #'oem/org-babel-tangle-config)))
 #+end_src
+
+* Org Roam
+This is an effort to replicate the Zettelkasten System. Org Roam itself tries to implement features of the Roam software in Org Mode.
+#+begin_src emacs-lisp
+  (use-package org-roam)
+#+end_src
