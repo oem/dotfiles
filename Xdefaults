@@ -23,6 +23,7 @@ URxvt*fadeColor: #1c1c1c
 URxvtQuake*internalBorder: 30
 scratchpad*internalBorder: 30
 URxvtFuzzy*internalBorder: 30
+URxvtRecord*internalBorder: 30
 
 ! hide cursor when not using the mouse
 *pointerBlank: true
