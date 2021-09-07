@@ -1,0 +1,7 @@
+#!/bin/sh
+# launches the script from param in a centered window
+xdotool search --onlyvisible --classname URxvtRecord windowunmap \
+  || xdotool search --classname URxvtRecord windowmap \
+  || urxvtc -name URxvtRecord -geometry 40x12+730 -e $1
+
+
