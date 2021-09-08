@@ -45,8 +45,10 @@
     :global-prefix "C-SPC")
 
   (oem/leader-key-def
+    "SPC" '(counsel-M-x :which-key "M-x")
     "b" '(:ignore t :which-key "buffer")
-    "bb" '(switch-to-buffer :which-key "switch buffer")))
+    "bb" '(switch-to-buffer :which-key "switch buffer")
+    "bp" '(previous-buffer :which-key "previous buffer")))
 
 (use-package evil
   :init
