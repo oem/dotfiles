@@ -544,5 +544,16 @@ We want to tangle this file whenever we save changes.
 * Org Roam
 This is an effort to replicate the Zettelkasten System. Org Roam itself tries to implement features of the Roam software in Org Mode.
 #+begin_src emacs-lisp
-  (use-package org-roam)
+  (use-package org-roam
+    :init
+    (setq org-roam-v2-ack t)
+    :custom
+    (org-roam-directory "~/sync/notes")
+    :config
+    (org-roam-setup))
+
+  (oem/leader-key-def
+    "oob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
+    "oof" '(org-roam-node-find :which-text "org roam node find")
+    "ooo" '(org-roam-node-insert :which-text "org roam node insert"))
 #+end_src

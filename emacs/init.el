@@ -411,4 +411,15 @@
 (add-hook 'org-mode-hook
           (lambda () (add-hook 'after-save-hook #'oem/org-babel-tangle-config)))
 
-(use-package org-roam)
+(use-package org-roam
+  :init
+  (setq org-roam-v2-ack t)
+  :custom
+  (org-roam-directory "~/sync/notes")
+  :config
+  (org-roam-setup))
+
+(oem/leader-key-def
+  "oob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
+  "oof" '(org-roam-node-find :which-text "org roam node find")
+  "ooo" '(org-roam-node-insert :which-text "org roam node insert"))
