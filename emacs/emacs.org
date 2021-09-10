@@ -601,13 +601,14 @@ It syncs your emails in the background using an external program.
     (setq mu4e-drafts-folder "/[Google Mail]/Drafts")
     (setq mu4e-sent-folder "/[Google Mail]/Sent Mail")
     (setq mu4e-refile-folder "/[Google Mail]/All Mail")
-    (setq mu4e-trash-folder "/[Google Mail]/Trash")
+    (setq mu4e-trash-folder "/[Google Mail]/Bin")
+    (setq mu4e-compose-signature "")
 
     (setq mu4e-maildir-shortcuts
           '(("/Inbox" . ?i)
             ("/[Google Mail]/Sent Mail" . ?s)
-            ("/[Google mail]/Trash" . ?t)
-            ("/[Google mail]/Drafts" . ?d)
+            ("/[Google Mail]/Bin" . ?b)
+            ("/[Google Mail]/Drafts" . ?d)
             ("/[Google Mail]/All Mail" . ?a))))
 
   (oem/leader-key-def
