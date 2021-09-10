@@ -412,7 +412,6 @@
 (add-hook 'org-mode-hook
           (lambda () (add-hook 'after-save-hook #'oem/org-babel-tangle-config)))
 
-<<<<<<< HEAD
 (use-package org-roam
   :init
   (setq org-roam-v2-ack t)
@@ -425,19 +424,3 @@
   "oob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
   "oof" '(org-roam-node-find :which-text "org roam node find")
   "ooo" '(org-roam-node-insert :which-text "org roam node insert"))
-=======
-(use-package org-roam)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("f6665ce2f7f56c5ed5d91ed5e7f6acb66ce44d0ef4acfaa3a42c7cfe9e9a9013" "35c096aa0975d104688a9e59e28860f5af6bb4459fd692ed47557727848e6dfe" "4a5aa2ccb3fa837f322276c060ea8a3d10181fecbd1b74cb97df8e191b214313" "a82ab9f1308b4e10684815b08c9cac6b07d5ccb12491f44a942d845b406b0296" "e8df30cd7fb42e56a4efc585540a2e63b0c6eeb9f4dc053373e05d774332fc13" "8621edcbfcf57e760b44950bb1787a444e03992cb5a32d0d9aec212ea1cd5234" "8d7b028e7b7843ae00498f68fad28f3c6258eda0650fe7e17bfb017d51d0e2a2" "234dbb732ef054b109a9e5ee5b499632c63cc24f7c2383a849815dacc1727cb6" default)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
->>>>>>> 0448c2b0dac912b68f22d8bc199adaf2c3c02911
