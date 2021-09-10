@@ -283,7 +283,7 @@
 
   (load-library "find-lisp")
   (setq org-agenda-files
-        (find-lisp-find-files "~/sync/brain/" "\.org$"))
+        (find-lisp-find-files "~/sync/brain/tasks/" "\.org$"))
   (setq org-agenda-start-with-log-mode t)
   (setq org-agenda-window-setup 'current-window)
   (setq org-log-done 'time)
@@ -339,12 +339,12 @@
 
   (setq org-capture-templates
         `(("t" "Tasks / Projects")
-          ("tt" "Task" entry (file+olp "~/sync/brain/tasks.org" "Inbox")
+          ("tt" "Task" entry (file+olp "~/sync/brain/tasks/tasks.org" "Inbox")
            "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
           ("m" "Metrics")
-          ("mw" "Water" table-line (file+headline "~/sync/brain/metrics.org" "Water")
+          ("mw" "Water" table-line (file+headline "~/sync/brain/tasks/metrics.org" "Water")
            "| %U | %^{Glasses} |" :kill-buffer t)
-          ("mW" "Weight" table-line (file+headline "~/sync/brain/metrics.org" "Weight")
+          ("mW" "Weight" table-line (file+headline "~/sync/brain/tasks/metrics.org" "Weight")
            "| %U | %^{kg} | %^{notes} |" :kill-buffer t))))
 
 (oem/leader-key-def
@@ -412,32 +412,45 @@
 (add-hook 'org-mode-hook
           (lambda () (add-hook 'after-save-hook #'oem/org-babel-tangle-config)))
 
-<<<<<<< HEAD
 (use-package org-roam
   :init
   (setq org-roam-v2-ack t)
   :custom
-  (org-roam-directory "~/sync/notes")
+  (org-roam-directory "~/sync/brain/notes")
+  (org-roam-completion-everywhere t)
+  :bind (
+         :map org-mode-map
+         ("C-M-i" . completion-at-point))
   :config
   (org-roam-setup))
 
 (oem/leader-key-def
   "oob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
-  "oof" '(org-roam-node-find :which-text "org roam node find")
-  "ooo" '(org-roam-node-insert :which-text "org roam node insert"))
-=======
-(use-package org-roam)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("f6665ce2f7f56c5ed5d91ed5e7f6acb66ce44d0ef4acfaa3a42c7cfe9e9a9013" "35c096aa0975d104688a9e59e28860f5af6bb4459fd692ed47557727848e6dfe" "4a5aa2ccb3fa837f322276c060ea8a3d10181fecbd1b74cb97df8e191b214313" "a82ab9f1308b4e10684815b08c9cac6b07d5ccb12491f44a942d845b406b0296" "e8df30cd7fb42e56a4efc585540a2e63b0c6eeb9f4dc053373e05d774332fc13" "8621edcbfcf57e760b44950bb1787a444e03992cb5a32d0d9aec212ea1cd5234" "8d7b028e7b7843ae00498f68fad28f3c6258eda0650fe7e17bfb017d51d0e2a2" "234dbb732ef054b109a9e5ee5b499632c63cc24f7c2383a849815dacc1727cb6" default)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
->>>>>>> 0448c2b0dac912b68f22d8bc199adaf2c3c02911
+  "ooo" '(org-roam-node-find :which-text "org roam node find")
+  "ooi" '(org-roam-node-insert :which-text "org roam node insert"))
+
+(use-package mu4e
+  ;; we want to keep mu4e and mu in sync, which is installed by our distro package manager
+  :ensure nil
+  :config
+  ;; set to t to avoid mail syncing issues when uusing mbsync
+  (setq mu4e-change-filenames-when-moving t) 
+  ;; refresh mail using isync every 10 minutes
+  (setq mu4e-update-interval (* 10 60))
+  (setq mu4e-get-mail-command "mbsync -a")
+  (setq mu4e-maildir "~/sync/mail")
+  (setq mu4e-drafts-folder "/[Google Mail]/Drafts")
+  (setq mu4e-sent-folder "/[Google Mail]/Sent Mail")
+  (setq mu4e-refile-folder "/[Google Mail]/All Mail")
+  (setq mu4e-trash-folder "/[Google Mail]/Trash")
+
+  (setq mu4e-maildir-shortcuts
+        '(("/Inbox" . ?i)
+          ("/[Google Mail]/Sent Mail" . ?s)
+          ("/[Google mail]/Trash" . ?t)
+          ("/[Google mail]/Drafts" . ?d)
+          ("/[Google Mail]/All Mail" . ?a))))
+
+(oem/leader-key-def
+  "m" '(:ignore t :which-key "mail")
+  "mm" '(mu4e :which-key "mu4e"))

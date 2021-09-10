@@ -390,7 +390,7 @@ I also snug in some keybindings to change to a larger font quickly. I personally
 
       (load-library "find-lisp")
       (setq org-agenda-files
-            (find-lisp-find-files "~/sync/brain/" "\.org$"))
+            (find-lisp-find-files "~/sync/brain/tasks/" "\.org$"))
       (setq org-agenda-start-with-log-mode t)
       (setq org-agenda-window-setup 'current-window)
       (setq org-log-done 'time)
@@ -446,12 +446,12 @@ I also snug in some keybindings to change to a larger font quickly. I personally
 
       (setq org-capture-templates
             `(("t" "Tasks / Projects")
-              ("tt" "Task" entry (file+olp "~/sync/brain/tasks.org" "Inbox")
+              ("tt" "Task" entry (file+olp "~/sync/brain/tasks/tasks.org" "Inbox")
                "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
               ("m" "Metrics")
-              ("mw" "Water" table-line (file+headline "~/sync/brain/metrics.org" "Water")
+              ("mw" "Water" table-line (file+headline "~/sync/brain/tasks/metrics.org" "Water")
                "| %U | %^{Glasses} |" :kill-buffer t)
-              ("mW" "Weight" table-line (file+headline "~/sync/brain/metrics.org" "Weight")
+              ("mW" "Weight" table-line (file+headline "~/sync/brain/tasks/metrics.org" "Weight")
                "| %U | %^{kg} | %^{notes} |" :kill-buffer t))))
 
     (oem/leader-key-def
@@ -549,12 +549,68 @@ This is an effort to replicate the Zettelkasten System. Org Roam itself tries to
     :init
     (setq org-roam-v2-ack t)
     :custom
-    (org-roam-directory "~/sync/notes")
+    (org-roam-directory "~/sync/brain/notes")
+    (org-roam-completion-everywhere t)
+    :bind (
+           :map org-mode-map
+           ("C-M-i" . completion-at-point))
     :config
     (org-roam-setup))
 
   (oem/leader-key-def
     "oob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
-    "oof" '(org-roam-node-find :which-text "org roam node find")
-    "ooo" '(org-roam-node-insert :which-text "org roam node insert"))
+    "ooo" '(org-roam-node-find :which-text "org roam node find")
+    "ooi" '(org-roam-node-insert :which-text "org roam node insert"))
+#+end_src
+
+* Mail
+** dependencies
+We need to install a few dependencies outside of Emacs:
+#+begin_src bash
+aura -A mu mbsync-git
+#+end_src
+*** mbsync
+**** Setting up a configuration
+We need a configuration file in our home folder: =~/.mbsyncrc=.
+Gmail accounts without 2fa need to allow "[[https://support.google.com/accounts/answer/6010255?p=lsa_blocked&hl=en-GB&visit_id=637668782853662647-1246343737&rd=1#zippy=%2Cif-less-secure-app-access-is-on-for-your-account][less secure apps]]".
+Sync emails: ~mbsync -a~.
+Gmail with 2fa need an app password.
+
+*** mu
+mu is a mail indexer.
+Index your emails:
+#+begin_src bash
+  mu init --maildir=<mail folder> --my-address=<email address>
+  mu index
+#+end_src
+
+** managing mail with mu4e
+mu4e is the Emacs interface to the mu mail indexer.
+It syncs your emails in the background using an external program.
+#+begin_src emacs-lisp
+  (use-package mu4e
+    ;; we want to keep mu4e and mu in sync, which is installed by our distro package manager
+    :ensure nil
+    :config
+    ;; set to t to avoid mail syncing issues when uusing mbsync
+    (setq mu4e-change-filenames-when-moving t) 
+    ;; refresh mail using isync every 10 minutes
+    (setq mu4e-update-interval (* 10 60))
+    (setq mu4e-get-mail-command "mbsync -a")
+    (setq mu4e-maildir "~/sync/mail")
+    (setq mu4e-drafts-folder "/[Google Mail]/Drafts")
+    (setq mu4e-sent-folder "/[Google Mail]/Sent Mail")
+    (setq mu4e-refile-folder "/[Google Mail]/All Mail")
+    (setq mu4e-trash-folder "/[Google Mail]/Trash")
+
+    (setq mu4e-maildir-shortcuts
+          '(("/Inbox" . ?i)
+            ("/[Google Mail]/Sent Mail" . ?s)
+            ("/[Google mail]/Trash" . ?t)
+            ("/[Google mail]/Drafts" . ?d)
+            ("/[Google Mail]/All Mail" . ?a))))
+
+  (oem/leader-key-def
+    "m" '(:ignore t :which-key "mail")
+    "mm" '(mu4e :which-key "mu4e"))
 #+end_src
