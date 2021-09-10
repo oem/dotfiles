@@ -588,30 +588,31 @@ Index your emails:
 mu4e is the Emacs interface to the mu mail indexer.
 It syncs your emails in the background using an external program.
 #+begin_src emacs-lisp
-  (use-package mu4e
-    ;; we want to keep mu4e and mu in sync, which is installed by our distro package manager
-    :ensure nil
-    :config
-    ;; set to t to avoid mail syncing issues when uusing mbsync
-    (setq mu4e-change-filenames-when-moving t) 
-    ;; refresh mail using isync every 10 minutes
-    (setq mu4e-update-interval (* 10 60))
-    (setq mu4e-get-mail-command "mbsync -a")
-    (setq mu4e-maildir "~/sync/mail")
-    (setq mu4e-drafts-folder "/[Google Mail]/Drafts")
-    (setq mu4e-sent-folder "/[Google Mail]/Sent Mail")
-    (setq mu4e-refile-folder "/[Google Mail]/All Mail")
-    (setq mu4e-trash-folder "/[Google Mail]/Bin")
-    (setq mu4e-compose-signature "")
+    (use-package mu4e
+      ;; we want to keep mu4e and mu in sync, which is installed by our distro package manager
+      :ensure nil
+      :config
+      ;; set to t to avoid mail syncing issues when uusing mbsync
+      (setq mu4e-change-filenames-when-moving t) 
+      ;; refresh mail using isync every 10 minutes
+      (setq mu4e-update-interval (* 10 60))
+      (setq mu4e-get-mail-command "mbsync -a")
+      (setq mu4e-maildir "~/sync/mail")
+      (setq mu4e-drafts-folder "/[Google Mail]/Drafts")
+      (setq mu4e-sent-folder "/[Google Mail]/Sent Mail")
+      (setq mu4e-refile-folder "/[Google Mail]/All Mail")
+      (setq mu4e-trash-folder "/[Google Mail]/Bin")
+      (setq mu4e-compose-signature "")
 
-    (setq mu4e-maildir-shortcuts
-          '(("/Inbox" . ?i)
-            ("/[Google Mail]/Sent Mail" . ?s)
-            ("/[Google Mail]/Bin" . ?b)
-            ("/[Google Mail]/Drafts" . ?d)
-            ("/[Google Mail]/All Mail" . ?a))))
+      (setq mu4e-maildir-shortcuts
+            '(("/Inbox" . ?i)
+              ("/[Google Mail]/Sent Mail" . ?s)
+              ("/[Google Mail]/Bin" . ?b)
+              ("/[Google Mail]/Drafts" . ?d)
+              ("/[Google Mail]/All Mail" . ?a))))
 
-  (oem/leader-key-def
-    "m" '(:ignore t :which-key "mail")
-    "mm" '(mu4e :which-key "mu4e"))
+    (oem/leader-key-def
+      "m" '(:ignore t :which-key "mail")
+      "mm" '(mu4e :which-key "mu4e")
+      "ms" '(mu4e-headers-search :which-key "mail search"))
 #+end_src

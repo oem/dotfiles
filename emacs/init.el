@@ -454,4 +454,5 @@
 
 (oem/leader-key-def
   "m" '(:ignore t :which-key "mail")
-  "mm" '(mu4e :which-key "mu4e"))
+  "mm" '(mu4e :which-key "mu4e")
+  "ms" '(mu4e-headers-search :which-key "mail search"))
