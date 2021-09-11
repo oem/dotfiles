@@ -440,12 +440,39 @@
   ;; refresh mail using isync every 10 minutes
   ;; (setq mu4e-update-interval (* 10 60))
   (setq mu4e-get-mail-command "mbsync -a")
-  (setq mu4e-maildir "~/sync/mail/darkoem-gmail")
-  (setq mu4e-drafts-folder "/darkoem-gmail/drafts")
-  (setq mu4e-sent-folder "/darkoem-gmail/sent")
-  (setq mu4e-refile-folder "/darkoem-gmail/all")
-  (setq mu4e-trash-folder "/darkoem-gmail/trash")
-  (setq mu4e-compose-signature "")
+  (setq mu4e-maildir "~/sync/mail")
+
+  (setq mu4e-contexts
+        (list
+         (make-mu4e-context
+          :name "darkoem-gmail"
+          :match-func
+          (lambda (msg)
+            (when msg
+              (string-prefix-p "/darkoem-gmail" (mu4e-message-field msg :maildir))))
+          :vars '((user-mail-address . "darkoem@gmail.com")
+                  (user-full-name . "Ömür Özkir")
+
+                  (mu4e-drafts-folder . "/darkoem-gmail/drafts")
+                  (mu4e-sent-folder . "/darkoem-gmail/sent")
+                  (mu4e-refile-folder . "/darkoem-gmail/all")
+                  (mu4e-trash-folder . "/darkoem-gmail/trash")
+                  (mu4e-compose-signature . "")))
+
+         (make-mu4e-context
+          :name "oemuer-oezkir-njiuko"
+          :match-func
+          (lambda (msg)
+            (when msg
+              (string-prefix-p "/oemuer-oezkir-njiuko" (mu4e-message-field msg :maildir))))
+          :vars '((user-mail-address . "oemuer.oezkir@njiuko.com")
+                  (user-full-name . "Ömür Özkir")
+
+                  (mu4e-drafts-folder . "/oemuer-oezkir-njiuko/drafts")
+                  (mu4e-sent-folder . "/oemuer-oezkir-njiuko/sent")
+                  (mu4e-refile-folder . "/oemuer-oezkir-njiuko/all")
+                  (mu4e-trash-folder . "/oemuer-oezkir-njiuko/trash")
+                  (mu4e-compose-signature . "")))))
 
   (setq mu4e-maildir-shortcuts
         '(("/darkoem-gmail/Inbox" . ?i)
