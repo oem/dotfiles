@@ -429,6 +429,8 @@
   "ooo" '(org-roam-node-find :which-text "org roam node find")
   "ooi" '(org-roam-node-insert :which-text "org roam node insert"))
 
+(setq epg-pinentry-mode 'loopback)
+
 (use-package mu4e
   ;; we want to keep mu4e and mu in sync, which is installed by our distro package manager
   :ensure nil
@@ -436,7 +438,7 @@
   ;; set to t to avoid mail syncing issues when uusing mbsync
   (setq mu4e-change-filenames-when-moving t) 
   ;; refresh mail using isync every 10 minutes
-  (setq mu4e-update-interval (* 10 60))
+  ;; (setq mu4e-update-interval (* 10 60))
   (setq mu4e-get-mail-command "mbsync -a")
   (setq mu4e-maildir "~/sync/mail/darkoem-gmail")
   (setq mu4e-drafts-folder "/darkoem-gmail/drafts")
@@ -446,9 +448,9 @@
   (setq mu4e-compose-signature "")
 
   (setq mu4e-maildir-shortcuts
-        '(("/Inbox" . ?i)
+        '(("/darkoem-gmail/Inbox" . ?i)
           ("/darkoem-gmail/sent" . ?s)
-          ("darkoem-gmail/bin" . ?b)
+          ("/darkoem-gmail/bin" . ?b)
           ("/darkoem-gmail/drafts" . ?d)
           ("/darkoem-gmail/all" . ?a))))
 

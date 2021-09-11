@@ -563,6 +563,12 @@ This is an effort to replicate the Zettelkasten System. Org Roam itself tries to
     "ooi" '(org-roam-node-insert :which-text "org roam node insert"))
 #+end_src
 
+* Encryption
+** allow to enter password directly in emacs
+#+begin_src emacs-lisp
+  (setq epg-pinentry-mode 'loopback)
+#+end_src
+
 * Mail
 ** dependencies
 We need to install a few dependencies outside of Emacs:
@@ -595,7 +601,7 @@ It syncs your emails in the background using an external program.
       ;; set to t to avoid mail syncing issues when uusing mbsync
       (setq mu4e-change-filenames-when-moving t) 
       ;; refresh mail using isync every 10 minutes
-      (setq mu4e-update-interval (* 10 60))
+      ;; (setq mu4e-update-interval (* 10 60))
       (setq mu4e-get-mail-command "mbsync -a")
       (setq mu4e-maildir "~/sync/mail/darkoem-gmail")
       (setq mu4e-drafts-folder "/darkoem-gmail/drafts")
@@ -605,9 +611,9 @@ It syncs your emails in the background using an external program.
       (setq mu4e-compose-signature "")
 
       (setq mu4e-maildir-shortcuts
-            '(("/Inbox" . ?i)
+            '(("/darkoem-gmail/Inbox" . ?i)
               ("/darkoem-gmail/sent" . ?s)
-              ("darkoem-gmail/bin" . ?b)
+              ("/darkoem-gmail/bin" . ?b)
               ("/darkoem-gmail/drafts" . ?d)
               ("/darkoem-gmail/all" . ?a))))
 
