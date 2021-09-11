@@ -438,34 +438,21 @@
   ;; refresh mail using isync every 10 minutes
   (setq mu4e-update-interval (* 10 60))
   (setq mu4e-get-mail-command "mbsync -a")
-  (setq mu4e-maildir "~/sync/mail")
-  (setq mu4e-drafts-folder "/[Google Mail]/Drafts")
-  (setq mu4e-sent-folder "/[Google Mail]/Sent Mail")
-  (setq mu4e-refile-folder "/[Google Mail]/All Mail")
-  (setq mu4e-trash-folder "/[Google Mail]/Bin")
+  (setq mu4e-maildir "~/sync/mail/darkoem-gmail")
+  (setq mu4e-drafts-folder "/darkoem-gmail/drafts")
+  (setq mu4e-sent-folder "/darkoem-gmail/sent")
+  (setq mu4e-refile-folder "/darkoem-gmail/all")
+  (setq mu4e-trash-folder "/darkoem-gmail/trash")
   (setq mu4e-compose-signature "")
 
   (setq mu4e-maildir-shortcuts
         '(("/Inbox" . ?i)
-          ("/[Google Mail]/Sent Mail" . ?s)
-          ("/[Google Mail]/Bin" . ?b)
-          ("/[Google Mail]/Drafts" . ?d)
-          ("/[Google Mail]/All Mail" . ?a))))
+          ("/darkoem-gmail/sent" . ?s)
+          ("darkoem-gmail/bin" . ?b)
+          ("/darkoem-gmail/drafts" . ?d)
+          ("/darkoem-gmail/all" . ?a))))
 
 (oem/leader-key-def
   "m" '(:ignore t :which-key "mail")
   "mm" '(mu4e :which-key "mu4e")
   "ms" '(mu4e-headers-search :which-key "mail search"))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("835868dcd17131ba8b9619d14c67c127aa18b90a82438c8613586331129dda63" default)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
