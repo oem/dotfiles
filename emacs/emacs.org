@@ -513,6 +513,7 @@ I also snug in some keybindings to change to a larger font quickly. I personally
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
+     (shell . t)
      (python . t)))
 #+end_src
 
