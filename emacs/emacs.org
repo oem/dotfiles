@@ -564,4 +564,26 @@ This is an effort to replicate the Zettelkasten System. Org Roam itself tries to
     "ooi" '(org-roam-node-insert :which-text "org roam node insert"))
 #+end_src
 
+* Encryption
+** pinentry
+#+begin_src emacs-lisp
+  (use-package pinentry)
+#+end_src
 
+#+begin_src shell :tangle ~/.gnupg/gpg-agent.conf :results output silent
+  default-cache-ttl 3600
+  allow-loopback-pinentry
+  allow-emacs-pinentry
+#+end_src
+
+#+begin_src shell :results output silent
+  cat ~/.gnupg/gpg-agent.conf
+#+end_src
+
+#+begin_src emacs-lisp
+(setq epg-pinentry-mode 'loopback)
+#+end_src
+
+#+begin_src emacs-lisp
+  (pinentry-start)
+#+end_src

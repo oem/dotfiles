@@ -429,3 +429,9 @@
   "oob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
   "ooo" '(org-roam-node-find :which-text "org roam node find")
   "ooi" '(org-roam-node-insert :which-text "org roam node insert"))
+
+(use-package pinentry)
+
+(setq epg-pinentry-mode 'loopback)
+
+(pinentry-start)
