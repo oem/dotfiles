@@ -2,4 +2,4 @@
 
 pidof mbsync >/dev/null && { echo "sync is already in progress."; exit ;}
 mbsync -a
-notmuch new
+notmuch new >/dev/null
