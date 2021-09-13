@@ -149,6 +149,18 @@ require('packer').startup(function()
 		end,
 	}
 
+-- show indentation levels
+use {
+	'lukas-reineke/indent-blankline.nvim',
+	config = function()
+		require('indent_blankline').setup{
+			show_end_of_line = true,
+			space_char_blankline = " ",
+			show_current_context = true,
+		}
+	end
+}
+
   -- Statusline
   use {
     'famiu/feline.nvim',

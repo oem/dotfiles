@@ -40,13 +40,13 @@ o.background = "dark"
 o.updatetime=300
 o.cursorcolumn= true
 vim.opt.listchars = {
-	space = "·",
-	eol = "<",
+	space = "·"
 }
 
 -- window-local options
 wo.number = false
 wo.signcolumn = 'yes'
+wo.list = true
 
 -- buffer-local options
 bo.expandtab = true -- we need to overwrite this for go buffers
@@ -105,7 +105,7 @@ vim.g.ale_rust_rustfmt_options= '--edition 2018'
 vim.g.ale_linters = {
   ruby = { 'solargraph', 'standardrb', 'rubocop' },
   python = { 'mypy', 'flake8', 'pylint' },
-	elm = {},
+  elm = {},
 }
 vim.g.ale_python_pylint_change_directory = 0
 vim.g.ale_python_flake8_change_directory = 0
