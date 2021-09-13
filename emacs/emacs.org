@@ -586,6 +586,7 @@ This is an effort to replicate the Zettelkasten System. Org Roam itself tries to
 
 #+begin_src emacs-lisp
   (pinentry-start)
+#+end_src
 
 * Mail
 ** dependencies
@@ -607,6 +608,13 @@ Index your emails:
   mu init --maildir=<mail folder> --my-address=<email address>
   mu index
 #+end_src
+
+For multiple accounts you just need to provide them all in ~mu init~:
+#+begin_src shell
+  mu init --maildir=<mail folder> --my-address=<first address> --my-address=<second address>
+  mu index
+#+end_src
+This assumes that the emails are all in (sub) folders of the maildir. Otherwise you will also need to provide multiple ~--maildir~.
 
 ** managing mail with mu4e
 mu4e is the Emacs interface to the mu mail indexer.

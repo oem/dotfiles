@@ -435,14 +435,13 @@
 (setq epg-pinentry-mode 'loopback)
 
 (pinentry-start)
-(setq epg-pinentry-mode 'loopback)
 
 (use-package mu4e
   ;; we want to keep mu4e and mu in sync, which is installed by our distro package manager
   :ensure nil
   :config
   ;; set to t to avoid mail syncing issues when uusing mbsync
-  (setq mu4e-change-filenames-when-moving t) 
+  (setq mu4e-change-filenames-when-moving t)
   ;; refresh mail using isync every 10 minutes
   ;; (setq mu4e-update-interval (* 10 60))
   (setq mu4e-get-mail-command "mbsync -a")
@@ -466,7 +465,23 @@
                   (mu4e-compose-signature . "")))
 
          (make-mu4e-context
-          :name "oemuer-oezkir-njiuko"
+          :name "oemuer-oezkir-gmail"
+          :match-func
+          (lambda (msg)
+            (when msg
+              (string-prefix-p "/oemuer-oezkir-gmail" (mu4e-message-field msg :maildir))))
+          :vars '((user-mail-address . "oemuer.oezkir@gmail.com")
+                  (user-full-name . "Ömür Özkir")
+
+                  (mu4e-drafts-folder . "/oemuer-oezkir-gmail/drafts")
+                  (mu4e-sent-folder . "/oemuer-oezkir-gmail/sent")
+                  (mu4e-refile-folder . "/oemuer-oezkir-gmail/all")
+                  (mu4e-trash-folder . "/oemuer-oezkir-gmail/trash")
+                  (mu4e-compose-signature . "")))
+
+
+         (make-mu4e-context
+          :name "njiuko"
           :match-func
           (lambda (msg)
             (when msg
