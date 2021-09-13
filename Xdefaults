@@ -30,7 +30,7 @@ URxvtRecord*internalBorder: 30
 *pointerBlankDelay: 1
 
 
-! onedark colors. Sort of.
+! pencil colors
 *foreground: #ABB2BF
 *background: #1C1C1C
 
