@@ -1,0 +1,18 @@
+# Control w, delete 1 word at a time
+- key:
+    Char: W
+  modifiers:
+    CTRL:
+  binding:
+    Kill:
+      BackwardWord:
+        repeat: 1
+        word: Emacs
+
+- key:
+    Char: E
+  modifiers:
+    CTRL:
+  binding:
+    CompleteHint:
+
