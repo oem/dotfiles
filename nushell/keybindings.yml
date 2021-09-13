@@ -10,9 +10,15 @@
         word: Emacs
 
 - key:
+    Char: F
+  modifiers:
+    CTRL:
+  binding:
+    Move: EndOfLine
+
+- key:
     Char: E
   modifiers:
     CTRL:
   binding:
     CompleteHint:
-
