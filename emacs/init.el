@@ -417,7 +417,7 @@
   :init
   (setq org-roam-v2-ack t)
   :custom
-  (org-roam-directory "~/sync/brain/notes")
+  (org-roam-directory "~/sync/notes")
   (org-roam-completion-everywhere t)
   :bind (
          :map org-mode-map
