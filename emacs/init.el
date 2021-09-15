@@ -283,8 +283,6 @@
           ("idea" . ?i)))
 
   (load-library "find-lisp")
-  (setq org-agenda-files
-        (find-lisp-find-files "~/sync/brain/tasks/" "\.org$"))
   (setq org-agenda-start-with-log-mode t)
   (setq org-agenda-window-setup 'current-window)
   (setq org-log-done 'time)
@@ -336,23 +334,12 @@
                   ((org-agenda-overriding-header "Completed")))
             (todo "CANC"
                   ((org-agenda-overriding-header "Cancelled")))
-            ))))
-
-  (setq org-capture-templates
-        `(("t" "Tasks / Projects")
-          ("tt" "Task" entry (file+olp "~/sync/brain/tasks/tasks.org" "Inbox")
-           "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
-          ("m" "Metrics")
-          ("mw" "Water" table-line (file+headline "~/sync/brain/tasks/metrics.org" "Water")
-           "| %U | %^{Glasses} |" :kill-buffer t)
-          ("mW" "Weight" table-line (file+headline "~/sync/brain/tasks/metrics.org" "Weight")
-           "| %U | %^{kg} | %^{notes} |" :kill-buffer t))))
+            )))))
 
 (oem/leader-key-def
   "o" '(:ignore t :which-key "org")
   "oa" '(org-agenda :which-text "org-agenda")
-  "or" '(org-refile :which-text "org-refile")
-  "oc" '(org-capture :which-text "org-capture"))
+  "or" '(org-refile :which-text "org-refile"))
 
 (use-package org-bullets
   :after org
@@ -483,6 +470,18 @@
                      :templates '(("i" "inbox" plain "* %?"
                                    :if-new (file+head "inbox.org" "#+title: Inbox\n")))))
 
+(defun oem/org-roam-capture-metrics()
+  (interactive)
+  (org-roam-capture- :node (org-roam-node-create)
+                     :templates '(("w" "Water" table-line "| %U | %^{Glasses} |"
+                                   :if-new (file+head+olp "metrics.org"
+                                                          "#+title: Personal metrics\n"
+                                                          ("Water")))
+                                  ("W" "Weight" table-line "| %U | %^{kg} | %^{notes} |"
+                                   :if-new (file+head+olp "metrics.org"
+                                                          "#+title: Personal metrics\n"
+                                                          ("Weight"))))))
+
 (defun oem/org-roam-capture-task()
   (interactive)
   ;; add the project file to the agenda after capture is finished
@@ -499,16 +498,17 @@
                                         ("Tasks"))))))
 
 (oem/leader-key-def
-  "oob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
-  "ood" '(:ignore t :which-key "org roam dailies")
-  "oody" '(org-roam-dailies-capture-yesterday :which-key "org roam dailies yesterday")
-  "oodt" '(org-roam-dailies-capture-tomorrow :which-key "org roam dailies tomorrow")
-  "ooc" '(:ignore t :which-key "org roam capture")
-  "ooci" '(oem/org-roam-capture-inbox :which-text "org roam capture")
-  "oocp" '(oem/org-roam-capture-task :which-text "org roam capture into project")
-  "oop" '(oem/org-roam-find-project :which-text "find or create project")
-  "ooo" '(org-roam-node-find :which-text "org roam node find")
-  "ooi" '(org-roam-node-insert :which-text "org roam node insert"))
+  "ob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
+  "od" '(:ignore t :which-key "org roam dailies")
+  "ody" '(org-roam-dailies-capture-yesterday :which-key "org roam dailies yesterday")
+  "odt" '(org-roam-dailies-capture-tomorrow :which-key "org roam dailies tomorrow")
+  "oc" '(:ignore t :which-key "org roam capture")
+  "oci" '(oem/org-roam-capture-inbox :which-text "org roam capture into inbox")
+  "ocm" '(oem/org-roam-capture-metrics :which-text "org roam capture metrics")
+  "ocp" '(oem/org-roam-capture-task :which-text "org roam capture into project")
+  "op" '(oem/org-roam-find-project :which-text "find or create project")
+  "oo" '(org-roam-node-find :which-text "org roam node find")
+  "oi" '(org-roam-node-insert :which-text "org roam node insert"))
 
 (use-package pinentry)
 
