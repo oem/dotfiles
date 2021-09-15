@@ -369,12 +369,17 @@
                 (org-level-5 . 1.2)
                 (org-level-6 . 1.1)
                 (org-level-7 . 1.1)
-                (org-level-8 . 1.1)))
+                (org-level-8 . 1.1)
+                (org-document-title . 1.3)))
   (set-face-attribute (car face) nil :font "Avenir Next LT Pro" :weight 'bold :height (cdr face)))
 
 ;; we don't want variable fonts for everything in org mode:
 (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
 (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-drawer nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-document-title nil :foreground nil :inherit 'variable-pitch)
+(set-face-attribute 'org-document-info-keyword nil :weight 'bold :inherit 'fixed-pitch)
+(set-face-attribute 'org-property-value nil :inherit 'fixed-pitch)
 (set-face-attribute 'org-date nil :inherit 'fixed-pitch)
 (set-face-attribute 'org-code nil :inherit '(shadow fixed-pitch))
 (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
