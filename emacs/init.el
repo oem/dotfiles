@@ -293,11 +293,6 @@
   (add-to-list 'org-modules 'org-habit)
   (setq org-habit-graph-column 60)
 
-  ;; org refile targets
-  (setq org-refile-targets
-        '(("archive.org" :maxlevel . 3)
-          ("tasks.org" :maxlevel . 2)))
-
   ;; save org buffers after refiling
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
 
@@ -338,8 +333,7 @@
 
 (oem/leader-key-def
   "o" '(:ignore t :which-key "org")
-  "oa" '(org-agenda :which-text "org-agenda")
-  "or" '(org-refile :which-text "org-refile"))
+  "oa" '(org-agenda :which-text "org-agenda"))
 
 (use-package org-bullets
   :after org
@@ -496,6 +490,30 @@
                  :if-new (file+head+olp "%<%Y%m%d%H%M%S>-${slug}.org"
                                         "#+title: ${title}\n#+category: ${title}\n#+filetags: Project"
                                         ("Tasks"))))))
+
+(defun oem/org-roam-copy-to-today ()
+  (interactive)
+  (let ((org-refile-keep nil) ;; Set this to nil to delete the original!
+        (org-roam-dailies-capture-templates
+         '(("t" "tasks" entry "%?"
+            :if-new (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n" ("Tasks")))))
+        (org-after-refile-insert-hook #'save-buffer)
+        today-file
+        pos)
+    (save-window-excursion
+      (org-roam-dailies--capture (current-time) t)
+      (setq today-file (buffer-file-name))
+      (setq pos (point)))
+
+    ;; Only refile if the target file is different than the current file
+    (unless (equal (file-truename today-file)
+                   (file-truename (buffer-file-name)))
+      (org-refile nil nil (list "Tasks" today-file nil pos)))))
+
+(add-to-list 'org-after-todo-state-change-hook
+             (lambda ()
+               (when (equal org-state "DONE")
+                 (oem/org-roam-copy-to-today))))
 
 (oem/leader-key-def
   "ob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
