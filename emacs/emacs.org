@@ -557,22 +557,34 @@ This is an effort to replicate the Zettelkasten System. Org Roam itself tries to
            ("C-M-i" . completion-at-point))
     :config
     (org-roam-setup))
-
-  (oem/leader-key-def
-    "oob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
-    "ooo" '(org-roam-node-find :which-text "org roam node find")
-    "ooi" '(org-roam-node-insert :which-text "org roam node insert"))
 #+end_src
 
 ** Capture
 We would like to capture notes and tasks quickly to an inbox with org-roam. We are currently using org-capture for this, but let's not use two competing organization systems that have a harder time talking to each other.
 We also want to capture tasks directly into project files.
+#+begin_src emacs-lisp
+  (defun oem/org-roam-capture()
+    (interactive)
+    (org-roam-capture- :node (org-roam-node-create)
+                       :templates '(("i" "inbox" plain "* %?"
+                                     :if-new (file+head "inbox.org" "#+title: Inbox\n")))))
+#+end_src
 
 ** Agenda
 Show all tasks from project files - that is, files tagged as project.
 
 ** Finding things
 By tag for example.
+
+** Keybindings
+They are for now all prefixed with =leader oo= to not clash with the normal org mode keybindings (which are prefixed with just =leader o=). But once I have replicated the previous functionality I might simplify that prefix to be =leader o=.
+#+begin_src emacs-lisp
+  (oem/leader-key-def
+    "oob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
+    "ooc" '(oem/org-roam-capture :which-text "org roam capture")
+    "ooo" '(org-roam-node-find :which-text "org roam node find")
+    "ooi" '(org-roam-node-insert :which-text "org roam node insert"))
+#+end_src
 
 * Encryption
 ** pinentry

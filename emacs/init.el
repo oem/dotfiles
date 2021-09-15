@@ -425,8 +425,15 @@
   :config
   (org-roam-setup))
 
+(defun oem/org-roam-capture()
+  (interactive)
+  (org-roam-capture- :node (org-roam-node-create)
+                     :templates '(("i" "inbox" plain "* %?"
+                                   :if-new (file+head "inbox.org" "#+title: Inbox\n")))))
+
 (oem/leader-key-def
   "oob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
+  "ooc" '(oem/org-roam-capture :which-text "org roam capture")
   "ooo" '(org-roam-node-find :which-text "org roam node find")
   "ooi" '(org-roam-node-insert :which-text "org roam node insert"))
 
