@@ -11,7 +11,7 @@ These sources helped me a lot building my own emacs configuration - well that so
 
 * Sane Defaults
 #+begin_src emacs-lisp
-  ;; -- lexical-bindiing: t; --
+  ;; -*- lexical-binding: t -*-
   (setq inhibit-startup-message t) ; disable startup message
 
   (scroll-bar-mode -1) ; Disable visible scrollbar
