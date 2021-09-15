@@ -106,14 +106,14 @@ font:
       - (macOS) TerminessTTF Nerd Font
       - (Linux) monospace
       - (Windows) Consolas
-    family: TerminessTTF Nerd Font
+    family: Cartograph CF
     style: Medium
   bold:
     Default:
       - (macOS) TerminessTTF Nerd Font
       - (Linux) monospace
       - (Windows) Consolas
-    family: TerminessTTF Nerd Font
+    family: Cartograph CF
     style: Bold
 
     # The `style` can be specified to pick a specific face.
