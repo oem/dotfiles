@@ -1,4 +1,4 @@
-;; -- lexical-bindiing: t; --
+;; -*- lexical-binding: t -*-
 (setq inhibit-startup-message t) ; disable startup message
 
 (scroll-bar-mode -1) ; Disable visible scrollbar
@@ -423,12 +423,7 @@
   (org-roam-completion-everywhere t)
   :bind (
          :map org-mode-map
-         ("C-M-i" . completion-at-point)
-         :map org-roam-dailies-map
-         ("Y" . org-roam-dailies-capture-yesterday)
-         ("T" . org-roam-dailies-capture-tomorrow))
-  :bind-keymap
-  ("C-c n d" . org-roam-dailies-map)
+         ("C-M-i" . completion-at-point))
   :config
   (require 'org-roam-dailies)
   (org-roam-db-autosync-mode))
@@ -447,33 +442,35 @@
   (interactive)
   (setq org-agenda-files (oem/org-roam-list-notes-by-tag "Project")))
 
-(defun oem/org-roam-find-project ()
-  (interactive)
-  ;; Add the project file to the agenda after capture is finished
-  (add-hook 'org-capture-after-finalize-hook #'oem/org-roam-project-finalize-hook)
-
-  ;; Select a project file to open, creating it if necessary
-  (org-roam-node-find
-   nil
-   nil
-   (oem/org-roam-filter-by-tag "Project")
-   :templates
-   '(("p" "project" plain "* Goals\n\n%?\n\n* Tasks\n\n** TODO Add initial tasks\n\n* Dates\n\n"
-      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+category: ${title}\n#+filetags: Project")
-      :unnarrowed t))))
-
 (oem/org-roam-refresh-agenda-list)
 
 (defun oem/org-roam-project-finalize-hook ()
-  "Adds the captured project file to `org-agenda-files' if the
-capture was not aborted."
-  ;; Remove the hook since it was added temporarily
-  (remove-hook 'org-capture-after-finalize-hook #'oem/org-roam-project-finalize-hook)
+    "Adds the captured project file to `org-agenda-files' if the
+  capture was not aborted."
+    ;; Remove the hook since it was added temporarily
+    (remove-hook 'org-capture-after-finalize-hook #'oem/org-roam-project-finalize-hook)
 
-  ;; Add project file to the agenda list if the capture was confirmed
-  (unless org-note-abort
-    (with-current-buffer (org-capture-get :buffer)
-      (add-to-list 'org-agenda-files (buffer-file-name)))))
+    ;; Add project file to the agenda list if the capture was confirmed
+    (unless org-note-abort
+      (with-current-buffer (org-capture-get :buffer)
+        (add-to-list 'org-agenda-files (buffer-file-name)))))
+
+  (defun oem/org-roam-find-project ()
+    (interactive)
+    ;; Add the project file to the agenda after capture is finished
+    (add-hook 'org-capture-after-finalize-hook #'oem/org-roam-project-finalize-hook)
+
+    ;; Select a project file to open, creating it if necessary
+    (org-roam-node-find
+     nil
+     nil
+     (oem/org-roam-filter-by-tag "Project")
+     :templates
+     '(("p" "project" plain "* Goals\n\n%?\n\n* Tasks\n\n** TODO Add initial tasks\n\n* Dates\n\n"
+        :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+category: ${title}\n#+filetags: Project")
+        :unnarrowed t))))
+
+(global-set-key (kbd "C-c n p") #'oem/org-roam-find-project)
 
 (defun oem/org-roam-capture-inbox()
   (interactive)
@@ -498,6 +495,10 @@ capture was not aborted."
 
 (oem/leader-key-def
   "oob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
+  "ood" '(:ignore t :which-key "org roam dailies")
+  "oody" '(org-roam-dailies-capture-yesterday :which-key "org roam dailies yesterday")
+  "oodt" '(org-roam-dailies-capture-tomorrow :which-key "org roam dailies tomorrow")
+  "ooc" '(:ignore t :which-key "org roam capture")
   "ooci" '(oem/org-roam-capture-inbox :which-text "org roam capture")
   "oocp" '(oem/org-roam-capture-task :which-text "org roam capture into project")
   "oop" '(oem/org-roam-find-project :which-text "find or create project")

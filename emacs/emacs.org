@@ -546,6 +546,7 @@ We want to tangle this file whenever we save changes.
 
 * Org Roam
 This is an effort to replicate the Zettelkasten System. Org Roam itself tries to implement features of the Roam software in Org Mode.
+** Setting things up
 Mostly followed this setup from [[https://systemcrafters.net/build-a-second-brain-in-emacs/5-org-roam-hacks/][Systemcrafter]].
 #+begin_src emacs-lisp
   (use-package org-roam
@@ -557,18 +558,14 @@ Mostly followed this setup from [[https://systemcrafters.net/build-a-second-brai
     (org-roam-completion-everywhere t)
     :bind (
            :map org-mode-map
-           ("C-M-i" . completion-at-point)
-           :map org-roam-dailies-map
-           ("Y" . org-roam-dailies-capture-yesterday)
-           ("T" . org-roam-dailies-capture-tomorrow))
-    :bind-keymap
-    ("C-c n d" . org-roam-dailies-map)
+           ("C-M-i" . completion-at-point))
     :config
     (require 'org-roam-dailies)
     (org-roam-db-autosync-mode))
 #+end_src
 
-** Finding things
+** Agenda
+*** Finding things
 *Filter by tag*
 The buffer you put this in must have lexical-binding set to t!
 #+begin_src emacs-lisp
@@ -588,10 +585,22 @@ The buffer you put this in must have lexical-binding set to t!
   (defun oem/org-roam-refresh-agenda-list ()
     (interactive)
     (setq org-agenda-files (oem/org-roam-list-notes-by-tag "Project")))
+
+  (oem/org-roam-refresh-agenda-list)
 #+end_src
 
 *Find or create project*
 #+begin_src emacs-lisp
+  (defun oem/org-roam-project-finalize-hook ()
+    "Adds the captured project file to `org-agenda-files' if the
+  capture was not aborted."
+    ;; Remove the hook since it was added temporarily
+    (remove-hook 'org-capture-after-finalize-hook #'oem/org-roam-project-finalize-hook)
+
+    ;; Add project file to the agenda list if the capture was confirmed
+    (unless org-note-abort
+      (with-current-buffer (org-capture-get :buffer)
+        (add-to-list 'org-agenda-files (buffer-file-name)))))
 
   (defun oem/org-roam-find-project ()
     (interactive)
@@ -608,27 +617,7 @@ The buffer you put this in must have lexical-binding set to t!
         :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+category: ${title}\n#+filetags: Project")
         :unnarrowed t))))
 
-#+end_src
-
-** Agenda
-Show all tasks from project files - that is, files tagged as project.
-
-*Build the agenda list the first time for the session*
-#+begin_src emacs-lisp
-  (oem/org-roam-refresh-agenda-list)
-#+end_src
-
-#+begin_src emacs-lisp
-  (defun oem/org-roam-project-finalize-hook ()
-    "Adds the captured project file to `org-agenda-files' if the
-  capture was not aborted."
-    ;; Remove the hook since it was added temporarily
-    (remove-hook 'org-capture-after-finalize-hook #'oem/org-roam-project-finalize-hook)
-
-    ;; Add project file to the agenda list if the capture was confirmed
-    (unless org-note-abort
-      (with-current-buffer (org-capture-get :buffer)
-        (add-to-list 'org-agenda-files (buffer-file-name)))))
+(global-set-key (kbd "C-c n p") #'oem/org-roam-find-project)
 #+end_src
 
 ** Capture
@@ -668,6 +657,10 @@ They are for now all prefixed with =leader oo= to not clash with the normal org 
 #+begin_src emacs-lisp
   (oem/leader-key-def
     "oob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
+    "ood" '(:ignore t :which-key "org roam dailies")
+    "oody" '(org-roam-dailies-capture-yesterday :which-key "org roam dailies yesterday")
+    "oodt" '(org-roam-dailies-capture-tomorrow :which-key "org roam dailies tomorrow")
+    "ooc" '(:ignore t :which-key "org roam capture")
     "ooci" '(oem/org-roam-capture-inbox :which-text "org roam capture")
     "oocp" '(oem/org-roam-capture-task :which-text "org roam capture into project")
     "oop" '(oem/org-roam-find-project :which-text "find or create project")
