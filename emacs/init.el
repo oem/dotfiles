@@ -490,9 +490,9 @@
                                         "#+title: ${title}\n#+category: ${title}\n#+filetags: Project"
                                         ("Tasks"))))))
 
-(defun oem/org-roam-copy-to-today ()
+(defun oem/org-roam-copy-to-today (keep)
   (interactive)
-  (let ((org-refile-keep t) ;; Set this to nil to delete the original!
+  (let ((org-refile-keep keep) ;; Set this to nil to delete the original!
         (org-roam-dailies-capture-templates
          '(("t" "tasks" entry "%?"
             :if-new (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n" ("Tasks")))))
@@ -511,8 +511,24 @@
 
 (add-to-list 'org-after-todo-state-change-hook
              (lambda ()
-               (when (equal org-state "DONE")
-                 (oem/org-roam-copy-to-today))))
+               (if (and (equal org-state "DONE") (equal buffer-file-name "/home/oem/sync/notes/todos.org"))
+                 (oem/org-roam-copy-to-today nil)
+                 (if (equal org-state "DONE")
+                 (oem/org-roam-copy-to-today t)))))
+
+(defun oem/org-refile-to (file headline)
+  "Move current headline to specific location"
+  (interactive)
+  (let ((org-after-refile-insert-hook #'save-buffer)
+        (pos (save-window-excursion
+               (find-file file)
+               (org-find-exact-headline-in-buffer headline))))
+    (org-refile nil nil (list headline file nil pos))))
+
+(add-to-list 'org-after-todo-state-change-hook
+             (lambda ()
+               (when (and (equal org-state "TODO") (equal buffer-file-name "/home/oem/sync/notes/inbox.org"))
+                 (oem/org-refile-to "~/sync/notes/todos.org" "Tasks"))))
 
 (oem/leader-key-def
   "ob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")

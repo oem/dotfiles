@@ -1,6 +1,5 @@
 #+TITLE: Emacs Configuration
 #+PROPERTY: header-args:emacs-lisp :tangle ./init.el
-
 * Be Literate
 This file will generate [[file:init.el][init.el]] which can be loaded by Emacs on startup.
 
@@ -653,30 +652,51 @@ We also want to capture tasks directly into project files.
 *** on completion
 Not actually refiling, we are copying the item to the current daily file.
 #+begin_src emacs-lisp
-  (defun oem/org-roam-copy-to-today ()
-    (interactive)
-    (let ((org-refile-keep t) ;; Set this to nil to delete the original!
-          (org-roam-dailies-capture-templates
-           '(("t" "tasks" entry "%?"
-              :if-new (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n" ("Tasks")))))
-          (org-after-refile-insert-hook #'save-buffer)
-          today-file
-          pos)
-      (save-window-excursion
-        (org-roam-dailies--capture (current-time) t)
-        (setq today-file (buffer-file-name))
-        (setq pos (point)))
+      (defun oem/org-roam-copy-to-today (keep)
+        (interactive)
+        (let ((org-refile-keep keep) ;; Set this to nil to delete the original!
+              (org-roam-dailies-capture-templates
+               '(("t" "tasks" entry "%?"
+                  :if-new (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n" ("Tasks")))))
+              (org-after-refile-insert-hook #'save-buffer)
+              today-file
+              pos)
+          (save-window-excursion
+            (org-roam-dailies--capture (current-time) t)
+            (setq today-file (buffer-file-name))
+            (setq pos (point)))
 
-      ;; Only refile if the target file is different than the current file
-      (unless (equal (file-truename today-file)
-                     (file-truename (buffer-file-name)))
-        (org-refile nil nil (list "Tasks" today-file nil pos)))))
+          ;; Only refile if the target file is different than the current file
+          (unless (equal (file-truename today-file)
+                         (file-truename (buffer-file-name)))
+            (org-refile nil nil (list "Tasks" today-file nil pos)))))
+
+      (add-to-list 'org-after-todo-state-change-hook
+                   (lambda ()
+                     (if (and (equal org-state "DONE") (equal buffer-file-name "/home/oem/sync/notes/todos.org"))
+                       (oem/org-roam-copy-to-today nil)
+                       (if (equal org-state "DONE")
+                       (oem/org-roam-copy-to-today t)))))
+#+end_src
+
+*** on setting to TODO
+When we are going through our inbox we want to process the items.
+The simple case, where we want to turn an item into an actionable item, should be as automated as possible. In the best case we mark an item with *TODO* and it is being moved to =todos.org=.
+#+begin_src emacs-lisp
+  (defun oem/org-refile-to (file headline)
+    "Move current headline to specific location"
+    (interactive)
+    (let ((org-after-refile-insert-hook #'save-buffer)
+          (pos (save-window-excursion
+                 (find-file file)
+                 (org-find-exact-headline-in-buffer headline))))
+      (org-refile nil nil (list headline file nil pos))))
 
   (add-to-list 'org-after-todo-state-change-hook
                (lambda ()
-                 (when (equal org-state "DONE")
-                   (oem/org-roam-copy-to-today))))
-#+end_src
+                 (when (and (equal org-state "TODO") (equal buffer-file-name "/home/oem/sync/notes/inbox.org"))
+                   (oem/org-refile-to "~/sync/notes/todos.org" "Tasks"))))
+#+end_src     
 
 ** Keybindings
 They are for now all prefixed with =leader oo= to not clash with the normal org mode keybindings (which are prefixed with just =leader o=). But once I have replicated the previous functionality I might simplify that prefix to be =leader o=.
