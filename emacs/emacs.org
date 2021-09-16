@@ -702,8 +702,8 @@ They are for now all prefixed with =leader oo= to not clash with the normal org 
 #+end_src
 
 #+begin_src shell :tangle ~/.gnupg/gpg-agent.conf :results output silent
+  pinentry-program /usr/bin/pinentry-emacs
   default-cache-ttl 3600
-  allow-loopback-pinentry
   allow-emacs-pinentry
 #+end_src
 
@@ -712,7 +712,8 @@ They are for now all prefixed with =leader oo= to not clash with the normal org 
 #+end_src
 
 #+begin_src emacs-lisp
-(setq epg-pinentry-mode 'loopback)
+  (require 'epg)
+  (setq epg-pinentry-mode 'loopback)
 #+end_src
 
 #+begin_src emacs-lisp

@@ -302,7 +302,6 @@
            ((agenda "" ((org-deadline-warning-days 7)))
             (todo "NEXT"
                   ((org-agenda-overriding-header "Next Tasks")))
-            (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))
             (todo "ACTIVE"
                   ((org-agenda-overriding-header "Active Tasks")))))
 
@@ -493,7 +492,7 @@
 
 (defun oem/org-roam-copy-to-today ()
   (interactive)
-  (let ((org-refile-keep nil) ;; Set this to nil to delete the original!
+  (let ((org-refile-keep t) ;; Set this to nil to delete the original!
         (org-roam-dailies-capture-templates
          '(("t" "tasks" entry "%?"
             :if-new (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n" ("Tasks")))))
@@ -521,15 +520,16 @@
   "ody" '(org-roam-dailies-capture-yesterday :which-key "org roam dailies yesterday")
   "odt" '(org-roam-dailies-capture-tomorrow :which-key "org roam dailies tomorrow")
   "oc" '(:ignore t :which-key "org roam capture")
-  "oci" '(oem/org-roam-capture-inbox :which-text "org roam capture into inbox")
-  "ocm" '(oem/org-roam-capture-metrics :which-text "org roam capture metrics")
-  "ocp" '(oem/org-roam-capture-task :which-text "org roam capture into project")
-  "op" '(oem/org-roam-find-project :which-text "find or create project")
-  "oo" '(org-roam-node-find :which-text "org roam node find")
-  "oi" '(org-roam-node-insert :which-text "org roam node insert"))
+  "oci" '(oem/org-roam-capture-inbox :which-key "org roam capture into inbox")
+  "ocm" '(oem/org-roam-capture-metrics :which-key "org roam capture metrics")
+  "ocp" '(oem/org-roam-capture-task :which-key "org roam capture into project")
+  "op" '(oem/org-roam-find-project :which-key "find or create project")
+  "oo" '(org-roam-node-find :which-key "org roam node find")
+  "oi" '(org-roam-node-insert :which-key "org roam node insert"))
 
 (use-package pinentry)
 
+(require 'epg)
 (setq epg-pinentry-mode 'loopback)
 
 (pinentry-start)
