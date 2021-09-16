@@ -438,7 +438,7 @@ I also snug in some keybindings to change to a larger font quickly. I personally
 
     (oem/leader-key-def
       "o" '(:ignore t :which-key "org")
-      "oa" '(org-agenda :which-text "org-agenda"))
+      "oa" '(org-agenda :which-key "org-agenda"))
 #+end_src
 
 ** bullets and looks
@@ -611,7 +611,7 @@ We also want to capture tasks directly into project files.
   (defun oem/org-roam-capture-inbox()
     (interactive)
     (org-roam-capture- :node (org-roam-node-create)
-                       :templates '(("i" "inbox" plain "* %?"
+                       :templates '(("i" "inbox" plain "* %?\n %U\n %a\n %i"
                                      :if-new (file+head "inbox.org" "#+title: Inbox\n")))))
 #+end_src
 

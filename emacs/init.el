@@ -332,7 +332,7 @@
 
 (oem/leader-key-def
   "o" '(:ignore t :which-key "org")
-  "oa" '(org-agenda :which-text "org-agenda"))
+  "oa" '(org-agenda :which-key "org-agenda"))
 
 (use-package org-bullets
   :after org
@@ -460,7 +460,7 @@
 (defun oem/org-roam-capture-inbox()
   (interactive)
   (org-roam-capture- :node (org-roam-node-create)
-                     :templates '(("i" "inbox" plain "* %?"
+                     :templates '(("i" "inbox" plain "* %?\n %U\n %a\n %i"
                                    :if-new (file+head "inbox.org" "#+title: Inbox\n")))))
 
 (defun oem/org-roam-capture-metrics()
