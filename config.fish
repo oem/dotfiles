@@ -46,6 +46,7 @@ set -gx FZF_DEFAULT_COMMAND "fd --type f"
 #   fzf_key_bindings
 # end
 bind \cw backward-kill-word
+bind \co as-session
 
 # }}}
 # ssh {{{
