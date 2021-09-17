@@ -15,21 +15,17 @@ set -g c4 (set_color ffffff)
 set -g ce (set_color $fish_color_error)
 # }}}
 # aliases {{{
-alias x='kak'
 alias vi='nvim'
 alias ex='emacs'
 alias e='emacs -nw'
-alias l='ls -la'
-alias ll= 'ls -lah'
+alias l='ls --color=never -lA'
+alias ll= 'ls --color=never -lAh'
 alias cat='bat -p'
-alias l='exa -la'
-alias ll='exa -lah'
-alias dir='ls -lht | less'
+alias dir='ls -lAht'
 alias b='bundle exec'
 alias c='cargo'
 alias j='julia'
 alias dc='docker-compose'
-# alias code='code-insiders'
 # }}}
 # env {{{
 set -x EDITOR nvim
