@@ -189,7 +189,7 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["orgmode.nvim"] = {
-    config = { "\27LJ\1\2Ž\1\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\2\21org_agenda_files\22~/sync/notes/**/*\27org_defaults_note_file\28~/sync/notes/refile.org\nsetup\forgmode\frequire\0" },
+    config = { "require('config.orgmode')" },
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/orgmode.nvim"
   },
@@ -327,7 +327,7 @@ require('config.gitsigns')
 time([[Config for gitsigns.nvim]], false)
 -- Config for: orgmode.nvim
 time([[Config for orgmode.nvim]], true)
-try_loadstring("\27LJ\1\2Ž\1\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\2\21org_agenda_files\22~/sync/notes/**/*\27org_defaults_note_file\28~/sync/notes/refile.org\nsetup\forgmode\frequire\0", "config", "orgmode.nvim")
+require('config.orgmode')
 time([[Config for orgmode.nvim]], false)
 -- Config for: rust-tools.nvim
 time([[Config for rust-tools.nvim]], true)

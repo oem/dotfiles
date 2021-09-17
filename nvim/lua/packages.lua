@@ -173,12 +173,7 @@ use {
 
 	use {
 		'kristijanhusak/orgmode.nvim',
-		config = function()
-			require('orgmode').setup({
-				org_agenda_files = ('~/sync/notes/**/*'),
-				org_defaults_note_file = '~/sync/notes/refile.org'
-			})
-		end
+		config = [[require('config.orgmode')]],
 	}
 
 end)
