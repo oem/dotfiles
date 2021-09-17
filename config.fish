@@ -47,6 +47,7 @@ set -gx FZF_DEFAULT_COMMAND "fd --type f"
 # end
 bind \cw backward-kill-word
 bind \co as-session
+bind \ct fzf_tmux
 
 # }}}
 # ssh {{{
