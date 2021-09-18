@@ -554,4 +554,6 @@
 
 (load "~/sync/mail-config/accounts.el")
 
-(setq mu4e-attachment-dir "~/Downloads")
+(setq mu4e-attachment-dir "~/Downloads"
+      mu4e-view-show-images t
+      mu4e-use-fancy-chars t)

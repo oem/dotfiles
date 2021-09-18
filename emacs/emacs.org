@@ -779,7 +779,9 @@ It syncs your emails in the background using an external program.
 
 ** attachements
 #+begin_src emacs-lisp
-  (setq mu4e-attachment-dir "~/Downloads")
+  (setq mu4e-attachment-dir "~/Downloads"
+        mu4e-view-show-images t
+        mu4e-use-fancy-chars t)
 #+end_src
 
 ** view emails
