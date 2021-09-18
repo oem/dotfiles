@@ -110,7 +110,9 @@ require('packer').startup(function()
     requires = {
       'nvim-treesitter/nvim-treesitter-refactor',
       'nvim-treesitter/nvim-treesitter-textobjects',
+			'nvim-treesitter/playground',
     },
+		config = [[require('config.treesitter')]],
     run = ':TSUpdate',
   }
 
