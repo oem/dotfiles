@@ -776,3 +776,10 @@ It syncs your emails in the background using an external program.
 #+begin_src emacs-lisp
   (load "~/sync/mail-config/accounts.el")
 #+end_src
+
+** attachements
+#+begin_src emacs-lisp
+  (setq mu4e-attachment-dir "~/Downloads")
+#+end_src
+
+** view emails
