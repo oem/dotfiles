@@ -553,3 +553,5 @@
 (pinentry-start)
 
 (load "~/sync/mail-config/accounts.el")
+
+(setq mu4e-attachment-dir "~/Downloads")
