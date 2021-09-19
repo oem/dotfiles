@@ -69,6 +69,8 @@ You might also want to install the fzf plugin for all the nice fuzzying:
 
 `stow tmux`
 
+Btw: Try out this neat little nugget: tmux-leader o -> fuzzy search some directory you want to work on -> enter -> Boom! New tmux session with that directory set
+
 ### x11 stuff
 
 `stow x11`
