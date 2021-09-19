@@ -125,8 +125,7 @@
   "f" '(:ignore t :which-key "file")
   "ff" '(find-file :which-key "find file")
   "fr" '(counsel-buffer-or-recentf :which-key "recent files")
-  "fd" '(:ignore t :which-key "find dotfiles")
-  "fc" '(lambda () (interactive) (find-file (expand-file-name "~/src/oem/dotfiles/emacs/emacs.org"))))
+  "fc" '(lambda () (interactive) (find-file (expand-file-name "~/.dotfiles/emacs/.emacs.d/emacs.org"))))
 
 (use-package projectile
   :diminish projectile-mode
@@ -392,7 +391,7 @@
 
 (defun oem/org-babel-tangle-config ()
   (when (string-equal (buffer-file-name)
-                      (expand-file-name "~/src/oem/dotfiles/emacs/emacs.org"))
+                      (expand-file-name "~/.dotfiles/emacs/.emacs.d/emacs.org"))
     (let ((org-confirm-babel-evaluate nil))
       (org-babel-tangle))))
 
