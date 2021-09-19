@@ -19,6 +19,19 @@
 
 These dotfiles use stow to setup everything.
 
+To make this work seamlessly, clone this repo in a directory in your home directory, so that it will for example end up in ~/home/you/dotfiles~.
+
+So, for example:
+
+```
+cd
+git clone https://github.com/oem/dotfiles.git
+```
+
+Then run stow on all the configs you want, or all, like this:
+
+`printf "emacs\nneovim\nx11\ntmux\nfish\nalacritty\nqutebrowser\n"|xargs stow`
+
 Note: There are plenty of files not managed by stow. Only the ones mentioned in the list above are. The rest is old stuff that will probably go away at some point.
 
 ### neovim
