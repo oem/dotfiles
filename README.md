@@ -30,7 +30,7 @@ git clone https://github.com/oem/dotfiles.git
 
 Then run stow on all the configs you want, or all, like this:
 
-`printf "emacs\nneovim\nx11\ntmux\nfish\nalacritty\nqutebrowser\n"|xargs stow`
+`./install.sh`
 
 Note: There are plenty of files not managed by stow. Only the ones mentioned in the list above are. The rest is old stuff that will probably go away at some point.
 
