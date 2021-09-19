@@ -15,8 +15,11 @@
 * tmux
 * fish
 * alacritty
+* qutebrowser
 
 These dotfiles use stow to setup everything.
+
+Note: There are plenty of files not managed by stow. Only the ones mentioned in the list above are. The rest is old stuff that will probably go away at some point.
 
 ### neovim
 
@@ -60,6 +63,10 @@ You might also want to install the fzf plugin for all the nice fuzzying:
 ### alacritty
 
 `stow alacritty`
+
+### qutebrowser
+
+`stow qutebrowser`
 
 ### Clipboards
 
