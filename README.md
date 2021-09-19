@@ -19,7 +19,7 @@
 
 These dotfiles use stow to setup everything.
 
-To make this work seamlessly, clone this repo in a directory in your home directory, so that it will for example end up in ~/home/you/dotfiles~.
+To make this work seamlessly, clone this repo in a directory in your home directory, so that it will for example end up in `/home/you/dotfiles`.
 
 So, for example:
 
