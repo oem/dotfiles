@@ -18,6 +18,7 @@ map('i', 'fd', [[<esc>]], silent) -- alternative escape
 map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], noremap) -- current dir
 map('n', '<leader><leader>', [[<c-^>]], noremap)
 
+-- packages
 require('packages')
 
 -- Options
@@ -110,9 +111,6 @@ vim.g.ale_linters = {
 vim.g.ale_python_pylint_change_directory = 0
 vim.g.ale_python_flake8_change_directory = 0
 
--- UI
-cmd [[ colo pencil ]]
-
 -- strip whitespace on save
 vim.g.strip_whitespace_on_save = 1
 vim.g.strip_whitespace_confirm = 0
@@ -127,6 +125,9 @@ autocmd('CursorColumn', {
 	'VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn',
 	'WinLeave * setlocal nocursorcolumn'
 }, true)
+
+-- UI
+cmd [[ colo pencil ]]
 
 -- colors
 cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None]]
