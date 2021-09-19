@@ -535,6 +535,7 @@
   "od" '(:ignore t :which-key "org roam dailies")
   "odn" '(org-roam-dailies-goto-next-note :which-key "org roam dailies -> next")
   "odp" '(org-roam-dailies-goto-previous-note :which-key "org roam dailies -> previous")
+  "odd" '(org-roam-dailies-goto-today :which-key "org roam dailies -> today")
   "ody" '(org-roam-dailies-capture-yesterday :which-key "org roam dailies yesterday")
   "odt" '(org-roam-dailies-capture-tomorrow :which-key "org roam dailies tomorrow")
   "oc" '(:ignore t :which-key "org roam capture")
