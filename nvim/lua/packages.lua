@@ -139,8 +139,6 @@ require('packer').startup(function()
   use 'reedes/vim-colors-pencil'
 	use 'NLKNguyen/papercolor-theme'
 
-  use 'kyazdani42/nvim-web-devicons'
-
 	-- show trailing whitespace
 	use 'ntpeters/vim-better-whitespace'
 

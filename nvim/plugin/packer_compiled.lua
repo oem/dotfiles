@@ -185,10 +185,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
   },
-  ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
-  },
   ["orgmode.nvim"] = {
     config = { "require('config.orgmode')" },
     loaded = true,
