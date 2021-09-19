@@ -28,8 +28,8 @@ alias dc='docker-compose'
 # }}}
 # env {{{
 set -x EDITOR nvim
-set -gx PATH $HOME/src/oem/dotfiles/launch $PATH
-set -gx PATH $HOME/src/oem/dotfiles/fuzzy $PATH
+set -gx PATH $HOME/.dotfiles/launch $PATH
+set -gx PATH $HOME/.dotfiles/fuzzy $PATH
 set -gx PATH $HOME/google-cloud-sdk/bin $PATH
 set -gx LANG en_US.UTF-8
 set -gx LANGUAGE en_US.UTF-8
