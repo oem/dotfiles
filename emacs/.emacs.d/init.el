@@ -327,6 +327,7 @@
 
 (oem/leader-key-def
   "o" '(:ignore t :which-key "org")
+  "og" '(counsel-org-goto :which-key "counsel org tree")
   "oa" '(org-agenda :which-key "org-agenda"))
 
 (use-package org-bullets
