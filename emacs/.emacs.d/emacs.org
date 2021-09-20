@@ -742,6 +742,14 @@ They are for now all prefixed with =leader oo= to not clash with the normal org 
   (pinentry-start)
 #+end_src
 
+** using pass from emacs
+#+begin_src emacs-lisp
+  (use-package pass
+    :pin melpa
+    :config
+    (setf epg-pinentry-mode 'loopback))
+#+end_src
+
 * Mail
 ** dependencies
 We need to install a few dependencies outside of Emacs:
@@ -777,7 +785,7 @@ It syncs your emails in the background using an external program.
   (load "~/sync/mail-config/accounts.el")
 #+end_src
 
-** attachements
+** attachments
 #+begin_src emacs-lisp
   (setq mu4e-attachment-dir "~/Downloads"
         mu4e-view-show-images t
@@ -785,3 +793,17 @@ It syncs your emails in the background using an external program.
 #+end_src
 
 ** view emails
+** sending emails
+We use the build-in functionality from Emacs to send mails.
+#+begin_src emacs-lisp
+  (setq message-send-mail-function 'smtpmail-send-it)
+#+end_src
+
+Getting the smtp passwords from pass
+#+begin_src emacs-lisp
+  (auth-source-pass-enable)
+  (setq auth-source-debug t)
+  (setq auth-source-do-cache nil)
+  (setq auth-sources '(password-store))
+  (setq message-kill-buffer-on-exit t)
+#+end_src

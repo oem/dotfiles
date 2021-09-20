@@ -14,7 +14,7 @@
 (setq x-select-enable-primary t)
 
 (setq make-backup-files nil) ; stop creating backup~ files
-(setq auto-save-default nil) ; stop creating #autosave# files
+(setq auto-sav-default nil) ; stop creating #autosave# files
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -552,8 +552,21 @@
 
 (pinentry-start)
 
+(use-package pass
+  :pin melpa
+  :config
+  (setf epg-pinentry-mode 'loopback))
+
 (load "~/sync/mail-config/accounts.el")
 
 (setq mu4e-attachment-dir "~/Downloads"
       mu4e-view-show-images t
       mu4e-use-fancy-chars t)
+
+(setq message-send-mail-function 'smtpmail-send-it)
+
+(auth-source-pass-enable)
+(setq auth-source-debug t)
+(setq auth-source-do-cache nil)
+(setq auth-sources '(password-store))
+(setq message-kill-buffer-on-exit t)
