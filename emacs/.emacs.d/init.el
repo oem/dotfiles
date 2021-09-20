@@ -14,7 +14,7 @@
 (setq x-select-enable-primary t)
 
 (setq make-backup-files nil) ; stop creating backup~ files
-(setq auto-sav-default nil) ; stop creating #autosave# files
+(setq auto-save-default nil) ; stop creating #autosave# files
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
