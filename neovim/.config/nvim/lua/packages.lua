@@ -134,7 +134,9 @@ require('packer').startup(function()
   use 'tpope/vim-unimpaired'
   use 'christoomey/vim-tmux-navigator'
 
-  -- Debugger
+	-- encryption
+	use 'jamessan/vim-gnupg'
+
   -- UI
   use 'reedes/vim-colors-pencil'
 	use 'NLKNguyen/papercolor-theme'

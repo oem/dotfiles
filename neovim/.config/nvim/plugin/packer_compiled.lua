@@ -162,7 +162,7 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "nvim-autopairs", "cmp-buffer", "cmp_luasnip", "cmp-path", "cmp-nvim-lua" },
+    after = { "nvim-autopairs", "cmp-nvim-lua", "cmp-buffer", "cmp_luasnip", "cmp-path" },
     config = { "require('config.cmp')" },
     loaded = false,
     needs_bufread = false,
@@ -263,6 +263,10 @@ _G.packer_plugins = {
     needs_bufread = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/vim-fugitive"
   },
+  ["vim-gnupg"] = {
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/vim-gnupg"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/vim-surround"
@@ -350,12 +354,12 @@ time([[Config for trouble.nvim]], false)
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[au CmdUndefined Git status ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Neogit lua require("packer.load")({'neogit'}, { cmd = "Neogit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 pcall(vim.cmd, [[au CmdUndefined Git blame ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
 pcall(vim.cmd, [[au CmdUndefined Git pull ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Git lua require("packer.load")({'vim-fugitive'}, { cmd = "Git", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 pcall(vim.cmd, [[au CmdUndefined Git push ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Neogit lua require("packer.load")({'neogit'}, { cmd = "Neogit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]

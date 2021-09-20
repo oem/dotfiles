@@ -252,10 +252,6 @@
 (set-face-attribute 'fixed-pitch nil :family "Tamsyn" :weight 'normal)
 (set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular)
 
-(set-face-attribute 'org-block-begin-line nil :family "Tamsyn" :weight 'normal)
-(set-face-attribute 'org-block-end-line nil :family "Tamsyn" :weight 'normal)
-(set-face-attribute 'org-block nil :family "Tamsyn" :weight 'normal)
-
 (toggle-frame-maximized)
 
 (defun oem/org-mode-setup ()
@@ -366,6 +362,10 @@
 (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
 (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
 (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+
+(set-face-attribute 'org-block-begin-line nil :family "Tamsyn" :weight 'normal)
+(set-face-attribute 'org-block-end-line nil :family "Tamsyn" :weight 'normal)
+(set-face-attribute 'org-block nil :family "Tamsyn" :weight 'normal)
 
 (defun oem/org-mode-visual-fill ()
   (setq visual-fill-column-width 100
