@@ -114,3 +114,6 @@ symbol = "scala "
 
 [swift]
 symbol = "swift "
+
+[gcloud]
+symbol = "gcloud "
