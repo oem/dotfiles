@@ -534,7 +534,7 @@
 
 (add-to-list 'org-after-todo-state-change-hook
              (lambda ()
-               (when (and (equal org-state "MAYBE") (equal buffer-file-name "/home/oem/sync/notes/inbox.org"))
+               (when (and (equal org-state "MAYBE") (not buffer-file-name "/home/oem/sync/notes/maybe.org"))
                  (oem/org-refile-to "~/sync/notes/maybe.org" ""))))
 
 (oem/leader-key-def
