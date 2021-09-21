@@ -371,7 +371,7 @@ I also snug in some keybindings to change to a larger font quickly. I personally
     (setq org-ellipsis " ✜")
 
     (setq org-todo-keywords
-          '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+          '((sequence "TODO(t)" "MAYBE(m)" "NEXT(n)" "|" "DONE(d!)")
             (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
 
     (setq org-tag-alist
@@ -651,6 +651,17 @@ We also want to capture tasks directly into project files.
 #+end_src
 
 ** Refiling things
+#+begin_src emacs-lisp
+  (defun oem/org-refile-to (file headline)
+    "Move current headline to specific location"
+    (interactive)
+    (let ((org-after-refile-insert-hook #'save-buffer)
+          (pos (save-window-excursion
+                 (find-file file)
+                 (org-find-exact-headline-in-buffer headline))))
+      (org-refile nil nil (list headline file nil pos))))
+#+end_src
+
 *** on completion
 Not actually refiling, we are copying the item to the current daily file.
 #+begin_src emacs-lisp
@@ -685,20 +696,19 @@ Not actually refiling, we are copying the item to the current daily file.
 When we are going through our inbox we want to process the items.
 The simple case, where we want to turn an item into an actionable item, should be as automated as possible. In the best case we mark an item with *TODO* and it is being moved to =todos.org=.
 #+begin_src emacs-lisp
-  (defun oem/org-refile-to (file headline)
-    "Move current headline to specific location"
-    (interactive)
-    (let ((org-after-refile-insert-hook #'save-buffer)
-          (pos (save-window-excursion
-                 (find-file file)
-                 (org-find-exact-headline-in-buffer headline))))
-      (org-refile nil nil (list headline file nil pos))))
-
   (add-to-list 'org-after-todo-state-change-hook
                (lambda ()
                  (when (and (equal org-state "TODO") (equal buffer-file-name "/home/oem/sync/notes/inbox.org"))
                    (oem/org-refile-to "~/sync/notes/todos.org" "Tasks"))))
 #+end_src     
+
+*** on setting to MAYBE
+#+begin_src emacs-lisp
+  (add-to-list 'org-after-todo-state-change-hook
+               (lambda ()
+                 (when (and (equal org-state "MAYBE") (equal buffer-file-name "/home/oem/sync/notes/inbox.org"))
+                   (oem/org-refile-to "~/sync/notes/maybe.org" ""))))
+#+end_src
 
 ** Keybindings
 They are for now all prefixed with =leader oo= to not clash with the normal org mode keybindings (which are prefixed with just =leader o=). But once I have replicated the previous functionality I might simplify that prefix to be =leader o=.

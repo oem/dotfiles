@@ -265,7 +265,7 @@
   (setq org-ellipsis " ✜")
 
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+        '((sequence "TODO(t)" "MAYBE(m)" "NEXT(n)" "|" "DONE(d!)")
           (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
 
   (setq org-tag-alist
@@ -492,6 +492,15 @@
                                         "#+title: ${title}\n#+category: ${title}\n#+filetags: Project"
                                         ("Tasks"))))))
 
+(defun oem/org-refile-to (file headline)
+  "Move current headline to specific location"
+  (interactive)
+  (let ((org-after-refile-insert-hook #'save-buffer)
+        (pos (save-window-excursion
+               (find-file file)
+               (org-find-exact-headline-in-buffer headline))))
+    (org-refile nil nil (list headline file nil pos))))
+
 (defun oem/org-roam-copy-to-today (keep)
   (interactive)
   (let ((org-refile-keep keep) ;; Set this to nil to delete the original!
@@ -518,19 +527,15 @@
                  (if (equal org-state "DONE")
                  (oem/org-roam-copy-to-today t)))))
 
-(defun oem/org-refile-to (file headline)
-  "Move current headline to specific location"
-  (interactive)
-  (let ((org-after-refile-insert-hook #'save-buffer)
-        (pos (save-window-excursion
-               (find-file file)
-               (org-find-exact-headline-in-buffer headline))))
-    (org-refile nil nil (list headline file nil pos))))
-
 (add-to-list 'org-after-todo-state-change-hook
              (lambda ()
                (when (and (equal org-state "TODO") (equal buffer-file-name "/home/oem/sync/notes/inbox.org"))
                  (oem/org-refile-to "~/sync/notes/todos.org" "Tasks"))))
+
+(add-to-list 'org-after-todo-state-change-hook
+             (lambda ()
+               (when (and (equal org-state "MAYBE") (equal buffer-file-name "/home/oem/sync/notes/inbox.org"))
+                 (oem/org-refile-to "~/sync/notes/maybe.org" ""))))
 
 (oem/leader-key-def
   "ob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
