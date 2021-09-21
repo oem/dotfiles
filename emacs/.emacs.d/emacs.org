@@ -806,10 +806,16 @@ It syncs your emails in the background using an external program.
 #+end_src
 
 ** view emails
+#+begin_src emacs-lisp
+  (setq mu4e-view-show-images t
+        mu4e-show-images t
+        mu4e-view-image-max-width 800)
+#+end_src
 ** sending emails
 We use the build-in functionality from Emacs to send mails.
 #+begin_src emacs-lisp
   (setq message-send-mail-function 'smtpmail-send-it)
+  (setq mu4e-sent-messages-behavior 'delete)
 #+end_src
 
 #+begin_src emacs-lisp
