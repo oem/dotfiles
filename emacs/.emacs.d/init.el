@@ -529,12 +529,12 @@
 
 (add-to-list 'org-after-todo-state-change-hook
              (lambda ()
-               (when (and (equal org-state "TODO") (equal buffer-file-name "/home/oem/sync/notes/inbox.org"))
-                 (oem/org-refile-to "~/sync/notes/todos.org" "Tasks"))))
+               (when (and (equal org-state "TODO") (or (equal buffer-file-name "/home/oem/sync/notes/inbox.org") (equal buffer-file-name "/home/oem/sync/notes/maybe.org")))
+                 (oem/org-refile-to "~/sync/notes/todos.org" ""))))
 
 (add-to-list 'org-after-todo-state-change-hook
              (lambda ()
-               (when (and (equal org-state "MAYBE") (not buffer-file-name "/home/oem/sync/notes/maybe.org"))
+               (when (equal org-state "MAYBE")
                  (oem/org-refile-to "~/sync/notes/maybe.org" ""))))
 
 (oem/leader-key-def

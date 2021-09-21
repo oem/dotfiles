@@ -698,15 +698,15 @@ The simple case, where we want to turn an item into an actionable item, should b
 #+begin_src emacs-lisp
   (add-to-list 'org-after-todo-state-change-hook
                (lambda ()
-                 (when (and (equal org-state "TODO") (equal buffer-file-name "/home/oem/sync/notes/inbox.org"))
-                   (oem/org-refile-to "~/sync/notes/todos.org" "Tasks"))))
+                 (when (and (equal org-state "TODO") (or (equal buffer-file-name "/home/oem/sync/notes/inbox.org") (equal buffer-file-name "/home/oem/sync/notes/maybe.org")))
+                   (oem/org-refile-to "~/sync/notes/todos.org" ""))))
 #+end_src     
 
 *** on setting to MAYBE
 #+begin_src emacs-lisp
   (add-to-list 'org-after-todo-state-change-hook
                (lambda ()
-                 (when (and (equal org-state "MAYBE") (not buffer-file-name "/home/oem/sync/notes/maybe.org"))
+                 (when (equal org-state "MAYBE")
                    (oem/org-refile-to "~/sync/notes/maybe.org" ""))))
 #+end_src
 
