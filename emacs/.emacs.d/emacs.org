@@ -389,6 +389,8 @@ I also snug in some keybindings to change to a larger font quickly. I personally
     (setq org-log-done 'time)
     (setq org-log-into-drawer t)
 
+    (setq org-startup-folded 'nofold)
+
     ;; org habit
     (require 'org-habit)
     (add-to-list 'org-modules 'org-habit)

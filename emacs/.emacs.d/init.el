@@ -283,6 +283,8 @@
   (setq org-log-done 'time)
   (setq org-log-into-drawer t)
 
+  (setq org-startup-folded 'nofold)
+
   ;; org habit
   (require 'org-habit)
   (add-to-list 'org-modules 'org-habit)
