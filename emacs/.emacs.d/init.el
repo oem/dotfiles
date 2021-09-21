@@ -564,7 +564,12 @@
       mu4e-view-show-images t
       mu4e-use-fancy-chars t)
 
+(setq mu4e-view-show-images t
+      mu4e-show-images t
+      mu4e-view-image-max-width 800)
+
 (setq message-send-mail-function 'smtpmail-send-it)
+(setq mu4e-sent-messages-behavior 'delete)
 
 (auth-source-pass-enable)
 (setq auth-source-debug t)
