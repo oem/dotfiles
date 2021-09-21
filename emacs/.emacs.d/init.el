@@ -566,8 +566,11 @@
 
 (setq message-send-mail-function 'smtpmail-send-it)
 
+(require 'smtpmail)
+
 (auth-source-pass-enable)
 (setq auth-source-debug t)
 (setq auth-source-do-cache nil)
-(setq auth-sources '(password-store))
 (setq message-kill-buffer-on-exit t)
+(setq smtpmail-debug-info t)
+(setq smtpmail-stream-type 'ssl)

@@ -800,11 +800,16 @@ We use the build-in functionality from Emacs to send mails.
   (setq message-send-mail-function 'smtpmail-send-it)
 #+end_src
 
+#+begin_src emacs-lisp
+(require 'smtpmail)
+#+end_src
+
 Getting the smtp passwords from pass
 #+begin_src emacs-lisp
   (auth-source-pass-enable)
   (setq auth-source-debug t)
   (setq auth-source-do-cache nil)
-  (setq auth-sources '(password-store))
   (setq message-kill-buffer-on-exit t)
+  (setq smtpmail-debug-info t)
+  (setq smtpmail-stream-type 'ssl)
 #+end_src
