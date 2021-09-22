@@ -13,4 +13,3 @@ map('n', '<leader>lr', [[<cmd>Telescope lsp_references theme=get_dropdown<cr>]],
 map('n', '<leader>ld', [[<cmd>Telescope lsp_definitions theme=get_dropdown<cr>]], noremap)
 map('n', '<leader>li', [[<cmd>Telescope lsp_implementations theme=get_dropdown<cr>]], noremap)
 map('n', '<leader>ps', [[<cmd>Telescope grep_string theme=get_dropdown<cr>]], noremap)
-map('n', '<leader>df', [[<cmd>Telescope grep_string theme=get_dropdown<cr>]], noremap)
