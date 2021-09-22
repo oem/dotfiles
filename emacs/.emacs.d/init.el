@@ -522,10 +522,11 @@
 
 (add-to-list 'org-after-todo-state-change-hook
              (lambda ()
-               (if (and (equal org-state "DONE") (equal buffer-file-name "/home/oem/sync/notes/todos.org"))
-                 (oem/org-roam-copy-to-today nil)
-                 (if (equal org-state "DONE")
-                 (oem/org-roam-copy-to-today t)))))
+               (unless (equal buffer-file-name "/home/oem/sync/notes/habits.org")
+                 (if (and (equal org-state "DONE") (equal buffer-file-name "/home/oem/sync/notes/todos.org"))
+                     (oem/org-roam-copy-to-today nil)
+                   (if (equal org-state "DONE")
+                       (oem/org-roam-copy-to-today t))))))
 
 (add-to-list 'org-after-todo-state-change-hook
              (lambda ()
