@@ -10,13 +10,12 @@ local wo = vim.wo
 -- Keybindings
 local map = require('config.utils').map
 local autocmd = require('config.utils').autocmd
-local silent = { silent = true }
-local noremap = { noremap = true }
+local options = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
-map('i', 'fd', [[<esc>]], silent) -- alternative escape
-map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], noremap) -- current dir
-map('n', '<leader><leader>', [[<c-^>]], noremap) -- toggle between buffers
+map('i', 'fd', [[<esc>]], options) -- alternative escape
+map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], options) -- current dir
+map('n', '<leader><leader>', [[<c-^>]], options) -- toggle between buffers
 
 -- packages
 require('packages')
@@ -88,7 +87,6 @@ autocmd(nil, 'CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()', nil)
 autocmd(nil, 'CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * lua require\'lsp_extensions\'.inlay_hints{ prefix = "", highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }', nil)
 
 -- code navigation
-local options = { noremap = true, silent = true }
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
 
 -- Linting and fixing
