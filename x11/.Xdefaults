@@ -2,6 +2,7 @@ URxvt.saveLines:         100000
 URxvt.scrollBar:         false
 URxvt.secondaryScroll:   true
 URxvt.font:              -*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*
+URxvt*italicFont:        -*-tamsyn-medium-*-*-*-20-*-*-*-*-*-*-*
 !URxvt.font:xft:IBM Plex Mono:style=Bold:pixelsize=16:antialias=true
 !URxvt.font:xft:Cascadia Code:style=Regular:pixelsize=16:antialias=true
 URxvt.visualBell:        false
