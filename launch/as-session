@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-selected=$(fd -H -t directory | fzf)
+if [[ -z $1 ]]; then
+	selected=$(fd -H -t directory | fzf)
+else
+	selected=$1
+fi
 
 if [[ -z $selected ]]; then
     exit 0
