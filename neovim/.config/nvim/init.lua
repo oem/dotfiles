@@ -16,7 +16,7 @@ local noremap = { noremap = true }
 vim.g.mapleader = " "
 map('i', 'fd', [[<esc>]], silent) -- alternative escape
 map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], noremap) -- current dir
-map('n', '<leader><leader>', [[<c-^>]], noremap)
+map('n', '<leader><leader>', [[<c-^>]], noremap) -- toggle between buffers
 
 -- packages
 require('packages')
