@@ -12,4 +12,5 @@ map('n', '<leader>b', [[<cmd>Telescope buffers show_all_buffers=true theme=get_d
 map('n', '<leader>lr', [[<cmd>Telescope lsp_references theme=get_dropdown<cr>]], noremap)
 map('n', '<leader>ld', [[<cmd>Telescope lsp_definitions theme=get_dropdown<cr>]], noremap)
 map('n', '<leader>li', [[<cmd>Telescope lsp_implementations theme=get_dropdown<cr>]], noremap)
+map('n', '<leader>la', [[<cmd>Telescope lsp_range_code_actions theme=get_dropdown<cr>]], noremap)
 map('n', '<leader>ps', [[<cmd>Telescope grep_string theme=get_dropdown<cr>]], noremap)
