@@ -45,7 +45,7 @@ vim.opt.listchars = {
 }
 
 -- window-local options
-wo.number = false
+wo.number = true
 wo.signcolumn = 'yes'
 wo.list = true
 
@@ -126,6 +126,11 @@ autocmd('CursorColumn', {
 	'WinLeave * setlocal nocursorcolumn'
 }, true)
 
+autocmd('LineNr', {
+	'VimEnter,WinEnter,BufWinEnter * setlocal nu rnu',
+	'WinLeave * setlocal nornu nu'
+}, true)
+
 -- UI
 cmd [[ colo pencil ]]
 
@@ -134,8 +139,8 @@ cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None]]
 cmd [[au VimEnter * hi Normal guibg=NONE ctermbg=NONE]]
 cmd [[au VimEnter * hi StatusLine cterm=NONE ctermfg=7 ctermbg=None]]
 cmd [[au VimEnter * hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None]]
-cmd [[au VimEnter * hi Folded ctermbg=233 ctermfg=238]]
-cmd [[au VimEnter * hi LineNr ctermbg=None ctermfg=4]]
+cmd [[au VimEnter * hi Folded ctermbg=233 ctermfg=8]]
+cmd [[au VimEnter * hi LineNr ctermbg=None ctermfg=238]]
 cmd [[au VimEnter * hi CursorLineNr ctermfg=14]]
 cmd [[au VimEnter * hi SignColumn ctermbg=None]]
 cmd [[au VimEnter * hi GreenSign ctermfg=10]]
