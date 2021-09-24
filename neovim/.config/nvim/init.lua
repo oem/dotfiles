@@ -13,8 +13,8 @@ local autocmd = require('config.utils').autocmd
 local options = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
--- map('i', 'fd', [[<esc>]], options) -- alternative escape
-map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], options) -- current dir
+map('i', 'fd', [[<esc>]], options) -- alternative escape
+map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], { noremap = true }) -- current dir
 map('n', '<leader><leader>', [[<c-^>]], options) -- toggle between buffers
 
 -- packages
