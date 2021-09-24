@@ -119,12 +119,16 @@ require('packer').startup(function()
   }
 
 	-- Some additional functionality on top of the lsp
+	-- rust
 	use {
 		'simrat39/rust-tools.nvim',
 		config=function()
 			require('rust-tools').setup({})
 		end
 	}
+
+	-- julia
+	use 'JuliaEditorSupport/julia-vim'
 
   -- Commenting
   use 'tomtom/tcomment_vim'
