@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 chromium --high-dpi-support=1 --force-device-scale-factor=1.5 --app=http://localhost:19999
 
 

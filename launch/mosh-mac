@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 firepower='sudo /usr/libexec/ApplicationFirewall/socketfilterfw'
 
 # temporarily shut firewall off

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 if [[ -z $1 ]]; then
 	selected=$(fd -H -t directory | fzf)

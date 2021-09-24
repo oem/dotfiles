@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 pidof mbsync >/dev/null && { echo "sync is already in progress."; exit ;}
 mbsync -a
