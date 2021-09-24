@@ -16,6 +16,7 @@
 * fish
 * alacritty
 * qutebrowser
+* julia
 
 These dotfiles use stow to setup everything.
 
@@ -82,6 +83,10 @@ Btw: Try out this neat little nugget: tmux-leader o -> fuzzy search some directo
 ### qutebrowser
 
 `stow qutebrowser`
+
+### julia
+
+`stow julia`
 
 ### Clipboards
 

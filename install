@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "emacs\nneovim\nx11\ntmux\nfish\nalacritty\nqutebrowser\ngit\nstarship\n"|xargs stow
+printf "emacs\nneovim\nx11\ntmux\nfish\nalacritty\nqutebrowser\ngit\nstarship\njulia\n"|xargs stow
