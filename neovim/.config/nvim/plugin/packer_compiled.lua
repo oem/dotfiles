@@ -109,7 +109,7 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/cmp-path"
   },
   cmp_luasnip = {
-    after_files = { "/home/oem/.local/share/nvim/site/pack/packer/opt/cmp_luasnip/after/plugin/cmp_luasnip.lua", "/home/oem/.local/share/nvim/site/pack/packer/opt/cmp_luasnip/after/plugin/cmp_luasnip.vim" },
+    after_files = { "/home/oem/.local/share/nvim/site/pack/packer/opt/cmp_luasnip/after/plugin/cmp_luasnip.lua" },
     load_after = {
       ["nvim-cmp"] = true
     },
@@ -131,6 +131,10 @@ _G.packer_plugins = {
     config = { "\27LJ\1\2„\1\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\3\25space_char_blankline\6 \21show_end_of_line\2\25show_current_context\1\nsetup\21indent_blankline\frequire\0" },
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
+  },
+  ["julia-vim"] = {
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/julia-vim"
   },
   ["lsp-status.nvim"] = {
     loaded = true,
@@ -162,7 +166,7 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "nvim-autopairs", "cmp-nvim-lua", "cmp-buffer", "cmp_luasnip", "cmp-path" },
+    after = { "nvim-autopairs", "cmp-buffer", "cmp_luasnip", "cmp-nvim-lua", "cmp-path" },
     config = { "require('config.cmp')" },
     loaded = false,
     needs_bufread = false,
@@ -184,11 +188,6 @@ _G.packer_plugins = {
   ["nvim-treesitter-textobjects"] = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
-  },
-  ["orgmode.nvim"] = {
-    config = { "require('config.orgmode')" },
-    loaded = true,
-    path = "/home/oem/.local/share/nvim/site/pack/packer/start/orgmode.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -330,10 +329,6 @@ time([[Config for nvim-treesitter]], false)
 time([[Config for gitsigns.nvim]], true)
 require('config.gitsigns')
 time([[Config for gitsigns.nvim]], false)
--- Config for: orgmode.nvim
-time([[Config for orgmode.nvim]], true)
-require('config.orgmode')
-time([[Config for orgmode.nvim]], false)
 -- Config for: rust-tools.nvim
 time([[Config for rust-tools.nvim]], true)
 try_loadstring("\27LJ\1\2<\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\15rust-tools\frequire\0", "config", "rust-tools.nvim")

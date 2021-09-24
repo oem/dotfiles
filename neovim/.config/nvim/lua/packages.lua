@@ -178,11 +178,5 @@ use {
       require('feline').setup({ preset = 'noicon' })
     end
   }
-
-	use {
-		'kristijanhusak/orgmode.nvim',
-		config = [[require('config.orgmode')]],
-	}
-
 end)
 
