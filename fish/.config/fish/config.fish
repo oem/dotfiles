@@ -99,7 +99,6 @@ set -gx GOBIN $GOPATH/bin
 set -gx PATH $GOBIN $PATH
 # }}}
 # rust {{{
-# racer
 set -gx PATH $HOME/.cargo/bin $PATH
 set -x RUST_SRC_PATH $HOME/src/rust/src
 # }}}
