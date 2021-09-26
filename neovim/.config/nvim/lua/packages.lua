@@ -154,9 +154,7 @@ require('packer').startup(function()
 	use {
 		'windwp/nvim-autopairs',
 		after = "nvim-cmp",
-		config = function()
-			require('nvim-autopairs').setup({})
-		end,
+		config = [[require('config.autopairs')]],
 	}
 
 -- show indentation levels

@@ -109,7 +109,7 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/cmp-path"
   },
   cmp_luasnip = {
-    after_files = { "/home/oem/.local/share/nvim/site/pack/packer/opt/cmp_luasnip/after/plugin/cmp_luasnip.lua", "/home/oem/.local/share/nvim/site/pack/packer/opt/cmp_luasnip/after/plugin/cmp_luasnip.vim" },
+    after_files = { "/home/oem/.local/share/nvim/site/pack/packer/opt/cmp_luasnip/after/plugin/cmp_luasnip.lua" },
     load_after = {
       ["nvim-cmp"] = true
     },
@@ -157,7 +157,7 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/neogit"
   },
   ["nvim-autopairs"] = {
-    config = { "\27LJ\1\2@\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
+    config = { "require('config.autopairs')" },
     load_after = {
       ["nvim-cmp"] = true
     },
