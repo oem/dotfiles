@@ -95,8 +95,12 @@
   "tt" '(load-theme :which-key "load theme")
   "ts" '(hydra-text-scale/body :which-key "text scale")
   "tf" '(:ignore t :which-key "fonts")
-  "tfF" '(lambda () (interactive) (set-face-attribute 'default nil :family "PragmataPro Mono" :height 140 :weight 'bold))
-  "tff" '(lambda () (interactive) (set-face-attribute 'default nil :family "Tamsyn" :height 100 :weight 'normal)))
+  "tfF" '(lambda () (interactive)
+           (set-face-attribute 'default nil :family "PragmataPro Mono" :height 140 :weight 'bold)
+           (set-face attribute 'fixed-pitch nil :font "PragmataPro Mono" :height 140 :weight 'bold))
+  "tff" '(lambda () (interactive)
+           (set-face-attribute 'default nil :family "Tamsyn" :height 100 :weight 'normal)
+           (set-face-attribute 'fixed-pitch nil :family "Tamsyn" :height 100 :weight 'normal)))
 
 (use-package swiper
   :ensure t)
@@ -366,9 +370,9 @@
 (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
 (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
 
-(set-face-attribute 'org-block-begin-line nil :family "Tamsyn" :weight 'normal)
-(set-face-attribute 'org-block-end-line nil :family "Tamsyn" :weight 'normal)
-(set-face-attribute 'org-block nil :family "Tamsyn" :weight 'normal)
+(set-face-attribute 'org-block-begin-line nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-block-end-line nil :inherit 'fixed-pitch)
+(set-face-attribute 'org-block nil :inherit 'fixed-pitch)
 
 (defun oem/org-mode-visual-fill ()
   (setq visual-fill-column-width 100
