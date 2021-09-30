@@ -238,6 +238,15 @@ I also snug in some keybindings to change to a larger font quickly. I personally
     :hook (company-mode . company-box-mode))
 #+end_src
 
+* Selecting things
+** expand-region
+#+begin_src emacs-lisp
+  (use-package expand-region
+    :bind
+    ("C-=" . er/expand-region)
+    ("C--" . er/contract-region))
+#+end_src
+
 * git
 ** magit
 #+begin_src emacs-lisp
@@ -266,7 +275,9 @@ I also snug in some keybindings to change to a larger font quickly. I personally
 
 * Errors
 #+begin_src emacs-lisp
-  (use-package flycheck)
+  (use-package flycheck
+    :init
+    (global-flycheck-mode t))
 #+end_src
 
 * Development

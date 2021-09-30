@@ -171,6 +171,11 @@
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
+(use-package expand-region
+  :bind
+  ("C-=" . er/expand-region)
+  ("C--" . er/contract-region))
+
 (use-package magit)
 
 (oem/leader-key-def
@@ -187,7 +192,9 @@
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
 
-(use-package flycheck)
+(use-package flycheck
+  :init
+  (global-flycheck-mode t))
 
 (defun oem/rustic-mode-hook ()
   (when buffer-file-name
