@@ -24,7 +24,7 @@ alias dir='ls -lAht'
 alias b='bundle exec'
 alias c='cargo'
 alias j='julia'
-alias dc='docker-compose'
+alias dc='docker compose'
 # }}}
 # env {{{
 set -x EDITOR nvim
