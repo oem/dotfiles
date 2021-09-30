@@ -150,6 +150,9 @@
   "pf" '(projectile-find-file :which-text "find file in project")
   "pp" '(projectile-switch-project :which-text "switch projects"))
 
+(oem/leader-key-def
+  "ps" '(proced :which-key "processes"))
+
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
          ("C-x b" . counsel-ibuffer)

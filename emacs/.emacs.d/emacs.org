@@ -190,24 +190,30 @@ I also snug in some keybindings to change to a larger font quickly. I personally
 ** finding projects
 *** projectile
 #+begin_src emacs-lisp
-  (use-package projectile
-    :diminish projectile-mode
-    :config (projectile-mode)
-    :custom ((projectile-completion-system 'ivy))
-    :bind-keymap
-    ("C-c p" . projectile-command-map)
-    :init
-    (when (file-directory-p "~/src")
-      (setq projectile-project-search-path '("~/src")))
-    (setq projectile-switch-project-action #'projectile-dired))
+    (use-package projectile
+      :diminish projectile-mode
+      :config (projectile-mode)
+      :custom ((projectile-completion-system 'ivy))
+      :bind-keymap
+      ("C-c p" . projectile-command-map)
+      :init
+      (when (file-directory-p "~/src")
+        (setq projectile-project-search-path '("~/src")))
+      (setq projectile-switch-project-action #'projectile-dired))
 
-  (use-package counsel-projectile
-    :config (counsel-projectile-mode))
+    (use-package counsel-projectile
+      :config (counsel-projectile-mode))
 
+    (oem/leader-key-def
+      "p" '(:ignore t :which-key "projects")
+      "pf" '(projectile-find-file :which-text "find file in project")
+      "pp" '(projectile-switch-project :which-text "switch projects"))
+#+end_src
+
+** finding processes
+#+begin_src emacs-lisp
   (oem/leader-key-def
-    "p" '(:ignore t :which-key "projects")
-    "pf" '(projectile-find-file :which-text "find file in project")
-    "pp" '(projectile-switch-project :which-text "switch projects"))
+    "ps" '(proced :which-key "processes"))
 #+end_src
 
 * Completing things
