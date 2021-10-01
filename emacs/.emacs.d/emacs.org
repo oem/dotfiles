@@ -509,6 +509,62 @@ I also snug in some keybindings to change to a larger font quickly. I personally
     :hook (org-mode . oem/org-mode-visual-fill))
 #+end_src
 
+** changing state when child state changes
+If you add =[/]= to a parent item then it will automatically track the progress based on the children. But it will not change that parents state (for example to DONE if all children states are DONE). I found a great little guide to do this: https://christiantietze.de/posts/2021/02/emacs-org-todo-doing-done-checkbox-cycling/
+
+#+begin_src emacs-lisp
+  (defun oem/org-todo-if-needed (state)
+    "Change header state to STATE unless the current item is in STATE already"
+    (unless (string-equal (org-get-todo-state) state)
+      (org-todo state)))
+
+  (defun oem/org-summary-todo-cookie (n-done n-not-done)
+    "Switch headet state to DONE when all subentries are DONE, to TODO when none are DONE, and to NEXT otherwise"
+    (let (org-log-done org-log-states) ; turn off logging
+      (oem/org-todo-if-needed (cond ((= n-done 0)
+                                     "TODO")
+                                    ((= n-not-done 0)
+                                     "DONE")
+                                    (t "NEXT")))))
+
+  (add-hook 'org-after-todo-statistics-hook #'oem/org-summary-todo-cookie)
+
+  (defun oem/org-summary-checkbox-cookie ()
+    "Switch header state to DONE when all checkboxes are ticked, to TODO when not are ticked, and to NEXT otherwise"
+    (let (beg end)
+      (unless (not (org-get-todo-state))
+        (save-excursion
+          (org-back-to-heading t)
+          (setq beg (point))
+          (end-of-line)
+          (setq end (point))
+          (goto-char beg)
+          ;; Regex group 1: %-based cookie
+          ;; Regex group 2 and 3: x/y cookie
+          (if (re-search-forward "\\[\\([0-9]*%\\)\\]\\|\\[\\([0-9]*\\)/\\([0-9]*\\)\\]"
+                                 end t)
+              (if (match-end 1)
+                  ;; [xx%] cookie support
+                  (cond ((equal (match-string 1) "100%")
+                         (oem/org-todo-if-needed "DONE"))
+                        ((equal (match-string 1) "0%")
+                         (oem/org-todo-if-needed "TODO")) 
+                        (t
+                         (oem/org-todo-if-needed "NEXT")))
+                ;; [x/y] cookie support
+                (if (> (match-end 2) (match-beginning 2)) ; = if not empty
+                    (cond ((equal (match-string 2) (match-string 3))
+                           (oem/org-todo-if-needed "DONE"))
+                          ((or (equal (string-trim (match-string 2)) "")
+                               (equal (match-string 2) "0"))
+                           (oem/org-todo-if-needed "TODO"))
+                          (t
+                           (oem/org-todo-if-needed "NEXT")))
+                  (oem/org-todo-if-needed "NEXT"))))))))
+
+  (add-hook 'org-checkbox-statistics-hook #'oem/org-summary-checkbox-cookie)
+#+end_src
+
 * Org Babel
 ** yes, just do it
 #+begin_src emacs-lisp
@@ -833,6 +889,7 @@ It syncs your emails in the background using an external program.
         mu4e-show-images t
         mu4e-view-image-max-width 800)
 #+end_src
+
 ** sending emails
 We use the build-in functionality from Emacs to send mails.
 #+begin_src emacs-lisp
