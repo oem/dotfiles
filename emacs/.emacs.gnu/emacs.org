@@ -8,7 +8,7 @@ Maybe some things look familiar?
 These sources helped me a lot building my own emacs configuration - well that sounds like it's a finished task, but we all know that this will be tinkered upon forever.
 - [[https://www.youtube.com/c/SystemCrafters][Systemcrafters]] youtube channel
 
-* Sane Defaults
+* Resets
 #+begin_src emacs-lisp
   ;; -*- lexical-binding: t -*-
   (setq inhibit-startup-message t) ; disable startup message
