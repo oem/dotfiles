@@ -151,11 +151,10 @@ I also snug in some keybindings to change to a larger font quickly. I personally
                        (set-face-attribute 'fixed-pitch nil :family "Tamsyn" :height 100 :weight 'normal)))
 #+end_src
 
-* Finding things
+* Search
 ** swiper and ivy
 #+begin_src emacs-lisp
-  (use-package swiper
-    :ensure t)
+  (use-package swiper)
 
   (use-package ivy
     :diminish
@@ -214,6 +213,42 @@ I also snug in some keybindings to change to a larger font quickly. I personally
 #+begin_src emacs-lisp
   (oem/leader-key-def
     "ps" '(proced :which-key "processes"))
+#+end_src
+
+** fuzzy search
+One, if not *the* most convenient way to search is via a fuzzy search. You don't have to specify the exact search query and can be as specific as you need to be with the context (think directories in a file search).
+
+** Searching for content in files
+The rg package is a frontend for ripgrep. It is independent of any other frontend like ivy and exposes the results very much like the build in tools like grep.
+https://rgel.readthedocs.io/en/2.1.0/
+
+#+begin_src emacs-lisp
+    (use-package rg
+      :after wgrep
+      :config
+      (setq rg-group-result t)
+      (setq rg-hide-command t)
+      (setq rg-show-columns nil)
+      (setq rg-show-header t)
+      (setq rg-custom-type-aliases nil)
+      (setq rg-default-alias-fallback "all")
+
+      (rg-enable-default-bindings)
+
+      (rg-define-search oem/grep-vc-or-dir
+        :query ask
+        :format regexp
+        :files "everything"
+        :dir (let ((vc (vc-root-dir)))
+               (if vc
+                   vc
+                 default-directory))
+        :confirm prefix
+        :flags ("--hidden -g !.git")))
+
+    (oem/leader-key-def
+      "s" '(:ignore t :which-key "search")
+      "ss" '(oem/grep-vc-or-dir :which-key "in project"))
 #+end_src
 
 * Completing things

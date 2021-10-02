@@ -102,8 +102,7 @@
            (set-face-attribute 'default nil :family "Tamsyn" :height 100 :weight 'normal)
            (set-face-attribute 'fixed-pitch nil :family "Tamsyn" :height 100 :weight 'normal)))
 
-(use-package swiper
-  :ensure t)
+(use-package swiper)
 
 (use-package ivy
   :diminish
@@ -152,6 +151,33 @@
 
 (oem/leader-key-def
   "ps" '(proced :which-key "processes"))
+
+(use-package rg
+  :after wgrep
+  :config
+  (setq rg-group-result t)
+  (setq rg-hide-command t)
+  (setq rg-show-columns nil)
+  (setq rg-show-header t)
+  (setq rg-custom-type-aliases nil)
+  (setq rg-default-alias-fallback "all")
+
+  (rg-enable-default-bindings)
+
+  (rg-define-search oem/grep-vc-or-dir
+    :query ask
+    :format regexp
+    :files "everything"
+    :dir (let ((vc (vc-root-dir)))
+           (if vc
+               vc
+             default-directory))
+    :confirm prefix
+    :flags ("--hidden -g !.git")))
+
+(oem/leader-key-def
+  "s" '(:ignore t :which-key "search")
+  "ss" '(oem/grep-vc-or-dir :which-key "in project"))
 
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
