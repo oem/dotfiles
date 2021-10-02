@@ -56,7 +56,15 @@ There is also the old setup, which would also work with vim. The configuration f
 
 ### emacs
 
-`stow emacs`
+A little more work is required: I am using Chemacs2 as an emacs bootloader so that I can quickly switch between different emacs configurations (doom and my handrolled one in this case).
+
+So you will need to also clone Chemacs:
+
+```
+git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
+stow emacs
+```
+
 
 ### fish
 
