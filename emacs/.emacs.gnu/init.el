@@ -177,7 +177,8 @@
 
 (oem/leader-key-def
   "s" '(:ignore t :which-key "search")
-  "ss" '(oem/grep-vc-or-dir :which-key "in project"))
+  "ss" '(oem/grep-vc-or-dir :which-key "in project")
+  "sl" '(rg-list-searches :which-key "list searches"))
 
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
