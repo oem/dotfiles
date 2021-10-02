@@ -65,6 +65,15 @@ git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
 stow emacs
 ```
 
+If you also want doom emacs to be able to switch between the two configurations:
+
+```
+git clone https://github.com/hlissner/doom-emacs ~/doom-emacs
+~/doom-emacs/bin/doom install
+```
+
+But for more information on Doom Emacs I would kindly like to point you to their very good documentation: [Doom Emacs: Getting Started](https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org)
+
 
 ### fish
 
