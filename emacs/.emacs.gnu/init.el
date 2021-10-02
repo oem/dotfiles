@@ -83,25 +83,6 @@
   :config
   (key-chord-mode 1))
 
-(use-package hydra)
-(defhydra hydra-text-scale (:timeout 4)
-  "scale text"
-  ("j" text-scale-increase "in")
-  ("k" text-scale-decrease "out")
-  ("f" nil "finished" :exit t))
-
-(oem/leader-key-def
-  "t" '(:ignore t :which-key "text")
-  "tt" '(load-theme :which-key "load theme")
-  "ts" '(hydra-text-scale/body :which-key "text scale")
-  "tf" '(:ignore t :which-key "fonts")
-  "tfF" '(lambda () (interactive)
-           (set-face-attribute 'default nil :family "PragmataPro Mono" :height 140 :weight 'bold)
-           (set-face attribute 'fixed-pitch nil :font "PragmataPro Mono" :height 140 :weight 'bold))
-  "tff" '(lambda () (interactive)
-           (set-face-attribute 'default nil :family "Tamsyn" :height 100 :weight 'normal)
-           (set-face-attribute 'fixed-pitch nil :family "Tamsyn" :height 100 :weight 'normal)))
-
 (use-package swiper)
 
 (use-package ivy
@@ -267,34 +248,6 @@
 (oem/leader-key-def
   "/" '(evilnc-comment-or-uncomment-lines :which-key "comment"))
 
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1)
-  :custom (doom-modeline-height 35))
-
-(use-package doom-themes
-  :init (load-theme 'doom-plain-dark t))
-
-(use-package all-the-icons)
-
-(pcase system-type
-  ((or 'gnu/linux 'windows-nt 'cygwin)
-   (set-face-attribute 'default nil :family "Tamsyn" :height 100 :weight 'normal))
-  ('darwin
-   (set-face-attribute 'default nil :font "PragmataPro Mono" :height 140 :weight 'bold)
-
-   ;; for mac os: transparent titlebar without icons
-   (add-to-list 'default-frame-alist  '(ns-transparent-titlebar . t))
-   (setq ns-use-proxy-icon nil)
-   (setq frame-title-format nil)))
-
-(setq-default line-spacing 10)
-
-(set-face-attribute 'fixed-pitch nil :family "Tamsyn" :weight 'normal)
-(set-face-attribute 'variable-pitch nil :font "Avenir Next LT Pro" :weight 'regular)
-
-(toggle-frame-maximized)
-
 (defun oem/org-mode-setup ()
   (org-indent-mode)
   (variable-pitch-mode 1)
@@ -380,36 +333,6 @@
   (org-bullets-bullet-list '("◎" "◉" "○" "●")))
 
 (require 'org-indent)
-
-(dolist (face '((org-level-1 . 2.8)
-                (org-level-2 . 2.2)
-                (org-level-3 . 1.8)
-                (org-level-4 . 1.4)
-                (org-level-5 . 1.2)
-                (org-level-6 . 1.1)
-                (org-level-7 . 1.1)
-                (org-level-8 . 1.1)
-                (org-document-title . 1.3)))
-  (set-face-attribute (car face) nil :font "Avenir Next LT Pro" :weight 'bold :height (cdr face)))
-
-;; we don't want variable fonts for everything in org mode:
-(set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
-(set-face-attribute 'org-table nil :inherit 'fixed-pitch)
-(set-face-attribute 'org-drawer nil :inherit 'fixed-pitch)
-(set-face-attribute 'org-document-title nil :foreground nil :inherit 'variable-pitch)
-(set-face-attribute 'org-document-info-keyword nil :weight 'bold :inherit 'fixed-pitch)
-(set-face-attribute 'org-property-value nil :inherit 'fixed-pitch)
-(set-face-attribute 'org-date nil :inherit 'fixed-pitch)
-(set-face-attribute 'org-code nil :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
-(set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-(set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-(set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
-
-(set-face-attribute 'org-block-begin-line nil :inherit 'fixed-pitch)
-(set-face-attribute 'org-block-end-line nil :inherit 'fixed-pitch)
-(set-face-attribute 'org-block nil :inherit 'fixed-pitch)
 
 (defun oem/org-mode-visual-fill ()
   (setq visual-fill-column-width 100
@@ -679,3 +602,75 @@
 (setq message-kill-buffer-on-exit t)
 (setq smtpmail-debug-info t)
 (setq smtpmail-stream-type 'ssl)
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :custom (doom-modeline-height 35))
+
+(use-package doom-themes
+  :init (load-theme 'doom-plain-dark t))
+
+(use-package all-the-icons)
+
+(defun oem/set-faces (fixed-font variable-font)
+  "Setting general fonts and org mode specific fonts"
+  (set-face-attribute 'default nil :family fixed-font :weight 'normal)
+  (set-face-attribute 'fixed-pitch nil :family fixed-font :weight 'normal)
+  (set-face-attribute 'variable-pitch nil :family variable-font :weight 'regular)
+
+  ;; org mode faces
+  (dolist (face '((org-level-1 . 2.8)
+                  (org-level-2 . 2.2)
+                  (org-level-3 . 1.8)
+                  (org-level-4 . 1.4)
+                  (org-level-5 . 1.2)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)
+                  (org-document-title . 1.3)))
+    (set-face-attribute (car face) nil :family variable-font :weight 'bold :height (cdr face)))
+
+  ;; we don't want variable fonts for everything in org mode:
+  (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-drawer nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-document-title nil :foreground nil :inherit 'variable-pitch)
+  (set-face-attribute 'org-document-info-keyword nil :weight 'bold :inherit 'fixed-pitch)
+  (set-face-attribute 'org-property-value nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-date nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
+  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+
+  (set-face-attribute 'org-block-begin-line nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-block-end-line nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+  )
+
+(pcase system-type
+  ((or 'gnu/linux 'windows-nt 'cygwin)
+   (oem/set-faces "Tamsyn" "Avenir Next LT Pro"))
+  ('darwin
+   (oem/set-faces "Cartograph CF" "Avenir Next LT Pro")
+
+   ;; for mac os: transparent titlebar without icons
+   (add-to-list 'default-frame-alist  '(ns-transparent-titlebar . t))
+   (setq ns-use-proxy-icon nil)
+   (setq frame-title-format nil)))
+
+(setq-default line-spacing 10)
+
+(toggle-frame-maximized)
+
+(oem/leader-key-def
+  "t" '(:ignore t :which-key "text")
+  "tt" '(load-theme :which-key "load theme")
+  "tf" '(:ignore t :which-key "fonts")
+  "tfF" '(lambda () (interactive)
+           (oem/set-faces "Cartograph CF" "Avenir Next LT Pro" ))
+  "tff" '(lambda () (interactive)
+           (oem/set-faces "Tamsyn" "Avenir Next LT Pro")))
