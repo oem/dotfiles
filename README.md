@@ -61,6 +61,7 @@ A little more work is required: I am using Chemacs2 as an emacs bootloader so th
 So you will need to also clone Chemacs:
 
 ```
+mkdir .emacs.gnu
 git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
 stow emacs
 ```
