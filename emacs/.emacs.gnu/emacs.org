@@ -1,5 +1,6 @@
 #+TITLE: Emacs Configuration
 #+PROPERTY: header-args:emacs-lisp :tangle ./init.el
+#+STARTUP: overview
 * Be Literate
 This file will generate [[file:init.el][init.el]] which can be loaded by Emacs on startup.
 
@@ -199,7 +200,6 @@ Can't live without vim keybindings.
 
 ** fuzzy search
 One, if not *the* most convenient way to search is via a fuzzy search. You don't have to specify the exact search query and can be as specific as you need to be with the context (think directories in a file search).
-
 ** Searching for content in files
 The rg package is a frontend for ripgrep. It is independent of any other frontend like ivy and exposes the results very much like the build in tools like grep.
 https://rgel.readthedocs.io/en/2.1.0/
@@ -234,13 +234,19 @@ https://rgel.readthedocs.io/en/2.1.0/
         "sl" '(rg-list-searches :which-key "list searches"))
 #+end_src
 
+* Edit
+** code
+** automation
+*** completion
+*** code fixing
+*** remove trailing whitespace
 * Completing things
 ** counsel
 #+begin_src emacs-lisp
   (use-package counsel
     :bind (("M-x" . counsel-M-x)
            ("C-x b" . counsel-ibuffer)
-           ("C-x C-f" . counsel-find-file)
+           ;; ("C-x C-f" . counsel-find-file)
            :map minibuffer-local-map
            ("C-r" . 'counsel-minibuffer-history)))
 #+end_src
