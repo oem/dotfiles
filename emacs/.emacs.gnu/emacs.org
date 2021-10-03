@@ -226,6 +226,23 @@ https://rgel.readthedocs.io/en/2.1.0/
 
 * Edit
 ** code
+*** show line numbers
+When editing code it is really helpful to see line numbers, specifically relative line numbers since this matches with how one would move in such a buffer.
+#+begin_src emacs-lisp
+  (column-number-mode)
+  (global-display-line-numbers-mode t)
+  (setq display-line-numbers-type 'relative)
+#+end_src
+
+I however don't want to see numbers in *terminals* or *org mode*, which is just useless clutter.
+#+begin_src emacs-lisp
+  (dolist (mode '(org-mode-hook
+                  org-agenda-mode-hook
+                  term-mode-hook
+                  eshell-mode-hook))
+    (add-hook mode (lambda () (display-line-numbers-mode 0))))
+#+end_src
+
 ** automation
 *** completion
 *** code fixing
@@ -361,83 +378,84 @@ https://rgel.readthedocs.io/en/2.1.0/
 * Org Mode
 ** refile, capture, agenda, habits and basics
 #+begin_src emacs-lisp
-  (defun oem/org-mode-setup ()
-    (org-indent-mode)
-    (variable-pitch-mode 1)
-    (visual-line-mode 1))
+    (defun oem/org-mode-setup ()
+      (org-indent-mode)
+      (variable-pitch-mode 1)
+      (visual-line-mode 1))
 
-  (use-package org
-    :hook (org-mode . oem/org-mode-setup)
-    :config
-    (setq org-ellipsis " ✜")
+    (use-package org
+      :hook (org-mode . oem/org-mode-setup)
+      :config
+      (setq org-ellipsis " ✜")
 
-    (setq org-todo-keywords
-          '((sequence "TODO(t)" "MAYBE(m)" "NEXT(n)" "|" "DONE(d!)")
-            (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
+      (setq org-todo-keywords
+            '((sequence "TODO(t)" "MAYBE(m)" "NEXT(n)" "|" "DONE(d!)")
+              (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
 
-    (setq org-tag-alist
-          '((:startgroup)
-            ; put mutually exclusive tags here
-            (:endgroup)
-            ("@errand" . ?E)
-            ("agenda" . ?a)
-            ("planning" . ?p)
-            ("idea" . ?i)))
+      (setq org-tag-alist
+            '((:startgroup)
+              ; put mutually exclusive tags here
+              (:endgroup)
+              ("@errand" . ?E)
+              ("agenda" . ?a)
+              ("planning" . ?p)
+              ("idea" . ?i)))
 
-    (load-library "find-lisp")
-    (setq org-agenda-start-with-log-mode t)
-    (setq org-agenda-window-setup 'current-window)
-    (setq org-log-done 'time)
-    (setq org-log-into-drawer t)
+      (load-library "find-lisp")
+      (setq org-agenda-start-with-log-mode t)
+      (setq org-agenda-window-setup 'current-window)
+      (setq org-log-done 'time)
+      (setq org-log-into-drawer t)
 
-    (setq org-startup-folded 'nofold)
+      (setq org-startup-folded 'nofold)
 
-    ;; org habit
-    (require 'org-habit)
-    (add-to-list 'org-modules 'org-habit)
-    (setq org-habit-graph-column 60)
+      ;; org habit
+      (require 'org-habit)
+      (add-to-list 'org-modules 'org-habit)
+      (setq org-habit-graph-column 60)
 
-    ;; save org buffers after refiling
-    (advice-add 'org-refile :after 'org-save-all-org-buffers)
+      ;; save org buffers after refiling
+      (advice-add 'org-refile :after 'org-save-all-org-buffers)
 
-    ;; custom org agenda views
-    (setq org-agenda-custom-commands
-          '(("d" "Dashboard"
-             ((agenda "" ((org-deadline-warning-days 7)))
-              (todo "NEXT"
-                    ((org-agenda-overriding-header "Next Tasks")))
-              (todo "ACTIVE"
-                    ((org-agenda-overriding-header "Active Tasks")))))
+      ;; custom org agenda views
+      (setq org-agenda-custom-commands
+            '(("d" "Dashboard"
+               ((agenda "" ((org-deadline-warning-days 7)))
+                (todo "NEXT"
+                      ((org-agenda-overriding-header "Next Tasks")))
+                (todo "ACTIVE"
+                      ((org-agenda-overriding-header "Active Tasks")))))
 
-            ("n" "Next Tasks"
-             ((todo "NEXT"
-                    ((org-agenda-overriding-header "Next Tasks")))))
+              ("n" "Next Tasks"
+               ((todo "NEXT"
+                      ((org-agenda-overriding-header "Next Tasks")))))
 
-            ("W" "Work Tasks" tags-todo "+work")
+              ("W" "Work Tasks" tags-todo "+work")
 
-            ("w" "Workflow Status"
-             ((todo "WAIT"
-                    ((org-agenda-overriding-header "Waiting on External")))
-              (todo "PLAN"
-                    ((org-agenda-overriding-header "In Planning")))
-              (todo "BACKLOG"
-                    ((org-agenda-overriding-header "Backlog")))
-              (todo "READY"
-                    ((org-agenda-overriding-header "Ready")))
-              (todo "ACTIVE"
-                    ((org-agenda-overriding-header "Active")))
-              (todo "REVIEW"
-                    ((org-agenda-overriding-header "In Review")))
-              (todo "COMPLETED"
-                    ((org-agenda-overriding-header "Completed")))
-              (todo "CANC"
-                    ((org-agenda-overriding-header "Cancelled")))
-              )))))
+              ("w" "Workflow Status"
+               ((todo "WAIT"
+                      ((org-agenda-overriding-header "Waiting on External")))
+                (todo "PLAN"
+                      ((org-agenda-overriding-header "In Planning")))
+                (todo "BACKLOG"
+                      ((org-agenda-overriding-header "Backlog")))
+                (todo "READY"
+                      ((org-agenda-overriding-header "Ready")))
+                (todo "ACTIVE"
+                      ((org-agenda-overriding-header "Active")))
+                (todo "REVIEW"
+                      ((org-agenda-overriding-header "In Review")))
+                (todo "COMPLETED"
+                      ((org-agenda-overriding-header "Completed")))
+                (todo "CANC"
+                      ((org-agenda-overriding-header "Cancelled")))
+                )))))
 
-  (oem/leader-key-def
-    "o" '(:ignore t :which-key "org")
-    "og" '(counsel-org-goto :which-key "counsel org tree")
-    "oa" '(org-agenda :which-key "org-agenda"))
+    (oem/leader-key-def
+      "o" '(:ignore t :which-key "org")
+      "og" '(counsel-org-goto :which-key "counsel org tree")
+      "oa" '(org-agenda :which-key "org-agenda")
+      "on" '(org-toggle-narrow-to-subtree :which-key "toggle narrowing"))
 #+end_src
 
 ** bullets and looks

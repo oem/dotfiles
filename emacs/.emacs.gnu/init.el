@@ -157,6 +157,16 @@
   "ss" '(oem/grep-vc-or-dir :which-key "in project")
   "sl" '(rg-list-searches :which-key "list searches"))
 
+(column-number-mode)
+(global-display-line-numbers-mode t)
+(setq display-line-numbers-type 'relative)
+
+(dolist (mode '(org-mode-hook
+                org-agenda-mode-hook
+                term-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
          ("C-x b" . counsel-ibuffer)
@@ -320,7 +330,8 @@
 (oem/leader-key-def
   "o" '(:ignore t :which-key "org")
   "og" '(counsel-org-goto :which-key "counsel org tree")
-  "oa" '(org-agenda :which-key "org-agenda"))
+  "oa" '(org-agenda :which-key "org-agenda")
+  "on" '(org-toggle-narrow-to-subtree :which-key "toggle narrowing"))
 
 (use-package org-bullets
   :after org
