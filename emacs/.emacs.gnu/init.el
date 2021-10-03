@@ -617,7 +617,7 @@
   "Setting general fonts and org mode specific fonts"
   (set-face-attribute 'default nil :family fixed-font :weight 'normal)
   (set-face-attribute 'fixed-pitch nil :family fixed-font :weight 'normal)
-  (set-face-attribute 'variable-pitch nil :family variable-font :weight 'regular)
+  (set-face-attribute 'variable-pitch nil :family variable-font :weight 'regular :height 110)
 
   ;; org mode faces
   (dolist (face '((org-level-1 . 2.8)
