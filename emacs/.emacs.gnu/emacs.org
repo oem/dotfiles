@@ -124,16 +124,6 @@ Can't live without vim keybindings.
     (evil-collection-init))
 #+end_src
 
-** key-chord
-#+begin_src emacs-lisp
-  (use-package key-chord
-    :init
-    (setq key-chord-two-keys-delay 0.3)
-    (key-chord-define evil-insert-state-map "fd" 'evil-normal-state)
-    :config
-    (key-chord-mode 1))
-#+end_src
-
 * Search
 ** swiper and ivy
 #+begin_src emacs-lisp

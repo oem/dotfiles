@@ -79,13 +79,6 @@
   :config
   (evil-collection-init))
 
-(use-package key-chord
-  :init
-  (setq key-chord-two-keys-delay 0.3)
-  (key-chord-define evil-insert-state-map "fd" 'evil-normal-state)
-  :config
-  (key-chord-mode 1))
-
 (use-package swiper)
 
 (use-package ivy
