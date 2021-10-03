@@ -60,6 +60,12 @@ You can always run package-refresh-contents in case that a package was not found
   (setq use-package-always-ensure t)
 #+end_src
 
+* Themes
+#+begin_src emacs-lisp
+  (use-package doom-themes
+    :init (load-theme 'doom-plain-dark t))
+#+end_src
+
 * Keybindings
 ** which-key
 Make keybindings discoverable.
@@ -859,20 +865,8 @@ Getting the smtp passwords from pass
   (setq smtpmail-stream-type 'ssl)
 #+end_src
 
-* Themes
-#+begin_src emacs-lisp
-  (use-package doom-modeline
-    :ensure t
-    :init (doom-modeline-mode 1)
-    :custom (doom-modeline-height 35))
-
-  (use-package doom-themes
-    :init (load-theme 'doom-plain-dark t))
-
-  (use-package all-the-icons)
-#+end_src
-
 * UI
+** fonts
 #+begin_src emacs-lisp
   (defun oem/set-faces (fixed-font variable-font)
     "Setting general fonts and org mode specific fonts"
@@ -909,8 +903,7 @@ Getting the smtp passwords from pass
 
     (set-face-attribute 'org-block-begin-line nil :inherit 'fixed-pitch)
     (set-face-attribute 'org-block-end-line nil :inherit 'fixed-pitch)
-    (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
-    )
+    (set-face-attribute 'org-block nil :inherit 'fixed-pitch))
 #+end_src
 
 #+begin_src emacs-lisp
@@ -926,10 +919,11 @@ Getting the smtp passwords from pass
      (setq frame-title-format nil)))
 
   (setq-default line-spacing 10)
-
+  (use-package all-the-icons)
   (toggle-frame-maximized)
 #+end_src
 
+** keybindings
 #+begin_src emacs-lisp
   (oem/leader-key-def
     "t" '(:ignore t :which-key "text")
@@ -941,3 +935,10 @@ Getting the smtp passwords from pass
              (oem/set-faces "Tamsyn" "Avenir Next LT Pro")))
 #+end_src
 
+** statusline
+#+begin_src emacs-lisp
+  (use-package doom-modeline
+    :ensure t
+    :init (doom-modeline-mode 1)
+    :custom (doom-modeline-height 35))
+#+end_src

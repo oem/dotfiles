@@ -32,6 +32,9 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+(use-package doom-themes
+  :init (load-theme 'doom-plain-dark t))
+
 (use-package which-key
   :init (which-key-mode)
   :diminish which-key-mode
@@ -603,16 +606,6 @@
 (setq smtpmail-debug-info t)
 (setq smtpmail-stream-type 'ssl)
 
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1)
-  :custom (doom-modeline-height 35))
-
-(use-package doom-themes
-  :init (load-theme 'doom-plain-dark t))
-
-(use-package all-the-icons)
-
 (defun oem/set-faces (fixed-font variable-font)
   "Setting general fonts and org mode specific fonts"
   (set-face-attribute 'default nil :family fixed-font :weight 'normal)
@@ -648,8 +641,7 @@
 
   (set-face-attribute 'org-block-begin-line nil :inherit 'fixed-pitch)
   (set-face-attribute 'org-block-end-line nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
-  )
+  (set-face-attribute 'org-block nil :inherit 'fixed-pitch))
 
 (pcase system-type
   ((or 'gnu/linux 'windows-nt 'cygwin)
@@ -663,7 +655,7 @@
    (setq frame-title-format nil)))
 
 (setq-default line-spacing 10)
-
+(use-package all-the-icons)
 (toggle-frame-maximized)
 
 (oem/leader-key-def
@@ -674,3 +666,8 @@
            (oem/set-faces "Cartograph CF" "Avenir Next LT Pro" ))
   "tff" '(lambda () (interactive)
            (oem/set-faces "Tamsyn" "Avenir Next LT Pro")))
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :custom (doom-modeline-height 35))
