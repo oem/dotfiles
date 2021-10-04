@@ -3,13 +3,13 @@ local telescope = require 'telescope'
 
 telescope.setup {
   defaults = {
-		mappings = {
-			i = {
-				["<esc>"] = actions.close
-			},
-		},
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      },
+    },
     layout_strategy = 'flex',
-    scroll_strategy = 'cycle',
+    scroll_strategy = 'limit',
   },
   extensions = {
     frecency = { workspaces = { exo = '/home/oem/src' } },

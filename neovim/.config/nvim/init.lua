@@ -40,7 +40,7 @@ o.background = "dark"
 o.updatetime=300
 o.cursorcolumn= true
 vim.opt.listchars = {
-	space = "·"
+  space = "·"
 }
 
 -- window-local options
@@ -96,7 +96,7 @@ vim.g.ale_fixers = {
   python = { 'black' },
   go = { 'gofmt', 'goimports' },
   javascript = { 'prettier', 'eslint' },
-	elm = { 'elm-format' },
+  elm = { 'elm-format' },
 }
 vim.g.ale_fix_on_save = 1
 vim.g.ale_rust_rustfmt_options= '--edition 2018'
@@ -115,18 +115,18 @@ vim.g.strip_whitespace_confirm = 0
 
 -- Cursorlines
 autocmd('CursorLine', {
-	'VimEnter,WinEnter,BufWinEnter * setlocal cursorline',
-	'WinLeave * setlocal nocursorline'
+  'VimEnter,WinEnter,BufWinEnter * setlocal cursorline',
+  'WinLeave * setlocal nocursorline'
 }, true)
 
 autocmd('CursorColumn', {
-	'VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn',
-	'WinLeave * setlocal nocursorcolumn'
+  'VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn',
+  'WinLeave * setlocal nocursorcolumn'
 }, true)
 
 autocmd('LineNr', {
-	'VimEnter,WinEnter,BufWinEnter * setlocal nu rnu',
-	'WinLeave * setlocal nornu nu'
+  'VimEnter,WinEnter,BufWinEnter * setlocal nu rnu',
+  'WinLeave * setlocal nornu nu'
 }, true)
 
 -- UI
