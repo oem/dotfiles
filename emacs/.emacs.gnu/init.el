@@ -333,11 +333,12 @@
   "oa" '(org-agenda :which-key "org-agenda")
   "on" '(org-toggle-narrow-to-subtree :which-key "toggle narrowing"))
 
-(use-package org-bullets
+(use-package org-superstar
   :after org
-  :hook (org-mode . org-bullets-mode)
   :custom
-  (org-bullets-bullet-list '("◎" "◉" "○" "●")))
+  (org-superstar-headline-bullets-list '("○" "◉" "●" "●" "●" "○")))
+(setq org-hide-leading-stars t)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
 (require 'org-indent)
 

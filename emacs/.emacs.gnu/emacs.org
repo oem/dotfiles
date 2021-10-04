@@ -243,10 +243,14 @@ I however don't want to see numbers in *terminals* or *org mode*, which is just 
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
 #+end_src
 
-** automation
-*** completion
-*** code fixing
-*** remove trailing whitespace
+*** rust
+**** critical
+***** autofix
+***** linting
+**** important
+**** optional
+*** python
+** remove trailing whitespace
 * Completing things
 ** counsel
 #+begin_src emacs-lisp
@@ -460,12 +464,15 @@ I however don't want to see numbers in *terminals* or *org mode*, which is just 
 
 ** bullets and looks
 #+begin_src emacs-lisp
-  (use-package org-bullets
+  (use-package org-superstar
     :after org
-    :hook (org-mode . org-bullets-mode)
     :custom
-    (org-bullets-bullet-list '("◎" "◉" "○" "●")))
+    (org-superstar-headline-bullets-list '("○" "◉" "●" "●" "●" "○")))
+  (setq org-hide-leading-stars t)
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+#+end_src
 
+#+begin_src emacs-lisp
   (require 'org-indent)
 
   (defun oem/org-mode-visual-fill ()
