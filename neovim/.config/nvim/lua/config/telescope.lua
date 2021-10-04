@@ -9,7 +9,7 @@ telescope.setup {
       },
     },
     layout_strategy = 'flex',
-    scroll_strategy = 'limit',
+    scroll_strategy = 'cycle',
   },
   extensions = {
     frecency = { workspaces = { exo = '/home/oem/src' } },
