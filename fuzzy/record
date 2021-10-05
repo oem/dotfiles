@@ -1,5 +1,5 @@
 #!/bin/sh
-filename="$HOME/sync/brain/fleeting-note-$(date +%Y-%m-%d).md"
+filename="$HOME/sync/notes/fleeting-note-$(date +%Y-%m-%d).md"
 if [ ! -f $filename ]; then
 	echo "# Fleeting notes: $(date +%Y-%m-%d)" > $filename
 fi
