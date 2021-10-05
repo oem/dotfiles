@@ -38,6 +38,7 @@ o.backspace = "indent,eol,start"
 o.shell = "/bin/bash" -- remain posix compatible, even when using fish otherwise
 o.updatetime=300
 o.smartindent = true
+o.expandtab = true
 
 -- Neovim UI
 o.laststatus = 2
@@ -85,7 +86,7 @@ nvim_lsp.rust_analyzer.setup({})
 
 --julia
 -- set autoindent to 4 spaces as per styleguide
-cmd[[autocmd FileType julia setlocal shiftwidth=4 tabstop=4]]
+cmd[[autocmd FileType julia setlocal shiftwidth=4 tabstop=4 expandtab]]
 
 -- ruby
 -- Enable solargraph/ruby
