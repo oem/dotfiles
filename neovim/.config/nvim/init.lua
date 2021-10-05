@@ -6,6 +6,8 @@ local fn = vim.fn
 local o = vim.o
 local bo = vim.bo
 local wo = vim.wo
+local opt = vim.opt
+local exec = vim.api.nvim_exec -- execute Vimscript
 
 -- Keybindings
 local map = require('config.utils').map
@@ -29,19 +31,40 @@ o.wb = false
 o.encoding = "utf-8"
 o.hlsearch = false
 o.incsearch = true
-o.cpo = "$"
-o.fillchars = "vert: ,eob: ,fold:·"
 o.clipboard = 'unnamedplus' -- uses CLIPBOARD (^C)
 o.tabstop = 2
-o.shiftwidth = 2
+o.shiftwidth = 4
 o.backspace = "indent,eol,start"
 o.shell = "/bin/bash" -- remain posix compatible, even when using fish otherwise
-o.background = "dark"
 o.updatetime=300
-o.cursorcolumn= true
-vim.opt.listchars = {
+o.smartindent = true
+
+-- Neovim UI
+o.laststatus = 2
+o.showmatch = true
+o.cpo = "$"
+o.fillchars = "vert: ,eob: ,fold:·"
+o.background = "dark"
+o.cursorcolumn = true
+
+opt.listchars = {
   space = "·"
 }
+
+-- highlight on yank
+exec([[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=500}
+  augroup end
+]], false)
+
+
+-- Memory/CPU
+o.hidden = true
+o.history = 100
+o.lazyredraw = true
+o.synmaxcol = 240
 
 -- window-local options
 wo.number = true
@@ -51,25 +74,32 @@ wo.list = true
 -- buffer-local options
 bo.expandtab = true -- we need to overwrite this for go buffers
 
--- Statusline
-o.laststatus = 2
-
 -- LSP
--- nvim_lsp object
 local nvim_lsp = require'lspconfig'
 
+-- Languages
+
+-- rust
 -- Enable rust_analyzer
 nvim_lsp.rust_analyzer.setup({})
 
+--julia
+-- set autoindent to 4 spaces as per styleguide
+cmd[[autocmd FileType julia setlocal shiftwidth=4 tabstop=4]]
+
+-- ruby
 -- Enable solargraph/ruby
 nvim_lsp.solargraph.setup({})
 
+-- javascript
 -- Enable typescript/javascript
 nvim_lsp.tsserver.setup{}
 
+-- python
 --  Enable python/pyright_
 require'lspconfig'.pyright.setup{}
 
+-- elm
 -- Enable elm language server
 require'lspconfig'.elmls.setup{}
 
