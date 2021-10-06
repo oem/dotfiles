@@ -72,21 +72,21 @@ require('packer').startup(function()
     'nvim-lua/lsp_extensions.nvim',
   }
 
-	use {
+  use {
     'folke/trouble.nvim',
-		config = function()
-			require 'trouble'.setup({
-				icons = false,
-			})
-		end
-	}
+    config = function()
+      require 'trouble'.setup({
+        icons = false,
+      })
+    end
+  }
 
-	use {
+  use {
     'ray-x/lsp_signature.nvim',
-		config = function()
-			require 'lsp_signature'.setup()
-		end
-	}
+    config = function()
+      require 'lsp_signature'.setup()
+    end
+  }
 
   -- Completion
   use {
@@ -112,23 +112,23 @@ require('packer').startup(function()
     requires = {
       'nvim-treesitter/nvim-treesitter-refactor',
       'nvim-treesitter/nvim-treesitter-textobjects',
-			'nvim-treesitter/playground',
+      'nvim-treesitter/playground',
     },
-		config = [[require('config.treesitter')]],
+    config = [[require('config.treesitter')]],
     run = ':TSUpdate',
   }
 
-	-- Some additional functionality on top of the lsp
-	-- rust
-	use {
-		'simrat39/rust-tools.nvim',
-		config=function()
-			require('rust-tools').setup({})
-		end
-	}
+  -- Some additional functionality on top of the lsp
+  -- rust
+  use {
+    'simrat39/rust-tools.nvim',
+    config=function()
+      require('rust-tools').setup({})
+    end
+  }
 
-	-- julia
-	use 'JuliaEditorSupport/julia-vim'
+  -- julia
+  use 'JuliaEditorSupport/julia-vim'
 
   -- Commenting
   use 'tomtom/tcomment_vim'
@@ -140,33 +140,33 @@ require('packer').startup(function()
   use 'tpope/vim-unimpaired'
   use 'christoomey/vim-tmux-navigator'
 
-	-- encryption
-	use 'jamessan/vim-gnupg'
+  -- encryption
+  use 'jamessan/vim-gnupg'
 
   -- UI
   use 'reedes/vim-colors-pencil'
-	use 'NLKNguyen/papercolor-theme'
+  use 'NLKNguyen/papercolor-theme'
 
-	-- show trailing whitespace
-	use 'ntpeters/vim-better-whitespace'
+  -- show trailing whitespace
+  use 'ntpeters/vim-better-whitespace'
 
-	-- autobalancing delimiters
-	use {
-		'windwp/nvim-autopairs',
-		after = "nvim-cmp",
-		config = [[require('config.autopairs')]],
-	}
+  -- autobalancing delimiters
+  use {
+    'windwp/nvim-autopairs',
+    after = "nvim-cmp",
+    config = [[require('config.autopairs')]],
+  }
 
 -- show indentation levels
 use {
-	'lukas-reineke/indent-blankline.nvim',
-	config = function()
-		require('indent_blankline').setup{
-			show_end_of_line = true,
-			space_char_blankline = " ",
-			show_current_context = false,
-		}
-	end
+  'lukas-reineke/indent-blankline.nvim',
+  config = function()
+    require('indent_blankline').setup{
+      show_end_of_line = true,
+      space_char_blankline = " ",
+      show_current_context = false,
+    }
+  end
 }
 
   -- Statusline
