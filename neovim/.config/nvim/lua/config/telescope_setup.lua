@@ -2,8 +2,8 @@ local map = require('config.utils').map
 local silent = { silent = true }
 local noremap = { noremap = true }
 
-map('n', '<leader>F', [[<cmd>Telescope find_files theme=get_dropdown<cr>]], silent)
-map('n', '<leader>f', [[<cmd>Telescope git_files theme=get_dropdown<cr>]], silent)
+map('n', '<leader>f', [[<cmd>Telescope find_files theme=get_dropdown hidden=true<cr>]], silent)
+map('n', '<leader>F', [[<cmd>Telescope git_files theme=get_dropdown<cr>]], silent)
 map('n', '<leader>r', [[<cmd>Telescope frecency theme=get_dropdown<cr>]], silent)
 map('n', '<leader>ss', [[<cmd>Telescope live_grep theme=get_dropdown<cr>]], silent)
 map('n', '<leader>sb', [[<cmd>Telescope current_buffer_fuzzy_find theme=get_dropdown<cr>]], silent)
