@@ -17,6 +17,8 @@ dunst &
 
 unclutter &
 
+~/.fehbg &
+
 exec /home/oem/.dotfiles/dwm-statusbar &
 exec /home/oem/.dotfiles/dwm-start
 
