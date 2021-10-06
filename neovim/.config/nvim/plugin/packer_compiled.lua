@@ -246,7 +246,8 @@ _G.packer_plugins = {
   ["trouble.nvim"] = {
     config = { "\27LJ\1\2C\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0" },
     loaded = true,
-    path = "/home/oem/.local/share/nvim/site/pack/packer/start/trouble.nvim"
+    needs_bufread = false,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/opt/trouble.nvim"
   },
   ["vim-better-whitespace"] = {
     loaded = true,
@@ -309,14 +310,21 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Setup for: neogit
-time([[Setup for neogit]], true)
-require('config.neogit')
-time([[Setup for neogit]], false)
 -- Setup for: telescope.nvim
 time([[Setup for telescope.nvim]], true)
 require('config.telescope_setup')
 time([[Setup for telescope.nvim]], false)
+-- Setup for: neogit
+time([[Setup for neogit]], true)
+require('config.neogit')
+time([[Setup for neogit]], false)
+-- Setup for: trouble.nvim
+time([[Setup for trouble.nvim]], true)
+require('config.trouble_setup')
+time([[Setup for trouble.nvim]], false)
+time([[packadd for trouble.nvim]], true)
+vim.cmd [[packadd trouble.nvim]]
+time([[packadd for trouble.nvim]], false)
 -- Config for: lsp_signature.nvim
 time([[Config for lsp_signature.nvim]], true)
 try_loadstring("\27LJ\1\2;\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\18lsp_signature\frequire\0", "config", "lsp_signature.nvim")

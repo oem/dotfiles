@@ -56,6 +56,6 @@ cmp.setup {
     { name = 'nvim_lua' },
     { name = 'path' },
     { name = 'luasnip' },
-		{ name = 'orgmode' },
+    { name = 'orgmode' },
   },
 }

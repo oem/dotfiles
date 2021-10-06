@@ -74,6 +74,7 @@ require('packer').startup(function()
 
   use {
     'folke/trouble.nvim',
+    setup = [[require('config.trouble_setup')]],
     config = function()
       require 'trouble'.setup({
         icons = false,
