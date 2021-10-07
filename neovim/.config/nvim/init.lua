@@ -104,6 +104,10 @@ require'lspconfig'.pyright.setup{}
 -- Enable elm language server
 require'lspconfig'.elmls.setup{}
 
+-- lua
+-- Enable lua language server, installed with pacman -s lua-language-server
+require'lspconfig'.sumneko_lua.setup{}
+
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
