@@ -98,6 +98,9 @@ setenv GOBIN $GOPATH/bin
 set -gx GOBIN $GOPATH/bin
 set -gx PATH $GOBIN $PATH
 # }}}
+# lua {{{
+set -gx PATH $HOME/.luarocks/bin $PATH
+# }}}
 # rust {{{
 set -gx PATH $HOME/.cargo/bin $PATH
 set -x RUST_SRC_PATH $HOME/src/rust/src
