@@ -963,3 +963,11 @@ Getting the smtp passwords from pass
     :init (doom-modeline-mode 1)
     :custom (doom-modeline-height 35))
 #+end_src
+
+** indentation lines
+#+begin_src emacs-lisp
+  (use-package highlight-indent-guides
+    :custom
+    (setq highlight-indent-guides-method 'bitmap)
+    (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+#+end_src

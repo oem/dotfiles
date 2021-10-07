@@ -676,3 +676,8 @@
   :ensure t
   :init (doom-modeline-mode 1)
   :custom (doom-modeline-height 35))
+
+(use-package highlight-indent-guides
+  :custom
+  (setq highlight-indent-guides-method 'bitmap)
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
