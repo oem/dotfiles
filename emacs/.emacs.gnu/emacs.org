@@ -230,8 +230,12 @@ https://rgel.readthedocs.io/en/2.1.0/
 When editing code it is really helpful to see line numbers, specifically relative line numbers since this matches with how one would move in such a buffer.
 #+begin_src emacs-lisp
   (column-number-mode)
-  (global-display-line-numbers-mode t)
   (setq display-line-numbers-type 'relative)
+
+  (dolist (mode '(text-mode-hook
+                  prog-mode-hook
+                  conf-mode-hook))
+    (add-hook mode (lambda () (display-line-numbers-mode 1))))
 #+end_src
 
 I however don't want to see numbers in *terminals* or *org mode*, which is just useless clutter.
@@ -249,7 +253,9 @@ I however don't want to see numbers in *terminals* or *org mode*, which is just 
 ***** linting
 **** important
 **** optional
+*** haskell
 *** python
+*** ruby
 ** remove trailing whitespace
 * Completing things
 ** counsel
@@ -966,8 +972,7 @@ Getting the smtp passwords from pass
 
 ** indentation lines
 #+begin_src emacs-lisp
-  (use-package highlight-indent-guides
-    :custom
-    (setq highlight-indent-guides-method 'bitmap)
-    (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (use-package highlight-indent-guides)
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (setq highlight-indent-guides-method 'bitmap)
 #+end_src

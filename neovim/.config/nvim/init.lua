@@ -98,7 +98,7 @@ nvim_lsp.solargraph.setup({})
 nvim_lsp.tsserver.setup {}
 
 -- python
---  Enable python/pyright_
+--  Enable python/pyright
 require'lspconfig'.pyright.setup {}
 
 -- elm

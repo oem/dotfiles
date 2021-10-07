@@ -158,8 +158,12 @@
   "sl" '(rg-list-searches :which-key "list searches"))
 
 (column-number-mode)
-(global-display-line-numbers-mode t)
 (setq display-line-numbers-type 'relative)
+
+(dolist (mode '(text-mode-hook
+                prog-mode-hook
+                conf-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 1))))
 
 (dolist (mode '(org-mode-hook
                 org-agenda-mode-hook
@@ -677,7 +681,6 @@
   :init (doom-modeline-mode 1)
   :custom (doom-modeline-height 35))
 
-(use-package highlight-indent-guides
-  :custom
-  (setq highlight-indent-guides-method 'bitmap)
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(use-package highlight-indent-guides)
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(setq highlight-indent-guides-method 'bitmap)
