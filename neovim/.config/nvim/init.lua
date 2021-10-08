@@ -92,6 +92,7 @@ cmd [[autocmd FileType julia setlocal shiftwidth=4 tabstop=4 expandtab]]
 -- ruby
 -- Enable solargraph/ruby
 nvim_lsp.solargraph.setup({})
+cmd [[autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby]]
 
 -- javascript
 -- Enable typescript/javascript
