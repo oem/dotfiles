@@ -4,6 +4,7 @@ local options = {
     noremap = true
 }
 
+-- files
 map('n', '<leader>ff',
     [[<cmd>Telescope find_files theme=get_dropdown hidden=true<cr>]], options)
 map('n', '<leader>fF', [[<cmd>Telescope git_files theme=get_dropdown<cr>]],
@@ -11,6 +12,12 @@ map('n', '<leader>fF', [[<cmd>Telescope git_files theme=get_dropdown<cr>]],
 map('n', '<leader>r', [[<cmd>Telescope frecency theme=get_dropdown<cr>]],
     options)
 
+-- buffers
+map('n', '<leader>bb',
+    [[<cmd>Telescope buffers show_all_buffers=true theme=get_dropdown<cr>]],
+    options)
+
+-- search
 map('n', '<leader>ss', [[<cmd>Telescope live_grep theme=get_dropdown<cr>]],
     options)
 map('n', '<leader>sb',
@@ -18,16 +25,15 @@ map('n', '<leader>sb',
 map('n', '<leader>sw', [[<cmd>Telescope grep_string theme=get_dropdown<cr>]],
     options)
 
+-- notes
 map('n', '<leader>nn', ":lua require('oem.telescope').search_notes()<cr>",
     options)
 map('n', '<leader>nf', ":lua require('oem.telescope').find_notes()<cr>", options)
 
+-- LSP
 map('n', '<leader>le',
     [[<cmd>Telescope lsp_workspace_diagnostics theme=get_dropdown<cr>]], options)
 map('n', '<leader>t', [[<cmd>Telescope treesitter theme=get_dropdown<cr>]],
-    options)
-map('n', '<leader>b',
-    [[<cmd>Telescope buffers show_all_buffers=true theme=get_dropdown<cr>]],
     options)
 map('n', '<leader>lr', [[<cmd>Telescope lsp_references theme=get_dropdown<cr>]],
     options)
