@@ -8,7 +8,6 @@ map('n', '<leader>ff',
     [[<cmd>Telescope find_files theme=get_dropdown hidden=true<cr>]], options)
 map('n', '<leader>fF', [[<cmd>Telescope git_files theme=get_dropdown<cr>]],
     options)
-map('n', '<leader>fn', ":lua require('oem.telescope').find_notes()<cr>", options)
 map('n', '<leader>r', [[<cmd>Telescope frecency theme=get_dropdown<cr>]],
     options)
 
@@ -18,8 +17,10 @@ map('n', '<leader>sb',
     [[<cmd>Telescope current_buffer_fuzzy_find theme=get_dropdown<cr>]], options)
 map('n', '<leader>sw', [[<cmd>Telescope grep_string theme=get_dropdown<cr>]],
     options)
-map('n', '<leader>sn', ":lua require('oem.telescope').search_notes()<cr>",
+
+map('n', '<leader>nn', ":lua require('oem.telescope').search_notes()<cr>",
     options)
+map('n', '<leader>nf', ":lua require('oem.telescope').find_notes()<cr>", options)
 
 map('n', '<leader>le',
     [[<cmd>Telescope lsp_workspace_diagnostics theme=get_dropdown<cr>]], options)
