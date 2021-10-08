@@ -106,7 +106,7 @@ require'lspconfig'.pyright.setup {}
 require'lspconfig'.elmls.setup {}
 
 -- lua
--- Enable lua language server, installed with pacman -s lua-language-server
+-- Enable lua language server, installed with pacman -S lua-language-server
 require'lspconfig'.sumneko_lua.setup {
     cmd = {'lua-language-server'},
     settings = {
