@@ -667,9 +667,11 @@
 (setq highlight-indent-guides-method 'bitmap)
 
 (use-package popper
+  :bind (("C-`" . popper-toggle-latest)
+         ("M-`" . popper-cycle)
+         ("C-M-`" . popper-toggle-type))
   :init
-  (popper-mode 1)
-  :custom
+  (popper-mode +1)
   (setq popper-reference-buffers
         '(Custom-mode
           compilation-mode
@@ -688,9 +690,3 @@
           "^\\*Completions\\*"
           "^\\*Proced\\*"
           "[Oo]utput\\*")))
-
-(oem/leader-key-def
-  "i" '(:ignore t :which-key "popup")
-  "ii" '(popper-toggle-latest :which-key "toggle popup")
-  "io" '(popper-cycle :which-key "cycle popup")
-  "iu" '(popper-kill-latest-popup :which-key "kill popup group"))

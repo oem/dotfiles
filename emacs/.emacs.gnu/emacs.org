@@ -961,9 +961,11 @@ Emacs window management can appear quite confusing. Very often it will disrupt t
 =popper.el= simplifies and improves this by just having two categories, *regular* and *popups*.
 #+begin_src emacs-lisp
   (use-package popper
+    :bind (("C-`" . popper-toggle-latest)
+           ("M-`" . popper-cycle)
+           ("C-M-`" . popper-toggle-type))
     :init
-    (popper-mode 1)
-    :custom
+    (popper-mode +1)
     (setq popper-reference-buffers
           '(Custom-mode
             compilation-mode
@@ -982,15 +984,4 @@ Emacs window management can appear quite confusing. Very often it will disrupt t
             "^\\*Completions\\*"
             "^\\*Proced\\*"
             "[Oo]utput\\*")))
-#+end_src
-
-And let's add some keybindings to make this more useful. I am trying something new here, a bit like a cursor cluster:
-*i* is the central key, *ii* will toggle the popup. *io* will cycle and *iu* will kill the popup.
-Note: this are not mnemonic keybinds, but rather directional (similar to the arrow cluster).
-#+begin_src emacs-lisp
-  (oem/leader-key-def
-    "i" '(:ignore t :which-key "popup")
-    "ii" '(popper-toggle-latest :which-key "toggle popup")
-    "io" '(popper-cycle :which-key "cycle popup")
-    "iu" '(popper-kill-latest-popup :which-key "kill popup group"))
 #+end_src
