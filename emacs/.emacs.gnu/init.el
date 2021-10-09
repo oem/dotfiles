@@ -665,3 +665,32 @@
 (use-package highlight-indent-guides)
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq highlight-indent-guides-method 'bitmap)
+
+(use-package popper
+  :init
+  (popper-mode 1)
+  :custom
+  (setq popper-reference-buffers
+        '(Custom-mode
+          compilation-mode
+          messages-mode
+          help-mode
+          occur-mode
+          "^\\*Warning\\*"
+          "^\\*Compile-Log\\*"
+          "^\\*Messages\\*"
+          "^\\*Backtrace\\*"
+          "^\\*evil-registers\\*"
+          "^\\*Apropos"
+          "^Calc:"
+          "^\\*Shell Command Output\\*"
+          "^\\*Async Shell Command\\*"
+          "^\\*Completions\\*"
+          "^\\*Proced\\*"
+          "[Oo]utput\\*")))
+
+(oem/leader-key-def
+  "i" '(:ignore t :which-key "popup")
+  "ii" '(popper-toggle-latest :which-key "toggle popup")
+  "io" '(popper-cycle :which-key "cycle popup")
+  "iu" '(popper-kill-latest-popup :which-key "kill popup group"))
