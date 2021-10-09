@@ -203,7 +203,7 @@ https://rgel.readthedocs.io/en/2.1.0/
 
 * Edit
 ** code
-In general I would require diagnostics (errors, warnings and other insights) and autofixing for programming. If at all possible the diagnostics should be provided by a language server to get the most information.
+In general I would require diagnostics (errors, warnings and other insights), autocomplete and autofixing for programming. If at all possible the diagnostics should be provided by a language server to get the most information. The autocompletion should also additionally provide auto-imports when applicable (or other related actions that should be executed after completion).
 *** show line numbers
 When editing code it is really helpful to see line numbers, specifically relative line numbers since this matches with how one would move in such a buffer.
 #+begin_src emacs-lisp
