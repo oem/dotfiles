@@ -117,7 +117,7 @@ require'lspconfig'.sumneko_lua.setup {
                 path = vim.split(package.path, ';')
             },
             diagnostics = {
-                globals = {'vim'}
+                globals = {'vim', 'use'}
             }
         }
     }
