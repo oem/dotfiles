@@ -983,6 +983,5 @@ Emacs window management can appear quite confusing. Very often it will disrupt t
             "^\\*Async Shell Command\\*"
             "^\\*Completions\\*"
             "^\\*Proced\\*"
-            "^Magit"
             "[Oo]utput\\*")))
 #+end_src

@@ -689,5 +689,4 @@
           "^\\*Async Shell Command\\*"
           "^\\*Completions\\*"
           "^\\*Proced\\*"
-          "^Magit"
           "[Oo]utput\\*")))
