@@ -138,20 +138,6 @@
   "ss" '(oem/grep-vc-or-dir :which-key "in project")
   "sl" '(rg-list-searches :which-key "list searches"))
 
-(column-number-mode)
-(setq display-line-numbers-type 'relative)
-
-(dolist (mode '(text-mode-hook
-                prog-mode-hook
-                conf-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 1))))
-
-(dolist (mode '(org-mode-hook
-                org-agenda-mode-hook
-                term-mode-hook
-                eshell-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
          ("C-x b" . counsel-ibuffer)
@@ -595,6 +581,20 @@
 (setq message-kill-buffer-on-exit t)
 (setq smtpmail-debug-info t)
 (setq smtpmail-stream-type 'ssl)
+
+(column-number-mode)
+(setq display-line-numbers-type 'relative)
+
+(dolist (mode '(text-mode-hook
+                prog-mode-hook
+                conf-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 1))))
+
+(dolist (mode '(org-mode-hook
+                org-agenda-mode-hook
+                term-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (defun oem/set-faces (fixed-font variable-font)
   "Setting general fonts and org mode specific fonts"

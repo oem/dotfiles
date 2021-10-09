@@ -204,27 +204,6 @@ https://rgel.readthedocs.io/en/2.1.0/
 * Edit
 ** code
 In general I would require diagnostics (errors, warnings and other insights), autocomplete and autofixing for programming. If at all possible the diagnostics should be provided by a language server to get the most information. The autocompletion should also additionally provide auto-imports when applicable (or other related actions that should be executed after completion).
-*** show line numbers
-When editing code it is really helpful to see line numbers, specifically relative line numbers since this matches with how one would move in such a buffer.
-#+begin_src emacs-lisp
-  (column-number-mode)
-  (setq display-line-numbers-type 'relative)
-
-  (dolist (mode '(text-mode-hook
-                  prog-mode-hook
-                  conf-mode-hook))
-    (add-hook mode (lambda () (display-line-numbers-mode 1))))
-#+end_src
-
-I however don't want to see numbers in *terminals* or *org mode*, which is just useless clutter.
-#+begin_src emacs-lisp
-  (dolist (mode '(org-mode-hook
-                  org-agenda-mode-hook
-                  term-mode-hook
-                  eshell-mode-hook))
-    (add-hook mode (lambda () (display-line-numbers-mode 0))))
-#+end_src
-
 *** rust
 **** critical
 ***** autofix
@@ -871,6 +850,27 @@ Getting the smtp passwords from pass
 #+end_src
 
 * UI
+** show line numbers
+When editing code it is really helpful to see line numbers, specifically relative line numbers since this matches with how one would move in such a buffer.
+#+begin_src emacs-lisp
+  (column-number-mode)
+  (setq display-line-numbers-type 'relative)
+
+  (dolist (mode '(text-mode-hook
+                  prog-mode-hook
+                  conf-mode-hook))
+    (add-hook mode (lambda () (display-line-numbers-mode 1))))
+#+end_src
+
+I however don't want to see numbers in *terminals* or *org mode*, which is just useless clutter.
+#+begin_src emacs-lisp
+  (dolist (mode '(org-mode-hook
+                  org-agenda-mode-hook
+                  term-mode-hook
+                  eshell-mode-hook))
+    (add-hook mode (lambda () (display-line-numbers-mode 0))))
+#+end_src
+
 ** fonts
 #+begin_src emacs-lisp
   (defun oem/set-faces (fixed-font variable-font)
