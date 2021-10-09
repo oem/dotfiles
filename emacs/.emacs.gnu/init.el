@@ -107,25 +107,6 @@
   "fr" '(counsel-buffer-or-recentf :which-key "recent files")
   "fc" '(lambda () (interactive) (find-file (expand-file-name "~/.dotfiles/emacs/.emacs.gnu/emacs.org"))))
 
-(use-package projectile
-  :diminish projectile-mode
-  :config (projectile-mode)
-  :custom ((projectile-completion-system 'ivy))
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :init
-  (when (file-directory-p "~/src")
-    (setq projectile-project-search-path '("~/src")))
-  (setq projectile-switch-project-action #'projectile-dired))
-
-(use-package counsel-projectile
-  :config (counsel-projectile-mode))
-
-(oem/leader-key-def
-  "p" '(:ignore t :which-key "projects")
-  "pf" '(projectile-find-file :which-text "find file in project")
-  "pp" '(projectile-switch-project :which-text "switch projects"))
-
 (oem/leader-key-def
   "ps" '(proced :which-key "processes"))
 
