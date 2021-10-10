@@ -982,6 +982,16 @@ Emacs window management can appear quite confusing. Very often it will disrupt t
             "^\\*Shell Command Output\\*"
             "^\\*Async Shell Command\\*"
             "^\\*Completions\\*"
-            "^\\*Proced\\*"
+            "^\\*EMMS Playlist\\*"
             "[Oo]utput\\*")))
+#+end_src
+
+* Music
+** EMMS
+#+begin_src emacs-lisp
+  (use-package emms)
+  (require 'emms-setup)
+  (emms-all)
+  (emms-default-players)
+  (setq emms-source-file-default-directory "~/sync/music")
 #+end_src

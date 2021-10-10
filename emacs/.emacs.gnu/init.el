@@ -688,5 +688,11 @@
           "^\\*Shell Command Output\\*"
           "^\\*Async Shell Command\\*"
           "^\\*Completions\\*"
-          "^\\*Proced\\*"
+          "^\\*EMMS Playlist\\*"
           "[Oo]utput\\*")))
+
+(use-package emms)
+(require 'emms-setup)
+(emms-all)
+(emms-default-players)
+(setq emms-source-file-default-directory "~/sync/music")
