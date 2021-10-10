@@ -132,6 +132,12 @@ require('packer').startup(function()
     -- julia
     use 'JuliaEditorSupport/julia-vim'
 
+    -- code runner
+    use {
+        'michaelb/sniprun',
+        run = 'bash ./install.sh'
+    }
+
     -- Commenting
     use 'tomtom/tcomment_vim'
 
