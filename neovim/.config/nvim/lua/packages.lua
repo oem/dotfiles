@@ -182,6 +182,11 @@ require('packer').startup(function()
         'famiu/feline.nvim',
         config = function()
             require('feline').setup({
+                colors = {
+                    bg = "#1C1C1C",
+                    oceanblue = "#1C1C1C",
+                    skyblue = "#FFFFFF"
+                },
                 preset = 'noicon'
             })
         end
