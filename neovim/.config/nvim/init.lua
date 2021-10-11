@@ -41,6 +41,7 @@ o.shell = "/bin/bash" -- remain posix compatible, even when using fish otherwise
 o.updatetime = 300
 o.smartindent = true
 o.expandtab = true
+o.termguicolors = true
 
 -- Neovim UI
 o.laststatus = 2
