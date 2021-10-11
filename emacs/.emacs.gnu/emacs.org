@@ -1,15 +1,11 @@
 #+TITLE: Emacs Configuration
 #+PROPERTY: header-args:emacs-lisp :tangle ./init.el
 #+STARTUP: overview
-* Be Literate
+* Hello World
 This file will generate [[file:init.el][init.el]] which can be loaded by Emacs on startup.
-
-** Inspirations
-Maybe some things look familiar?
-These sources helped me a lot building my own emacs configuration - well that sounds like it's a finished task, but we all know that this will be tinkered upon forever.
-- [[https://www.youtube.com/c/SystemCrafters][Systemcrafters]] youtube channel
-
-* Resets
+Let's first establish a good baseline for our configuration by resetting somethings. We would also like to be able to install external packages, change our keybindings and set a theme to personalize it a bit.
+** Resets
+There are a few things that are configured by default, that I would like to either disable or change their defaults:
 #+begin_src emacs-lisp
   ;; -*- lexical-binding: t -*-
   (setq inhibit-startup-message t) ; disable startup message
@@ -24,21 +20,21 @@ These sources helped me a lot building my own emacs configuration - well that so
   (setq ring-bell-function 'ignore) ; no thank you
 #+end_src
 
-** clipboard
+*** clipboard
 #+begin_src emacs-lisp
-  (setq x-select-enable-clipboard t)
-  (setq x-select-enable-primary t)
+  (setq select-enable-clipboard t)
+  (setq select-enable-primary t)
 #+end_src
 
-** autosaves
+*** autosaves
 Not a fan of the backup~ and #autosave# files, I usually just find them cluttering up everything.
 #+begin_src emacs-lisp
   (setq make-backup-files nil) ; stop creating backup~ files
   (setq auto-save-default nil) ; stop creating #autosave# files
 #+end_src
 
-* Package Management
-** package sources
+** Package Management
+*** package sources
 You can always run package-refresh-contents in case that a package was not found.
 #+begin_src emacs-lisp
   (require 'package)
@@ -52,7 +48,7 @@ You can always run package-refresh-contents in case that a package was not found
     (package-refresh-contents))
 #+end_src
 
-** initialize use-package
+*** initialize use-package
 #+begin_src emacs-lisp
   (unless (package-installed-p 'use-package)
     (package-install 'use-package))
@@ -61,14 +57,8 @@ You can always run package-refresh-contents in case that a package was not found
   (setq use-package-always-ensure t)
 #+end_src
 
-* Themes
-#+begin_src emacs-lisp
-  (use-package doom-themes
-    :init (load-theme 'doom-plain-dark t))
-#+end_src
-
-* Keybindings
-** which-key
+** Keybindings
+*** which-key
 Make keybindings discoverable.
 #+begin_src emacs-lisp
   (use-package which-key
@@ -78,7 +68,7 @@ Make keybindings discoverable.
     (setq which-key-idle-delay 1))
 #+end_src
 
-** general
+*** general
 Easy setup of keybindings.
 #+begin_src emacs-lisp
   (use-package general
@@ -90,13 +80,12 @@ Easy setup of keybindings.
 
     (oem/leader-key-def
       "SPC" '(mode-line-other-buffer :which-key "toggle between recent buffers")
-      "x" '(counsel-M-x :which-key "M-x")
       "b" '(:ignore t :which-key "buffer")
       "bb" '(switch-to-buffer :which-key "switch buffer")
       "bp" '(previous-buffer :which-key "previous buffer")))
 #+end_src
 
-** evil
+*** evil
 Can't live without vim keybindings.
 #+begin_src emacs-lisp
   (use-package evil
@@ -124,53 +113,21 @@ Can't live without vim keybindings.
     (evil-collection-init))
 #+end_src
 
+** Making Emacs beautiful
+*** Colors
+#+begin_src emacs-lisp
+  (use-package doom-themes
+    :init (load-theme 'doom-plain-dark t))
+#+end_src
+
+*** Fonts
+*** UI Elements
 * Search
-** swiper and ivy
-#+begin_src emacs-lisp
-  (use-package swiper)
-
-  (use-package ivy
-    :diminish
-    :bind (("C-s" . swiper)
-           :map ivy-minibuffer-map
-           ("TAB" . ivy-alt-done)
-           ("C-l" . ivy-alt-done)
-           ("C-j" . ivy-next-line)
-           ("C-k" . ivy-previous-line)
-           :map ivy-switch-buffer-map
-           ("C-k" . ivy-previous-line)
-           ("C-l" . ivy-done)
-           ("C-d" . ivy-switch-buffer-kill)
-           :map ivy-reverse-i-search-map
-           ("C-k" . ivy-previous-line)
-           ("C-d" . ivy-reverse-i-search-kill))
-    :config
-    (ivy-mode 1))
-
-  (use-package ivy-rich)
-#+end_src
-
-** finding files
-#+begin_src emacs-lisp
-  (oem/leader-key-def
-    "f" '(:ignore t :which-key "file")
-    "ff" '(find-file :which-key "find file")
-    "fr" '(counsel-buffer-or-recentf :which-key "recent files")
-    "fc" '(lambda () (interactive) (find-file (expand-file-name "~/.dotfiles/emacs/.emacs.gnu/emacs.org"))))
-#+end_src
-
-** finding processes
-#+begin_src emacs-lisp
-  (oem/leader-key-def
-    "ps" '(proced :which-key "processes"))
-#+end_src
-
-** fuzzy search
 One, if not *the* most convenient way to search is via a fuzzy search. You don't have to specify the exact search query and can be as specific as you need to be with the context (think directories in a file search).
-** Searching for content in files
-The rg package is a frontend for ripgrep. It is independent of any other frontend like ivy and exposes the results very much like the build in tools like grep.
+Most of the workflows following try to employ some sort of fuzzy search, while at the same time trying to be composable and minimal by hooking into existing emacs systems when possible.
+** Search (and replace) in project
+The rg package is a frontend for ripgrep. It is independent of any other frontend like ivy and exposes the results very much like the build in tools like grep. The buffer can also be turned editable, making this a very powerful search *and replace* tool.
 https://rgel.readthedocs.io/en/2.1.0/
-
 #+begin_src emacs-lisp
       (use-package rg
         :after wgrep
@@ -197,13 +154,85 @@ https://rgel.readthedocs.io/en/2.1.0/
 
       (oem/leader-key-def
         "s" '(:ignore t :which-key "search")
-        "ss" '(oem/grep-vc-or-dir :which-key "in project")
+        "sr" '(oem/grep-vc-or-dir :which-key "in project")
         "sl" '(rg-list-searches :which-key "list searches"))
+#+end_src
+
+** Search in buffer
+This is provided by =consult-line=.
+** Searching for files
+The included =project.el= already allows for powerful filesearching inside of what it considers projects. =C-x p f= allows for searching files in the project for example.
+
+A few keybindings can help us group file finding functionality together conceptually.
+#+begin_src emacs-lisp
+  (oem/leader-key-def
+    "f" '(:ignore t :which-key "file")
+    "ff" '(find-file :which-key "find file")
+    ;; "fr" '(counsel-buffer-or-recentf :which-key "recent files")
+    "fc" '(lambda () (interactive) (find-file (expand-file-name "~/.dotfiles/emacs/.emacs.gnu/emacs.org"))))
+#+end_src
+
+** making it more fuzzy
+*** vertico
+Vertico is enhancing the existing interface for selecting and navigating selections, like =find-file= for example.
+#+begin_src emacs-lisp
+  (use-package vertico
+    :bind (:map minibuffer-local-map
+                ("M-h" . backward-kill-word))
+    :custom
+    (vertico-cycle t)
+    :init
+    (vertico-mode))
+#+end_src
+
+*** savehist
+Shows recent completions first.
+#+begin_src emacs-lisp
+  (use-package savehist
+    :init
+    (savehist-mode))
+#+end_src
+
+*** marginalia
+Marginalia will provide additional information on the completion items.
+In the find-file context that would be file size and similar information for example.
+#+begin_src emacs-lisp
+  (use-package marginalia
+    :after vertico
+    :custom
+    (marginalia-anotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
+    :init
+    (marginalia-mode))
+#+end_src
+
+*** consult
+Consult provides a lot of usefule completion helpers.
+#+begin_src emacs-lisp
+  (use-package consult
+    :demand t
+    :bind (("C-s" . consult-line)
+           :map minibuffer-local-map
+           ("C-r" . consult-history)))
+
+  (oem/leader-key-def
+    "ss" '(consult-ripgrep :which-key "ripgrep"))
+#+end_src
+
+*** orderless
+Improves candidate filtering
+#+begin_src emacs-lisp
+  (use-package orderless
+  :init
+  (setq completion-styles '(orderless)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles . (partial-completion))))))
 #+end_src
 
 * Edit
 ** code
-In general I would require diagnostics (errors, warnings and other insights), autocomplete and autofixing for programming. If at all possible the diagnostics should be provided by a language server to get the most information. The autocompletion should also additionally provide auto-imports when applicable (or other related actions that should be executed after completion).
+In general I would require *diagnostics* (errors, warnings and other insights), *autocomplete* and *autofixing* for programming.
+If at all possible the diagnostics should be provided by a language server to get as much information as possible. The autocompletion should also additionally provide auto-imports when applicable (or other related actions that should be executed after completion).
+*** diagnostics
 *** rust
 **** critical
 ***** autofix
@@ -214,18 +243,8 @@ In general I would require diagnostics (errors, warnings and other insights), au
 *** python
 *** ruby
 ** remove trailing whitespace
-* Completing things
-** counsel
-#+begin_src emacs-lisp
-  (use-package counsel
-    :bind (("M-x" . counsel-M-x)
-           ("C-x b" . counsel-ibuffer)
-           ;; ("C-x C-f" . counsel-find-file)
-           :map minibuffer-local-map
-           ("C-r" . 'counsel-minibuffer-history)))
-#+end_src
-
-** company mode
+** autocompletion
+*** company mode
 #+begin_src emacs-lisp
   (use-package company
     :after lsp-mode
@@ -242,8 +261,8 @@ In general I would require diagnostics (errors, warnings and other insights), au
     :hook (company-mode . company-box-mode))
 #+end_src
 
-* Selecting things
-** expand-region
+** selections
+*** expand-region
 #+begin_src emacs-lisp
   (use-package expand-region
     :bind
@@ -251,7 +270,7 @@ In general I would require diagnostics (errors, warnings and other insights), au
     ("C--" . er/contract-region))
 #+end_src
 
-* git
+* Version Control
 ** magit
 #+begin_src emacs-lisp
   (use-package magit)
@@ -266,13 +285,8 @@ In general I would require diagnostics (errors, warnings and other insights), au
 * Help
 #+begin_src emacs-lisp
   (use-package helpful
-    :custom
-    (counsel-describe-function-function #'helpful-callable)
-    (counsel-describe-variable-function #'helpful-callable)
     :bind
-    ([remap describe-function] . counsel-describe-function)
     ([remap describe-command] . helpful-command)
-    ([remap describe-variable] . counsel-describe-variable)
     ([remap describe-key] . helpful-key))
 
 #+end_src
@@ -330,8 +344,6 @@ In general I would require diagnostics (errors, warnings and other insights), au
     (lsp-ui-peek-always-show t)
     (lsp-ui-sideline-show-hover nil)
     (lsp-ui-doc-enable nil))
-
-  (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 #+end_src
 
 ** commenting things
@@ -420,7 +432,7 @@ In general I would require diagnostics (errors, warnings and other insights), au
 
     (oem/leader-key-def
       "o" '(:ignore t :which-key "org")
-      "og" '(counsel-org-goto :which-key "counsel org tree")
+      "og" '(consult-org-heading :which-key "goto org file")
       "oa" '(org-agenda :which-key "org-agenda")
       "on" '(org-toggle-narrow-to-subtree :which-key "toggle narrowing"))
 #+end_src
@@ -439,7 +451,7 @@ In general I would require diagnostics (errors, warnings and other insights), au
   (require 'org-indent)
 
   (defun oem/org-mode-visual-fill ()
-    (setq visual-fill-column-width 100
+    (setq visual-fill-column-width 120
           visual-fill-column-center-text t)
     (visual-fill-column-mode 1))
 
@@ -746,109 +758,6 @@ They are for now all prefixed with =leader oo= to not clash with the normal org 
     "oi" '(org-roam-node-insert :which-key "org roam node insert"))
 #+end_src
 
-* Encryption
-** pinentry
-#+begin_src emacs-lisp
-  (use-package pinentry)
-#+end_src
-
-#+begin_src shell :tangle ~/.gnupg/gpg-agent.conf :results output silent
-  pinentry-program /usr/bin/pinentry-emacs
-  default-cache-ttl 3600
-  allow-emacs-pinentry
-#+end_src
-
-#+begin_src shell :results output silent
-  cat ~/.gnupg/gpg-agent.conf
-#+end_src
-
-#+begin_src emacs-lisp
-  (require 'epg)
-  (setq epg-pinentry-mode 'loopback)
-#+end_src
-
-#+begin_src emacs-lisp
-  (pinentry-start)
-#+end_src
-
-** using pass from emacs
-#+begin_src emacs-lisp
-  (use-package pass
-    :pin melpa
-    :config
-    (setf epg-pinentry-mode 'loopback))
-#+end_src
-
-* Mail
-** dependencies
-We need to install a few dependencies outside of Emacs:
-#+begin_src bash
-aura -A mu mbsync-git
-#+end_src
-*** mbsync
-**** Setting up a configuration
-We need a configuration file in our home folder: =~/.mbsyncrc=.
-Gmail accounts without 2fa need to allow "[[https://support.google.com/accounts/answer/6010255?p=lsa_blocked&hl=en-GB&visit_id=637668782853662647-1246343737&rd=1#zippy=%2Cif-less-secure-app-access-is-on-for-your-account][less secure apps]]".
-Sync emails: ~mbsync -a~.
-Gmail with 2fa need an app password.
-
-*** mu
-mu is a mail indexer.
-Index your emails:
-#+begin_src bash
-  mu init --maildir=<mail folder> --my-address=<email address>
-  mu index
-#+end_src
-
-For multiple accounts you just need to provide them all in ~mu init~:
-#+begin_src shell
-  mu init --maildir=<mail folder> --my-address=<first address> --my-address=<second address>
-  mu index
-#+end_src
-This assumes that the emails are all in (sub) folders of the maildir. Otherwise you will also need to provide multiple ~--maildir~.
-
-** managing mail with mu4e
-mu4e is the Emacs interface to the mu mail indexer.
-It syncs your emails in the background using an external program.
-#+begin_src emacs-lisp
-  (load "~/sync/mail-config/accounts.el")
-#+end_src
-
-** attachments
-#+begin_src emacs-lisp
-  (setq mu4e-attachment-dir "~/Downloads"
-        mu4e-view-show-images t
-        mu4e-use-fancy-chars t)
-#+end_src
-
-** view emails
-#+begin_src emacs-lisp
-  (setq mu4e-view-show-images t
-        mu4e-show-images t
-        mu4e-view-image-max-width 800)
-#+end_src
-
-** sending emails
-We use the build-in functionality from Emacs to send mails.
-#+begin_src emacs-lisp
-  (setq message-send-mail-function 'smtpmail-send-it)
-  (setq mu4e-sent-messages-behavior 'delete)
-#+end_src
-
-#+begin_src emacs-lisp
-(require 'smtpmail)
-#+end_src
-
-Getting the smtp passwords from pass
-#+begin_src emacs-lisp
-  (auth-source-pass-enable)
-  (setq auth-source-debug t)
-  (setq auth-source-do-cache nil)
-  (setq message-kill-buffer-on-exit t)
-  (setq smtpmail-debug-info t)
-  (setq smtpmail-stream-type 'ssl)
-#+end_src
-
 * UI
 ** show line numbers
 When editing code it is really helpful to see line numbers, specifically relative line numbers since this matches with how one would move in such a buffer.
@@ -986,8 +895,120 @@ Emacs window management can appear quite confusing. Very often it will disrupt t
             "[Oo]utput\\*")))
 #+end_src
 
-* Music
-** EMMS
+* Extras
+** Processes
+The integrated =Proced= covers most of the basic and not so basic needs of process management. One of the important things to remember is that Emacs maps everything to buffers, including processes. So, managing processes often boils down to managing your buffers, at least for all processes launched from within Emacs.
+#+begin_src emacs-lisp
+  (oem/leader-key-def
+    "ps" '(proced :which-key "processes"))
+#+end_src
+
+** Encryption
+*** pinentry
+#+begin_src emacs-lisp
+  (use-package pinentry)
+#+end_src
+
+#+begin_src shell :tangle ~/.gnupg/gpg-agent.conf :results output silent
+  pinentry-program /usr/bin/pinentry-emacs
+  default-cache-ttl 3600
+  allow-emacs-pinentry
+#+end_src
+
+#+begin_src shell :results output silent
+  cat ~/.gnupg/gpg-agent.conf
+#+end_src
+
+#+begin_src emacs-lisp
+  (require 'epg)
+  (setq epg-pinentry-mode 'loopback)
+#+end_src
+
+#+begin_src emacs-lisp
+  (pinentry-start)
+#+end_src
+
+*** using pass from emacs
+#+begin_src emacs-lisp
+  (use-package pass
+    :pin melpa
+    :config
+    (setf epg-pinentry-mode 'loopback))
+#+end_src
+
+** Mail
+*** dependencies
+We need to install a few dependencies outside of Emacs:
+#+begin_src bash
+aura -A mu mbsync-git
+#+end_src
+
+**** mbsync
+***** Setting up a configuration
+We need a configuration file in our home folder: =~/.mbsyncrc=.
+Gmail accounts without 2fa need to allow "[[https://support.google.com/accounts/answer/6010255?p=lsa_blocked&hl=en-GB&visit_id=637668782853662647-1246343737&rd=1#zippy=%2Cif-less-secure-app-access-is-on-for-your-account][less secure apps]]".
+Sync emails: ~mbsync -a~.
+Gmail with 2fa need an app password.
+
+**** mu
+mu is a mail indexer.
+Index your emails:
+#+begin_src bash
+  mu init --maildir=<mail folder> --my-address=<email address>
+  mu index
+#+end_src
+
+For multiple accounts you just need to provide them all in ~mu init~:
+#+begin_src shell
+  mu init --maildir=<mail folder> --my-address=<first address> --my-address=<second address>
+  mu index
+#+end_src
+This assumes that the emails are all in (sub) folders of the maildir. Otherwise you will also need to provide multiple ~--maildir~.
+
+*** managing mail with mu4e
+mu4e is the Emacs interface to the mu mail indexer.
+It syncs your emails in the background using an external program.
+#+begin_src emacs-lisp
+  (load "~/sync/mail-config/accounts.el")
+#+end_src
+
+*** attachments
+#+begin_src emacs-lisp
+  (setq mu4e-attachment-dir "~/Downloads"
+        mu4e-view-show-images t
+        mu4e-use-fancy-chars t)
+#+end_src
+
+*** view emails
+#+begin_src emacs-lisp
+  (setq mu4e-view-show-images t
+        mu4e-show-images t
+        mu4e-view-image-max-width 800)
+#+end_src
+
+*** sending emails
+We use the build-in functionality from Emacs to send mails.
+#+begin_src emacs-lisp
+  (setq message-send-mail-function 'smtpmail-send-it)
+  (setq mu4e-sent-messages-behavior 'delete)
+#+end_src
+
+#+begin_src emacs-lisp
+(require 'smtpmail)
+#+end_src
+
+Getting the smtp passwords from pass
+#+begin_src emacs-lisp
+  (auth-source-pass-enable)
+  (setq auth-source-debug t)
+  (setq auth-source-do-cache nil)
+  (setq message-kill-buffer-on-exit t)
+  (setq smtpmail-debug-info t)
+  (setq smtpmail-stream-type 'ssl)
+#+end_src
+
+** Music
+*** EMMS
 #+begin_src emacs-lisp
   (use-package emms)
   (require 'emms-setup)
@@ -995,3 +1016,4 @@ Emacs window management can appear quite confusing. Very often it will disrupt t
   (emms-default-players)
   (setq emms-source-file-default-directory "~/sync/music")
 #+end_src
+

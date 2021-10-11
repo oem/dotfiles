@@ -10,8 +10,8 @@
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore) ; no thank you
 
-(setq x-select-enable-clipboard t)
-(setq x-select-enable-primary t)
+(setq select-enable-clipboard t)
+(setq select-enable-primary t)
 
 (setq make-backup-files nil) ; stop creating backup~ files
 (setq auto-save-default nil) ; stop creating #autosave# files
@@ -32,9 +32,6 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(use-package doom-themes
-  :init (load-theme 'doom-plain-dark t))
-
 (use-package which-key
   :init (which-key-mode)
   :diminish which-key-mode
@@ -50,7 +47,6 @@
 
   (oem/leader-key-def
     "SPC" '(mode-line-other-buffer :which-key "toggle between recent buffers")
-    "x" '(counsel-M-x :which-key "M-x")
     "b" '(:ignore t :which-key "buffer")
     "bb" '(switch-to-buffer :which-key "switch buffer")
     "bp" '(previous-buffer :which-key "previous buffer")))
@@ -79,36 +75,8 @@
   :config
   (evil-collection-init))
 
-(use-package swiper)
-
-(use-package ivy
-  :diminish
-  :bind (("C-s" . swiper)
-         :map ivy-minibuffer-map
-         ("TAB" . ivy-alt-done)
-         ("C-l" . ivy-alt-done)
-         ("C-j" . ivy-next-line)
-         ("C-k" . ivy-previous-line)
-         :map ivy-switch-buffer-map
-         ("C-k" . ivy-previous-line)
-         ("C-l" . ivy-done)
-         ("C-d" . ivy-switch-buffer-kill)
-         :map ivy-reverse-i-search-map
-         ("C-k" . ivy-previous-line)
-         ("C-d" . ivy-reverse-i-search-kill))
-  :config
-  (ivy-mode 1))
-
-(use-package ivy-rich)
-
-(oem/leader-key-def
-  "f" '(:ignore t :which-key "file")
-  "ff" '(find-file :which-key "find file")
-  "fr" '(counsel-buffer-or-recentf :which-key "recent files")
-  "fc" '(lambda () (interactive) (find-file (expand-file-name "~/.dotfiles/emacs/.emacs.gnu/emacs.org"))))
-
-(oem/leader-key-def
-  "ps" '(proced :which-key "processes"))
+(use-package doom-themes
+  :init (load-theme 'doom-plain-dark t))
 
 (use-package rg
   :after wgrep
@@ -135,15 +103,48 @@
 
 (oem/leader-key-def
   "s" '(:ignore t :which-key "search")
-  "ss" '(oem/grep-vc-or-dir :which-key "in project")
+  "sr" '(oem/grep-vc-or-dir :which-key "in project")
   "sl" '(rg-list-searches :which-key "list searches"))
 
-(use-package counsel
-  :bind (("M-x" . counsel-M-x)
-         ("C-x b" . counsel-ibuffer)
-         ;; ("C-x C-f" . counsel-find-file)
+(oem/leader-key-def
+  "f" '(:ignore t :which-key "file")
+  "ff" '(find-file :which-key "find file")
+  ;; "fr" '(counsel-buffer-or-recentf :which-key "recent files")
+  "fc" '(lambda () (interactive) (find-file (expand-file-name "~/.dotfiles/emacs/.emacs.gnu/emacs.org"))))
+
+(use-package vertico
+  :bind (:map minibuffer-local-map
+              ("M-h" . backward-kill-word))
+  :custom
+  (vertico-cycle t)
+  :init
+  (vertico-mode))
+
+(use-package savehist
+  :init
+  (savehist-mode))
+
+(use-package marginalia
+  :after vertico
+  :custom
+  (marginalia-anotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
+  :init
+  (marginalia-mode))
+
+(use-package consult
+  :demand t
+  :bind (("C-s" . consult-line)
          :map minibuffer-local-map
-         ("C-r" . 'counsel-minibuffer-history)))
+         ("C-r" . consult-history)))
+
+(oem/leader-key-def
+  "ss" '(consult-ripgrep :which-key "ripgrep"))
+
+(use-package orderless
+:init
+(setq completion-styles '(orderless)
+      completion-category-defaults nil
+      completion-category-overrides '((file (styles . (partial-completion))))))
 
 (use-package company
   :after lsp-mode
@@ -171,13 +172,8 @@
   "gg" '(magit-status :which-key "status"))
 
 (use-package helpful
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-callable)
   :bind
-  ([remap describe-function] . counsel-describe-function)
   ([remap describe-command] . helpful-command)
-  ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
 
 (use-package flycheck
@@ -217,8 +213,6 @@
   (lsp-ui-peek-always-show t)
   (lsp-ui-sideline-show-hover nil)
   (lsp-ui-doc-enable nil))
-
-(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 
 (use-package evil-nerd-commenter)
 
@@ -300,7 +294,7 @@
 
 (oem/leader-key-def
   "o" '(:ignore t :which-key "org")
-  "og" '(counsel-org-goto :which-key "counsel org tree")
+  "og" '(consult-org-heading :which-key "goto org file")
   "oa" '(org-agenda :which-key "org-agenda")
   "on" '(org-toggle-narrow-to-subtree :which-key "toggle narrowing"))
 
@@ -314,7 +308,7 @@
 (require 'org-indent)
 
 (defun oem/org-mode-visual-fill ()
-  (setq visual-fill-column-width 100
+  (setq visual-fill-column-width 120
         visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
@@ -548,40 +542,6 @@
   "oo" '(org-roam-node-find :which-key "org roam node find")
   "oi" '(org-roam-node-insert :which-key "org roam node insert"))
 
-(use-package pinentry)
-
-(require 'epg)
-(setq epg-pinentry-mode 'loopback)
-
-(pinentry-start)
-
-(use-package pass
-  :pin melpa
-  :config
-  (setf epg-pinentry-mode 'loopback))
-
-(load "~/sync/mail-config/accounts.el")
-
-(setq mu4e-attachment-dir "~/Downloads"
-      mu4e-view-show-images t
-      mu4e-use-fancy-chars t)
-
-(setq mu4e-view-show-images t
-      mu4e-show-images t
-      mu4e-view-image-max-width 800)
-
-(setq message-send-mail-function 'smtpmail-send-it)
-(setq mu4e-sent-messages-behavior 'delete)
-
-(require 'smtpmail)
-
-(auth-source-pass-enable)
-(setq auth-source-debug t)
-(setq auth-source-do-cache nil)
-(setq message-kill-buffer-on-exit t)
-(setq smtpmail-debug-info t)
-(setq smtpmail-stream-type 'ssl)
-
 (column-number-mode)
 (setq display-line-numbers-type 'relative)
 
@@ -690,6 +650,43 @@
           "^\\*Completions\\*"
           "^\\*EMMS Playlist\\*"
           "[Oo]utput\\*")))
+
+(oem/leader-key-def
+  "ps" '(proced :which-key "processes"))
+
+(use-package pinentry)
+
+(require 'epg)
+(setq epg-pinentry-mode 'loopback)
+
+(pinentry-start)
+
+(use-package pass
+  :pin melpa
+  :config
+  (setf epg-pinentry-mode 'loopback))
+
+(load "~/sync/mail-config/accounts.el")
+
+(setq mu4e-attachment-dir "~/Downloads"
+      mu4e-view-show-images t
+      mu4e-use-fancy-chars t)
+
+(setq mu4e-view-show-images t
+      mu4e-show-images t
+      mu4e-view-image-max-width 800)
+
+(setq message-send-mail-function 'smtpmail-send-it)
+(setq mu4e-sent-messages-behavior 'delete)
+
+(require 'smtpmail)
+
+(auth-source-pass-enable)
+(setq auth-source-debug t)
+(setq auth-source-do-cache nil)
+(setq message-kill-buffer-on-exit t)
+(setq smtpmail-debug-info t)
+(setq smtpmail-stream-type 'ssl)
 
 (use-package emms)
 (require 'emms-setup)
