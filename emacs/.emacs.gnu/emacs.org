@@ -891,8 +891,11 @@ Emacs window management can appear quite confusing. Very often it will disrupt t
             "^\\*Shell Command Output\\*"
             "^\\*Async Shell Command\\*"
             "^\\*Completions\\*"
+            "^\\*scratch\\*"
             "^\\*EMMS Playlist\\*"
             "[Oo]utput\\*")))
+
+  (setq popper-group-function #'popper-group-by-project)
 #+end_src
 
 * Extras
