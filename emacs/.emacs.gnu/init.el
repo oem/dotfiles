@@ -648,8 +648,11 @@
           "^\\*Shell Command Output\\*"
           "^\\*Async Shell Command\\*"
           "^\\*Completions\\*"
+          "^\\*scratch\\*"
           "^\\*EMMS Playlist\\*"
           "[Oo]utput\\*")))
+
+(setq popper-group-function #'popper-group-by-project)
 
 (oem/leader-key-def
   "ps" '(proced :which-key "processes"))
