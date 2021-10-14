@@ -738,6 +738,13 @@ The simple case, where we want to turn an item into an actionable item, should b
                    (oem/org-refile-to "~/sync/notes/maybe.org" ""))))
 #+end_src
 
+*** manually to any of the agenda files
+#+begin_src emacs-lisp
+  (setq org-refile-targets
+        '((nil :maxlevel . 3)
+          (org-agenda-files :maxlevel . 3)))
+#+end_src
+
 ** Keybindings
 They are for now all prefixed with =leader oo= to not clash with the normal org mode keybindings (which are prefixed with just =leader o=). But once I have replicated the previous functionality I might simplify that prefix to be =leader o=.
 #+begin_src emacs-lisp

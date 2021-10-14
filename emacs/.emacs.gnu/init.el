@@ -526,6 +526,10 @@
                (when (equal org-state "MAYBE")
                  (oem/org-refile-to "~/sync/notes/maybe.org" ""))))
 
+(setq org-refile-targets
+      '((nil :maxlevel . 3)
+        (org-agenda-files :maxlevel . 3)))
+
 (oem/leader-key-def
   "ob" '(org-roam-buffer-toggle :which-text "org roam buffer toggle")
   "od" '(:ignore t :which-key "org roam dailies")
