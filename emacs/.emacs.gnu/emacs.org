@@ -1047,3 +1047,9 @@ Or you use *org mode*, which we are using for everything else anyways. Because i
     (setq rmh-elfeed-org-files (list "~/sync/notes/feeds.org")))
 #+end_src
 
+And some keybindings for easier access.
+#+begin_src emacs-lisp
+  (oem/leader-key-def
+    "mf" '(elfeed :which-key "elfeed"))
+#+end_src
+

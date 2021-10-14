@@ -710,3 +710,6 @@
   :config
   (setq elfeed-show-entry-switch 'display-buffer)
   (setq rmh-elfeed-org-files (list "~/sync/notes/feeds.org")))
+
+(oem/leader-key-def
+  "mf" '(elfeed :which-key "elfeed"))
