@@ -700,3 +700,13 @@
 (emms-all)
 (emms-default-players)
 (setq emms-source-file-default-directory "~/sync/music")
+
+(use-package elfeed
+  :config
+  (setq elfeed-db-directory (expand-file-name "elfeed" user-emacs-directory)
+        elfeed-show-entry-switch 'display-buffer))
+
+(use-package elfeed-org
+  :config
+  (setq elfeed-show-entry-switch 'display-buffer)
+  (setq rmh-elfeed-org-files (list "~/sync/notes/feeds.org")))
