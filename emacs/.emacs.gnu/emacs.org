@@ -1020,3 +1020,23 @@ Getting the smtp passwords from pass
   (setq emms-source-file-default-directory "~/sync/music")
 #+end_src
 
+** RSS
+RSS let's you choose what content you want to consume instead of some biased algorithm that just tries to squeeze some value out of you.
+Elfeed is the de facto RSS reader for Emacs.
+#+begin_src emacs-lisp
+  (use-package elfeed
+    :config
+    (setq elfeed-db-directory (expand-file-name "elfeed" user-emacs-directory)
+          elfeed-show-entry-switch 'display-buffer))
+#+end_src
+
+*** Adding RSS feeds
+You would be able to add rss feeds by setting them in the =elfeed-feeds= variable.
+Or you use *org mode*, which we are using for everything else anyways. Because it is the best thing ever.
+#+begin_src emacs-lisp
+  (use-package elfeed-org
+    :config
+    (setq elfeed-show-entry-switch 'display-buffer)
+    (setq rmh-elfeed-org-files (list "~/sync/notes/feeds.org")))
+#+end_src
+
