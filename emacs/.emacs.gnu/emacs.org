@@ -537,6 +537,7 @@ If you add =[/]= to a parent item then it will automatically track the progress 
   (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
   (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
   (add-to-list 'org-structure-template-alist '("py" . "src python"))
+  (add-to-list 'org-structure-template-alist '("rs" . "src rust"))
 #+end_src
 
 ** Setting up the config
@@ -1052,4 +1053,3 @@ And some keybindings for easier access.
   (oem/leader-key-def
     "mf" '(elfeed :which-key "elfeed"))
 #+end_src
-
