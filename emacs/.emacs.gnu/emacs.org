@@ -901,10 +901,19 @@ Emacs window management can appear quite confusing. Very often it will disrupt t
             "^\\*Async Shell Command\\*"
             "^\\*Completions\\*"
             "^\\*scratch\\*"
+            "eshell\\*"
             "^\\*EMMS Playlist\\*"
             "[Oo]utput\\*")))
 
   (setq popper-group-function #'popper-group-by-project)
+#+end_src
+
+Let's add some keybindings to normalize usage a little.
+#+begin_src emacs-lisp
+  (oem/leader-key-def
+    "ee" '(popper-toggle-latest :which-key "latest popup")
+    "eE" '(popper-toggle-type :which-key "make popup")
+    "ec" '(popper-cycle :which-key "cycle popup"))
 #+end_src
 
 * Extras
