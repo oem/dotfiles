@@ -138,7 +138,8 @@
          ("C-r" . consult-history)))
 
 (oem/leader-key-def
-  "ss" '(consult-ripgrep :which-key "ripgrep"))
+  "ss" '(consult-ripgrep :which-key "ripgrep")
+  "nn" '(lambda () (interactive) (consult-ripgrep "~/sync/notes") :which-key "search in notes"))
 
 (use-package orderless
 :init

@@ -208,14 +208,15 @@ In the find-file context that would be file size and similar information for exa
 *** consult
 Consult provides a lot of usefule completion helpers.
 #+begin_src emacs-lisp
-  (use-package consult
-    :demand t
-    :bind (("C-s" . consult-line)
-           :map minibuffer-local-map
-           ("C-r" . consult-history)))
+    (use-package consult
+      :demand t
+      :bind (("C-s" . consult-line)
+             :map minibuffer-local-map
+             ("C-r" . consult-history)))
 
-  (oem/leader-key-def
-    "ss" '(consult-ripgrep :which-key "ripgrep"))
+    (oem/leader-key-def
+      "ss" '(consult-ripgrep :which-key "ripgrep")
+      "nn" '(lambda () (interactive) (consult-ripgrep "~/sync/notes") :which-key "search in notes"))
 #+end_src
 
 *** orderless
