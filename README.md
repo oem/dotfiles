@@ -75,6 +75,7 @@ git clone https://github.com/hlissner/doom-emacs ~/doom-emacs
 
 But for more information on Doom Emacs I would kindly like to point you to their very good documentation: [Doom Emacs: Getting Started](https://github.com/hlissner/doom-emacs/blob/develop/docs/getting_started.org)
 
+`init.el` will want to load an `accounts.el` file which contains account-specific email settings. You can just remove that load statement or adjust it to your needs.
 
 ### fish
 
