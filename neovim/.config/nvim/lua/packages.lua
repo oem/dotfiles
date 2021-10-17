@@ -61,6 +61,8 @@ require('packer').startup(function()
                 }
             end,
             setup = [[require('config.neogit')]]
+        }, {
+            use 'sindrets/diffview.nvim'
         }
     }
 
