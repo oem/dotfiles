@@ -655,10 +655,16 @@
           "^\\*Async Shell Command\\*"
           "^\\*Completions\\*"
           "^\\*scratch\\*"
+          "eshell\\*"
           "^\\*EMMS Playlist\\*"
           "[Oo]utput\\*")))
 
 (setq popper-group-function #'popper-group-by-project)
+
+(oem/leader-key-def
+  "ee" '(popper-toggle-latest :which-key "latest popup")
+  "eE" '(popper-toggle-type :which-key "make popup")
+  "ec" '(popper-cycle :which-key "cycle popup"))
 
 (oem/leader-key-def
   "ps" '(proced :which-key "processes"))
