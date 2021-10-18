@@ -147,6 +147,56 @@
       completion-category-defaults nil
       completion-category-overrides '((file (styles . (partial-completion))))))
 
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :custom
+  (lsp-rust-analyzer-server-display-inlay-hints t)
+  :config
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+  (setq lsp-headerline-breadcrumb-enable nil)
+  :hook (
+         (rust-mode . lsp-deferred)
+         (ruby-mode . lsp-deferred)
+         (lsp-mode . lsp-enable-which-key-integration)))
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :custom
+  (lsp-ui-peek-always-show t)
+  (lsp-ui-sideline-show-hover nil)
+  (lsp-ui-doc-enable nil))
+
+(defun oem/rustic-mode-hook ()
+  (when buffer-file-name
+    (setq-local buffer-save-without-query t)))
+
+(use-package rustic
+  :bind (:map rustic-mode-map
+              ("M-j" . lsp-ui-imenu)
+              ("M-?" . lsp-find-references)
+              ("C-c C-c l" . flycheck-list-error)
+              ("C-c C-c a" . lsp-execute-code-action)
+              ("C-c C-c r" . lsp-rename)
+              ("C-c C-c q" . lsp-workspace-restart)
+              ("C-c C-c Q" . lsp-workspace-shutdown)
+              ("C-c C-c s" . lsp-rust-analyzer-status))
+  :config
+  (setq rustic-lsp-client 'lsp-mode
+        rustic-lsp-server 'rust-analyzer
+        rustic-analuzer-command '("/usr/local/bin/rust-analyzer"))
+  (setq rustic-format-on-save t)
+
+  ;; rustfmt on save
+  (setq rust-format-on-save t)
+  (add-hook 'rustic-mode-hook 'oem/rustic-mode-hook))
+
+(use-package evil-nerd-commenter)
+
+(oem/leader-key-def
+  "/" '(evilnc-comment-or-uncomment-lines :which-key "comment"))
+
 (use-package company
   :after lsp-mode
   :hook (progr-mode . company-mode)
@@ -180,45 +230,6 @@
 (use-package flycheck
   :init
   (global-flycheck-mode t))
-
-(defun oem/rustic-mode-hook ()
-  (when buffer-file-name
-    (setq-local buffer-save-without-query t)))
-
-(use-package rustic
-  :config
-  (setq rustic-lsp-client 'lsp-mode
-        rustic-lsp-server 'rust-analyzer
-        rustic-analuzer-command '("/usr/local/bin/rust-analyzer"))
-  (setq rustic-format-on-save t)
-  (setq rust-format-on-save t)
-  (add-hook 'rustic-mode-hook 'oem/rustic-mode-hook))
-
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :custom
-  (lsp-rust-analyzer-server-display-inlay-hints t)
-  :config
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
-  (setq lsp-headerline-breadcrumb-enable nil)
-  :hook (
-         (rust-mode . lsp-deferred)
-         (ruby-mode . lsp-deferred)
-         (lsp-mode . lsp-enable-which-key-integration)))
-
-(use-package lsp-ui
-  :commands lsp-ui-mode
-  :custom
-  (lsp-ui-peek-always-show t)
-  (lsp-ui-sideline-show-hover nil)
-  (lsp-ui-doc-enable nil))
-
-(use-package evil-nerd-commenter)
-
-(oem/leader-key-def
-  "/" '(evilnc-comment-or-uncomment-lines :which-key "comment"))
 
 (defun oem/org-mode-setup ()
   (org-indent-mode)
@@ -655,6 +666,7 @@
           "^\\*Async Shell Command\\*"
           "^\\*Completions\\*"
           "^\\*scratch\\*"
+          "^\\*rustic-compilation\\*"
           "eshell\\*"
           "^\\*EMMS Playlist\\*"
           "[Oo]utput\\*")))
@@ -721,16 +733,3 @@
 
 (oem/leader-key-def
   "mf" '(elfeed :which-key "elfeed"))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(elfeed-org elfeed emms pass pinentry popper highlight-indent-guides doom-modeline all-the-icons org-roam visual-fill-column org-superstar evil-nerd-commenter lsp-ui lsp-mode rustic flycheck helpful magit expand-region company-box company orderless consult marginalia vertico rg doom-themes evil-collection evil general which-key use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

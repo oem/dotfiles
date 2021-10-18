@@ -234,15 +234,72 @@ Improves candidate filtering
 In general I would require *diagnostics* (errors, warnings and other insights), *autocomplete* and *autofixing* for programming.
 If at all possible the diagnostics should be provided by a language server to get as much information as possible. The autocompletion should also additionally provide auto-imports when applicable (or other related actions that should be executed after completion).
 *** diagnostics
+**** Gather with LSP
+#+begin_src emacs-lisp
+  (use-package lsp-mode
+    :commands (lsp lsp-deferred)
+    :init
+    (setq lsp-keymap-prefix "C-c l")
+    :custom
+    (lsp-rust-analyzer-server-display-inlay-hints t)
+    :config
+    (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+    (setq lsp-headerline-breadcrumb-enable nil)
+    :hook (
+           (rust-mode . lsp-deferred)
+           (ruby-mode . lsp-deferred)
+           (lsp-mode . lsp-enable-which-key-integration)))
+#+end_src
+
+**** Improve integration with LSP-UI
+#+begin_src emacs-lisp
+  (use-package lsp-ui
+    :commands lsp-ui-mode
+    :custom
+    (lsp-ui-peek-always-show t)
+    (lsp-ui-sideline-show-hover nil)
+    (lsp-ui-doc-enable nil))
+#+end_src
+
+**** show with flyckeck
 *** rust
-**** critical
-***** autofix
-***** linting
-**** important
-**** optional
+#+begin_src emacs-lisp
+  (defun oem/rustic-mode-hook ()
+    (when buffer-file-name
+      (setq-local buffer-save-without-query t)))
+
+  (use-package rustic
+    :bind (:map rustic-mode-map
+                ("M-j" . lsp-ui-imenu)
+                ("M-?" . lsp-find-references)
+                ("C-c C-c l" . flycheck-list-error)
+                ("C-c C-c a" . lsp-execute-code-action)
+                ("C-c C-c r" . lsp-rename)
+                ("C-c C-c q" . lsp-workspace-restart)
+                ("C-c C-c Q" . lsp-workspace-shutdown)
+                ("C-c C-c s" . lsp-rust-analyzer-status))
+    :config
+    (setq rustic-lsp-client 'lsp-mode
+          rustic-lsp-server 'rust-analyzer
+          rustic-analuzer-command '("/usr/local/bin/rust-analyzer"))
+    (setq rustic-format-on-save t)
+
+    ;; rustfmt on save
+    (setq rust-format-on-save t)
+    (add-hook 'rustic-mode-hook 'oem/rustic-mode-hook))
+#+end_src
+
 *** haskell
 *** python
 *** ruby
+** commenting out
+#+begin_src emacs-lisp
+  (use-package evil-nerd-commenter)
+
+  (oem/leader-key-def
+    "/" '(evilnc-comment-or-uncomment-lines :which-key "comment"))
+#+end_src
+
 ** remove trailing whitespace
 ** autocompletion
 *** company mode
@@ -297,62 +354,6 @@ If at all possible the diagnostics should be provided by a language server to ge
   (use-package flycheck
     :init
     (global-flycheck-mode t))
-#+end_src
-
-* Development
-** languages
-*** rust
-#+begin_src emacs-lisp
-  (defun oem/rustic-mode-hook ()
-    (when buffer-file-name
-      (setq-local buffer-save-without-query t)))
-
-  (use-package rustic
-    :config
-    (setq rustic-lsp-client 'lsp-mode
-          rustic-lsp-server 'rust-analyzer
-          rustic-analuzer-command '("/usr/local/bin/rust-analyzer"))
-    (setq rustic-format-on-save t)
-    (setq rust-format-on-save t)
-    (add-hook 'rustic-mode-hook 'oem/rustic-mode-hook))
-#+end_src
-
-*** python
-*** ruby
-*** javascript
-
-** lsp mode
-#+begin_src emacs-lisp
-  (use-package lsp-mode
-    :commands (lsp lsp-deferred)
-    :init
-    (setq lsp-keymap-prefix "C-c l")
-    :custom
-    (lsp-rust-analyzer-server-display-inlay-hints t)
-    :config
-    (add-hook 'lsp-mode-hook 'lsp-ui-mode)
-    (setq lsp-headerline-breadcrumb-enable nil)
-    :hook (
-           (rust-mode . lsp-deferred)
-           (ruby-mode . lsp-deferred)
-           (lsp-mode . lsp-enable-which-key-integration)))
-#+end_src
-
-#+begin_src emacs-lisp
-  (use-package lsp-ui
-    :commands lsp-ui-mode
-    :custom
-    (lsp-ui-peek-always-show t)
-    (lsp-ui-sideline-show-hover nil)
-    (lsp-ui-doc-enable nil))
-#+end_src
-
-** commenting things
-#+begin_src emacs-lisp
-  (use-package evil-nerd-commenter)
-
-  (oem/leader-key-def
-    "/" '(evilnc-comment-or-uncomment-lines :which-key "comment"))
 #+end_src
 
 * Org Mode
@@ -901,6 +902,7 @@ Emacs window management can appear quite confusing. Very often it will disrupt t
             "^\\*Async Shell Command\\*"
             "^\\*Completions\\*"
             "^\\*scratch\\*"
+            "^\\*rustic-compilation\\*"
             "eshell\\*"
             "^\\*EMMS Playlist\\*"
             "[Oo]utput\\*")))
