@@ -853,7 +853,7 @@ I however don't want to see numbers in *terminals* or *org mode*, which is just 
     "tt" '(load-theme :which-key "load theme")
     "tf" '(:ignore t :which-key "fonts")
     "tfF" '(lambda () (interactive)
-             (oem/set-faces "Cartograph CF" "Avenir Next LT Pro" ))
+             (oem/set-faces "Cartograph CF" "Avenir Next LT Pro"))
     "tff" '(lambda () (interactive)
              (oem/set-faces "Tamsyn" "Avenir Next LT Pro")))
 #+end_src
