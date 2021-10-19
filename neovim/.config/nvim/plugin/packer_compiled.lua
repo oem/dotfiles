@@ -117,8 +117,12 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/cmp_luasnip"
   },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/diffview.nvim"
+  },
   ["feline.nvim"] = {
-    config = { "\27LJ\1\2ˆ\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\vcolors\1\0\1\vpreset\vnoicon\1\0\3\14oceanblue\f#1C1C1C\abg\f#1C1C1C\fskyblue\f#FFFFFF\nsetup\vfeline\frequire\0" },
+    config = { "\27LJ\1\2z\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\vcolors\1\0\0\1\0\3\14oceanblue\f#1C1C1C\abg\f#1C1C1C\fskyblue\f#FFFFFF\nsetup\vfeline\frequire\0" },
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/feline.nvim"
   },
@@ -149,11 +153,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
   },
+  ["lspkind-nvim"] = {
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
+  },
   neogit = {
     commands = { "Neogit" },
     config = { "\27LJ\1\2X\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1 disable_commit_confirmation\2\nsetup\vneogit\frequire\0" },
     loaded = false,
     needs_bufread = true,
+    only_cond = false,
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/neogit"
   },
   ["nvim-autopairs"] = {
@@ -170,6 +179,7 @@ _G.packer_plugins = {
     config = { "require('config.cmp')" },
     loaded = false,
     needs_bufread = false,
+    only_cond = false,
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
@@ -188,6 +198,10 @@ _G.packer_plugins = {
   ["nvim-treesitter-textobjects"] = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -244,11 +258,12 @@ _G.packer_plugins = {
     config = { "require('config.telescope')" },
     loaded = false,
     needs_bufread = true,
+    only_cond = false,
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/telescope.nvim",
     wants = { "popup.nvim", "plenary.nvim", "telescope-frecency.nvim", "telescope-fzf-native.nvim" }
   },
   ["trouble.nvim"] = {
-    config = { "\27LJ\1\2C\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0" },
+    config = { "\27LJ\1\0029\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\ftrouble\frequire\0" },
     loaded = true,
     needs_bufread = false,
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/trouble.nvim"
@@ -265,6 +280,7 @@ _G.packer_plugins = {
     commands = { "Git", "Git status", "Git blame", "Git push", "Git pull" },
     loaded = false,
     needs_bufread = true,
+    only_cond = false,
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/vim-fugitive"
   },
   ["vim-gnupg"] = {
@@ -351,11 +367,11 @@ try_loadstring("\27LJ\1\2„\1\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\
 time([[Config for indent-blankline.nvim]], false)
 -- Config for: feline.nvim
 time([[Config for feline.nvim]], true)
-try_loadstring("\27LJ\1\2ˆ\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\vcolors\1\0\1\vpreset\vnoicon\1\0\3\14oceanblue\f#1C1C1C\abg\f#1C1C1C\fskyblue\f#FFFFFF\nsetup\vfeline\frequire\0", "config", "feline.nvim")
+try_loadstring("\27LJ\1\2z\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\vcolors\1\0\0\1\0\3\14oceanblue\f#1C1C1C\abg\f#1C1C1C\fskyblue\f#FFFFFF\nsetup\vfeline\frequire\0", "config", "feline.nvim")
 time([[Config for feline.nvim]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
-try_loadstring("\27LJ\1\2C\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+try_loadstring("\27LJ\1\0029\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
 
 -- Command lazy-loads

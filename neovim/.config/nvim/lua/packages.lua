@@ -68,17 +68,17 @@ require('packer').startup(function()
 
     -- Completion and linting
     use {
-        'neovim/nvim-lspconfig', 'nvim-lua/lsp-status.nvim',
+        'neovim/nvim-lspconfig',
+        'nvim-lua/lsp-status.nvim',
         'nvim-lua/lsp_extensions.nvim'
     }
 
     use {
         'folke/trouble.nvim',
+        requires = "kyazdani42/nvim-web-devicons",
         setup = [[require('config.trouble_setup')]],
         config = function()
-            require'trouble'.setup({
-                icons = false
-            })
+            require'trouble'.setup({})
         end
     }
 
@@ -124,7 +124,7 @@ require('packer').startup(function()
         run = ':TSUpdate'
     }
 
-    -- Some additional functionality on top of the lsp
+    -- Some additional functionality on top of lsp
     -- rust
     use {
         'simrat39/rust-tools.nvim',
@@ -156,6 +156,8 @@ require('packer').startup(function()
     -- UI
     use 'reedes/vim-colors-pencil'
     use 'NLKNguyen/papercolor-theme'
+    use 'kyazdani42/nvim-web-devicons'
+    use 'onsails/lspkind-nvim'
 
     -- show trailing whitespace
     use 'ntpeters/vim-better-whitespace'
@@ -188,8 +190,7 @@ require('packer').startup(function()
                     bg = "#1C1C1C",
                     oceanblue = "#1C1C1C",
                     skyblue = "#FFFFFF"
-                },
-                preset = 'noicon'
+                }
             })
         end
     }

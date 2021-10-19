@@ -3,6 +3,7 @@ local telescope = require 'telescope'
 
 telescope.setup {
     defaults = {
+        color_devicons = true,
         file_ignore_patterns = {"node_modules", ".git"},
         vimgrep_arguments = {
             "rg", "--color=never", "--no-heading", "--with-filename",
