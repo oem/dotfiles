@@ -99,6 +99,10 @@ Btw: Try out this neat little nugget: tmux-leader o -> fuzzy search some directo
 
 `stow alacritty`
 
+### kitty
+
+`stow kitty`
+
 ### qutebrowser
 
 `stow qutebrowser`
