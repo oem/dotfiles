@@ -158,6 +158,8 @@ vim.g.ale_rust_rustfmt_options = '--edition 2018'
 vim.g.ale_linters = {
     ruby = {'solargraph', 'standardrb', 'rubocop'},
     python = {'mypy', 'flake8', 'pylint'},
+    rust = {},
+    lua = {},
     elm = {}
 }
 vim.g.ale_python_pylint_change_directory = 0
