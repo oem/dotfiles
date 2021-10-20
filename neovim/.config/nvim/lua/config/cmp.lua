@@ -10,15 +10,15 @@ cmp.setup {
         expand = function(args) luasnip.lsp_expand(args.body) end
     },
     mapping = {
-        ['<cr>'] = cmp.mapping.confirm(),
+        -- ['<cr>'] = cmp.mapping.confirm(),
         ['<tab>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'}),
         ['<s-tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})
     },
     sources = {
         {
-            name = 'buffer'
-        }, {
             name = 'nvim_lsp'
+        }, {
+            name = 'buffer'
         }, {
             name = 'nvim_lua'
         }, {
