@@ -52,7 +52,7 @@ o.background = "dark"
 o.cursorcolumn = true
 
 opt.listchars = {
-    space = "·"
+    space = "·",
 }
 
 -- highlight on yank
@@ -90,6 +90,11 @@ nvim_lsp.rust_analyzer.setup({})
 -- set autoindent to 4 spaces as per styleguide
 cmd [[autocmd FileType julia setlocal shiftwidth=4 tabstop=4 expandtab]]
 
+-- go
+-- don't show ugly tabs
+cmd [[autocmd FileType go setlocal nolist]]
+nvim_lsp.gopls.setup {}
+
 -- ruby
 -- Enable solargraph/ruby
 nvim_lsp.solargraph.setup({})
@@ -101,15 +106,15 @@ nvim_lsp.tsserver.setup {}
 
 -- python
 --  Enable python/pyright
-require'lspconfig'.pyright.setup {}
+nvim_lsp.pyright.setup {}
 
 -- elm
 -- Enable elm language server
-require'lspconfig'.elmls.setup {}
+nvim_lsp.elmls.setup {}
 
 -- lua
 -- Enable lua language server, installed with pacman -S lua-language-server
-require'lspconfig'.sumneko_lua.setup {
+nvim_lsp.sumneko_lua.setup {
     cmd = {'lua-language-server'},
     settings = {
         Lua = {
@@ -158,6 +163,7 @@ vim.g.ale_rust_rustfmt_options = '--edition 2018'
 vim.g.ale_linters = {
     ruby = {'solargraph', 'standardrb', 'rubocop'},
     python = {'mypy', 'flake8', 'pylint'},
+    go = {},
     rust = {},
     lua = {},
     elm = {}
