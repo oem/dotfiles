@@ -523,7 +523,7 @@
 
 (add-to-list 'org-after-todo-state-change-hook
              (lambda ()
-               (unless (equal buffer-file-name "/home/oem/sync/notes/habits.org")
+               (unless (or (equal buffer-file-name "/home/oem/sync/notes/habits.org") (string-match "training" buffer-file-name))
                  (if (and (equal org-state "DONE") (equal buffer-file-name "/home/oem/sync/notes/todos.org"))
                      (oem/org-roam-copy-to-today nil)
                    (if (equal org-state "DONE")
