@@ -52,7 +52,7 @@ o.background = "dark"
 o.cursorcolumn = true
 
 opt.listchars = {
-    space = "·",
+    space = "·"
 }
 
 -- highlight on yank
@@ -111,6 +111,15 @@ nvim_lsp.pyright.setup {}
 -- elm
 -- Enable elm language server
 nvim_lsp.elmls.setup {}
+
+-- haskell
+-- Enable haskell language server
+nvim_lsp.hls.setup {}
+
+-- html
+-- npm i -g vscode-langservers-extracted
+-- Enable html language server
+nvim_lsp.html.setup {}
 
 -- lua
 -- Enable lua language server, installed with pacman -S lua-language-server
