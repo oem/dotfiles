@@ -182,9 +182,10 @@ require('packer').startup(function()
         config = function()
             require('feline').setup({
                 colors = {
-                    bg = "#1C1C1C",
-                    oceanblue = "#1C1C1C",
-                    skyblue = "#FFFFFF"
+                    bg = "#212121",
+                    oceanblue = "#212121",
+                    skyblue = "#FFFFFF",
+                    black = "#212121"
                 }
             })
         end
