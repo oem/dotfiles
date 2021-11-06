@@ -164,7 +164,9 @@ vim.g.ale_fixers = {
     javascript = {'prettier', 'eslint'},
     elm = {'elm-format'},
     -- luarocks install --server=https://luarocks.org/dev luaformatter
-    lua = {'lua-format'}
+    lua = {'lua-format'},
+    -- stack install ormolu
+    haskell = {'ormolu'}
 }
 vim.g.ale_fix_on_save = 1
 vim.g.ale_rust_rustfmt_options = '--edition 2018'
