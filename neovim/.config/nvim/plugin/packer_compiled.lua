@@ -81,6 +81,7 @@ _G.packer_plugins = {
   },
   ["cmp-buffer"] = {
     after_files = { "/home/oem/.local/share/nvim/site/pack/packer/opt/cmp-buffer/after/plugin/cmp_buffer.lua" },
+    config = { "\27LJ\1\2¤\4\0\0\2\0\3\0\0054\0\0\0007\0\1\0%\1\2\0>\0\2\1G\0\1\0„\4                      imap <silent><expr> <c-k> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<c-k>'\n                      inoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>\n                      imap <silent><expr> <C-l> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-l>'\n                      snoremap <silent> <c-k> <cmd>lua require('luasnip').jump(1)<CR>\n                      snoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>\n                   \bcmd\bvim\0" },
     load_after = {
       ["nvim-cmp"] = true
     },
