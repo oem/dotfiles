@@ -84,7 +84,7 @@ local nvim_lsp = require 'lspconfig'
 
 -- rust
 -- Enable rust_analyzer
-nvim_lsp.rust_analyzer.setup({})
+nvim_lsp.rust_analyzer.setup {}
 
 -- julia
 -- set autoindent to 4 spaces as per styleguide
@@ -97,7 +97,7 @@ nvim_lsp.gopls.setup {}
 
 -- ruby
 -- Enable solargraph/ruby
-nvim_lsp.solargraph.setup({})
+nvim_lsp.solargraph.setup {}
 cmd [[autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby]]
 
 -- javascript
