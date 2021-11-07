@@ -32,7 +32,7 @@ URxvtRecord*internalBorder: 30
 
 ! pencil colors
 *foreground: #ABB2BF
-*background: #1C1C1C
+*background: #212121
 
 URxvt.cursorColor: #ABB2BF
 !black
