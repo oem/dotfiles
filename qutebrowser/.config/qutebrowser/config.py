@@ -20,5 +20,4 @@ config.bind(",M", "hint links spawn mpv {hint-url}")
 
 c.zoom.default = "150%"
 c.fonts.default_size = "16pt"
-c.fonts.default_family = ["Cartograph CF Medium"]
-c.fonts.web.size.default_fixed = 16
+c.fonts.default_family = ["Cartograph CF Heavy"]

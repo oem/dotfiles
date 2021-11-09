@@ -154,6 +154,7 @@ autocmd(nil,
 
 -- code navigation
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
+map('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<cr>', options)
 
 -- Linting and fixing
 vim.g.ale_fixers = {
