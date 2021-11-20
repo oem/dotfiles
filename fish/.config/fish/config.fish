@@ -189,9 +189,9 @@ set -gx PATH $HOME/.local/bin $PATH
 status --is-interactive; and pyenv init - --no-rehash | source
 # status --is-interactive; and pyenv virtualenv-init - | source
 # }}}
-#{{{ asdf
+# {{{ asdf
 source /opt/asdf-vm/asdf.fish
-#}}}
+# }}}
 
 starship init fish | source
 set -g fish_user_paths "/usr/local/opt/binutils/bin" $fish_user_paths
