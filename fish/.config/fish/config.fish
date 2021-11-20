@@ -189,10 +189,8 @@ set -gx PATH $HOME/.local/bin $PATH
 status --is-interactive; and pyenv init - --no-rehash | source
 # status --is-interactive; and pyenv virtualenv-init - | source
 # }}}
-#{{{ rbenv
-set PATH $HOME/.rbenv/bin $PATH
-set PATH $HOME/.rbenv/shims $PATH
-status --is-interactive; and source (rbenv init -|psub)
+#{{{ asdf
+source /opt/asdf-vm/asdf.fish
 #}}}
 
 starship init fish | source
