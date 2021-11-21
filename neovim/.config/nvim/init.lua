@@ -118,8 +118,12 @@ nvim_lsp.hls.setup {}
 
 -- html
 -- npm i -g vscode-langservers-extracted
--- Enable html language server
 nvim_lsp.html.setup {}
+nvim_lsp.cssls.setup {}
+
+-- tailwind
+-- npm install -g @tailwindcss/language-server
+nvim_lsp.tailwindcss.setup {}
 
 -- lua
 -- Enable lua language server, installed with pacman -S lua-language-server
