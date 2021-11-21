@@ -1,12 +1,15 @@
 local map = require('config.utils').map
-local options = {silent = true, noremap = true}
+local options = {
+    silent = true,
+    noremap = true
+}
 
 -- files
 map('n', '<leader>ff',
     [[<cmd>Telescope find_files theme=get_dropdown hidden=true<cr>]], options)
 map('n', '<leader>fF', [[<cmd>Telescope git_files theme=get_dropdown<cr>]],
     options)
-map('n', '<leader>r', [[<cmd>Telescope frecency theme=get_dropdown<cr>]],
+map('n', '<leader>fr', [[<cmd>Telescope frecency theme=get_dropdown<cr>]],
     options)
 
 -- buffers
