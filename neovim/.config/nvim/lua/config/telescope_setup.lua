@@ -1,8 +1,5 @@
 local map = require('config.utils').map
-local options = {
-    silent = true,
-    noremap = true
-}
+local options = {silent = true, noremap = true}
 
 -- files
 map('n', '<leader>ff',
@@ -29,6 +26,9 @@ map('n', '<leader>sw', [[<cmd>Telescope grep_string theme=get_dropdown<cr>]],
 map('n', '<leader>nn', ":lua require('oem.telescope').search_notes()<cr>",
     options)
 map('n', '<leader>nf', ":lua require('oem.telescope').find_notes()<cr>", options)
+
+-- help
+map('n', '<leader>hh', [[<cmd>Telescope help_tags<cr>]], options)
 
 -- LSP
 map('n', '<leader>le',
