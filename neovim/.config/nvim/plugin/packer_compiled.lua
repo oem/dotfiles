@@ -194,7 +194,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "nvim-autopairs", "cmp-buffer", "cmp_luasnip", "cmp-nvim-lua", "cmp-path" },
+    after = { "nvim-autopairs", "cmp-nvim-lua", "cmp-buffer", "cmp_luasnip", "cmp-path" },
     config = { "require('config.cmp')" },
     loaded = false,
     needs_bufread = false,
@@ -206,6 +206,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-lspinstall"] = {
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/nvim-lspinstall",
+    url = "https://github.com/kabouzeid/nvim-lspinstall"
   },
   ["nvim-treesitter"] = {
     config = { "require('config.treesitter')" },

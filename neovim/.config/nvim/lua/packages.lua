@@ -62,7 +62,7 @@ require('packer').startup(function()
     -- Completion and linting
     use {
         'neovim/nvim-lspconfig', 'nvim-lua/lsp-status.nvim',
-        'nvim-lua/lsp_extensions.nvim'
+        'nvim-lua/lsp_extensions.nvim', 'kabouzeid/nvim-lspinstall'
     }
 
     use {
