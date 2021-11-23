@@ -167,6 +167,7 @@ vim.g.ale_fixers = {
     python = {'black'},
     go = {'gofmt', 'goimports'},
     javascript = {'prettier', 'eslint'},
+    typescript = {'prettier', 'eslint'},
     elm = {'elm-format'},
     -- luarocks install --server=https://luarocks.org/dev luaformatter
     lua = {'lua-format'},
