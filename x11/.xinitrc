@@ -13,7 +13,7 @@ xmodmap ~/.xmodmap
 
 urxvtd -f
 
-dunst &
+~/.fehbg &
 
 unclutter &
 
