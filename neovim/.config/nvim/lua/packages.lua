@@ -134,6 +134,14 @@ require('packer').startup(function()
     -- encryption
     use 'jamessan/vim-gnupg'
 
+    -- html
+    use {
+        'mattn/emmet-vim',
+        config = function()
+            vim.cmd([[let g:user_emmet_leader_key = "<C-E>"]])
+        end
+    }
+
     -- UI
     use 'reedes/vim-colors-pencil'
     use 'NLKNguyen/papercolor-theme'
