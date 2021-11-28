@@ -15,7 +15,7 @@ def filter_yt(info: interceptor.Request):
 interceptor.register(filter_yt)
 
 config.load_autoconfig()
-config.bind(",m", "spawn mpv {url}")
+config.bind(",m", "spawn mpv --ytdl-format=best {url}")
 config.bind(",M", "hint links spawn mpv {hint-url}")
 
 c.zoom.default = "150%"
