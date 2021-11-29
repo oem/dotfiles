@@ -137,7 +137,7 @@ _G.packer_plugins = {
     url = "https://github.com/mattn/emmet-vim"
   },
   ["feline.nvim"] = {
-    config = { "\27LJ\1\2ˆ\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\vcolors\1\0\0\1\0\4\14oceanblue\f#212121\abg\f#212121\fskyblue\f#FFFFFF\nblack\f#212121\nsetup\vfeline\frequire\0" },
+    config = { "\27LJ\1\2–\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0003\2\4\0:\2\5\1>\0\2\1G\0\1\0\vcolors\1\0\4\14oceanblue\f#212121\abg\f#212121\fskyblue\f#FFFFFF\nblack\f#212121\1\0\1\vpreset\vnoicon\nsetup\vfeline\frequire\0" },
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/feline.nvim",
     url = "https://github.com/famiu/feline.nvim"
@@ -415,7 +415,7 @@ try_loadstring('\27LJ\1\2I\0\0\2\0\3\0\0054\0\0\0007\0\1\0%\1\2\0>\0\2\1G\0\1\0*
 time([[Config for emmet-vim]], false)
 -- Config for: feline.nvim
 time([[Config for feline.nvim]], true)
-try_loadstring("\27LJ\1\2ˆ\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\vcolors\1\0\0\1\0\4\14oceanblue\f#212121\abg\f#212121\fskyblue\f#FFFFFF\nblack\f#212121\nsetup\vfeline\frequire\0", "config", "feline.nvim")
+try_loadstring("\27LJ\1\2–\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0003\2\4\0:\2\5\1>\0\2\1G\0\1\0\vcolors\1\0\4\14oceanblue\f#212121\abg\f#212121\fskyblue\f#FFFFFF\nblack\f#212121\1\0\1\vpreset\vnoicon\nsetup\vfeline\frequire\0", "config", "feline.nvim")
 time([[Config for feline.nvim]], false)
 -- Config for: rust-tools.nvim
 time([[Config for rust-tools.nvim]], true)
