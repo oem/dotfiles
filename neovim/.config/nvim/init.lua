@@ -141,7 +141,7 @@ cmd [[autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab]]
 
 -- tailwind
 -- npm install -g @tailwindcss/language-server
-nvim_lsp.tailwindcss.setup {}
+-- nvim_lsp.tailwindcss.setup {}
 
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
