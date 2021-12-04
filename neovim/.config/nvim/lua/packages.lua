@@ -37,10 +37,7 @@ require('packer').startup(function()
             'nvim-telescope/telescope-frecency.nvim',
             after = 'telescope.nvim',
             requires = 'tami5/sql.nvim'
-        }, {
-            'nvim-telescope/telescope-fzf-native.nvim',
-            run = 'make'
-        }
+        }, {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
     }
 
     -- Git
@@ -56,9 +53,7 @@ require('packer').startup(function()
             'TimUntersberger/neogit',
             cmd = 'Neogit',
             config = function()
-                require('neogit').setup {
-                    disable_commit_confirmation = true
-                }
+                require('neogit').setup {disable_commit_confirmation = true}
             end,
             setup = [[require('config.neogit')]]
         }, {use 'sindrets/diffview.nvim'}
@@ -90,16 +85,9 @@ require('packer').startup(function()
                 'hrsh7th/cmp-buffer',
                 after = 'nvim-cmp',
                 config = [[require('config.luasnip')]]
-            }, 'hrsh7th/cmp-nvim-lsp', {
-                'hrsh7th/cmp-path',
-                after = 'nvim-cmp'
-            }, {
-                'hrsh7th/cmp-nvim-lua',
-                after = 'nvim-cmp'
-            }, {
-                'saadparwaiz1/cmp_luasnip',
-                after = 'nvim-cmp'
-            }
+            }, 'hrsh7th/cmp-nvim-lsp', {'hrsh7th/cmp-path', after = 'nvim-cmp'},
+            {'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'},
+            {'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp'}
         },
         config = [[require('config.cmp')]],
         event = 'InsertEnter *'
@@ -131,10 +119,7 @@ require('packer').startup(function()
     use 'JuliaEditorSupport/julia-vim'
 
     -- code runner
-    use {
-        'michaelb/sniprun',
-        run = 'bash ./install.sh'
-    }
+    use {'michaelb/sniprun', run = 'bash ./install.sh'}
 
     -- Commenting
     use 'tomtom/tcomment_vim'
