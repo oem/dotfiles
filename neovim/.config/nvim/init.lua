@@ -9,16 +9,11 @@ local exec = vim.api.nvim_exec -- execute Vimscript
 -- Keybindings
 local map = require('config.utils').map
 local autocmd = require('config.utils').autocmd
-local options = {
-    noremap = true,
-    silent = true
-}
+local options = {noremap = true, silent = true}
 
 vim.g.mapleader = " "
 map('i', 'fd', [[<esc>]], options) -- alternative escape
-map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], {
-    noremap = true
-}) -- current dir
+map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], {noremap = true}) -- current dir
 map('n', '<leader><leader>', [[<c-^>]], options) -- toggle between buffers
 
 -- packages
@@ -51,9 +46,7 @@ o.fillchars = "vert: ,eob: ,fold:·"
 o.background = "dark"
 o.cursorcolumn = true
 
-opt.listchars = {
-    space = "·"
-}
+opt.listchars = {space = "·"}
 
 -- highlight on yank
 exec([[
@@ -104,6 +97,13 @@ cmd [[autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby]]
 -- Enable typescript/javascript
 nvim_lsp.tsserver.setup {}
 
+nvim_lsp.volar.setup {
+    filetypes = {
+        'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue',
+        'json'
+    }
+}
+
 -- python
 --  Enable python/pyright
 nvim_lsp.pyright.setup {}
@@ -122,13 +122,8 @@ nvim_lsp.sumneko_lua.setup {
     cmd = {'lua-language-server'},
     settings = {
         Lua = {
-            runtime = {
-                version = 'LuaJIT',
-                path = vim.split(package.path, ';')
-            },
-            diagnostics = {
-                globals = {'vim', 'use'}
-            }
+            runtime = {version = 'LuaJIT', path = vim.split(package.path, ';')},
+            diagnostics = {globals = {'vim', 'use'}}
         }
     }
 }
@@ -145,11 +140,8 @@ cmd [[autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab]]
 
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true,
-        signs = true,
-        update_in_insert = true
-    })
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
+                 {virtual_text = true, signs = true, update_in_insert = true})
 -- autocmd(nil, 'CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()', nil)
 
 -- enable inline hints
