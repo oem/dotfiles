@@ -612,7 +612,7 @@
 
 (pcase system-type
   ((or 'gnu/linux 'windows-nt 'cygwin)
-   (oem/set-faces "Tamsyn" "Avenir Next LT Pro"))
+   (oem/set-faces "Cartograph CF" "Avenir Next LT Pro"))
   ('darwin
    (oem/set-faces "Cartograph CF" "Avenir Next LT Pro")
 

@@ -833,7 +833,7 @@ I however don't want to see numbers in *terminals* or *org mode*, which is just 
 #+begin_src emacs-lisp
   (pcase system-type
     ((or 'gnu/linux 'windows-nt 'cygwin)
-     (oem/set-faces "Tamsyn" "Avenir Next LT Pro"))
+     (oem/set-faces "Cartograph CF" "Avenir Next LT Pro"))
     ('darwin
      (oem/set-faces "Cartograph CF" "Avenir Next LT Pro")
 
