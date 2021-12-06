@@ -146,6 +146,7 @@ require('packer').startup(function()
     -- UI
     use 'reedes/vim-colors-pencil'
     use 'NLKNguyen/papercolor-theme'
+    use 'folke/tokyonight.nvim'
     use 'kyazdani42/nvim-web-devicons'
     use 'onsails/lspkind-nvim'
 
