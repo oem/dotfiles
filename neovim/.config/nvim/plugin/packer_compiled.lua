@@ -386,6 +386,10 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
+-- Setup for: cmp-buffer
+time([[Setup for cmp-buffer]], true)
+require('config.luasnip_setup')
+time([[Setup for cmp-buffer]], false)
 -- Setup for: trouble.nvim
 time([[Setup for trouble.nvim]], true)
 require('config.trouble_setup')
