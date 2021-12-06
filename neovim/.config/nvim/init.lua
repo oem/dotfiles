@@ -188,6 +188,7 @@ vim.g.ale_python_flake8_change_directory = 0
 vim.g.strip_whitespace_on_save = 1
 vim.g.strip_whitespace_confirm = 0
 
+-- UI
 -- Cursorlines
 autocmd('CursorLine', {
     'VimEnter,WinEnter,BufWinEnter * setlocal cursorline',
@@ -204,12 +205,18 @@ autocmd('LineNr', {
     'WinLeave * setlocal nornu nu'
 }, true)
 
--- UI
-cmd [[ colo pencil ]]
+-- lsp signs
+vim.cmd [[
+sign define DiagnosticSignError text= linehl= texthl=DiagnosticSignError numhl=
+sign define DiagnosticSignWarn text= linehl= texthl=DiagnosticSignWarn numhl=
+sign define DiagnosticSignInfo text= linehl= texthl=DiagnosticSignInfo numhl=
+sign define DiagnosticSignHint text= linehl= texthl=DiagnosticSignHint numhl= ]]
 
 -- colors
+cmd [[ colo pencil ]]
+
 cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None guifg=None guibg=None]]
-cmd [[au VimEnter * hi Normal guibg=None ctermbg=None]]
+-- cmd [[au VimEnter * hi Normal guibg=None ctermbg=None]]
 cmd [[au VimEnter * hi StatusLine cterm=NONE ctermfg=7 ctermbg=None]]
 cmd [[au VimEnter * hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None]]
 cmd [[au VimEnter * hi Folded ctermbg=233 ctermfg=8]]
