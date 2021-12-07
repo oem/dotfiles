@@ -144,11 +144,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
                  {virtual_text = true, signs = true, update_in_insert = true})
 -- autocmd(nil, 'CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()', nil)
 
--- enable inline hints
-autocmd(nil,
-        'CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs lua require\'lsp_extensions\'.inlay_hints{ prefix = "", highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }',
-        nil)
-
 -- code navigation
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
 map('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<cr>', options)
