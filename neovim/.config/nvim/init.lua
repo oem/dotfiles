@@ -202,13 +202,14 @@ autocmd('LineNr', {
 
 -- lsp signs
 vim.cmd [[
-sign define DiagnosticSignError text= linehl= texthl=DiagnosticSignError numhl=
-sign define DiagnosticSignWarn text= linehl= texthl=DiagnosticSignWarn numhl=
-sign define DiagnosticSignInfo text= linehl= texthl=DiagnosticSignInfo numhl=
-sign define DiagnosticSignHint text= linehl= texthl=DiagnosticSignHint numhl= ]]
+    sign define DiagnosticSignError text= linehl= texthl=DiagnosticSignError numhl=
+    sign define DiagnosticSignWarn text= linehl= texthl=DiagnosticSignWarn numhl=
+    sign define DiagnosticSignInfo text= linehl= texthl=DiagnosticSignInfo numhl=
+    sign define DiagnosticSignHint text= linehl= texthl=DiagnosticSignHint numhl=
+]]
 
 -- colors
-cmd [[ colo pencil ]]
+cmd [[ colo tokyonight ]]
 
 cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None guifg=None guibg=None]]
 -- cmd [[au VimEnter * hi Normal guibg=None ctermbg=None]]
