@@ -209,7 +209,7 @@ vim.cmd [[
 ]]
 
 -- colors
-cmd [[ colo pencil ]]
+cmd [[ colo tokyonight ]]
 
 cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None guifg=None guibg=None]]
 -- cmd [[au VimEnter * hi Normal guibg=None ctermbg=None]]
