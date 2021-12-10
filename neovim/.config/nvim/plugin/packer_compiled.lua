@@ -142,6 +142,11 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/feline.nvim",
     url = "https://github.com/famiu/feline.nvim"
   },
+  ghcid = {
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/ghcid/plugins/nvim",
+    url = "https://github.com/ndmitchell/ghcid"
+  },
   ["gitsigns.nvim"] = {
     config = { "require('config.gitsigns')" },
     loaded = true,
@@ -363,6 +368,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Runtimepath customization
+time([[Runtimepath customization]], true)
+vim.o.runtimepath = vim.o.runtimepath .. ",/home/oem/.local/share/nvim/site/pack/packer/start/ghcid/plugins/nvim"
+time([[Runtimepath customization]], false)
 local module_lazy_loads = {
   ["^telescope"] = "telescope.nvim"
 }

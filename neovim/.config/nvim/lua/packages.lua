@@ -116,6 +116,9 @@ require('packer').startup(function()
         config = function() require('rust-tools').setup({}) end
     }
 
+    -- haskell
+    use {'ndmitchell/ghcid', rtp = 'plugins/nvim'}
+
     -- julia
     use 'JuliaEditorSupport/julia-vim'
 
