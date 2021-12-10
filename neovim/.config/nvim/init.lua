@@ -71,13 +71,41 @@ wo.list = true
 bo.expandtab = true -- we need to overwrite this for go buffers
 
 -- LSP
-local nvim_lsp = require 'lspconfig'
+local lsp_installer = require 'nvim-lsp-installer'
+
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+
+    if server.name == "volar" then
+        opts.filetypes = {
+            'typescript', 'javascript', 'javascriptreact', 'typescriptreact',
+            'vue', 'json'
+        }
+        opts.init_options = {
+            typescript = {
+                serverPath = os.getenv("HOME") ..
+                    "/.local/share/nvim/lsp_servers/tsserver/node_modules/typescript/lib/tsserverlibrary.js"
+            }
+        }
+    end
+
+    if server.name == "sumneko_lua" then
+        opts.cmd = {'lua-language-server'}
+        opts.settings = {
+            Lua = {
+                runtime = {
+                    version = 'LuaJIT',
+                    path = vim.split(package.path, ';')
+                },
+                diagnostics = {globals = {'vim', 'use'}}
+            }
+        }
+    end
+
+    server:setup(opts)
+end)
 
 -- Languages
-
--- rust
--- Enable rust_analyzer
-nvim_lsp.rust_analyzer.setup {}
 
 -- julia
 -- set autoindent to 4 spaces as per styleguide
@@ -86,57 +114,12 @@ cmd [[autocmd FileType julia setlocal shiftwidth=4 tabstop=4 expandtab]]
 -- go
 -- don't show ugly tabs
 cmd [[autocmd FileType go setlocal nolist]]
-nvim_lsp.gopls.setup {}
 
 -- ruby
--- Enable solargraph/ruby
-nvim_lsp.solargraph.setup {}
 cmd [[autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby]]
 
--- javascript
--- Enable typescript/javascript
-nvim_lsp.tsserver.setup {}
-
-nvim_lsp.volar.setup {
-    filetypes = {
-        'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue',
-        'json'
-    }
-}
-
--- python
---  Enable python/pyright
-nvim_lsp.pyright.setup {}
-
--- elm
--- Enable elm language server
-nvim_lsp.elmls.setup {}
-
--- haskell
--- Enable haskell language server
-nvim_lsp.hls.setup {}
-
--- lua
--- Enable lua language server, installed with pacman -S lua-language-server
-nvim_lsp.sumneko_lua.setup {
-    cmd = {'lua-language-server'},
-    settings = {
-        Lua = {
-            runtime = {version = 'LuaJIT', path = vim.split(package.path, ';')},
-            diagnostics = {globals = {'vim', 'use'}}
-        }
-    }
-}
-
 -- html
--- npm i -g vscode-langservers-extracted
-nvim_lsp.html.setup {}
-nvim_lsp.cssls.setup {}
 cmd [[autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab]]
-
--- tailwind
--- npm install -g @tailwindcss/language-server
--- nvim_lsp.tailwindcss.setup {}
 
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
