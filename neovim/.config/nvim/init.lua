@@ -157,7 +157,11 @@ vim.g.ale_linters = {
     rust = {},
     lua = {},
     elm = {},
-    haskell = {'stack-ghc'}
+    haskell = {'stack-ghc'},
+    css = {},
+    vue = {},
+    javascript = {},
+    typescript = {}
 }
 vim.g.ale_python_pylint_change_directory = 0
 vim.g.ale_python_flake8_change_directory = 0
