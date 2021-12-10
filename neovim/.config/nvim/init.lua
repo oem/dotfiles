@@ -76,6 +76,9 @@ local lsp_installer = require 'nvim-lsp-installer'
 lsp_installer.on_server_ready(function(server)
     local opts = {}
 
+    -- rust-tools already sets up the lsp server rust_analyzer
+    if server.name == "rust_analyzer" then return end
+
     if server.name == "volar" then
         opts.filetypes = {
             'typescript', 'javascript', 'javascriptreact', 'typescriptreact',
