@@ -1,5 +1,6 @@
 local actions = require('telescope.actions')
 local telescope = require 'telescope'
+local trouble = require("trouble.providers.telescope")
 
 telescope.setup {
     defaults = {
@@ -11,18 +12,16 @@ telescope.setup {
         },
         mappings = {
             i = {
-                ["<esc>"] = actions.close
-            }
+                ["<esc>"] = actions.close,
+                ["<c-t>"] = trouble.open_with_trouble
+            },
+            n = {["<c-t>"] = trouble.open_with_trouble}
         },
         layout_strategy = 'flex',
         scroll_strategy = 'cycle'
     },
     extensions = {
-        frecency = {
-            workspaces = {
-                exo = '/home/oem/src'
-            }
-        },
+        frecency = {workspaces = {exo = '/home/oem/src'}},
         fzf = {
             fuzzy = true,
             override_generic_sorter = true,
@@ -31,22 +30,11 @@ telescope.setup {
         }
     },
     pickers = {
-        lsp_references = {
-            theme = 'dropdown'
-        },
-        lsp_code_actions = {
-            theme = 'dropdown'
-        },
-        lsp_definitions = {
-            theme = 'dropdown'
-        },
-        lsp_implementations = {
-            theme = 'dropdown'
-        },
-        buffers = {
-            sort_lastused = true,
-            previewer = false
-        }
+        lsp_references = {theme = 'dropdown'},
+        lsp_code_actions = {theme = 'dropdown'},
+        lsp_definitions = {theme = 'dropdown'},
+        lsp_implementations = {theme = 'dropdown'},
+        buffers = {sort_lastused = true, previewer = false}
     }
 }
 
