@@ -119,6 +119,12 @@ require('packer').startup(function()
     -- haskell
     use {'ndmitchell/ghcid', rtp = 'plugins/nvim'}
 
+    -- python
+    use {
+        'HallerPatrick/py_lsp.nvim',
+        config = function() require('py_lsp').setup({}) end
+    }
+
     -- julia
     use 'JuliaEditorSupport/julia-vim'
 

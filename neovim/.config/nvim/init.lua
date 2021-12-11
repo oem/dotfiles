@@ -72,12 +72,15 @@ bo.expandtab = true -- we need to overwrite this for go buffers
 
 -- LSP
 local lsp_installer = require 'nvim-lsp-installer'
+local util = require("lspconfig/util")
 
 lsp_installer.on_server_ready(function(server)
     local opts = {}
 
     -- rust-tools already sets up the lsp server rust_analyzer
     if server.name == "rust_analyzer" then return end
+
+    if server.name == "pyright" then return end
 
     if server.name == "volar" then
         opts.filetypes = {
@@ -155,7 +158,7 @@ vim.g.ale_rust_rustfmt_options = '--edition 2018'
 
 vim.g.ale_linters = {
     ruby = {'solargraph', 'standardrb', 'rubocop'},
-    python = {'mypy', 'flake8', 'pylint'},
+    python = {},
     go = {},
     rust = {},
     lua = {},
