@@ -182,18 +182,7 @@ require('packer').startup(function()
     }
 
     -- Statusline
-    use {
-        'famiu/feline.nvim',
-        config = function()
-            require('feline').setup({
-                colors = {
-                    bg = "#212121",
-                    oceanblue = "#212121",
-                    skyblue = "#FFFFFF",
-                    black = "#212121"
-                }
-            })
-        end
-    }
+    use {'famiu/feline.nvim', config = [[require('config.feline')]]}
+
 end)
 

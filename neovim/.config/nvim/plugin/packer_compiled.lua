@@ -137,7 +137,7 @@ _G.packer_plugins = {
     url = "https://github.com/mattn/emmet-vim"
   },
   ["feline.nvim"] = {
-    config = { "\27LJ\1\2ˆ\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\vcolors\1\0\0\1\0\4\14oceanblue\f#212121\abg\f#212121\fskyblue\f#FFFFFF\nblack\f#212121\nsetup\vfeline\frequire\0" },
+    config = { "require('config.feline')" },
     loaded = true,
     path = "/home/oem/.local/share/nvim/site/pack/packer/start/feline.nvim",
     url = "https://github.com/famiu/feline.nvim"
@@ -459,7 +459,7 @@ try_loadstring("\27LJ\1\2<\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>
 time([[Config for rust-tools.nvim]], false)
 -- Config for: feline.nvim
 time([[Config for feline.nvim]], true)
-try_loadstring("\27LJ\1\2ˆ\1\0\0\3\0\6\0\t4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\1>\0\2\1G\0\1\0\vcolors\1\0\0\1\0\4\14oceanblue\f#212121\abg\f#212121\fskyblue\f#FFFFFF\nblack\f#212121\nsetup\vfeline\frequire\0", "config", "feline.nvim")
+require('config.feline')
 time([[Config for feline.nvim]], false)
 
 -- Command lazy-loads
