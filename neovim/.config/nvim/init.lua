@@ -72,7 +72,6 @@ bo.expandtab = true -- we need to overwrite this for go buffers
 
 -- LSP
 local lsp_installer = require 'nvim-lsp-installer'
-local util = require("lspconfig/util")
 
 lsp_installer.on_server_ready(function(server)
     local opts = {}
