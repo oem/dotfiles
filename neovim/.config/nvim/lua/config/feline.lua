@@ -3,7 +3,7 @@ local vi_mode_utils = require('feline.providers.vi_mode')
 local M = {active = {}, inactive = {}}
 
 M.active[1] = {
-    {provider = ' ', hl = {fg = 'skyblue'}}, {
+    {provider = ' ', hl = {fg = 'black'}}, {
         provider = 'vi_mode',
         hl = function()
             return {
@@ -15,10 +15,9 @@ M.active[1] = {
         right_sep = ' '
     }, {
         provider = 'file_info',
-        hl = {fg = 'white', bg = 'oceanblue', style = 'bold'},
+        hl = {fg = 'white', bg = 'black', style = 'bold'},
         left_sep = {
-            ' ', 'slant_left_2',
-            {str = ' ', hl = {bg = 'oceanblue', fg = 'NONE'}}
+            ' ', 'slant_left_2', {str = ' ', hl = {bg = 'black', fg = 'NONE'}}
         },
         right_sep = {'slant_right_2', ' '}
     }, {
@@ -53,7 +52,7 @@ M.active[2] = {
         hl = {style = 'bold'},
         left_sep = '  ',
         right_sep = ' '
-    }, {provider = 'scroll_bar', hl = {fg = 'skyblue', style = 'bold'}}
+    }, {provider = 'scroll_bar', hl = {fg = 'gray', style = 'bold'}}
 }
 
 M.inactive[1] = {
