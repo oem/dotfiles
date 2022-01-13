@@ -194,6 +194,11 @@ _G.packer_plugins = {
     path = "/home/oem/.local/share/nvim/site/pack/packer/opt/neogit",
     url = "https://github.com/TimUntersberger/neogit"
   },
+  ["nord-vim"] = {
+    loaded = true,
+    path = "/home/oem/.local/share/nvim/site/pack/packer/start/nord-vim",
+    url = "https://github.com/arcticicestudio/nord-vim"
+  },
   ["nvim-autopairs"] = {
     config = { "require('config.autopairs')" },
     load_after = {

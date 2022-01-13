@@ -81,6 +81,8 @@ lsp_installer.on_server_ready(function(server)
 
     if server.name == "pyright" then return end
 
+    if server.name == "solargraph" then return end
+
     if server.name == "volar" then
         opts.filetypes = {
             'typescript', 'javascript', 'javascriptreact', 'typescriptreact',
@@ -137,6 +139,9 @@ map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
 map('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<cr>', options)
 
 -- Linting and fixing
+-- ALE should run rubocop via bundle exec
+cmd [[let g:ale_ruby_rubocop_executable = 'bundle']]
+
 vim.g.ale_fixers = {
     ruby = {'rubocop'},
     rust = {'rustfmt'},
