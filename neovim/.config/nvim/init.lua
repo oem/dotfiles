@@ -81,8 +81,6 @@ lsp_installer.on_server_ready(function(server)
 
     if server.name == "pyright" then return end
 
-    if server.name == "solargraph" then return end
-
     if server.name == "volar" then
         opts.filetypes = {
             'typescript', 'javascript', 'javascriptreact', 'typescriptreact',
