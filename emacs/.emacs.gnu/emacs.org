@@ -517,6 +517,16 @@ If you add =[/]= to a parent item then it will automatically track the progress 
   (add-hook 'org-checkbox-statistics-hook #'oem/org-summary-checkbox-cookie)
 #+end_src
 
+** opening org files -> html
+#+begin_src emacs-lisp
+(setq org-file-apps
+    (quote
+      ((auto-mode . emacs)
+       ("\\.mm\\'" . default)
+       ("\\.x?html?\\'" . "/usr/bin/firefox %s")
+       ("\\.pdf\\'" . default))))
+#+end_src
+
 * Org Babel
 ** yes, just do it
 #+begin_src emacs-lisp

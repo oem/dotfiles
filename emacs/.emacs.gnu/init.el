@@ -378,6 +378,13 @@
 
 (add-hook 'org-checkbox-statistics-hook #'oem/org-summary-checkbox-cookie)
 
+(setq org-file-apps
+    (quote
+      ((auto-mode . emacs)
+       ("\\.mm\\'" . default)
+       ("\\.x?html?\\'" . "/usr/bin/firefox %s")
+       ("\\.pdf\\'" . default))))
+
 (setq org-confirm-babel-evaluate nil)
 
 (org-babel-do-load-languages
