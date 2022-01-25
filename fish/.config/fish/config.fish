@@ -105,6 +105,10 @@ set -gx PATH $HOME/.luarocks/bin $PATH
 set -gx PATH $HOME/.cargo/bin $PATH
 set -x RUST_SRC_PATH $HOME/src/rust/src
 # }}}
+# {{{ ruby
+set -gx RBENV_ROOT $HOME/.rbenv
+set -gx PATH $RBENV_ROOT/shims $PATH
+# }}}
 # swift {{{
 # custom toolchains like tensowflow
 set -gx PATH /Library/Developer/Toolchains/swift-latest/usr/bin $PATH
