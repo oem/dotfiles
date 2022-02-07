@@ -382,7 +382,7 @@
     (quote
       ((auto-mode . emacs)
        ("\\.mm\\'" . default)
-       ("\\.x?html?\\'" . "/usr/bin/firefox %s")
+       ("\\.x?html?\\'" . "/usr/bin/firefox-developer-edition %s")
        ("\\.pdf\\'" . default))))
 
 (setq org-confirm-babel-evaluate nil)

@@ -523,7 +523,7 @@ If you add =[/]= to a parent item then it will automatically track the progress 
     (quote
       ((auto-mode . emacs)
        ("\\.mm\\'" . default)
-       ("\\.x?html?\\'" . "/usr/bin/firefox %s")
+       ("\\.x?html?\\'" . "/usr/bin/firefox-developer-edition %s")
        ("\\.pdf\\'" . default))))
 #+end_src
 
