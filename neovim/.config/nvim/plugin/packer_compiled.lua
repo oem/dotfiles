@@ -210,7 +210,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-path", "cmp_luasnip", "cmp-nvim-lua", "cmp-buffer", "nvim-autopairs" },
+    after = { "cmp-nvim-lua", "nvim-autopairs", "cmp_luasnip", "cmp-buffer", "cmp-path" },
     config = { "require('config.cmp')" },
     loaded = false,
     needs_bufread = false,
@@ -411,14 +411,6 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Setup for: telescope.nvim
-time([[Setup for telescope.nvim]], true)
-require('config.telescope_setup')
-time([[Setup for telescope.nvim]], false)
--- Setup for: neogit
-time([[Setup for neogit]], true)
-require('config.neogit')
-time([[Setup for neogit]], false)
 -- Setup for: cmp-buffer
 time([[Setup for cmp-buffer]], true)
 require('config.luasnip_setup')
@@ -430,34 +422,30 @@ time([[Setup for trouble.nvim]], false)
 time([[packadd for trouble.nvim]], true)
 vim.cmd [[packadd trouble.nvim]]
 time([[packadd for trouble.nvim]], false)
--- Config for: lsp_signature.nvim
-time([[Config for lsp_signature.nvim]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18lsp_signature\frequire\0", "config", "lsp_signature.nvim")
-time([[Config for lsp_signature.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('config.treesitter')
-time([[Config for nvim-treesitter]], false)
+-- Setup for: telescope.nvim
+time([[Setup for telescope.nvim]], true)
+require('config.telescope_setup')
+time([[Setup for telescope.nvim]], false)
+-- Setup for: neogit
+time([[Setup for neogit]], true)
+require('config.neogit')
+time([[Setup for neogit]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
--- Config for: emmet-vim
-time([[Config for emmet-vim]], true)
-try_loadstring("\27LJ\2\nI\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0*let g:user_emmet_leader_key = \"<C-E>\"\bcmd\bvim\0", "config", "emmet-vim")
-time([[Config for emmet-vim]], false)
--- Config for: py_lsp.nvim
-time([[Config for py_lsp.nvim]], true)
-try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\vpy_lsp\frequire\0", "config", "py_lsp.nvim")
-time([[Config for py_lsp.nvim]], false)
 -- Config for: feline.nvim
 time([[Config for feline.nvim]], true)
 require('config.feline')
 time([[Config for feline.nvim]], false)
--- Config for: indent-blankline.nvim
-time([[Config for indent-blankline.nvim]], true)
-try_loadstring("\27LJ\2\n„\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\21show_end_of_line\2\25show_current_context\1\25space_char_blankline\6 \nsetup\21indent_blankline\frequire\0", "config", "indent-blankline.nvim")
-time([[Config for indent-blankline.nvim]], false)
+-- Config for: py_lsp.nvim
+time([[Config for py_lsp.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\vpy_lsp\frequire\0", "config", "py_lsp.nvim")
+time([[Config for py_lsp.nvim]], false)
+-- Config for: lsp_signature.nvim
+time([[Config for lsp_signature.nvim]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18lsp_signature\frequire\0", "config", "lsp_signature.nvim")
+time([[Config for lsp_signature.nvim]], false)
 -- Config for: rust-tools.nvim
 time([[Config for rust-tools.nvim]], true)
 try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\15rust-tools\frequire\0", "config", "rust-tools.nvim")
@@ -466,16 +454,28 @@ time([[Config for rust-tools.nvim]], false)
 time([[Config for gitsigns.nvim]], true)
 require('config.gitsigns')
 time([[Config for gitsigns.nvim]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+try_loadstring("\27LJ\2\n„\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\3\21show_end_of_line\2\25show_current_context\1\25space_char_blankline\6 \nsetup\21indent_blankline\frequire\0", "config", "indent-blankline.nvim")
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: emmet-vim
+time([[Config for emmet-vim]], true)
+try_loadstring("\27LJ\2\nI\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0*let g:user_emmet_leader_key = \"<C-E>\"\bcmd\bvim\0", "config", "emmet-vim")
+time([[Config for emmet-vim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('config.treesitter')
+time([[Config for nvim-treesitter]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[au CmdUndefined Git pull ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Git lua require("packer.load")({'vim-fugitive'}, { cmd = "Git", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Neogit lua require("packer.load")({'neogit'}, { cmd = "Neogit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[au CmdUndefined Git status ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
 pcall(vim.cmd, [[au CmdUndefined Git blame ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
 pcall(vim.cmd, [[au CmdUndefined Git push ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
+pcall(vim.cmd, [[au CmdUndefined Git pull ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Neogit lua require("packer.load")({'neogit'}, { cmd = "Neogit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Git lua require("packer.load")({'vim-fugitive'}, { cmd = "Git", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[au CmdUndefined Git status ++once lua require"packer.load"({'vim-fugitive'}, {}, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
