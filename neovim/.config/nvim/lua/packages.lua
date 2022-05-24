@@ -98,16 +98,16 @@ require('packer').startup(function()
     use 'dense-analysis/ale'
 
     -- Highlights
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        requires = {
-            'nvim-treesitter/nvim-treesitter-refactor',
-            'nvim-treesitter/nvim-treesitter-textobjects',
-            'nvim-treesitter/playground'
-        },
-        config = [[require('config.treesitter')]],
-        run = ':TSUpdate'
-    }
+    -- use {
+    --     'nvim-treesitter/nvim-treesitter',
+    --     requires = {
+    --         'nvim-treesitter/nvim-treesitter-refactor',
+    --         'nvim-treesitter/nvim-treesitter-textobjects',
+    --         'nvim-treesitter/playground'
+    --     },
+    --     config = [[require('config.treesitter')]],
+    --     run = ':TSUpdate'
+    -- }
 
     -- Some additional functionality on top of lsp
     -- rust
@@ -183,7 +183,7 @@ require('packer').startup(function()
     }
 
     -- Statusline
-    use {'famiu/feline.nvim', config = [[require('config.feline')]]}
+    use {'feline-nvim/feline.nvim', config = [[require('config.feline')]]}
 
 end)
 
