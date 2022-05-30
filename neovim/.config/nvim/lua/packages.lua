@@ -59,7 +59,7 @@ require('packer').startup(function()
         }, {use 'sindrets/diffview.nvim'}
     }
 
-    -- Completion and linting
+    -- LSP
     use {
         'neovim/nvim-lspconfig', 'nvim-lua/lsp-status.nvim',
         'nvim-lua/lsp_extensions.nvim', 'williamboman/nvim-lsp-installer'
@@ -136,6 +136,7 @@ require('packer').startup(function()
 
     -- Editing
     use 'tpope/vim-surround'
+    use 'RRethy/nvim-align'
 
     -- Moving
     use 'tpope/vim-unimpaired'
