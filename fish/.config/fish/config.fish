@@ -15,6 +15,7 @@ set -g c4 (set_color ffffff)
 set -g ce (set_color $fish_color_error)
 # }}}
 # aliases {{{
+alias v='nvim'
 alias vi='nvim'
 alias ex='emacs'
 alias e='emacs -nw'
