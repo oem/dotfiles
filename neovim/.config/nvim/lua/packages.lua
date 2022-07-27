@@ -125,6 +125,9 @@ require('packer').startup(function()
         config = function() require('py_lsp').setup({}) end
     }
 
+    -- lua
+    use 'tjdevries/nlua.nvim'
+
     -- julia
     use 'JuliaEditorSupport/julia-vim'
 
