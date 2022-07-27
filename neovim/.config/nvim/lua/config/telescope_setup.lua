@@ -24,7 +24,7 @@ map('n', '<leader>sw', [[<cmd>Telescope grep_string theme=get_dropdown<cr>]],
 
 -- notes
 -- requires ripgrep and fd
-map('n', '<leader>nn', ":lua require('oem.telescope').search_notes()<cr>",
+map('n', '<leader>ns', ":lua require('oem.telescope').search_notes()<cr>",
     options)
 map('n', '<leader>nf', ":lua require('oem.telescope').find_notes()<cr>", options)
 
