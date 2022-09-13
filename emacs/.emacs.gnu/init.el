@@ -313,7 +313,7 @@
 (use-package org-superstar
   :after org
   :custom
-  (org-superstar-headline-bullets-list '("○" "◉" "●" "●" "●" "○")))
+  (org-superstar-headline-bullets-list '("○" "⭙" "●" "●" "●" "○")))
 (setq org-hide-leading-stars t)
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
