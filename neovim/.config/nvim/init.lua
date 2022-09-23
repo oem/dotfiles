@@ -16,6 +16,9 @@ map('i', 'fd', [[<esc>]], options) -- alternative escape
 map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], {noremap = true}) -- current dir
 map('n', '<leader><leader>', [[<c-^>]], options) -- toggle between buffers
 
+-- Some helpers
+require('oem.globals')
+
 -- packages
 require('packages')
 
