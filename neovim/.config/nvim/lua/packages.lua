@@ -189,5 +189,7 @@ require('packer').startup(function()
     -- Statusline
     use {'feline-nvim/feline.nvim', config = [[require('config.feline')]]}
 
+    -- My own plugins, local/dev state
+    use "/home/oem/src/oem/arachne.nvim"
 end)
 
