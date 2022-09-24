@@ -74,5 +74,5 @@ local colors = {
     black = "#212121"
 }
 
-require('feline').setup({colors = colors, components = M})
+require('feline').setup({theme = colors, components = M})
 
