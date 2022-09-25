@@ -189,7 +189,15 @@ require('packer').startup(function()
     -- Statusline
     use {'feline-nvim/feline.nvim', config = [[require('config.feline')]]}
 
-    -- My own plugins, local/dev state
-    use "/home/oem/src/oem/arachne.nvim"
+    use {
+        "oem/arachne.nvim",
+        config = function()
+            require('arachne').setup {notes_directory = "/home/oem/sync/notes"}
+        end,
+        setup = function()
+            vim.keymap.set('n', '<leader>nn',
+                           function() return require('arachne').new() end)
+        end
+    }
 end)
 

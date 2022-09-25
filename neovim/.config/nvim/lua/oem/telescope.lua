@@ -1,4 +1,5 @@
 local M = {}
+
 M.find_notes = function()
     require('telescope.builtin').find_files {
         prompt_title = '<notes::files>',
