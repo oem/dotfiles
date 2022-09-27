@@ -10,6 +10,8 @@
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore) ; no thank you
 
+(setq comp-async-report-warnings-errors nil) ; silence native comp errors
+
 (setq select-enable-clipboard t)
 (setq select-enable-primary t)
 

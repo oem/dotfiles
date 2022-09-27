@@ -18,6 +18,8 @@ There are a few things that are configured by default, that I would like to eith
 
   (setq visible-bell nil)
   (setq ring-bell-function 'ignore) ; no thank you
+
+  (setq comp-async-report-warnings-errors nil) ; silence native comp errors
 #+end_src
 
 *** clipboard
