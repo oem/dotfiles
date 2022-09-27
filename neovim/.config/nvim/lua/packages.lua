@@ -97,6 +97,11 @@ require('packer').startup(function()
     -- Linting and fixing
     use 'dense-analysis/ale'
 
+    -- Debugging
+    use 'mfussenegger/nvim-dap'
+    use 'leoluz/nvim-dap-go'
+    use {"rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}}
+
     -- Highlights
     use {
         'nvim-treesitter/nvim-treesitter',
