@@ -18,13 +18,13 @@ map('n', '<leader>bb',
     options)
 
 -- search
-map('n', '<leader>ss',
+map('n', '<leader>//',
     ":lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown())<cr>",
     options)
-map('n', '<leader>sb',
+map('n', '<leader>/b',
     ":lua require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown())<cr>",
     options)
-map('n', '<leader>sw',
+map('n', '<leader>/w',
     ":lua require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown())<cr>",
     options)
 
@@ -40,25 +40,25 @@ map('n', '<leader>hh',
     options)
 
 -- LSP
-map('n', '<leader>lg',
+map('n', '<leader>g',
     ":lua require('telescope.builtin').diagnostics(require('telescope.themes').get_dropdown({bufnr=0}))<cr>",
     options)
-map('n', '<leader>lG',
+map('n', '<leader>G',
     ":lua require('telescope.builtin').diagnostics(require('telescope.themes').get_dropdown())<cr>",
     options)
-map('n', '<leader>lr',
+map('n', '<leader>r',
     ":lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown())<cr>",
     options)
-map('n', '<leader>ls',
+map('n', '<leader>s',
     ":lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown())<cr>",
     options)
-map('n', '<leader>lS',
+map('n', '<leader>S',
     ":lua require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_dropdown())<cr>",
     options)
-map('n', '<leader>ld',
+map('n', '<leader>d',
     ":lua require('telescope.builtin').lsp_definitions(require('telescope.themes').get_dropdown())<cr>",
     options)
-map('n', '<leader>li',
+map('n', '<leader>i',
     ":lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_dropdown())<cr>",
     options)
 
