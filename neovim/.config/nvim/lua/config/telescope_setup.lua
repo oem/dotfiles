@@ -40,11 +40,20 @@ map('n', '<leader>hh',
     options)
 
 -- LSP
-map('n', '<leader>le',
+map('n', '<leader>lg',
+    ":lua require('telescope.builtin').diagnostics(require('telescope.themes').get_dropdown({bufnr=0}))<cr>",
+    options)
+map('n', '<leader>lG',
     ":lua require('telescope.builtin').diagnostics(require('telescope.themes').get_dropdown())<cr>",
     options)
 map('n', '<leader>lr',
     ":lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown())<cr>",
+    options)
+map('n', '<leader>ls',
+    ":lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown())<cr>",
+    options)
+map('n', '<leader>lS',
+    ":lua require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_dropdown())<cr>",
     options)
 map('n', '<leader>ld',
     ":lua require('telescope.builtin').lsp_definitions(require('telescope.themes').get_dropdown())<cr>",
