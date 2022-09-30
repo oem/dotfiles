@@ -202,6 +202,10 @@ require('packer').startup(function()
         setup = function()
             vim.keymap.set('n', '<leader>nn',
                            function() return require('arachne').new() end)
+            vim.keymap.set('n', '<leader>nr',
+                           function()
+                return require('arachne').rename()
+            end)
         end
     }
 end)
