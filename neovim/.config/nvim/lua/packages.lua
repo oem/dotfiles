@@ -169,6 +169,16 @@ require('packer').startup(function()
     use 'kyazdani42/nvim-web-devicons'
     use 'onsails/lspkind-nvim'
 
+    use {
+        "catppuccin/nvim",
+        as = "catppuccin",
+        config = function()
+            vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+            require("catppuccin").setup()
+            -- vim.api.nvim_command "colorscheme catppuccin"
+        end
+    }
+
     -- show trailing whitespace
     use 'ntpeters/vim-better-whitespace'
 
