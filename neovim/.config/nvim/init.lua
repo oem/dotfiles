@@ -207,7 +207,7 @@ cmd [[
 ]]
 
 -- colors
-cmd [[ colo pencil ]]
+vim.api.nvim_command "colo pencil"
 
 cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None guifg=None guibg=None]]
 -- cmd [[au VimEnter * hi Normal guibg=None ctermbg=None]]
