@@ -9,11 +9,11 @@ local exec = vim.api.nvim_exec -- execute Vimscript
 -- Keybindings
 local map = require('config.utils').map
 local autocmd = require('config.utils').autocmd
-local options = {noremap = true, silent = true}
+local options = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
 map('i', 'fd', [[<esc>]], options) -- alternative escape
-map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], {noremap = true}) -- current dir
+map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], { noremap = true }) -- current dir
 map('n', '<leader><leader>', [[<c-^>]], options) -- toggle between buffers
 
 -- Some helpers
@@ -49,7 +49,7 @@ o.fillchars = "vert: ,eob: ,fold:·"
 o.background = "dark"
 o.cursorcolumn = true
 
-opt.listchars = {space = "·"}
+opt.listchars = { space = "·" }
 
 -- highlight on yank
 exec([[
@@ -98,14 +98,14 @@ lsp_installer.on_server_ready(function(server)
     end
 
     if server.name == "sumneko_lua" then
-        opts.cmd = {'lua-language-server'}
+        opts.cmd = { 'lua-language-server' }
         opts.settings = {
             Lua = {
                 runtime = {
                     version = 'LuaJIT',
                     path = vim.split(package.path, ';')
                 },
-                diagnostics = {globals = {'vim', 'use'}}
+                diagnostics = { globals = { 'vim', 'use' } }
             }
         }
     end
@@ -131,8 +131,8 @@ cmd [[autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab]]
 
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
-                 {virtual_text = true, signs = true, update_in_insert = true})
+vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
+    { virtual_text = true, signs = true, update_in_insert = true })
 -- autocmd(nil, 'CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()', nil)
 
 -- code navigation
@@ -143,32 +143,34 @@ map('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<cr>', options)
 -- ALE should run rubocop via bundle exec
 cmd [[let g:ale_ruby_rubocop_executable = 'bundle']]
 
+cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
 vim.g.ale_fixers = {
-    ruby = {'rubocop'},
-    rust = {'rustfmt'},
-    python = {'black'},
-    go = {'gofmt', 'goimports'},
-    javascript = {'prettier', 'eslint'},
-    typescript = {'prettier', 'eslint'},
-    vue = {'prettier', 'eslint'},
-    html = {'prettier'},
-    elm = {'elm-format'},
+    ruby = { 'rubocop' },
+    rust = {},
+    python = { 'black' },
+    go = { 'gofmt', 'goimports' },
+    javascript = { 'prettier', 'eslint' },
+    typescript = { 'prettier', 'eslint' },
+    vue = { 'prettier', 'eslint' },
+    html = {},
+    elm = { 'elm-format' },
     -- luarocks install --server=https://luarocks.org/dev luaformatter
-    lua = {'lua-format'},
+    lua = {},
     -- stack install ormolu
-    haskell = {'ormolu'}
+    haskell = { 'ormolu' }
 }
-vim.g.ale_fix_on_save = 1
+-- vim.g.ale_fix_on_save = 1
 vim.g.ale_rust_rustfmt_options = '--edition 2018'
 
 vim.g.ale_linters = {
-    ruby = {'solargraph', 'standardrb', 'rubocop'},
+    ruby = { 'solargraph', 'standardrb', 'rubocop' },
     python = {},
     go = {},
     rust = {},
     lua = {},
     elm = {},
-    haskell = {'stack-ghc'},
+    haskell = { 'stack-ghc' },
     css = {},
     vue = {},
     javascript = {},

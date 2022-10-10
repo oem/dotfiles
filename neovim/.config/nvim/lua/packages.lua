@@ -37,26 +37,26 @@ require('packer').startup(function()
             'nvim-telescope/telescope-frecency.nvim',
             after = 'telescope.nvim',
             requires = 'tami5/sql.nvim'
-        }, {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+        }, { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     }
 
     -- Git
     use {
         {
             'tpope/vim-fugitive',
-            cmd = {'Git', 'Git status', 'Git blame', 'Git push', 'Git pull'}
+            cmd = { 'Git', 'Git status', 'Git blame', 'Git push', 'Git pull' }
         }, {
             'lewis6991/gitsigns.nvim',
-            requires = {'nvim-lua/plenary.nvim'},
+            requires = { 'nvim-lua/plenary.nvim' },
             config = [[require('config.gitsigns')]]
         }, {
             'TimUntersberger/neogit',
             cmd = 'Neogit',
             config = function()
-                require('neogit').setup {disable_commit_confirmation = true}
+                require('neogit').setup { disable_commit_confirmation = true }
             end,
             setup = [[require('config.neogit')]]
-        }, {use 'sindrets/diffview.nvim'}
+        }, { use 'sindrets/diffview.nvim' }
     }
 
     -- LSP
@@ -69,12 +69,12 @@ require('packer').startup(function()
         'folke/trouble.nvim',
         requires = "kyazdani42/nvim-web-devicons",
         setup = [[require('config.trouble_setup')]],
-        config = function() require'trouble'.setup {} end
+        config = function() require 'trouble'.setup {} end
     }
 
     use {
         'ray-x/lsp_signature.nvim',
-        config = function() require'lsp_signature'.setup() end
+        config = function() require 'lsp_signature'.setup() end
     }
 
     -- Completion
@@ -86,9 +86,9 @@ require('packer').startup(function()
                 after = 'nvim-cmp',
                 config = [[require('config.luasnip')]],
                 setup = [[require('config.luasnip_setup')]]
-            }, 'hrsh7th/cmp-nvim-lsp', {'hrsh7th/cmp-path', after = 'nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'},
-            {'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp'}
+            }, 'hrsh7th/cmp-nvim-lsp', { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
+            { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' }
         },
         config = [[require('config.cmp')]],
         event = 'InsertEnter *'
@@ -100,7 +100,7 @@ require('packer').startup(function()
     -- Debugging
     use 'mfussenegger/nvim-dap'
     use 'leoluz/nvim-dap-go'
-    use {"rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}}
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
 
     -- Highlights
     use {
@@ -122,7 +122,7 @@ require('packer').startup(function()
     }
 
     -- haskell
-    use {'ndmitchell/ghcid', rtp = 'plugins/nvim'}
+    use { 'ndmitchell/ghcid', rtp = 'plugins/nvim' }
 
     -- python
     use {
@@ -137,7 +137,7 @@ require('packer').startup(function()
     use 'JuliaEditorSupport/julia-vim'
 
     -- code runner
-    use {'michaelb/sniprun', run = 'bash ./install.sh'}
+    use { 'michaelb/sniprun', run = 'bash ./install.sh' }
 
     -- Commenting
     use 'tomtom/tcomment_vim'
@@ -202,21 +202,20 @@ require('packer').startup(function()
     }
 
     -- Statusline
-    use {'feline-nvim/feline.nvim', config = [[require('config.feline')]]}
+    use { 'feline-nvim/feline.nvim', config = [[require('config.feline')]] }
 
     use {
         "oem/arachne.nvim",
         config = function()
-            require('arachne').setup {notes_directory = "/home/oem/sync/notes"}
+            require('arachne').setup { notes_directory = "/home/oem/sync/notes" }
         end,
         setup = function()
             vim.keymap.set('n', '<leader>nn',
-                           function() return require('arachne').new() end)
+                function() return require('arachne').new() end)
             vim.keymap.set('n', '<leader>nr',
-                           function()
-                return require('arachne').rename()
-            end)
+                function()
+                    return require('arachne').rename()
+                end)
         end
     }
 end)
-
