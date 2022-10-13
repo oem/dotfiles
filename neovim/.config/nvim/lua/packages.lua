@@ -136,8 +136,22 @@ require('packer').startup(function()
     -- julia
     use 'JuliaEditorSupport/julia-vim'
 
-    -- code runner
-    use { 'michaelb/sniprun', run = 'bash ./install.sh' }
+    -- racket
+    use 'benknoble/vim-racket'
+
+    -- interactive eval
+    use {
+        'Olical/conjure',
+        setup = function()
+            vim.keymap.set('n', '<leader>ee', function()
+                vim.cmd 'ConjureEval'
+            end)
+
+            vim.keymap.set('n', '<leader>ef', function()
+                vim.cmd 'ConjureEvalFile'
+            end)
+        end
+    }
 
     -- Commenting
     use 'tomtom/tcomment_vim'

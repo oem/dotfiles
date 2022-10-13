@@ -129,6 +129,10 @@ cmd [[autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby]]
 -- html
 cmd [[autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab]]
 
+-- racket
+-- raco pkg install racket-langserver
+require 'lspconfig'.racket_langserver.setup {}
+
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
 vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
