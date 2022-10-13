@@ -1,0 +1,42 @@
++Title Literate Emacs Configuration
+#+PROPERTY: header-args:emacs-lisp :tangle ./init.el
+#+STARTUP: overview
+* Hello World
+** Resets
+#+begin_src emacs-lisp
+  ;; -*- lexical-binding: t -*-
+  (setq inhibit-startup-message t) ; disable startup message
+
+  (scroll-bar-mode -1) ; Disable visible scrollbar
+  (tool-bar-mode -1)  ; Disable the toolbar
+  (tooltip-mode -1) ; Disable tooltips
+  (set-fringe-mode 15) ; Some breathing room
+  (menu-bar-mode -1) ; Disable menu bar
+
+  (setq visible-bell nil)
+  (setq ring-bell-function 'ignore) ; no thank you
+
+  (setq comp-async-report-warnings-errors nil) ; silence native comp errors
+#+end_src
+
+*** autosaves
+Not a fan of the backup~ and #autosave# files, I usually just find them cluttering up everything.
+#+begin_src emacs-lisp
+  (setq make-backup-files nil) ; stop creating backup~ files
+  (setq auto-save-default nil) ; stop creating #autosave# files
+#+end_src
+
+** Package Management
+*** package sources
+You can always run package-refresh-contents in case that a package was not found.
+#+begin_src emacs-lisp
+  (require 'package)
+  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                           ("org" . "https://orgmode.org/elpa/")
+                           ("elpa" . "https://elpa.gnu.org/packages/")))
+
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+  (package-initialize)
+  (unless package-archive-contents
+    (package-refresh-contents))
+#+end_src

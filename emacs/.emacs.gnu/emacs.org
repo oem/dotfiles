@@ -6,6 +6,7 @@ This file will generate [[file:init.el][init.el]] which can be loaded by Emacs o
 Let's first establish a good baseline for our configuration by resetting somethings. We would also like to be able to install external packages, change our keybindings and set a theme to personalize it a bit.
 ** Resets
 There are a few things that are configured by default, that I would like to either disable or change their defaults:
+
 #+begin_src emacs-lisp
   ;; -*- lexical-binding: t -*-
   (setq inhibit-startup-message t) ; disable startup message
