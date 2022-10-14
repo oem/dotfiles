@@ -295,6 +295,10 @@ If at all possible the diagnostics should be provided by a language server to ge
 *** haskell
 *** python
 *** ruby
+*** racket
+#+begin_src emacs-lisp
+  (use-package racket-mode)
+#+end_src
 ** commenting out
 #+begin_src emacs-lisp
   (use-package evil-nerd-commenter)

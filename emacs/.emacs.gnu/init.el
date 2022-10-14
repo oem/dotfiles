@@ -194,6 +194,8 @@
   (setq rust-format-on-save t)
   (add-hook 'rustic-mode-hook 'oem/rustic-mode-hook))
 
+(use-package racket-mode)
+
 (use-package evil-nerd-commenter)
 
 (oem/leader-key-def
@@ -742,3 +744,16 @@
 
 (oem/leader-key-def
   "mf" '(elfeed :which-key "elfeed"))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(racket-mode which-key visual-fill-column vertico use-package rustic rg popper pinentry pass org-superstar org-roam orderless marginalia magit lsp-ui highlight-indent-guides helpful general flycheck expand-region evil-nerd-commenter evil-collection emms elfeed-org doom-themes doom-modeline consult company-box all-the-icons)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
