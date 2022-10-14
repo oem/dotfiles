@@ -83,6 +83,7 @@ Easy setup of keybindings.
 
     (oem/leader-key-def
       "SPC" '(mode-line-other-buffer :which-key "toggle between recent buffers")
+      "x" '(execute-extended-command :which-key "execute extended command")
       "b" '(:ignore t :which-key "buffer")
       "bb" '(switch-to-buffer :which-key "switch buffer")
       "bp" '(previous-buffer :which-key "previous buffer")))
@@ -811,8 +812,8 @@ I however don't want to see numbers in *terminals* or *org mode*, which is just 
 #+begin_src emacs-lisp
   (defun oem/set-faces (fixed-font variable-font)
     "Setting general fonts and org mode specific fonts"
-    (set-face-attribute 'default nil :family fixed-font :weight 'normal)
-    (set-face-attribute 'fixed-pitch nil :family fixed-font :weight 'regular :height 100)
+    (set-face-attribute 'default nil :family fixed-font :weight 'bold)
+    (set-face-attribute 'fixed-pitch nil :family fixed-font :weight 'bold :height 90)
     (set-face-attribute 'variable-pitch nil :family variable-font :weight 'regular :height 110)
 
     ;; org mode faces

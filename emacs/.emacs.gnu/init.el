@@ -49,6 +49,7 @@
 
   (oem/leader-key-def
     "SPC" '(mode-line-other-buffer :which-key "toggle between recent buffers")
+    "x" '(execute-extended-command :which-key "execute extended command")
     "b" '(:ignore t :which-key "buffer")
     "bb" '(switch-to-buffer :which-key "switch buffer")
     "bp" '(previous-buffer :which-key "previous buffer")))
@@ -586,8 +587,8 @@
 
 (defun oem/set-faces (fixed-font variable-font)
   "Setting general fonts and org mode specific fonts"
-  (set-face-attribute 'default nil :family fixed-font :weight 'normal)
-  (set-face-attribute 'fixed-pitch nil :family fixed-font :weight 'regular :height 100)
+  (set-face-attribute 'default nil :family fixed-font :weight 'bold)
+  (set-face-attribute 'fixed-pitch nil :family fixed-font :weight 'bold :height 90)
   (set-face-attribute 'variable-pitch nil :family variable-font :weight 'regular :height 110)
 
   ;; org mode faces
@@ -744,16 +745,3 @@
 
 (oem/leader-key-def
   "mf" '(elfeed :which-key "elfeed"))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(racket-mode which-key visual-fill-column vertico use-package rustic rg popper pinentry pass org-superstar org-roam orderless marginalia magit lsp-ui highlight-indent-guides helpful general flycheck expand-region evil-nerd-commenter evil-collection emms elfeed-org doom-themes doom-modeline consult company-box all-the-icons)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
