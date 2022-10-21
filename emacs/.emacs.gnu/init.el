@@ -587,7 +587,7 @@
 
 (defun oem/set-faces (fixed-font variable-font)
   "Setting general fonts and org mode specific fonts"
-  (set-face-attribute 'default nil :family fixed-font :weight 'bold)
+  (set-face-attribute 'default nil :family fixed-font :weight 'bold :height 90)
   (set-face-attribute 'fixed-pitch nil :family fixed-font :weight 'bold :height 90)
   (set-face-attribute 'variable-pitch nil :family variable-font :weight 'regular :height 110)
 
@@ -633,7 +633,7 @@
    (setq ns-use-proxy-icon nil)
    (setq frame-title-format nil)))
 
-(setq-default line-spacing 10)
+(setq-default line-spacing 8)
 (use-package all-the-icons)
 (toggle-frame-maximized)
 

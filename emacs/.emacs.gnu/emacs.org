@@ -265,7 +265,8 @@ If at all possible the diagnostics should be provided by a language server to ge
     (lsp-ui-doc-enable nil))
 #+end_src
 
-**** show with flyckeck
+**** TODO Eglot
+Use the soon to be integrated =eglot= to communicate with LSP servers.
 *** rust
 #+begin_src emacs-lisp
   (defun oem/rustic-mode-hook ()
@@ -300,6 +301,7 @@ If at all possible the diagnostics should be provided by a language server to ge
 #+begin_src emacs-lisp
   (use-package racket-mode)
 #+end_src
+
 ** commenting out
 #+begin_src emacs-lisp
   (use-package evil-nerd-commenter)
@@ -812,7 +814,7 @@ I however don't want to see numbers in *terminals* or *org mode*, which is just 
 #+begin_src emacs-lisp
   (defun oem/set-faces (fixed-font variable-font)
     "Setting general fonts and org mode specific fonts"
-    (set-face-attribute 'default nil :family fixed-font :weight 'bold)
+    (set-face-attribute 'default nil :family fixed-font :weight 'bold :height 90)
     (set-face-attribute 'fixed-pitch nil :family fixed-font :weight 'bold :height 90)
     (set-face-attribute 'variable-pitch nil :family variable-font :weight 'regular :height 110)
 
@@ -848,6 +850,9 @@ I however don't want to see numbers in *terminals* or *org mode*, which is just 
     (set-face-attribute 'org-block nil :inherit 'fixed-pitch))
 #+end_src
 
+#+RESULTS:
+: oem/set-faces
+
 #+begin_src emacs-lisp
   (pcase system-type
     ((or 'gnu/linux 'windows-nt 'cygwin)
@@ -860,10 +865,12 @@ I however don't want to see numbers in *terminals* or *org mode*, which is just 
      (setq ns-use-proxy-icon nil)
      (setq frame-title-format nil)))
 
-  (setq-default line-spacing 10)
+  (setq-default line-spacing 8)
   (use-package all-the-icons)
   (toggle-frame-maximized)
 #+end_src
+
+#+RESULTS:
 
 ** keybindings
 #+begin_src emacs-lisp
