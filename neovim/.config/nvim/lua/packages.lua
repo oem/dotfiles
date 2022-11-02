@@ -146,12 +146,6 @@ require('packer').startup(function()
     -- Moving
     use 'tpope/vim-unimpaired'
     use 'christoomey/vim-tmux-navigator'
-    use {
-        'ggandor/leap.nvim',
-        config = function()
-            require('leap').add_default_mappings()
-        end
-    }
 
     -- encryption
     use 'jamessan/vim-gnupg'
