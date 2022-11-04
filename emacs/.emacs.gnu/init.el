@@ -150,51 +150,6 @@
       completion-category-defaults nil
       completion-category-overrides '((file (styles . (partial-completion))))))
 
-(use-package lsp-mode
-  :commands lsp
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :custom
-  (lsp-rust-analyzer-server-display-inlay-hints t)
-  (lsp-rust-analyzer-cargo-watch-command "clippy")
-  (lsp-eldoc-render-all t)
-  (lsp-idle-delay 0.6)
-  :config
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
-  (setq lsp-headerline-breadcrumb-enable nil)
-  :hook ((lsp-mode . lsp-enable-which-key-integration)))
-
-(use-package lsp-ui
-  :commands lsp-ui-mode
-  :custom
-  (lsp-ui-peek-always-show t)
-  (lsp-ui-sideline-show-hover t)
-  (lsp-ui-doc-enable nil))
-
-(defun oem/rustic-mode-hook ()
-  (when buffer-file-name
-    (setq-local buffer-save-without-query t)))
-
-(use-package rustic
-  :bind (:map rustic-mode-map
-              ("M-j" . lsp-ui-imenu)
-              ("M-?" . lsp-find-references)
-              ("C-c C-c l" . flycheck-list-error)
-              ("C-c C-c a" . lsp-execute-code-action)
-              ("C-c C-c r" . lsp-rename)
-              ("C-c C-c q" . lsp-workspace-restart)
-              ("C-c C-c Q" . lsp-workspace-shutdown)
-              ("C-c C-c s" . lsp-rust-analyzer-status))
-  :config
-  (setq rustic-lsp-client 'lsp-mode
-        rustic-lsp-server 'rust-analyzer
-        rustic-analuzer-command '("/usr/local/bin/rust-analyzer"))
-  (setq rustic-format-on-save t)
-
-  ;; rustfmt on save
-  (setq rust-format-on-save t)
-  (add-hook 'rustic-mode-hook 'oem/rustic-mode-hook))
-
 (use-package racket-mode)
 
 (use-package evil-nerd-commenter)
@@ -224,8 +179,8 @@
 (use-package magit)
 
 (oem/leader-key-def
-  "g" '(:ignore t :which-key "version control")
-  "gg" '(magit-status :which-key "status"))
+  "v" '(:ignore t :which-key "version control")
+  "vv" '(magit-status :which-key "status"))
 
 (use-package helpful
   :bind
