@@ -162,7 +162,6 @@ require('packer').startup(function()
     use 'reedes/vim-colors-pencil'
     use 'NLKNguyen/papercolor-theme'
     use 'folke/tokyonight.nvim'
-    use 'arcticicestudio/nord-vim'
     use 'kyazdani42/nvim-web-devicons'
     use 'onsails/lspkind-nvim'
 
