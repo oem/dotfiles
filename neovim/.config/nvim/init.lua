@@ -74,44 +74,24 @@ wo.list = true
 bo.expandtab = true -- we need to overwrite this for go buffers
 
 -- LSP
-local lsp_installer = require 'nvim-lsp-installer'
-
-lsp_installer.on_server_ready(function(server)
-    local opts = {}
-
-    -- rust-tools already sets up the lsp server rust_analyzer
-    if server.name == "rust_analyzer" then return end
-
-    if server.name == "pyright" then return end
-
-    if server.name == "volar" then
-        opts.filetypes = {
-            'typescript', 'javascript', 'javascriptreact', 'typescriptreact',
-            'vue', 'json'
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = { "sumneko_lua", "rust_analyzer" }
+})
+require("lspconfig").sumneko_lua.setup {
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+            },
+            diagnostics = { globals = { 'vim', 'use' } },
+            telemetry = {
+                enable = false,
+            },
         }
-        opts.init_options = {
-            typescript = {
-                serverPath = os.getenv("HOME") ..
-                    "/.local/share/nvim/lsp_servers/tsserver/node_modules/typescript/lib/tsserverlibrary.js"
-            }
-        }
-    end
-
-    if server.name == "sumneko_lua" then
-        opts.cmd = { 'lua-language-server' }
-        opts.settings = {
-            Lua = {
-                runtime = {
-                    version = 'LuaJIT',
-                    path = vim.split(package.path, ';')
-                },
-                diagnostics = { globals = { 'vim', 'use' } }
-            }
-        }
-    end
-
-    server:setup(opts)
-end)
+    }
+}
+require("lspconfig").rust_analyzer.setup {}
 
 -- Languages
 

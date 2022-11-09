@@ -61,8 +61,11 @@ require('packer').startup(function()
 
     -- LSP
     use {
-        'neovim/nvim-lspconfig', 'nvim-lua/lsp-status.nvim',
-        'nvim-lua/lsp_extensions.nvim', 'williamboman/nvim-lsp-installer'
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+        'neovim/nvim-lspconfig',
+        'nvim-lua/lsp-status.nvim',
+        'nvim-lua/lsp_extensions.nvim'
     }
 
     use {
