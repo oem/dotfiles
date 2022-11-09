@@ -1,5 +1,5 @@
 local map = require('config.utils').map
-local options = {silent = true, noremap = true}
+local options = { silent = true, noremap = true }
 
 -- files
 map('n', '<leader>ff',
@@ -18,13 +18,13 @@ map('n', '<leader>bb',
     options)
 
 -- search
-map('n', '<leader>//',
+map('n', '<leader>ss',
     ":lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown())<cr>",
     options)
-map('n', '<leader>/b',
+map('n', '<leader>sb',
     ":lua require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown())<cr>",
     options)
-map('n', '<leader>/w',
+map('n', '<leader>sw',
     ":lua require('telescope.builtin').grep_string(require('telescope.themes').get_dropdown())<cr>",
     options)
 
@@ -49,10 +49,10 @@ map('n', '<leader>G',
 map('n', '<leader>r',
     ":lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown())<cr>",
     options)
-map('n', '<leader>s',
+map('n', '<leader>a',
     ":lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown())<cr>",
     options)
-map('n', '<leader>S',
+map('n', '<leader>A',
     ":lua require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_dropdown())<cr>",
     options)
 map('n', '<leader>d',
