@@ -10,7 +10,7 @@
 # each instance of Alacritty. If it is not present, alacritty will
 # check the local terminfo database and use `alacritty` if it is
 # available, otherwise `xterm-256color` is used.
-#TERM: xterm-256color
+# TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -106,15 +106,15 @@ font:
       - (macOS) TerminessTTF Nerd Font
       - (Linux) monospace
       - (Windows) Consolas
-    family: Cartograph CF
-    style: Medium
+    family: Aux Mono
+    style: Regular
   bold:
     Default:
       - (macOS) TerminessTTF Nerd Font
       - (Linux) monospace
       - (Windows) Consolas
-    family: Cartograph CF
-    style: Bold
+    family: Aux Mono
+    style: Regular
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -153,7 +153,7 @@ font:
   #style: Bold Italic
 
   # Point size
-  size: 11
+  size: 15
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -182,7 +182,6 @@ font:
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
-  use_thin_strokes: true
 
   # colors:
   #  primary:
@@ -211,12 +210,12 @@ font:
 
 
 # If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 # Colors (Pencil Dark)
 colors:
 # Default Colors
    primary:
-     background: "0x1C1C1C"
+     background: "0x212121"
      foreground: "0xf1f1f1"
    # Normal colors
    normal:
