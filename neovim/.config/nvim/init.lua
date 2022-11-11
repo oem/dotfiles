@@ -196,7 +196,7 @@ cmd [[
 vim.api.nvim_command "colo pencil"
 
 cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None guifg=None guibg=None]]
--- cmd [[au VimEnter * hi Normal guibg=None ctermbg=None]]
+cmd [[au VimEnter * hi Normal guibg=None ctermbg=None guibg=None]]
 cmd [[au VimEnter * hi StatusLine cterm=NONE ctermfg=7 ctermbg=None]]
 cmd [[au VimEnter * hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None]]
 cmd [[au VimEnter * hi Folded ctermbg=233 ctermfg=8]]
