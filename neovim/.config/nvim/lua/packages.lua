@@ -119,19 +119,13 @@ require('packer').startup(function()
 
     -- Some additional functionality on top of lsp
     -- rust
-    use {
-        'simrat39/rust-tools.nvim',
-        config = function() require('rust-tools').setup({}) end
-    }
+    use 'simrat39/rust-tools.nvim'
 
     -- haskell
     use { 'ndmitchell/ghcid', rtp = 'plugins/nvim' }
 
     -- python
-    use {
-        'HallerPatrick/py_lsp.nvim',
-        config = function() require('py_lsp').setup({}) end
-    }
+    use 'HallerPatrick/py_lsp.nvim'
 
     -- lua
     use 'tjdevries/nlua.nvim'
