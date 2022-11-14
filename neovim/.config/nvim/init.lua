@@ -76,8 +76,10 @@ bo.expandtab = true -- we need to overwrite this for go buffers
 -- LSP
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "sumneko_lua", "rust_analyzer" }
+    ensure_installed = { "sumneko_lua", "rust_analyzer", "gopls" }
 })
+
+require("lspconfig").gopls.setup {}
 
 require("lspconfig").sumneko_lua.setup {
     settings = {
