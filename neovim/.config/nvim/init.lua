@@ -106,10 +106,6 @@ require("mason-lspconfig").setup_handlers {
                 }
             }
         }
-    end,
-
-    ["pylsp"] = function()
-        require('py_lsp').setup {}
     end
 }
 

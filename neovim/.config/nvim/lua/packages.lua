@@ -125,7 +125,10 @@ require('packer').startup(function()
     use { 'ndmitchell/ghcid', rtp = 'plugins/nvim' }
 
     -- python
-    use 'HallerPatrick/py_lsp.nvim'
+    use {
+        'HallerPatrick/py_lsp.nvim',
+        config = function() require('py_lsp').setup {} end
+    }
 
     -- lua
     use 'tjdevries/nlua.nvim'
