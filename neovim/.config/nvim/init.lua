@@ -15,6 +15,8 @@ vim.g.mapleader = " "
 map('i', 'fd', [[<esc>]], options) -- alternative escape
 map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], { noremap = true }) -- current dir
 map('n', '<leader><leader>', [[<c-^>]], options) -- toggle between buffers
+map('n', '<C-u>', '<C-u>zz', options)
+map('n', '<C-d>', '<C-d>zz', options)
 
 -- Some helpers
 require('oem.globals')
