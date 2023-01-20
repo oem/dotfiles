@@ -186,6 +186,12 @@ function posix-source
   end
 end
 # }}}
+# {{{ mac-specific
+switch (uname)
+    case Darwin
+        eval (/opt/homebrew/bin/brew shellenv)
+end
+# }}}
 # {{{ python
 set -gx PYENV_ROOT $HOME/.pyenv
 set -gx PATH $PYENV_ROOT/shims $PATH
