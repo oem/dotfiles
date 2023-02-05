@@ -203,7 +203,8 @@ require('packer').startup(function()
     use {
         "oem/arachne.nvim",
         config = function()
-            require('arachne').setup { notes_directory = "/home/oem/sync/notes" }
+            local dir = os.getenv("HOME") .. "/sync/notes"
+            require('arachne').setup { notes_directory = dir }
         end,
         setup = function()
             vim.keymap.set('n', '<leader>nn',
