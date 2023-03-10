@@ -164,6 +164,7 @@ require('packer').startup(function()
     use 'folke/tokyonight.nvim'
     use 'kyazdani42/nvim-web-devicons'
     use 'onsails/lspkind-nvim'
+    use 'morhetz/gruvbox'
 
     use {
         "catppuccin/nvim",

@@ -211,7 +211,7 @@ autocmd('LineNr', {
 -- ]]
 
 -- colors
-vim.api.nvim_command "colo pencil"
+vim.api.nvim_command "colo tokyonight-storm"
 
 cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None guifg=None guibg=None]]
 cmd [[au VimEnter * hi Normal guibg=None ctermbg=None guibg=None]]
