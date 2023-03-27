@@ -1,4 +1,5 @@
 local fn = vim.fn
+local execute = vim.api.nvim_command
 
 -- Package Manager
 -- Bootstrapping
@@ -8,7 +9,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
         'git', 'clone', 'https://github.com/wbthomason/packer.nvim',
         install_path
     })
-    vim.cmd 'packadd packer.nvim'
+    execute 'packadd packer.nvim'
 end
 
 -- Packages
@@ -34,10 +35,10 @@ require('packer').startup(function()
             cmd = 'Telescope',
             module = 'telescope'
         }, {
-            'nvim-telescope/telescope-frecency.nvim',
-            after = 'telescope.nvim',
-            requires = 'tami5/sql.nvim'
-        }, { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+        'nvim-telescope/telescope-frecency.nvim',
+        after = 'telescope.nvim',
+        requires = 'tami5/sql.nvim'
+    }, { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     }
 
     -- Git
@@ -46,17 +47,17 @@ require('packer').startup(function()
             'tpope/vim-fugitive',
             cmd = { 'Git', 'Git status', 'Git blame', 'Git push', 'Git pull' }
         }, {
-            'lewis6991/gitsigns.nvim',
-            requires = { 'nvim-lua/plenary.nvim' },
-            config = [[require('config.gitsigns')]]
-        }, {
-            'TimUntersberger/neogit',
-            cmd = 'Neogit',
-            config = function()
-                require('neogit').setup { disable_commit_confirmation = true }
-            end,
-            setup = [[require('config.neogit')]]
-        }, { use 'sindrets/diffview.nvim' }
+        'lewis6991/gitsigns.nvim',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = [[require('config.gitsigns')]]
+    }, {
+        'TimUntersberger/neogit',
+        cmd = 'Neogit',
+        config = function()
+            require('neogit').setup { disable_commit_confirmation = true }
+        end,
+        setup = [[require('config.neogit')]]
+    }, { use 'sindrets/diffview.nvim' }
     }
 
     -- LSP
@@ -85,12 +86,12 @@ require('packer').startup(function()
         'hrsh7th/nvim-cmp',
         requires = {
             'L3MON4D3/LuaSnip', {
-                'hrsh7th/cmp-buffer',
-                after = 'nvim-cmp',
-                config = [[require('config.luasnip')]],
-                setup = [[require('config.luasnip_setup')]]
-            }, 'hrsh7th/cmp-nvim-lsp', { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
-            { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
+            'hrsh7th/cmp-buffer',
+            after = 'nvim-cmp',
+            config = [[require('config.luasnip')]],
+            setup = [[require('config.luasnip_setup')]]
+        }, 'hrsh7th/cmp-nvim-lsp', { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lua',     after = 'nvim-cmp' },
             { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' }
         },
         config = [[require('config.cmp')]],
