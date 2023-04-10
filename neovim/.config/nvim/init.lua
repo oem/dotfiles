@@ -12,9 +12,9 @@ local autocmd = require('config.utils').autocmd
 local options = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
-map('i', 'fd', [[<esc>]], options) -- alternative escape
+map('i', 'fd', [[<esc>]], options)                                  -- alternative escape
 map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], { noremap = true }) -- current dir
-map('n', '<leader><leader>', [[<c-^>]], options) -- toggle between buffers
+map('n', '<leader><leader>', [[<c-^>]], options)                    -- toggle between buffers
 map('n', '<C-u>', '<C-u>zz', options)
 map('n', '<C-d>', '<C-d>zz', options)
 
@@ -133,8 +133,8 @@ require 'lspconfig'.racket_langserver.setup {}
 
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
-vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
-    { virtual_text = true, signs = true, update_in_insert = true })
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
+        { virtual_text = true, signs = true, update_in_insert = true })
 -- autocmd(nil, 'CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()', nil)
 
 -- code navigation
@@ -169,6 +169,7 @@ vim.g.ale_linters = {
     ruby = { 'solargraph', 'standardrb', 'rubocop' },
     python = {},
     go = {},
+    c = {},
     rust = {},
     lua = {},
     elm = {},
