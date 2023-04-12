@@ -103,17 +103,17 @@ font:
   # Normal (roman) font face
   normal:
     Default:
-      - (macOS) TerminessTTF Nerd Font
+      - (macOS) Zig # TerminessTTF Nerd Font
       - (Linux) monospace
       - (Windows) Consolas
-    family: Aux Mono
+    family: Zig #Aux Mono
     style: Regular
   bold:
     Default:
-      - (macOS) TerminessTTF Nerd Font
+      - (macOS) Zig # TerminessTTF Nerd Font
       - (Linux) monospace
       - (Windows) Consolas
-    family: Aux Mono
+    family: Zig #Aux Mono
     style: Regular
 
     # The `style` can be specified to pick a specific face.
