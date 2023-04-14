@@ -17,6 +17,7 @@ interceptor.register(filter_yt)
 config.load_autoconfig()
 config.bind(",m", "spawn mpv --hwdec=auto --ytdl-format=best {url}")
 config.bind(",M", "hint links spawn mpv --hwdec=auto {hint-url}")
+config.set("colors.webpage.darkmode.enabled", True)
 
 c.zoom.default = "150%"
 c.fonts.default_size = "16pt"
