@@ -134,8 +134,8 @@ require('packer').startup(function()
     -- lua
     use 'tjdevries/nlua.nvim'
 
-    -- julia
-    use 'JuliaEditorSupport/julia-vim'
+    -- R
+    use 'jalvesaq/Nvim-R'
 
     -- Commenting
     use 'tomtom/tcomment_vim'
