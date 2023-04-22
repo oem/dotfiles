@@ -211,32 +211,70 @@ font:
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
-# Colors (Pencil Dark)
+
+# Normal colors
 colors:
-# Default Colors
-   primary:
-     background: "0x212121"
-     foreground: "0xf1f1f1"
-   # Normal colors
-   normal:
-     black: "0x212121"
-     red: "0xc30771"
-     green: "0x10a778"
-     yellow: "0xa89c14"
-     blue: "0x008ec4"
-     magenta: "0x523c79"
-     cyan: "0x20a5ba"
-     white: "0xe0e0e0"
-   # Bright colors
-   bright:
-     black: "0x212121"
-     red: "0xfb007a"
-     green: "0x5fd7af"
-     yellow: "0xf3e430"
-     blue: "0x20bbfc"
-     magenta: "0x6855de"
-     cyan: "0x4fb8cc"
-     white: "0xf1f1f1"
+  primary:
+    background: '0x212121'
+    foreground: '0xffffff'
+  normal:
+    black:   '0x123e7c'
+    red:     '0xff0000'
+    green:   '0xd300c4'
+    yellow:  '0xf57800'
+    blue:    '0x123e7c'
+    magenta: '0x711c91'
+    cyan:    '0x0abdc6'
+    white:   '0xd7d7d5'
+
+  # Bright colors
+  bright:
+    black:   '0x1c61c2'
+    red:     '0xff0000'
+    green:   '0xd300c4'
+    yellow:  '0xf57800'
+    blue:    '0x00ff00'
+    magenta: '0x711c91'
+    cyan:    '0x0abdc6'
+    white:   '0xd7d7d5'
+
+  # dim colors
+  dim:
+    black:   '0x1c61c2'
+    red:     '0xff0000'
+    green:   '0xd300c4'
+    yellow:  '0xf57800'
+    blue:    '0x123e7c'
+    magenta: '0x711c91'
+    cyan:    '0x0abdc6'
+    white:   '0xd7d7d5'
+
+# Colors (Pencil Dark)
+# colors:
+# # Default Colors
+#    primary:
+#      background: "0x212121"
+#      foreground: "0xf1f1f1"
+#    # Normal colors
+#    normal:
+#      black: "0x212121"
+#      red: "0xc30771"
+#      green: "0x10a778"
+#      yellow: "0xa89c14"
+#      blue: "0x008ec4"
+#      magenta: "0x523c79"
+#      cyan: "0x20a5ba"
+#      white: "0xe0e0e0"
+#    # Bright colors
+#    bright:
+#      black: "0x212121"
+#      red: "0xfb007a"
+#      green: "0x5fd7af"
+#      yellow: "0xf3e430"
+#      blue: "0x20bbfc"
+#      magenta: "0x6855de"
+#      cyan: "0x4fb8cc"
+#      white: "0xf1f1f1"
 
 # Colors (PaperColor - Light)
 # colors:
