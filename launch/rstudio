@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+/usr/lib/rstudio/rstudio & disown
+
+PPID=$(awk '{print $4}' "/proc/$PPID/stat")
+kill PPID
