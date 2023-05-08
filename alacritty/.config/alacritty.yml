@@ -212,69 +212,69 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
 
-# Normal colors
-colors:
-  primary:
-    background: '0x212121'
-    foreground: '0xffffff'
-  normal:
-    black:   '0x123e7c'
-    red:     '0xff0000'
-    green:   '0xd300c4'
-    yellow:  '0xf57800'
-    blue:    '0x123e7c'
-    magenta: '0x711c91'
-    cyan:    '0x0abdc6'
-    white:   '0xd7d7d5'
-
-  # Bright colors
-  bright:
-    black:   '0x1c61c2'
-    red:     '0xff0000'
-    green:   '0xd300c4'
-    yellow:  '0xf57800'
-    blue:    '0x00ff00'
-    magenta: '0x711c91'
-    cyan:    '0x0abdc6'
-    white:   '0xd7d7d5'
-
-  # dim colors
-  dim:
-    black:   '0x1c61c2'
-    red:     '0xff0000'
-    green:   '0xd300c4'
-    yellow:  '0xf57800'
-    blue:    '0x123e7c'
-    magenta: '0x711c91'
-    cyan:    '0x0abdc6'
-    white:   '0xd7d7d5'
-
 # Colors (Pencil Dark)
-# colors:
-# # Default Colors
-#    primary:
-#      background: "0x212121"
-#      foreground: "0xf1f1f1"
-#    # Normal colors
-#    normal:
-#      black: "0x212121"
-#      red: "0xc30771"
-#      green: "0x10a778"
-#      yellow: "0xa89c14"
-#      blue: "0x008ec4"
-#      magenta: "0x523c79"
-#      cyan: "0x20a5ba"
-#      white: "0xe0e0e0"
-#    # Bright colors
-#    bright:
-#      black: "0x212121"
-#      red: "0xfb007a"
-#      green: "0x5fd7af"
-#      yellow: "0xf3e430"
-#      blue: "0x20bbfc"
-#      magenta: "0x6855de"
-#      cyan: "0x4fb8cc"
-#      white: "0xf1f1f1"
+colors:
+# Default Colors
+   primary:
+     background: "0x212121"
+     foreground: "0xf1f1f1"
+   # Normal colors
+   normal:
+     black: "0x212121"
+     red: "0xc30771"
+     green: "0x10a778"
+     yellow: "0xa89c14"
+     blue: "0x008ec4"
+     magenta: "0x523c79"
+     cyan: "0x20a5ba"
+     white: "0xe0e0e0"
+   # Bright colors
+   bright:
+     black: "0x212121"
+     red: "0xfb007a"
+     green: "0x5fd7af"
+     yellow: "0xf3e430"
+     blue: "0x20bbfc"
+     magenta: "0x6855de"
+     cyan: "0x4fb8cc"
+     white: "0xf1f1f1"
+
+  # # Normal colors Cyber
+  # colors:
+  #   primary:
+  #     background: '0x212121'
+  #     foreground: '0xffffff'
+  #   normal:
+  #     black:   '0x123e7c'
+  #     red:     '0xff0000'
+  #     green:   '0xd300c4'
+  #     yellow:  '0xf57800'
+  #     blue:    '0x123e7c'
+  #     magenta: '0x711c91'
+  #     cyan:    '0x0abdc6'
+  #     white:   '0xd7d7d5'
+  #
+  #   # Bright colors
+  #   bright:
+  #     black:   '0x1c61c2'
+  #     red:     '0xff0000'
+  #     green:   '0xd300c4'
+  #     yellow:  '0xf57800'
+  #     blue:    '0x00ff00'
+  #     magenta: '0x711c91'
+  #     cyan:    '0x0abdc6'
+  #     white:   '0xd7d7d5'
+  #
+  #   # dim colors
+  #   dim:
+  #     black:   '0x1c61c2'
+  #     red:     '0xff0000'
+  #     green:   '0xd300c4'
+  #     yellow:  '0xf57800'
+  #     blue:    '0x123e7c'
+  #     magenta: '0x711c91'
+  #     cyan:    '0x0abdc6'
+  #     white:   '0xd7d7d5'
 
 # Colors (PaperColor - Light)
 # colors:
@@ -305,43 +305,6 @@ colors:
 #     cyan:    '0x3E999F'
 #     white:   '0xF5F5F5'
 
-# Colors (Hyper)
-# draw_bold_text_with_bright_colors: false
-# colors:
-#   # Default colors
-#   primary:
-#     background: "0x131313"
-#     foreground: "0xffffff"
-#   cursor:
-#     text: "0xF81CE5"
-#     cursor: "0xffffff"
-#   # Normal colors
-#   normal:
-#     black: "0x000000"
-#     red: "0xfe0100"
-#     green: "0x33ff00"
-#     yellow: "0xfeff00"
-#     blue: "0x0066ff"
-#     magenta: "0xcc00ff"
-#     cyan: "0x00ffff"
-#     white: "0xd0d0d0"
-#   # Bright colors
-#   bright:
-#     black: "0x808080"
-#     red: "0xfe0100"
-#     green: "0x33ff00"
-#     yellow: "0xfeff00"
-#     blue: "0x0066ff"
-#     magenta: "0xcc00ff"
-#     cyan: "0x00ffff"
-#     white: "0xFFFFFF"
-
-# Colors (Tomorrow Night Bright)
-#colors:
-# Default colors
-#primary:
-#  background: '0x000000'
-#  foreground: '0xeaeaea'
 
 # Bright and dim foreground colors
 #
