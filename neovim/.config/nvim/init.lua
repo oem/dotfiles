@@ -211,15 +211,22 @@ autocmd('LineNr', {
 }, true)
 
 -- lsp signs
+-- cmd [[
+--     sign define DiagnosticSignError text=X linehl= texthl=DiagnosticSignError numhl=
+--     sign define DiagnosticSignWarn text=! linehl= texthl=DiagnosticSignWarn numhl=
+--     sign define DiagnosticSignInfo text=i linehl= texthl=DiagnosticSignInfo numhl=
+--     sign define DiagnosticSignHint text=h linehl= texthl=DiagnosticSignHint numhl=
+-- ]]
+--
 cmd [[
-    sign define DiagnosticSignError text=X linehl= texthl=DiagnosticSignError numhl=
-    sign define DiagnosticSignWarn text=! linehl= texthl=DiagnosticSignWarn numhl=
-    sign define DiagnosticSignInfo text=i linehl= texthl=DiagnosticSignInfo numhl=
-    sign define DiagnosticSignHint text=h linehl= texthl=DiagnosticSignHint numhl=
+    sign define DiagnosticSignError text= linehl= texthl=DiagnosticSignError numhl=
+    sign define DiagnosticSignWarn text=⊘ linehl= texthl=DiagnosticSignWarn numhl=
+    sign define DiagnosticSignInfo text= linehl= texthl=DiagnosticSignInfo numhl=
+    sign define DiagnosticSignHint text=  linehl= texthl=DiagnosticSignHint numhl=
 ]]
 
 -- colors
-vim.api.nvim_command "colo PaperColor"
+vim.api.nvim_command "colo tokyonight-storm"
 
 cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None guifg=None guibg=None]]
 cmd [[au VimEnter * hi Normal guibg=None ctermbg=None]]
