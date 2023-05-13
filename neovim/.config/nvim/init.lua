@@ -141,6 +141,13 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
 map('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<cr>', options)
 
+vim.keymap.set('n', '<leader>vd', function()
+    vim.diagnostic.open_float({
+        height = 20,
+        width = 100,
+    })
+end)
+
 -- Linting and fixing
 -- ALE should run rubocop via bundle exec
 cmd [[let g:ale_ruby_rubocop_executable = 'bundle']]
