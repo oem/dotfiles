@@ -92,7 +92,8 @@ require('packer').startup(function()
             setup = [[require('config.luasnip_setup')]]
         }, 'hrsh7th/cmp-nvim-lsp', { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
             { 'hrsh7th/cmp-nvim-lua',     after = 'nvim-cmp' },
-            { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' }
+            { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+            { 'PaterJason/cmp-conjure',   after = 'nvim-cmp' }
         },
         config = [[require('config.cmp')]],
         event = 'InsertEnter *'
@@ -136,6 +137,13 @@ require('packer').startup(function()
 
     -- R
     use 'jalvesaq/Nvim-R'
+
+    -- repl
+    use {
+        'Olical/conjure',
+        ft = { 'racket' },
+        after = 'nvim-cmp'
+    }
 
     -- Commenting
     use 'tomtom/tcomment_vim'
