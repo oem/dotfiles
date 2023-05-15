@@ -15,3 +15,9 @@ cmp.setup {
         { name = 'nvim_lua' }, { name = 'conjure' }, { name = 'path' }
     }
 }
+
+cmp.setup.filetype({ 'racket' }, {
+    sources = {
+        { name = 'conjure' },
+    }
+})
