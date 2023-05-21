@@ -138,6 +138,9 @@ require('packer').startup(function()
     -- R
     use 'jalvesaq/Nvim-R'
 
+    -- llvm / mlir
+    use 'rhysd/vim-llvm'
+
     -- repl
     use {
         'Olical/conjure',
