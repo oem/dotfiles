@@ -105,7 +105,13 @@ require('packer').startup(function()
     -- Debugging
     use 'mfussenegger/nvim-dap'
     use 'leoluz/nvim-dap-go'
-    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+    use {
+        "rcarriga/nvim-dap-ui",
+        requires = {
+            "mfussenegger/nvim-dap",
+        },
+        config = [[require('config.dap')]]
+    }
 
     -- Highlights
     use {
