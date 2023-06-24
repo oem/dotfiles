@@ -35,7 +35,7 @@ window:
   # by DPI and the specified value is always added at both opposing sides.
   padding:
     x: 20
-    y: 20
+    y: 30
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -153,7 +153,7 @@ font:
   #style: Bold Italic
 
   # Point size
-  size: 9
+  size: 10 
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -670,7 +670,7 @@ key_bindings:
   - { key: H, mods: Command, action: Hide }
   - { key: Q, mods: Command, action: Quit }
   - { key: W, mods: Command, action: Quit }
-  # - { key: F, mods: Command|Control, action: ToggleSimpleFullscreen }
+  - { key: F, mods: Command|Control, action: ToggleSimpleFullscreen }
   - { key: A, mods: Alt, chars: "\x1ba" }
   - { key: B, mods: Alt, chars: "\x1bb" }
   - { key: C, mods: Alt, chars: "\x1bc" }
