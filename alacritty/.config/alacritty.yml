@@ -103,17 +103,17 @@ font:
   # Normal (roman) font face
   normal:
     Default:
-      - (macOS) Zig # TerminessTTF Nerd Font
+      - (macOS) Berkeley Mono # Zig # TerminessTTF Nerd Font
       - (Linux) monospace
       - (Windows) Consolas
-    family: Press Start 2P #Aux Mono
+    family: Berkeley Mono # Press Start 2P #Aux Mono
     style: Regular
   bold:
     Default:
-      - (macOS) Zig # TerminessTTF Nerd Font
+      - (macOS) Berkeley Mono # Zig # TerminessTTF Nerd Font
       - (Linux) monospace
       - (Windows) Consolas
-    family: Press Start 2P #Aux Mono
+    family: Berkeley Mono # Press Start 2P #Aux Mono
     style: Regular
 
     # The `style` can be specified to pick a specific face.
@@ -153,7 +153,7 @@ font:
   #style: Bold Italic
 
   # Point size
-  size: 10 
+  size: 15
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -212,32 +212,59 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
 
-# Colors (Pencil Dark)
+# Colors (Tokyo Night Storm)
 colors:
 # Default Colors
    primary:
-     background: "0x212121"
-     foreground: "0xf1f1f1"
+     background: "0x24283b"
+     foreground: "0xc0caf5"
    # Normal colors
    normal:
-     black: "0x212121"
-     red: "0xc30771"
-     green: "0x10a778"
-     yellow: "0xa89c14"
-     blue: "0x008ec4"
-     magenta: "0x523c79"
-     cyan: "0x20a5ba"
-     white: "0xe0e0e0"
+     black: "0x1D202F"
+     red: "0xf7768e"
+     green: "0x9ece6a"
+     yellow: "0xe0af68"
+     blue: "0x7aa2f7"
+     magenta: "0xbb9af7"
+     cyan: "0x7dcfff"
+     white: "0xa9b1d6"
    # Bright colors
    bright:
-     black: "0x212121"
-     red: "0xfb007a"
-     green: "0x5fd7af"
-     yellow: "0xf3e430"
-     blue: "0x20bbfc"
-     magenta: "0x6855de"
-     cyan: "0x4fb8cc"
-     white: "0xf1f1f1"
+     black: "0x414868"
+     red: "0xf7768e"
+     green: "0x9ece6a"
+     yellow: "0xe0af68"
+     blue: "0x7aa2f7"
+     magenta: "0xbb9af7"
+     cyan: "0x7dcfff"
+     white: "0xc0caf5"
+
+# # Colors (Pencil Dark)
+# colors:
+# # Default Colors
+#    primary:
+#      background: "0x212121"
+#      foreground: "0xf1f1f1"
+#    # Normal colors
+#    normal:
+#      black: "0x212121"
+#      red: "0xc30771"
+#      green: "0x10a778"
+#      yellow: "0xa89c14"
+#      blue: "0x008ec4"
+#      magenta: "0x523c79"
+#      cyan: "0x20a5ba"
+#      white: "0xe0e0e0"
+#    # Bright colors
+#    bright:
+#      black: "0x212121"
+#      red: "0xfb007a"
+#      green: "0x5fd7af"
+#      yellow: "0xf3e430"
+#      blue: "0x20bbfc"
+#      magenta: "0x6855de"
+#      cyan: "0x4fb8cc"
+#      white: "0xf1f1f1"
 
   # # Normal colors Cyber
   # colors:
