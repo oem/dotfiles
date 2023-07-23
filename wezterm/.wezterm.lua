@@ -37,6 +37,7 @@ config.colors = {
         '#7dcfff',
         '#c0caf5',
     },
+    cursor_bg = 'orange',
 }
 
 -- keys

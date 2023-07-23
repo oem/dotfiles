@@ -179,10 +179,15 @@ require('packer').startup(function()
     use 'reedes/vim-colors-pencil'
     use 'NLKNguyen/papercolor-theme'
     use 'folke/tokyonight.nvim'
-    use 'kyazdani42/nvim-web-devicons'
     use 'onsails/lspkind-nvim'
     use 'morhetz/gruvbox'
-
+    use {
+        "projekt0n/circles.nvim",
+        requires = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require('circles').setup({ lsp = true })
+        end
+    }
     -- show trailing whitespace
     use 'ntpeters/vim-better-whitespace'
 
