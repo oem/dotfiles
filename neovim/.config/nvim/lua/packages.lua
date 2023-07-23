@@ -181,13 +181,7 @@ require('packer').startup(function()
     use 'folke/tokyonight.nvim'
     use 'onsails/lspkind-nvim'
     use 'morhetz/gruvbox'
-    use {
-        "projekt0n/circles.nvim",
-        requires = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require('circles').setup({ lsp = true })
-        end
-    }
+    use "nvim-tree/nvim-web-devicons"
     -- show trailing whitespace
     use 'ntpeters/vim-better-whitespace'
 
@@ -211,7 +205,7 @@ require('packer').startup(function()
     }
 
     -- Statusline
-    use { 'feline-nvim/feline.nvim', config = [[require('config.feline')]] }
+    use { 'freddiehaddad/feline.nvim', config = [[require('config.feline')]] }
 
     use {
         "oem/arachne.nvim",
