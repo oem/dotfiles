@@ -15,6 +15,8 @@ config.font_size = 15.0
 
 config.color_scheme = "Tokyo Night Storm"
 
+config.audible_bell = "Disabled"
+
 -- keys
 config.keys = {
     {
