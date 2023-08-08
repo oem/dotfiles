@@ -107,6 +107,10 @@ Btw: Try out this neat little nugget: tmux-leader o -> fuzzy search some directo
 
 `stow qutebrowser`
 
+### haskell
+
+`stow haskell`
+
 ### julia
 
 `stow julia`
