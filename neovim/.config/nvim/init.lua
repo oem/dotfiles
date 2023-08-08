@@ -193,7 +193,7 @@ vim.g.ale_fixers = {
     -- luarocks install --server=https://luarocks.org/dev luaformatter
     lua = {},
     -- stack install ormolu
-    haskell = { 'ormolu' }
+    haskell = {}
 }
 -- vim.g.ale_fix_on_save = 1
 vim.g.ale_rust_rustfmt_options = '--edition 2018'
