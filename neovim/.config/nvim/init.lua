@@ -120,6 +120,17 @@ require("mason-lspconfig").setup_handlers {
         }
     end,
 
+    -- cabal install fourmolu
+    ["hls"] = function()
+        require("lspconfig").hls.setup {
+            settings = {
+                haskell = {
+                    formattingProvider = "fourmolu"
+                }
+            }
+        }
+    end,
+
     ["lua_ls"] = function()
         require("lspconfig").lua_ls.setup {
             settings = {
