@@ -13,7 +13,7 @@ xmodmap ~/.xmodmap
 
 urxvtd -f
 
-~/.fehbg &
+mpv ~/sync/art/wallpapers/animated/retro-car-vaporwave-moewalls-com.mp4 --wid=0 --loop &
 
 unclutter &
 
