@@ -12,8 +12,8 @@ print_time() {
 }
 
 print_battery() {
-  battery_status="$(cat /sys/class/power_supply/BAT1/capacity)"
-  status="$(cat /sys/class/power_supply/BAT1/status)"
+  battery_status="$(cat /sys/class/power_supply/BAT0/capacity)"
+  status="$(cat /sys/class/power_supply/BAT0/status)"
   charging=""
   if grep -q Charging <<<$status; then charging="+"; fi
   battery="$battery_status"
