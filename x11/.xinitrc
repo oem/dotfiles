@@ -11,8 +11,6 @@ setxkbmap us mac
 xbindkeys &
 xmodmap ~/.xmodmap
 
-urxvtd -f
-
 ~/.fehbg &
 
 unclutter &
