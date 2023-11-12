@@ -1,0 +1,7 @@
+#!/bin/sh
+mac="28:11:A5:32:02:AD"
+sink="bluez_output.28_11_A5_32_02_AD.1"
+
+bluetoothctl power on
+bluetoothctl connect $mac
+pactl set-default-sink $sink
