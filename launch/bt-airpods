@@ -1,0 +1,8 @@
+#!/bin/sh
+mac="EC:73:79:52:46:F3"
+sink="bluez_output.EC_73_79_52_46_F3.1"
+
+bluetoothctl power on
+bluetoothctl connect $mac
+pactl set-default-sink $sink
+
