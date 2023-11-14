@@ -60,8 +60,7 @@ require('packer').startup(function()
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
             "sindrets/diffview.nvim",
-            "ibhagwan/fzf-lua",
-            "rcarriga/nvim-notify"
+            "ibhagwan/fzf-lua"
         },
         setup = [[require('config.neogit')]]
     }
