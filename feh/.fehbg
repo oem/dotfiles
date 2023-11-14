@@ -1,1 +1,2 @@
-feh --bg-fill ~/sync/art/wallpapers/canoopsy/Magneto\ Desktop.jpg
+#!/bin/sh
+feh --no-fehbg --bg-fill "/home/oem/sync/art/wallpapers/canoopsy/Magneto Desktop.jpg"
