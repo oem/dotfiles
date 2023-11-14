@@ -1,0 +1,5 @@
+#!/bin/sh
+mac="E4:17:D8:7C:94:73"
+
+bluetoothctl power on
+bluetoothctl connect $mac
