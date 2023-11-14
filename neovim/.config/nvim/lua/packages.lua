@@ -60,10 +60,11 @@ require('packer').startup(function()
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
             "sindrets/diffview.nvim",
-            "ibhagwan/fzf-lua"
+            "ibhagwan/fzf-lua",
+            "rcarriga/nvim-notify"
         },
         setup = [[require('config.neogit')]]
-    }, { use 'sindrets/diffview.nvim' }
+    }
     }
 
     -- LSP
