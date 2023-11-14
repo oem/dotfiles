@@ -51,11 +51,17 @@ require('packer').startup(function()
         requires = { 'nvim-lua/plenary.nvim' },
         config = [[require('config.gitsigns')]]
     }, {
-        'TimUntersberger/neogit',
+        'NeogitOrg/neogit',
         cmd = 'Neogit',
         config = function()
             require('neogit').setup { disable_commit_confirmation = true }
         end,
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+            "sindrets/diffview.nvim",
+            "ibhagwan/fzf-lua"
+        },
         setup = [[require('config.neogit')]]
     }, { use 'sindrets/diffview.nvim' }
     }
