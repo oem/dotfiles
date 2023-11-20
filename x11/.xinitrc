@@ -7,9 +7,9 @@ xset +fp /usr/share/fonts/local
 xsetroot -solid "#1c1c1c"
 
 setxkbmap us mac
+setxkbmap -option "ctrl:nocaps"
 
 xbindkeys &
-xmodmap ~/.xmodmap
 
 ~/.fehbg &
 
