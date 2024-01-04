@@ -1,4 +1,4 @@
-xinput --set-prop 12 'libinput Accel Speed' 1
+xinput --set-prop 12 'libinput Accel Speed' 0
 
 xset -b # deactivate pc speaker
 xset r rate 200 50
