@@ -16,6 +16,7 @@ config.font_size = 15.0
 config.color_scheme = "Tokyo Night Storm"
 
 config.audible_bell = "Disabled"
+config.window_close_confirmation = "NeverPrompt"
 
 -- keys
 config.keys = {
@@ -32,7 +33,6 @@ config.cursor_blink_rate = 800
 -- window styling
 
 config.hide_tab_bar_if_only_one_tab = true
-
 config.enable_scroll_bar = false
 
 config.window_padding = {
@@ -41,5 +41,7 @@ config.window_padding = {
     bottom = 30,
     top = 30
 }
+
+config.window_background_opacity = 0.9
 
 return config
