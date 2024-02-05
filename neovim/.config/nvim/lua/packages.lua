@@ -39,7 +39,6 @@ require('lazy').setup({
             require("config.telescope")
         end,
         cmd = 'Telescope',
-        module = 'telescope'
     },
     {
         'nvim-telescope/telescope-frecency.nvim',
@@ -100,9 +99,9 @@ require('lazy').setup({
             config = function() require("config.luasnip") end,
             init = function() require("config.luasnip_setup") end,
         }, 'hrsh7th/cmp-nvim-lsp',
-            { 'hrsh7th/cmp-path',         after = 'nvim-cmp' },
-            { 'hrsh7th/cmp-nvim-lua',     after = 'nvim-cmp' },
-            { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+            { 'hrsh7th/cmp-path',         dependencies = { 'nvim-cmp' } },
+            { 'hrsh7th/cmp-nvim-lua',     dependencies = { 'nvim-cmp' } },
+            { 'saadparwaiz1/cmp_luasnip', dependencies = { 'nvim-cmp' } },
         },
         config = function() require("config.cmp") end,
         event = 'InsertEnter *'
