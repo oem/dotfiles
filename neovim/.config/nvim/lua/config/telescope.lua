@@ -5,7 +5,7 @@ local trouble = require("trouble.providers.telescope")
 telescope.setup {
     defaults = {
         color_devicons = true,
-        file_ignore_patterns = {"node_modules", ".git"},
+        file_ignore_patterns = { "node_modules", ".git" },
         vimgrep_arguments = {
             "rg", "--color=never", "--no-heading", "--with-filename",
             "--line-number", "--column", "--smart-case", "--hidden"
@@ -15,13 +15,13 @@ telescope.setup {
                 ["<esc>"] = actions.close,
                 ["<c-t>"] = trouble.open_with_trouble
             },
-            n = {["<c-t>"] = trouble.open_with_trouble}
+            n = { ["<c-t>"] = trouble.open_with_trouble }
         },
         layout_strategy = 'flex',
         scroll_strategy = 'cycle'
     },
     extensions = {
-        frecency = {workspaces = {exo = '/home/oem/src'}},
+        frecency = { workspaces = { exo = '/home/oem/src' } },
         fzf = {
             fuzzy = true,
             override_generic_sorter = true,
@@ -30,14 +30,13 @@ telescope.setup {
         }
     },
     pickers = {
-        lsp_references = {theme = 'dropdown'},
-        lsp_code_actions = {theme = 'dropdown'},
-        lsp_definitions = {theme = 'dropdown'},
-        lsp_implementations = {theme = 'dropdown'},
-        buffers = {sort_lastused = true, previewer = false}
+        lsp_references = { theme = 'dropdown' },
+        lsp_code_actions = { theme = 'dropdown' },
+        lsp_definitions = { theme = 'dropdown' },
+        lsp_implementations = { theme = 'dropdown' },
+        buffers = { sort_lastused = true, previewer = false }
     }
 }
 
 -- Extensions
 telescope.load_extension 'frecency'
-telescope.load_extension 'fzf'

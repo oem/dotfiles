@@ -22,9 +22,6 @@ map('n', '<C-d>', '<C-d>zz', options)
 -- Some helpers
 require('oem.globals')
 
--- packages
-require('packages')
-
 -- Options
 -- global options
 o.ignorecase = true
@@ -53,6 +50,9 @@ o.background = "dark"
 o.cursorcolumn = true
 
 opt.listchars = { space = "·" }
+
+-- packages
+require('packages')
 
 -- highlight on yank
 exec([[
