@@ -65,7 +65,6 @@ exec([[
 -- Memory/CPU
 o.hidden = true
 o.history = 100
-o.lazyredraw = true
 o.synmaxcol = 240
 
 -- window-local options
