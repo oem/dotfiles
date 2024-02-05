@@ -188,6 +188,18 @@ require('packer').startup(function()
     use 'onsails/lspkind-nvim'
     use 'morhetz/gruvbox'
     use "nvim-tree/nvim-web-devicons"
+
+    use {
+        'folke/noice.nvim',
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        },
+        config = function()
+            require('noice').setup()
+        end
+    }
+
     -- show trailing whitespace
     use 'ntpeters/vim-better-whitespace'
 
