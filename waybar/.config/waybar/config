@@ -1,0 +1,27 @@
+{
+    "layer": "top",
+    "position": "top",
+    "output": "eDP-1",
+    "height": 44,
+    "spacing": 10,
+    "modules-center": ["hyprland/workspaces", "hyprland/window"],
+    "modules-right": ["backlight", "cpu", "memory", "temperature", "battery", "network", "custom/updates", "tray", "clock"],
+    "battery": {
+        "format": "{capacity}% {icon}"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", ""]
+    },
+    "hyprland/window": {
+        "rewrite": {
+            "(.*) - Brave": "$1",
+            "(.*) - Chromium": "$1",
+            "(.*) - Brave Search": "$1",
+            "(.*) - Outlook": "$1",
+            "(.*) Microsoft Teams": "$1"
+        },
+        "separate-outputs": true
+    }
+}
