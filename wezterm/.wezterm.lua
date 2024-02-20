@@ -13,7 +13,7 @@ end
 config.font = wezterm.font { family = "Berkeley Mono", weight = "Bold" }
 config.font_size = 15.0
 
-config.color_scheme = "Tokyo Night Storm"
+config.color_scheme = "Catppuccin Mocha"
 
 config.audible_bell = "Disabled"
 config.window_close_confirmation = "NeverPrompt"
