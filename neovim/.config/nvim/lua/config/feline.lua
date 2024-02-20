@@ -78,4 +78,9 @@ local colors = {
     black = "#212121"
 }
 
-require('feline').setup({ theme = colors, components = M })
+-- require('feline').setup({ theme = colors, components = M })
+local ctp_feline = require('catppuccin.groups.integrations.feline')
+
+require("feline").setup({
+    components = ctp_feline.get(),
+})
