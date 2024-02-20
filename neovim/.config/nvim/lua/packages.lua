@@ -186,6 +186,7 @@ require('lazy').setup({
     -- UI
     'reedes/vim-colors-pencil',
     'NLKNguyen/papercolor-theme',
+    { "catppuccin/nvim",           name = "catppuccin",                             priority = 1000 },
     'folke/tokyonight.nvim',
     'onsails/lspkind-nvim',
     'morhetz/gruvbox',
