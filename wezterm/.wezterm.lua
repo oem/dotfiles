@@ -24,7 +24,6 @@ config.keys = {
         key = 'f',
         mods = 'CTRL|SHIFT',
         action = wezterm.action.ToggleFullScreen
-
     }
 }
 
@@ -38,8 +37,8 @@ config.enable_scroll_bar = false
 config.window_padding = {
     left = 30,
     right = 30,
-    bottom = 30,
-    top = 30
+    bottom = 10,
+    top = 10
 }
 
 config.window_background_opacity = 0.9
