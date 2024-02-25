@@ -37,3 +37,5 @@
 	side-by-side = false
 [init]
 	defaultBranch = main
+[safe]
+	directory = /opt/flutter
