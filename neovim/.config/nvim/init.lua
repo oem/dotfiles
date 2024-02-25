@@ -247,22 +247,22 @@ autocmd('LineNr', {
 }, true)
 
 -- lsp signs
--- cmd [[
---     sign define DiagnosticSignError text= linehl= texthl=DiagnosticSignError numhl=
---     sign define DiagnosticSignWarn text=⊘ linehl= texthl=DiagnosticSignWarn numhl=
---     sign define DiagnosticSignInfo text= linehl= texthl=DiagnosticSignInfo numhl=
---     sign define DiagnosticSignHint text=  linehl= texthl=DiagnosticSignHint numhl=
--- ]]
+cmd [[
+    sign define DiagnosticSignError text= linehl= texthl=DiagnosticSignError numhl=
+    sign define DiagnosticSignWarn text=⊘ linehl= texthl=DiagnosticSignWarn numhl=
+    sign define DiagnosticSignInfo text= linehl= texthl=DiagnosticSignInfo numhl=
+    sign define DiagnosticSignHint text=  linehl= texthl=DiagnosticSignHint numhl=
+]]
 
 -- colors
-vim.api.nvim_command "colo catppuccin"
+vim.api.nvim_command "colo catppuccin-mocha"
 
 cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None guifg=None guibg=None]]
 cmd [[au VimEnter * hi Normal guibg=None ctermbg=None]]
 cmd [[au VimEnter * hi LineNr guibg=None ctermbg=None]]
-cmd [[au VimEnter * hi Whitespace guibg=None ctermbg=None guifg=#505050]]
-cmd [[au VimEnter * hi StatusLine cterm=NONE ctermfg=7 ctermbg=None]]
-cmd [[au VimEnter * hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None]]
+cmd [[au VimEnter * hi Whitespace guibg=None ctermbg=None guifg=#303030]]
+-- cmd [[au VimEnter * hi StatusLine cterm=NONE ctermfg=7 ctermbg=None]]
+-- cmd [[au VimEnter * hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None]]
 cmd [[au VimEnter * hi Folded ctermbg=233 ctermfg=8]]
 cmd [[au VimEnter * hi CursorLineNr ctermfg=8 guifg=#767676]]
 cmd [[au VimEnter * hi SignColumn ctermbg=None guibg=None]]
