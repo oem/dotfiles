@@ -32,6 +32,7 @@ set -x EDITOR nvim
 set -gx PATH $HOME/.dotfiles/launch $PATH
 set -gx PATH $HOME/.dotfiles/fuzzy $PATH
 set -gx PATH $HOME/google-cloud-sdk/bin $PATH
+set -gx PATH /opt/flutter/bin $PATH
 set -gx LANG en_US.UTF-8
 set -gx LANGUAGE en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
@@ -40,6 +41,7 @@ set -gx NODE_PATH "/usr/local/lib/node_modules"
 set -gx N_PREFIX "/home/oem"
 set -gx PATH $N_PREFIX/bin $PATH
 set -gx FZF_DEFAULT_COMMAND "fd --type f"
+set -gx CHROME_EXECUTABLE "/usr/bin/chromium"
 # }}}
 # keybindings {{{
 # function fish_user_key_bindings
