@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 config.font = wezterm.font { family = "Berkeley Mono", weight = "Bold" }
-config.font_size = 15.0
+config.font_size = 12.0
 
 config.color_scheme = "Catppuccin Mocha"
 
@@ -24,7 +24,12 @@ config.keys = {
         key = 'f',
         mods = 'CTRL|SHIFT',
         action = wezterm.action.ToggleFullScreen
-    }
+    },
+    {
+        key = 'r',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.ReloadConfiguration,
+    },
 }
 
 config.cursor_blink_rate = 800
