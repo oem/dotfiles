@@ -140,6 +140,11 @@ require('lazy').setup({
 
     -- haskell
     { 'ndmitchell/ghcid',                         config = function(plugin) vim.opt.rtp:append(plugin.dir .. '/nvim') end },
+    {
+        'mrcjkb/haskell-tools.nvim',
+        version = '^3', -- Recommended
+        lazy = false,   -- This plugin is already lazy
+    },
 
     -- python
     {
