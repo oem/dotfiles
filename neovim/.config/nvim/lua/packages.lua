@@ -146,6 +146,13 @@ require('lazy').setup({
         lazy = false,   -- This plugin is already lazy
     },
 
+    -- go
+    {
+        'fatih/vim-go',
+        event = { "CmdLineEnter" },
+        ft = { "go", "gomod" },
+    },
+
     -- python
     {
         'HallerPatrick/py_lsp.nvim',

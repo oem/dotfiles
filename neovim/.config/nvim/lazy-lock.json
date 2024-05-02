@@ -59,6 +59,7 @@
   "vim-colors-pencil": { "branch": "master", "commit": "1101118fa3e3038568541e9a67511513aac5d19b" },
   "vim-fugitive": { "branch": "master", "commit": "ce882460cf3db12e99f8bf579cbf99e331f6dd4f" },
   "vim-gnupg": { "branch": "main", "commit": "f9b608f29003dfde6450931dc0f495a912973a88" },
+  "vim-go": { "branch": "master", "commit": "feef9b31507f8e942bcd21f9e1f22d587c83c72d" },
   "vim-llvm": { "branch": "master", "commit": "c5d6c6a9ef21df2a32aad0f3b5ca5389f92d06d1" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-tmux-navigator": { "branch": "master", "commit": "a26954a585b02a2ac02f87145e204f8798a7cbc2" },
