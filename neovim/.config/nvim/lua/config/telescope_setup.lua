@@ -61,6 +61,7 @@ map('n', '<leader>d',
 map('n', '<leader>i',
     ":lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_dropdown())<cr>",
     options)
+map('n', '<leader>c', ":lua vim.lsp.buf.code_action()<cr>", options)
 
 -- treesitter
 map('n', '<leader>t',

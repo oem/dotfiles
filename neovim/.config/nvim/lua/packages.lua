@@ -32,7 +32,8 @@ require('lazy').setup({
             'popup.nvim',
             'plenary.nvim',
             'telescope-frecency.nvim',
-            'telescope-fzf-native.nvim'
+            'telescope-fzf-native.nvim',
+            'nvim-telescope/telescope-ui-select.nvim'
         },
         init = function() require("config.telescope_setup") end,
         config = function()
@@ -67,7 +68,7 @@ require('lazy').setup({
                 "nvim-lua/plenary.nvim",
                 "nvim-telescope/telescope.nvim",
                 "sindrets/diffview.nvim",
-                "ibhagwan/fzf-lua"
+                "ibhagwan/fzf-lua",
             },
             init = function() require('config.neogit') end
         }
