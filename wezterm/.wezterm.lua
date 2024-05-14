@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 config.font = wezterm.font { family = "Berkeley Mono", weight = "Bold" }
-config.font_size = 12.0
+config.font_size = 14.0
 
 config.color_scheme = "Catppuccin Mocha"
 
@@ -42,8 +42,8 @@ config.enable_scroll_bar = false
 config.window_padding = {
     left = 30,
     right = 30,
-    bottom = 10,
-    top = 10
+    bottom = 30,
+    top = 30
 }
 
 config.window_background_opacity = 1
