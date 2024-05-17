@@ -46,6 +46,7 @@ path=("$HOME/.dotfiles/fuzzy" $path)
 path=("$HOME/.cargo/bin" $path)
 path=("$HOME/.volta/bin" $path)
 path=("$PYENV_ROOT/shims" $path)
+path=("$PYENV_ROOT/bin" $path)
 path=($GOPATH $path)
 path+=('/opt/homebrew/opt/llvm/bin')
 export PATH
@@ -106,4 +107,6 @@ fi
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 # }}}
