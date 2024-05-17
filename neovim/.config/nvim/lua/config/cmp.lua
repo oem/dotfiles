@@ -16,8 +16,15 @@ cmp.setup {
     }
 }
 
-cmp.setup.filetype({ 'racket' }, {
+cmp.setup.filetype({ "racket" }, {
     sources = {
-        { name = 'conjure' },
+        { name = "conjure" },
     }
+})
+
+cmp.setup.filetype({ "sql" }, {
+    sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" },
+    },
 })

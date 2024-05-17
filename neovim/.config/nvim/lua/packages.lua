@@ -108,6 +108,13 @@ require('lazy').setup({
         event = 'InsertEnter *'
     },
 
+    -- DB
+    {
+        "tpope/vim-dadbod",
+        "kristijanhusak/vim-dadbod-completion",
+        "kristijanhusak/vim-dadbod-ui"
+    },
+
     -- Linting and fixing
     'dense-analysis/ale',
 
