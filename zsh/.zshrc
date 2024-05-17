@@ -1,3 +1,5 @@
+# vim:fdm=marker
+
 # zinit {{{
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -22,6 +24,7 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::brew
+zinit snippet OMZP::ssh-agent
 
 # completions
 autoload -Uz compinit && compinit
@@ -34,6 +37,7 @@ export GOPATH="$HOME/src/go"
 export GOBIN="$GOPATH/bin"
 export PYENV_ROOT="$HOME/.pyenv"
 export EDITOR="nvim"
+export SSH_ENV="$HOME/.ssh/environment"
 # }}}
 
 # path {{{
@@ -103,5 +107,3 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 # }}}
-
-# vim:fdm=marker
