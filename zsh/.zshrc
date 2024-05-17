@@ -22,7 +22,6 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::brew
-zinit snippet OMZP::pyenv
 
 # completions
 autoload -Uz compinit && compinit
@@ -34,15 +33,16 @@ export FZF_DEFAULT_COMMAND="fd --type f"
 export GOPATH="$HOME/src/go"
 export GOBIN="$GOPATH/bin"
 export PYENV_ROOT="$HOME/.pyenv"
+export EDITOR="nvim"
 # }}}
 
 # path {{{
-path=("$HOME/.dotfiles/launch", $path)
-path=("$HOME/.dotfiles/fuzzy", $path)
-path=("$HOME/.cargo/bin", $path)
-path=("$HOME/.volta/bin", $path)
-path=("$PYENV_ROOT/shims", $path)
-path=($GOPATH, $path)
+path=("$HOME/.dotfiles/launch" $path)
+path=("$HOME/.dotfiles/fuzzy" $path)
+path=("$HOME/.cargo/bin" $path)
+path=("$HOME/.volta/bin" $path)
+path=("$PYENV_ROOT/shims" $path)
+path=($GOPATH $path)
 path+=('/opt/homebrew/opt/llvm/bin')
 export PATH
 # }}}
