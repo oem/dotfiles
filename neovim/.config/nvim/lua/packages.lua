@@ -147,7 +147,10 @@ require('lazy').setup({
     'simrat39/rust-tools.nvim',
 
     -- haskell
-    { 'ndmitchell/ghcid',                         config = function(plugin) vim.opt.rtp:append(plugin.dir .. '/nvim') end },
+    {
+        'ndmitchell/ghcid',
+        config = function(plugin) vim.opt.rtp:append(plugin.dir .. '/nvim') end
+    },
     {
         'mrcjkb/haskell-tools.nvim',
         version = '^3', -- Recommended
@@ -207,7 +210,7 @@ require('lazy').setup({
     -- UI
     'reedes/vim-colors-pencil',
     'NLKNguyen/papercolor-theme',
-    { "catppuccin/nvim",           name = "catppuccin",                             priority = 1000 },
+    { "catppuccin/nvim",                          name = "catppuccin", priority = 1000 },
     'folke/tokyonight.nvim',
     'onsails/lspkind-nvim',
     'morhetz/gruvbox',
