@@ -226,6 +226,9 @@ require('lazy').setup({
                     require("notify").setup(
                         {
                             background_colour = "#000000",
+                            timeout = 10,
+                            keep = false,
+                            fps = 60,
                             render = "compact"
                         })
                 end
