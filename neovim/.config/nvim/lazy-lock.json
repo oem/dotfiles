@@ -1,5 +1,6 @@
 {
   "Nvim-R": { "branch": "master", "commit": "a780503c2478e6655f7820a5e1926cf058ca2e2b" },
+  "agda.nvim": { "branch": "main", "commit": "4dbd441c5ece3da4be0e93934eaf9a026c8225db" },
   "ale": { "branch": "master", "commit": "c88bddfa83dbb96c2f57426794ed98a0e181ea7e" },
   "arachne.nvim": { "branch": "main", "commit": "69df75c24091c8fe9ca5287a12ade37916667198" },
   "catppuccin": { "branch": "main", "commit": "d97387aea8264f484bb5d5e74f2182a06c83e0d8" },

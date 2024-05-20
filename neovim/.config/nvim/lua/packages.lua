@@ -160,6 +160,11 @@ require('lazy').setup({
         config = function() require('config.haskell-tools') end,
     },
 
+    -- agda
+    {
+        'isti115/agda.nvim',
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
     -- go
     {
         'fatih/vim-go',
@@ -213,7 +218,11 @@ require('lazy').setup({
     -- UI
     'reedes/vim-colors-pencil',
     'NLKNguyen/papercolor-theme',
-    { "catppuccin/nvim",                          name = "catppuccin", priority = 1000 },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000
+    },
     'folke/tokyonight.nvim',
     'onsails/lspkind-nvim',
     'morhetz/gruvbox',
@@ -267,7 +276,7 @@ require('lazy').setup({
     },
 
     -- Statusline
-    { 'freddiehaddad/feline.nvim', config = function() require('config.feline') end },
+    { 'freddiehaddad/feline.nvim',                config = function() require('config.feline') end },
 
     -- note taking
     {
