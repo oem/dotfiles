@@ -1,4 +1,9 @@
-require'luasnip'.config.setup({})
+local ls = require "luasnip"
+local s = ls.snippet
+local t = ls.text_node
+
+ls.setup({})
+
 vim.cmd [[
   imap <silent><expr> <c-k> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<c-k>'
   inoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
@@ -6,3 +11,12 @@ vim.cmd [[
   snoremap <silent> <c-k> <cmd>lua require('luasnip').jump(1)<CR>
   snoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
 ]]
+
+ls.add_snippets(
+    "all", {
+        s("fa", {
+            t("∀"),
+        }),
+
+    }
+)

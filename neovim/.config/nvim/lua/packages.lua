@@ -70,7 +70,7 @@ require('lazy').setup({
                 "sindrets/diffview.nvim",
                 "ibhagwan/fzf-lua",
             },
-            init = function() require('config.neogit') end
+            init = function() require("config.neogit") end
         }
     },
 
@@ -92,13 +92,15 @@ require('lazy').setup({
 
     -- Completion
     {
+        'l3mon4d3/luasnip',
+        config = function() require("config.luasnip") end,
+    },
+    {
         'hrsh7th/nvim-cmp',
         dependencies = {
-            'L3MON4D3/LuaSnip', {
+            'l3mon4d3/luasnip', {
             'hrsh7th/cmp-buffer',
             'nvim-cmp',
-            config = function() require("config.luasnip") end,
-            init = function() require("config.luasnip_setup") end,
         }, 'hrsh7th/cmp-nvim-lsp',
             { 'hrsh7th/cmp-path',         dependencies = { 'nvim-cmp' } },
             { 'hrsh7th/cmp-nvim-lua',     dependencies = { 'nvim-cmp' } },

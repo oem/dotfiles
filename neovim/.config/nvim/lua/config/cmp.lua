@@ -1,10 +1,10 @@
 local cmp = require 'cmp'
-local luasnip = require 'luasnip'
+local ls = require 'luasnip'
 local lspkind = require 'lspkind'
 
 cmp.setup {
     formatting = { format = lspkind.cmp_format() },
-    snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
+    snippet = { expand = function(args) ls.lsp_expand(args.body) end },
     mapping = {
         ['<cr>'] = cmp.mapping.confirm(),
         ['<tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
