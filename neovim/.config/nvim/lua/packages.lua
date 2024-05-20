@@ -155,6 +155,7 @@ require('lazy').setup({
         'mrcjkb/haskell-tools.nvim',
         version = '^3', -- Recommended
         lazy = false,   -- This plugin is already lazy
+        config = function() require('config.haskell-tools') end,
     },
 
     -- go
