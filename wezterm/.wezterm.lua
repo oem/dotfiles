@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 config.font = wezterm.font { family = "Berkeley Mono", weight = "Bold" }
-config.font_size = 14.0
+config.font_size = 16.0
 
 config.color_scheme = "Catppuccin Mocha"
 
