@@ -160,11 +160,6 @@ require('lazy').setup({
         config = function() require('config.haskell-tools') end,
     },
 
-    -- agda
-    {
-        'isti115/agda.nvim',
-        dependencies = { "nvim-lua/plenary.nvim" },
-    },
     -- go
     {
         'fatih/vim-go',
