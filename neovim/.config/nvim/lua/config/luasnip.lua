@@ -13,7 +13,7 @@ vim.cmd [[
 ]]
 
 ls.add_snippets(
-    "all", {
+    "agda", {
         s("fa", {
             t("∀"),
         }),
