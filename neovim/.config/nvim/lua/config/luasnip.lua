@@ -12,25 +12,25 @@ vim.cmd [[
   snoremap <silent> <c-j> <cmd>lua require('luasnip').jump(-1)<CR>
 ]]
 
-ls.add_snippets(
-    "agda", {
-        s("fa", {
-            t("∀"),
-        }),
-        s("te", {
-            t("∃"),
-        }),
-        s("arr", {
-            t("→"),
-        }),
-        s("lmb", {
-            t("λ"),
-        }),
-        s("tri", {
-            t("≡"),
-        }),
-        s("not", {
-            t("¬"),
-        }),
-    }
-)
+-- ls.add_snippets(
+--     "agda", {
+--         s("fa", {
+--             t("∀"),
+--         }),
+--         s("te", {
+--             t("∃"),
+--         }),
+--         s("arr", {
+--             t("→"),
+--         }),
+--         s("lmb", {
+--             t("λ"),
+--         }),
+--         s("tri", {
+--             t("≡"),
+--         }),
+--         s("not", {
+--             t("¬"),
+--         }),
+--     }
+-- )
