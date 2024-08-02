@@ -85,7 +85,10 @@ require('lazy').setup({
 
     {
         'folke/trouble.nvim',
-        dependencies = "nvim-tree/nvim-web-devicons",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+            "nvim-telescope/telescope.nvim",
+        },
         init = function() require('config.trouble_setup') end,
         config = function() require 'trouble'.setup {} end
     },
