@@ -89,8 +89,20 @@ require('lazy').setup({
             "nvim-tree/nvim-web-devicons",
             "nvim-telescope/telescope.nvim",
         },
-        init = function() require('config.trouble_setup') end,
-        config = function() require 'trouble'.setup {} end
+        config = function() require 'trouble'.setup {} end,
+        cmd = "Trouble",
+        keys = {
+            {
+                "<leader>xx",
+                "<cmd>Trouble diagnostics toggle<cr>",
+                desc = "Diagnostics (Trouble)",
+            },
+            {
+                "<leader>xX",
+                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+                desc = "Buffer Diagnostics (Trouble)",
+            },
+        }
     },
 
     -- Completion
