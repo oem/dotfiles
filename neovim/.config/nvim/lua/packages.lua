@@ -290,6 +290,15 @@ require('lazy').setup({
 
     -- note taking
     {
+        "OXY2DEV/markview.nvim",
+        lazy = false,
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        }
+    },
+
+    {
         "oem/arachne.nvim",
         config = function()
             local dir = os.getenv("HOME") .. "/sync/notes"
