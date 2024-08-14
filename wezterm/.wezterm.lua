@@ -15,6 +15,9 @@ config.font_size = 16.0
 
 config.color_scheme = "Catppuccin Mocha"
 
+config.window_background_opacity = 1
+config.window_decorations = 'RESIZE'
+
 config.audible_bell = "Disabled"
 config.window_close_confirmation = "NeverPrompt"
 
@@ -35,7 +38,7 @@ config.keys = {
 config.cursor_blink_rate = 800
 
 -- window styling
-
+config.enable_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.enable_scroll_bar = false
 
@@ -45,7 +48,5 @@ config.window_padding = {
     bottom = 30,
     top = 30
 }
-
-config.window_background_opacity = 1
 
 return config
