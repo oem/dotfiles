@@ -286,7 +286,10 @@ require('lazy').setup({
     },
 
     -- Statusline
-    { 'freddiehaddad/feline.nvim',                config = function() require('config.feline') end },
+    {
+        'freddiehaddad/feline.nvim',
+        config = function() require('config.feline') end
+    },
 
     -- note taking
     {
