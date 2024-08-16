@@ -71,13 +71,6 @@ M.inactive[1] = {
     {}
 }
 
-local colors = {
-    bg = "#212121",
-    oceanblue = "#212121",
-    skyblue = "#909090",
-    black = "#212121"
-}
-
 -- require('feline').setup({ theme = colors, components = M })
 local ctp_feline = require('catppuccin.groups.integrations.feline')
 
