@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [[ -z $1 ]]; then
-    selected=$(fd -H -t directory | fzf)
+    selected=$(fd -H -t directory -d 5| fzf)
 else
     selected=$1
 fi
