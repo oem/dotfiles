@@ -12,6 +12,7 @@ end
 
 config.font = wezterm.font { family = "Berkeley Mono", weight = "Bold" }
 config.font_size = 16.0
+config.line_height = 1.1
 
 config.color_scheme = "Catppuccin Mocha"
 
