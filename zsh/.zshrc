@@ -108,6 +108,7 @@ alias b='bundle exec'
 alias c='cargo'
 alias j='julia'
 alias dc='docker compose'
+alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 # }}}
 
 # shell integrations {{{
