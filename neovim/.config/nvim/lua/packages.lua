@@ -315,7 +315,44 @@ require('lazy').setup({
             },
             ui = {
                 enable = false
-            }
+            },
+            new_notes_location = "notes_subdir",
+
+            follow_url_func = function(url)
+                vim.fn.jobstart({ "open", url }) -- Mac OS
+                -- vim.fn.jobstart({"xdg-open", url})  -- linux
+                -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+                -- vim.ui.open(url) -- need Neovim 0.10.0+
+            end,
+
+            follow_img_func = function(img)
+                vim.fn.jobstart { "qlmanage", "-p", img } -- Mac OS quick look preview
+                -- vim.fn.jobstart({"xdg-open", url})  -- linux
+                -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+            end,
+
+            mappings = {
+                ["gf"] = {
+                    action = function()
+                        return require("obsidian").util.gf_passthrough()
+                    end,
+                    opts = { noremap = false, expr = true, buffer = true },
+                },
+                -- Toggle check-boxes.
+                ["<leader>ch"] = {
+                    action = function()
+                        return require("obsidian").util.toggle_checkbox()
+                    end,
+                    opts = { buffer = true },
+                },
+                -- Smart action depending on context, either follow link or toggle checkbox.
+                ["<cr>"] = {
+                    action = function()
+                        return require("obsidian").util.smart_action()
+                    end,
+                    opts = { buffer = true, expr = true },
+                },
+            },
         },
     },
 
