@@ -3,10 +3,10 @@ local options = { silent = true, noremap = true }
 
 -- files
 map('n', '<leader>ff',
-    ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown())<cr>",
+    ":lua require('telescope.builtin').find_files({hidden = true})<cr>",
     options)
 map('n', '<leader>fF',
-    ":lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown())<cr>",
+    ":lua require('telescope.builtin').git_files({ hidden = true})<cr>",
     options)
 map('n', '<leader>fr',
     ":lua require('telescope').extensions.frecency.frecency(require('telescope.themes').get_dropdown())<cr>",
