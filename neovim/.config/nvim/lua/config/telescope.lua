@@ -35,6 +35,8 @@ telescope.setup {
         lsp_code_actions = { theme = 'dropdown' },
         lsp_definitions = { theme = 'dropdown' },
         lsp_implementations = { theme = 'dropdown' },
+        find_files = { theme = 'dropdown' },
+        git_files = { theme = 'dropdown' },
         buffers = { sort_lastused = true, previewer = false }
     }
 }
