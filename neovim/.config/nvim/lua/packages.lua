@@ -299,6 +299,27 @@ require('lazy').setup({
     },
 
     {
+        "epwalsh/obsidian.nvim",
+        version = "*", -- recommended, use latest release instead of latest commit
+        lazy = true,
+        ft = "markdown",
+        dependencies = {
+            -- Required.
+            "nvim-lua/plenary.nvim",
+        },
+        opts = {
+            dir = "~/sync/notes",
+            completion = {
+                nvim_cmp = true,
+                min_chars = 2,
+            },
+            ui = {
+                enable = false
+            }
+        },
+    },
+
+    {
         "oem/arachne.nvim",
         config = function()
             local dir = os.getenv("HOME") .. "/sync/notes"

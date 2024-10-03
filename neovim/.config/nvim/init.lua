@@ -19,6 +19,14 @@ map('n', '<leader><leader>', [[<c-^>]], options)                    -- toggle be
 map('n', '<C-u>', '<C-u>zz', options)
 map('n', '<C-d>', '<C-d>zz', options)
 
+-- folding
+o.foldcolumn = '0'
+o.foldlevel = 99
+o.foldlevelstart = 99
+o.foldmethod = 'expr'
+o.foldexpr = 'nvim_treesitter#foldexpr()'
+o.foldenable = true
+
 -- Some helpers
 require('oem.globals')
 
