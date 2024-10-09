@@ -286,11 +286,16 @@ require('lazy').setup({
     },
 
     -- Statusline
+    -- {
+    --     'freddiehaddad/feline.nvim',
+    --     config = function() require('config.feline') end
+    -- },
     {
-        'freddiehaddad/feline.nvim',
-        config = function() require('config.feline') end
+        'windwp/windline.nvim',
+        config = function()
+            require('wlsample.bubble')
+        end
     },
-
     -- note taking
     {
         'MeanderingProgrammer/render-markdown.nvim',
