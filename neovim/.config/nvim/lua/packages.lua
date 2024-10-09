@@ -293,7 +293,7 @@ require('lazy').setup({
     {
         'windwp/windline.nvim',
         config = function()
-            require('wlsample.bubble')
+            require('wlsample.evil_line')
         end
     },
     -- note taking
