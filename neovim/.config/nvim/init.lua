@@ -252,22 +252,4 @@ cmd [[
 ]]
 
 -- colors
-vim.api.nvim_command "colo tokyonight"
-
-cmd [[au VimEnter * hi VertSplit ctermfg=234 ctermbg=None cterm=None guifg=None guibg=None]]
-cmd [[au VimEnter * hi Normal guibg=None ctermbg=None]]
-cmd [[au VimEnter * hi LineNr guibg=None ctermbg=None]]
-cmd [[au VimEnter * hi Whitespace guibg=None ctermbg=None guifg=#303030]]
--- cmd [[au VimEnter * hi StatusLine cterm=NONE ctermfg=7 ctermbg=None]]
--- cmd [[au VimEnter * hi StatusLineNC cterm=NONE ctermfg=8 ctermbg=None]]
-cmd [[au VimEnter * hi Folded ctermbg=233 ctermfg=8]]
-cmd [[au VimEnter * hi CursorLineNr ctermfg=8 guifg=#767676]]
-cmd [[au VimEnter * hi SignColumn ctermbg=None guibg=None]]
-cmd [[au VimEnter * hi GreenSign ctermfg=10 guifg=#10A778]]
-cmd [[au VimEnter * hi BlueSign ctermfg=12 guifg=#008EC4]]
-cmd [[au VimEnter * hi RedSign ctermfg=9 guifg=#C30771]]
-cmd [[au VimEnter * hi PurpleSign ctermfg=13 guifg=#523C79]]
-cmd [[au VimEnter * hi ALEWarning ctermbg=None]]
-cmd [[au VimEnter * hi ALEError ctermbg=None]]
-cmd [[au VimEnter * hi ALEWarningSign ctermbg=None]]
-cmd [[au VimEnter * hi ALEErrorSign ctermbg=None]]
+vim.api.nvim_command "colo tokyonight-storm"
