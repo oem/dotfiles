@@ -3,7 +3,7 @@ local cmd = vim.cmd
 local o = vim.o
 local bo = vim.bo
 local wo = vim.wo
-local opt = vim.opt
+-- local opt = vim.opt
 local exec = vim.api.nvim_exec -- execute Vimscript
 
 -- Keybindings
@@ -57,7 +57,7 @@ o.fillchars = "vert: ,eob: ,fold:·"
 o.background = "dark"
 o.cursorcolumn = true
 
-opt.listchars = { space = "·" }
+-- opt.listchars = { space = "·" }
 
 -- packages
 require('packages')
