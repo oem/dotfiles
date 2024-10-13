@@ -252,4 +252,4 @@ cmd [[
 ]]
 
 -- colors
-vim.api.nvim_command "colo tokyonight-storm"
+vim.api.nvim_command "colo gruvbox"
