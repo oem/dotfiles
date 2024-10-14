@@ -24,11 +24,11 @@ require('lazy').setup({
 
     {
         'nvim-telescope/telescope.nvim',
+        tag = '0.1.8',
         dependencies = {
             'nvim-lua/popup.nvim',
             'nvim-lua/plenary.nvim',
             'telescope-frecency.nvim', -- improved sorting on recent files
-            'telescope-fzf-native.nvim',
             'popup.nvim',
             'plenary.nvim',
             'telescope-frecency.nvim',
@@ -44,7 +44,7 @@ require('lazy').setup({
     {
         'nvim-telescope/telescope-frecency.nvim',
         dependencies = 'tami5/sql.nvim'
-    }, { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    }, { 'nvim-telescope/telescope-fzf-native.nvim' },
 
     -- Git
     {
@@ -334,6 +334,19 @@ require('lazy').setup({
                 vim.fn.jobstart { "qlmanage", "-p", img } -- Mac OS quick look preview
                 -- vim.fn.jobstart({"xdg-open", url})  -- linux
                 -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+            end,
+
+            note_id_func = function(title)
+                local suffix = ""
+                if title ~= nil then
+                    suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+                else
+                    -- If title is nil, just add 4 random uppercase letters to the suffix.
+                    for _ = 1, 4 do
+                        suffix = suffix .. string.char(math.random(65, 90))
+                    end
+                end
+                return os.date("%Y-%m-%d") .. "-" .. suffix
             end,
 
             mappings = {
