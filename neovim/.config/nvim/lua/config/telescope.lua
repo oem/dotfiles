@@ -6,7 +6,7 @@ local open_with_trouble = require("trouble.sources.telescope").open
 telescope.setup {
     defaults = {
         color_devicons = true,
-        file_ignore_patterns = { "node_modules", ".git" },
+        -- file_ignore_patterns = { "node_modules", ".git" },
         vimgrep_arguments = {
             "rg", "--color=never", "--no-heading", "--with-filename",
             "--line-number", "--column", "--smart-case", "--hidden"
@@ -43,3 +43,4 @@ telescope.setup {
 
 -- Extensions
 telescope.load_extension 'frecency'
+telescope.load_extension 'fzf'
