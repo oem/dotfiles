@@ -39,12 +39,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export EDITOR="nvim"
 export SSH_ENV="$HOME/.ssh/environment"
 
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#282828,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
---color=selected-bg:#45475a \
---multi"
+export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
 # }}}
 
 # path {{{
