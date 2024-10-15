@@ -253,3 +253,4 @@ cmd [[
 
 -- colors
 vim.api.nvim_command "colo gruvbox"
+cmd [[hi SignColumn guibg='none']]
