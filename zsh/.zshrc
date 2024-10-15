@@ -35,6 +35,13 @@ zinit cdreplay -q
 export FZF_DEFAULT_COMMAND="fd --type f"
 export GOPATH="$HOME/src/go"
 export GOBIN="$GOPATH/bin"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export GOROOT=$(brew --prefix go)/libexec
+else
+    export GOROOT=/usr/local/go
+fi
+
 export PYENV_ROOT="$HOME/.pyenv"
 export EDITOR="nvim"
 export SSH_ENV="$HOME/.ssh/environment"
@@ -49,6 +56,7 @@ path=("$HOME/.cargo/bin" $path)
 path=("$HOME/.volta/bin" $path)
 path=("$PYENV_ROOT/shims" $path)
 path=("$PYENV_ROOT/bin" $path)
+path=("$GOROOT/bin" $path)
 path=($GOPATH $path)
 path=($GOBIN $path)
 path=("$HOME/.ghcup/bin" $path)
