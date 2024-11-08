@@ -102,9 +102,11 @@ require('lazy').setup({
     },
 
     -- Completion
+    { "rafamadriz/friendly-snippets" },
     {
         'l3mon4d3/luasnip',
         config = function() require("config.luasnip") end,
+        dependencies = { "rafamadriz/friendly-snippets" }
     },
     {
         'hrsh7th/nvim-cmp',
