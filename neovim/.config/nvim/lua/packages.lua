@@ -192,6 +192,9 @@ require('lazy').setup({
     -- R
     'jalvesaq/Nvim-R',
 
+    -- html
+    'mattn/emmet-vim',
+
     -- llvm / mlir
     'rhysd/vim-llvm',
 
