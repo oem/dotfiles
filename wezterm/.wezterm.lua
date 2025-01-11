@@ -15,6 +15,7 @@ config.font_size = 16.0
 config.line_height = 1.1
 
 -- config.color_scheme = "Gruvbox Dark (Gogh)"
+config.color_scheme = "Windows High Contrast (base16)"
 
 config.window_background_opacity = 1
 config.window_decorations = 'RESIZE'
