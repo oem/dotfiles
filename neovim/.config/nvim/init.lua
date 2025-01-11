@@ -252,5 +252,5 @@ cmd [[
 ]]
 
 -- colors
-vim.api.nvim_command "colo gruvbox"
+vim.api.nvim_command "colo binary"
 cmd [[hi SignColumn guibg='none']]
