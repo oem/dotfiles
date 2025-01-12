@@ -251,6 +251,9 @@ cmd [[
     sign define DiagnosticSignHint text=●  linehl= texthl=DiagnosticSignHint numhl=
 ]]
 
+-- Diagnostics are being handled by tiny-inline-diagnostics
+vim.diagnostic.config({ virtual_text = false })
+
 -- colors
 vim.api.nvim_command "colo binary"
-cmd [[hi SignColumn guibg='none']]
+vim.api.nvim_set_hl(0, 'SignColumn', { bg = "none" })

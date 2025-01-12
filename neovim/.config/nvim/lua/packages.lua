@@ -78,7 +78,14 @@ require('lazy').setup({
         'nvim-lua/lsp-status.nvim',
         'nvim-lua/lsp_extensions.nvim'
     },
-
+    {
+        "rachartier/tiny-inline-diagnostic.nvim",
+        event = "VeryLazy", -- Or `LspAttach`
+        priority = 1000,    -- needs to be loaded in first
+        config = function()
+            require('tiny-inline-diagnostic').setup()
+        end
+    },
     {
         'folke/trouble.nvim',
         dependencies = {
