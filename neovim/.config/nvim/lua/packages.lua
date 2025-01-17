@@ -241,7 +241,7 @@ require('lazy').setup({
     'onsails/lspkind-nvim',
     'morhetz/gruvbox',
     "nvim-tree/nvim-web-devicons",
-
+    "nyoom-engineering/oxocarbon.nvim",
     {
         'folke/noice.nvim',
         dependencies = {
