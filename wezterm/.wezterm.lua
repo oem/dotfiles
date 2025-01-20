@@ -14,7 +14,7 @@ config.font = wezterm.font { family = "Berkeley Mono", weight = "Bold" }
 config.font_size = 17.0
 config.line_height = 1.2
 
--- config.color_scheme = "Gruvbox Dark (Gogh)"
+config.color_scheme = "Oxocarbon Dark (Gogh)"
 config.color_scheme = "Windows High Contrast (base16)"
 
 config.window_background_opacity = 1
