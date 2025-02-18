@@ -137,3 +137,5 @@ eval "$(starship init zsh)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 # }}}
+
+. "$HOME/.local/bin/env"
