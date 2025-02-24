@@ -3,6 +3,7 @@ font-style = Bold
 font-size = 18
 font-thicken = true
 grapheme-width-method = "unicode"
+adjust-cell-height = 30%
 
 theme = tokyonight
 
