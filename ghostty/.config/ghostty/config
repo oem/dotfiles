@@ -6,7 +6,12 @@ grapheme-width-method = "unicode"
 
 theme = tokyonight
 
-quit-after-last-window-closed = true
-
-window-decoration = false
+window-padding-x = 30
+window-padding-y = 30
+macos-non-native-fullscreen = true
+fullscreen = true
 gtk-titlebar = false
+
+quit-after-last-window-closed = true
+confirm-close-surface = false
+
