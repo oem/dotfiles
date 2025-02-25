@@ -55,7 +55,6 @@ o.showmatch = true
 o.cpo = "$"
 o.fillchars = "vert: ,eob: ,fold:·"
 o.background = "dark"
-o.cursorcolumn = true
 
 -- opt.listchars = { space = "·" }
 
@@ -77,7 +76,6 @@ o.synmaxcol = 240
 
 -- window-local options
 wo.number = true
-wo.signcolumn = 'yes'
 wo.list = true
 
 -- buffer-local options
@@ -231,11 +229,6 @@ vim.g.strip_whitespace_confirm = 0
 autocmd('CursorLine', {
     'VimEnter,WinEnter,BufWinEnter * setlocal cursorline',
     'WinLeave * setlocal nocursorline'
-}, true)
-
-autocmd('CursorColumn', {
-    'VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn',
-    'WinLeave * setlocal nocursorcolumn'
 }, true)
 
 autocmd('LineNr', {
