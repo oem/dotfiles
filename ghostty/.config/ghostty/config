@@ -1,9 +1,9 @@
 font-family = Berkeley Mono
 font-style = Bold
-font-size = 18
+font-size = 16
 font-thicken = true
 grapheme-width-method = "unicode"
-adjust-cell-height = 30%
+adjust-cell-height = 35%
 
 theme = tokyonight
 
