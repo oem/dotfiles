@@ -248,5 +248,5 @@ cmd [[
 vim.diagnostic.config({ virtual_text = false })
 
 -- colors
-vim.api.nvim_command "colo tokyonight-night"
+vim.api.nvim_command "colo binary"
 vim.api.nvim_set_hl(0, 'SignColumn', { bg = "none" })
