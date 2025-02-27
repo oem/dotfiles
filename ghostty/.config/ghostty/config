@@ -12,6 +12,7 @@ window-padding-y = 30
 macos-non-native-fullscreen = true
 fullscreen = true
 gtk-titlebar = false
+mouse-hide-while-typing = true
 
 quit-after-last-window-closed = true
 confirm-close-surface = false
