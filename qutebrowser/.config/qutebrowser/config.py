@@ -21,5 +21,5 @@ config.set("colors.webpage.darkmode.enabled", True)
 
 c.zoom.default = "150%"
 c.fonts.default_size = "16pt"
-c.fonts.default_family = ["Cartograph CF Heavy"]
-c.fonts.web.family.fixed = "Cartograph CF Heavy"
+c.fonts.default_family = ["Berkeley Mono"]
+c.fonts.web.family.fixed = "Berkeley Mono"
