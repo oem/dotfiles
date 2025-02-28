@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 config.font = wezterm.font { family = "Berkeley Mono", weight = "Bold" }
-config.font_size = 17.0
+config.font_size = 18.0
 config.line_height = 1.2
 
 -- config.color_scheme = "Windows High Contrast (base16)"
