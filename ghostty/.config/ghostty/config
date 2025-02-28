@@ -17,3 +17,5 @@ mouse-hide-while-typing = true
 quit-after-last-window-closed = true
 confirm-close-surface = false
 
+keybind = global:alt+grave_accent=toggle_quick_terminal
+keybind = all:ctrl+alt+a=reload_config
