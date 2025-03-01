@@ -5,7 +5,8 @@ font-thicken = true
 grapheme-width-method = "unicode"
 adjust-cell-height = 35%
 
-theme = CGA
+theme = farmhouse-dark
+background = "#000000"
 
 window-padding-x = 30
 window-padding-y = 30
