@@ -84,7 +84,7 @@ bo.expandtab = true -- we need to overwrite this for go buffers
 -- LSP
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "rust_analyzer", "gopls" }
+    ensure_installed = { "lua_ls", "rust_analyzer", "gopls", "clangd" }
 })
 
 -- codelldb for debugging
@@ -139,7 +139,16 @@ require("mason-lspconfig").setup_handlers {
                 }
             }
         }
-    end
+    end,
+
+    ["clangd"] = function()
+        require("lspconfig").clangd.setup({
+            cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=verbose' },
+            init_options = {
+                fallbackFlags = { '-std=c++17' },
+            }
+        })
+    end,
 }
 
 -- Languages
@@ -198,7 +207,8 @@ vim.g.ale_fixers = {
     -- luarocks install --server=https://luarocks.org/dev luaformatter
     lua = {},
     -- stack install ormolu
-    haskell = {}
+    haskell = {},
+    c = {}
 }
 -- vim.g.ale_fix_on_save = 1
 vim.g.ale_rust_rustfmt_options = '--edition 2018'
