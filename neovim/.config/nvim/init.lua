@@ -167,16 +167,6 @@ cmd [[autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby]]
 -- html
 cmd [[autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab]]
 
--- racket
--- raco pkg install racket-langserver
-require 'lspconfig'.racket_langserver.setup {}
-
--- Enable diagnostics
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
-        { virtual_text = true, signs = true, update_in_insert = true })
--- autocmd(nil, 'CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()', nil)
-
 -- code navigation
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
 map('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<cr>', options)
@@ -253,9 +243,6 @@ cmd [[
     sign define DiagnosticSignInfo text=● linehl= texthl=DiagnosticSignInfo numhl=
     sign define DiagnosticSignHint text=●  linehl= texthl=DiagnosticSignHint numhl=
 ]]
-
--- Diagnostics are being handled by tiny-inline-diagnostics
-vim.diagnostic.config({ virtual_text = false })
 
 -- colors
 vim.api.nvim_command "colo binary"

@@ -75,8 +75,7 @@ require('lazy').setup({
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
         'neovim/nvim-lspconfig',
-        'nvim-lua/lsp-status.nvim',
-        'nvim-lua/lsp_extensions.nvim'
+        'nvim-lua/lsp-status.nvim'
     },
     {
         "rachartier/tiny-inline-diagnostic.nvim",
@@ -84,6 +83,7 @@ require('lazy').setup({
         priority = 1000,    -- needs to be loaded in first
         config = function()
             require('tiny-inline-diagnostic').setup()
+            vim.diagnostic.config({ virtual_text = false })
         end
     },
     {
@@ -138,7 +138,7 @@ require('lazy').setup({
     },
 
     -- Linting and fixing
-    'dense-analysis/ale',
+    -- 'dense-analysis/ale',
 
     -- Debugging
     'mfussenegger/nvim-dap',
