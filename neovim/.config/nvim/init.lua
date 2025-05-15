@@ -90,11 +90,11 @@ require("mason-lspconfig").setup({
 -- codelldb for debugging
 local mason_registry = require("mason-registry")
 local codelldb = mason_registry.get_package("codelldb")
-local extension_path = codelldb:get_install_path() .. "/extension/"
-local codelldb_path = extension_path .. "adapter/codelldb"
-local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
+-- local extension_path = codelldb:get_install_path() .. "/extension/"
+-- local codelldb_path = extension_path .. "adapter/codelldb"
+-- local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
 
-require("mason-lspconfig").setup_handlers {
+require("mason-lspconfig").setup {
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have
     -- a dedicated handler.
