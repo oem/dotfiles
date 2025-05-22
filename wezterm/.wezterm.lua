@@ -11,11 +11,11 @@ if wezterm.config_builder then
 end
 
 config.font = wezterm.font { family = "Berkeley Mono", weight = "Bold" }
-config.font_size = 18.0
+config.font_size = 16.0
 config.line_height = 1.2
 
--- config.color_scheme = "Windows High Contrast (base16)"
-config.color_scheme = "tokyonight"
+config.color_scheme = "Windows High Contrast (base16)"
+-- config.color_scheme = "tokyonight"
 
 config.window_background_opacity = 1
 config.window_decorations = 'RESIZE'
@@ -50,5 +50,7 @@ config.window_padding = {
     bottom = 30,
     top = 30
 }
+
+config.default_prog = { 'wsl.exe', '--distribution', 'archlinux' }
 
 return config
