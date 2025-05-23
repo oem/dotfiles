@@ -35,11 +35,14 @@ zinit cdreplay -q
 export FZF_DEFAULT_COMMAND="fd --type f"
 export GOPATH="$HOME/src/go"
 export GOBIN="$GOPATH/bin"
+export GOPROXY="proxy.golang.org"
+export GOSUMDB="sum.golang.org"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export GOROOT=$(brew --prefix go)/libexec
 else
-    export GOROOT=/usr/local/go
+    export GOROOT=$HOME/go
+    export PATH=$PATH:$GOROOT/bin
 fi
 
 export PYENV_ROOT="$HOME/.pyenv"
