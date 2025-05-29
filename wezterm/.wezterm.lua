@@ -14,7 +14,7 @@ config.font = wezterm.font { family = "Berkeley Mono", weight = "Black" }
 config.font_size = 16.0
 config.line_height = 1.2
 
-local custom_theme = wezterm.color.get_builtin_schemes()['lovelace']
+local custom_theme = wezterm.color.get_builtin_schemes()['Pop (base16)']
 custom_theme.background = 'black'
 config.color_schemes = {
     ["Custom Theme"] = custom_theme
