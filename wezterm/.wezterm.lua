@@ -10,12 +10,16 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
-config.font = wezterm.font { family = "Berkeley Mono", weight = "Bold" }
+config.font = wezterm.font { family = "Berkeley Mono", weight = "Black" }
 config.font_size = 16.0
 config.line_height = 1.2
 
-config.color_scheme = "Windows High Contrast (base16)"
--- config.color_scheme = "tokyonight"
+local custom_theme = wezterm.color.get_builtin_schemes()['lovelace']
+custom_theme.background = 'black'
+config.color_schemes = {
+    ["Custom Theme"] = custom_theme
+}
+config.color_scheme = 'Custom Theme'
 
 config.window_background_opacity = 1
 config.window_decorations = 'RESIZE'
@@ -37,6 +41,7 @@ config.keys = {
     },
 }
 
+config.default_cursor_style = 'BlinkingBar'
 config.cursor_blink_rate = 800
 
 -- window styling
@@ -51,6 +56,6 @@ config.window_padding = {
     top = 30
 }
 
-config.default_prog = { 'wsl.exe', '--distribution', 'archlinux' }
+config.default_prog = { 'wsl.exe', '--distribution', 'archlinux', '--cd', '~' }
 
 return config
