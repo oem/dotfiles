@@ -72,11 +72,19 @@ require('lazy').setup({
 
     -- LSP
     {
-        'mason-org/mason.nvim',
-        'mason-org/mason-lspconfig.nvim',
-        'neovim/nvim-lspconfig',
+        {
+            'mason-org/mason-lspconfig.nvim',
+            -- opts = {
+            --     ensure_installed = { "lua_lsp", "rust_analyzer", "clangd" }
+            -- },
+            dependencies = {
+                'mason-org/mason.nvim',
+                'neovim/nvim-lspconfig'
+            }
+        },
         'nvim-lua/lsp-status.nvim'
     },
+
     {
         "rachartier/tiny-inline-diagnostic.nvim",
         event = "VeryLazy", -- Or `LspAttach`
@@ -166,7 +174,11 @@ require('lazy').setup({
 
     -- Some additional functionality on top of lsp
     -- rust
-    'simrat39/rust-tools.nvim',
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^6', -- Recommended
+        lazy = false,   -- This plugin is already lazy
+    },
 
     -- haskell
     {
