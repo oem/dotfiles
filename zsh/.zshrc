@@ -146,3 +146,5 @@ eval "$(pyenv virtualenv-init -)"
 if [[ -f "$HOME/.local/bin/env" ]] then
     . "$HOME/.local/bin/env"
 fi
+
+[ -f "/home/oem/.ghcup/env" ] && . "/home/oem/.ghcup/env" # ghcup-env
