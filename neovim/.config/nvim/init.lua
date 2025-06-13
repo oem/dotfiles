@@ -87,6 +87,17 @@ require("mason-lspconfig").setup({
     ensure_installed = { "lua_ls", "rust_analyzer", "clangd" }
 })
 
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            diagnostics = { globals = { 'vim', 'use' } },
+            telemetry = {
+                enable = false,
+            },
+        }
+    }
+})
+
 require("mason-lspconfig").setup {
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have
@@ -95,22 +106,6 @@ require("mason-lspconfig").setup {
         require("lspconfig")[server_name].setup {}
     end,
     -- Next, you can provide a dedicated handler for specific servers.
-
-    ["lua_ls"] = function()
-        require("lspconfig").lua_ls.setup {
-            settings = {
-                Lua = {
-                    runtime = {
-                        version = 'LuaJIT',
-                    },
-                    diagnostics = { globals = { 'vim', 'use' } },
-                    telemetry = {
-                        enable = false,
-                    },
-                }
-            }
-        }
-    end,
 
     ["clangd"] = function()
         require("lspconfig").clangd.setup({
