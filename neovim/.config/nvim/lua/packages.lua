@@ -74,9 +74,6 @@ require('lazy').setup({
     {
         {
             'mason-org/mason-lspconfig.nvim',
-            -- opts = {
-            --     ensure_installed = { "lua_lsp", "rust_analyzer", "clangd" }
-            -- },
             dependencies = {
                 'mason-org/mason.nvim',
                 'neovim/nvim-lspconfig'
@@ -302,10 +299,6 @@ require('lazy').setup({
     },
 
     -- Statusline
-    -- {
-    --     'freddiehaddad/feline.nvim',
-    --     config = function() require('config.feline') end
-    -- },
     {
         'windwp/windline.nvim',
         config = function()
