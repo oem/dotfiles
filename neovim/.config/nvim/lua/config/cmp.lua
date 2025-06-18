@@ -12,15 +12,9 @@ cmp.setup {
     },
     sources = {
         { name = 'luasnip' }, { name = 'nvim_lsp' }, { name = 'buffer' },
-        { name = 'nvim_lua' }, { name = 'conjure' }, { name = 'path' }
+        { name = 'nvim_lua' }, { name = 'path' }
     }
 }
-
-cmp.setup.filetype({ "racket" }, {
-    sources = {
-        { name = "conjure" },
-    }
-})
 
 cmp.setup.filetype({ "sql" }, {
     sources = {
