@@ -34,3 +34,4 @@ emacs/auto-save-list
 emacs/.emacs.gnu
 neovim/.config/nvim/plugin/packer_compiled.lua
 julia/.julia/logs
+ghostty/.config/ghostty/ghostty-shaders/
