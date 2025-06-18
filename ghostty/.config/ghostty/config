@@ -26,6 +26,6 @@ confirm-close-surface = false
 keybind = global:alt+grave_accent=toggle_quick_terminal
 keybind = all:ctrl+alt+a=reload_config
 
-custom-shader = ~/.config/ghostty/ghostty-shaders/in-game-crt.glsl
-custom-shader = ~/.config/ghostty/ghostty-shaders/tft.glsl
-custom-shader = ~/.config/ghostty/ghostty-shaders/bloom.glsl
+# custom-shader = ~/.config/ghostty/ghostty-shaders/in-game-crt.glsl
+# custom-shader = ~/.config/ghostty/ghostty-shaders/tft.glsl
+# custom-shader = ~/.config/ghostty/ghostty-shaders/bloom.glsl
