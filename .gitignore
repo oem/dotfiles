@@ -35,3 +35,6 @@ emacs/.emacs.gnu
 neovim/.config/nvim/plugin/packer_compiled.lua
 julia/.julia/logs
 ghostty/.config/ghostty/ghostty-shaders/
+zed/.config/zed/prompts
+zed/.config/zed/conversations
+zed/.config/zed/embeddings

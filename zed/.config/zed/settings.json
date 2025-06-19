@@ -1,0 +1,35 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "agent": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "llama3:latest"
+    },
+    "version": "2"
+  },
+  "features": {
+    "edit_prediction_provider": "supermaven"
+  },
+  "theme": "Amber Monochrome Monitor CRT Phosphor Dark III",
+  "ui_font_size": 18,
+  "ui_font_family": "Berkeley Mono Variable",
+  "buffer_font_size": 16,
+  "remove_trailing_whitespace_on_save": true,
+  "buffer_font_family": "Berkeley Mono",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "scrollbar": { "show": "never" },
+  "vim_mode": true,
+  "vim": {
+    "toggle_relative_line_numbers": true
+  }
+}
