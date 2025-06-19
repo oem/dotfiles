@@ -14,7 +14,7 @@ $character"""
 style = "blue"
 
 [character]
-success_symbol = "[⬤](bold purple) "
+success_symbol = "[⬤](bold gray) "
 error_symbol = "[⬤](bold red) "
 vimcmd_symbol = "[❮](green)"
 
