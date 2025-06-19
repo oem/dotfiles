@@ -7,15 +7,19 @@
 // from the command palette.
 [
   {
+    "bindings": {}
+  },
+  {
     "context": "Workspace",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
+      "space f f": "file_finder::Toggle"
     }
   },
   {
     "context": "Editor",
     "bindings": {
-      "f d": ["workspace::SendKeystrokes", "escape"]
+      "f d": ["workspace::SendKeystrokes", "escape"],
+      "] g": "editor::GoToHunk"
     }
   }
 ]

@@ -7,10 +7,14 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "soft_wrap": "editor_width",
+  "diagnostics": {
+    "inline": { "enabled": true }
+  },
   "agent": {
     "default_model": {
       "provider": "ollama",
-      "model": "llama3:latest"
+      "model": "qwen2.5-coder:32b"
     },
     "version": "2"
   },
@@ -33,6 +37,17 @@
     "toggle_relative_line_numbers": true
   },
   "languages": {
+    "Python": {
+      "language_servers": ["pyright", "ruff", "autopep8"],
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
+    },
     "Jinja2 HTML": {
       "language_servers": ["jinja2-html-lsp"],
       "format_on_save": "on",
