@@ -131,7 +131,7 @@ cmd [[autocmd FileType go setlocal nolist]]
 cmd [[autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby]]
 
 -- html
-cmd [[autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab]]
+cmd [[autocmd BufNewFile,BufRead *.html set filetype=html]]
 
 -- code navigation
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
