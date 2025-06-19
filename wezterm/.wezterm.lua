@@ -48,6 +48,8 @@ config.keys = {
 config.default_cursor_style = 'BlinkingBar'
 config.cursor_blink_rate = 800
 
+config.max_fps = 120
+
 -- window styling
 config.enable_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
@@ -60,6 +62,8 @@ config.window_padding = {
     top = 30
 }
 
-config.default_prog = { 'wsl.exe', '--distribution', 'archlinux', '--cd', '~' }
+if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
+    config.default_prog = { 'wsl.exe', '--distribution', 'archlinux', '--cd', '~' }
+end
 
 return config

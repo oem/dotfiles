@@ -31,5 +31,28 @@
   "vim_mode": true,
   "vim": {
     "toggle_relative_line_numbers": true
+  },
+  "languages": {
+    "Jinja2 HTML": {
+      "language_servers": ["jinja2-html-lsp"],
+      "format_on_save": "on",
+      "tab_size": 2,
+      "hard_tabs": false
+    }
+  },
+  "lsp": {
+    "jinja2-html-lsp": {
+      "binary": {
+        "path": "python",
+        "arguments": ["-m", "server.main"]
+      },
+      "settings": {
+        "jinja2": {
+          "enable_emmet": true,
+          "enable_jinja_snippets": true,
+          "auto_close_tags": true
+        }
+      }
+    }
   }
 }
