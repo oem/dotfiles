@@ -16,7 +16,7 @@ config.font = wezterm.font_with_fallback {
 }
 
 config.font_size = 16.0
-config.line_height = 1.2
+config.line_height = 1.5
 
 local custom_theme = wezterm.color.get_builtin_schemes()['Pop (base16)']
 custom_theme.background = 'black'
