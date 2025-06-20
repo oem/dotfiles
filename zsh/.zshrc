@@ -113,7 +113,6 @@ alias cat='bat -p'
 alias dir='ls -lAht'
 alias b='bundle exec'
 alias c='cargo'
-alias j='julia'
 alias dc='docker compose'
 alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 # }}}
@@ -137,10 +136,10 @@ function yy() {
 if [ -e /home/deck/.nix-profile/etc/profile.d/nix.sh ]; then . /home/deck/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 eval "$(fzf --zsh)"
-eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# fnm
+export PATH="$HOME/.fnm:$PATH"
+eval "$(fnm env --use-on-cd)"
 # }}}
 
 if [[ -f "$HOME/.local/bin/env" ]] then
@@ -152,4 +151,4 @@ fi
 # carapace: autocomplete suggestions for commands
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-source <(carapace _carapace)
+source <(carapace chmod zsh)
