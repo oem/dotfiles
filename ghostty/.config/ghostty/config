@@ -5,7 +5,7 @@ font-thicken = true
 grapheme-width-method = "unicode"
 adjust-cell-height = 35%
 
-theme = Belafonte Night
+theme = Dark Modern
 background = "#000000"
 
 window-padding-x = 30
