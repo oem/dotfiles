@@ -32,6 +32,10 @@ require 'nvim-treesitter.configs'.setup({
     },
     highlight = { enable = true },
     autopairs = { enable = true },
+    -- Enable Tree-sitter based folding
+    fold = {
+        enable = true
+    },
     refactor = {
         highlight_definitions = { enable = true },
         smart_rename = { enable = true, keymaps = { smart_rename = "grr" } }
