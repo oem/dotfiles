@@ -119,10 +119,6 @@ require("mason-lspconfig").setup {
 
 -- Languages
 
--- julia
--- set autoindent to 4 spaces as per styleguide
-cmd [[autocmd FileType julia setlocal shiftwidth=4 tabstop=4 expandtab]]
-
 -- go
 -- don't show ugly tabs
 cmd [[autocmd FileType go setlocal nolist]]
@@ -149,42 +145,6 @@ end)
 cmd [[let g:ale_ruby_rubocop_executable = 'bundle']]
 
 cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
-
-vim.g.ale_fixers = {
-    ruby = { 'rubocop' },
-    rust = {},
-    python = { 'black' },
-    go = { 'gofmt', 'goimports' },
-    javascript = { 'prettier', 'eslint' },
-    typescript = { 'prettier', 'eslint' },
-    vue = { 'prettier', 'eslint' },
-    html = {},
-    elm = { 'elm-format' },
-    -- luarocks install --server=https://luarocks.org/dev luaformatter
-    lua = {},
-    -- stack install ormolu
-    haskell = {},
-    c = {}
-}
--- vim.g.ale_fix_on_save = 1
-vim.g.ale_rust_rustfmt_options = '--edition 2018'
-
-vim.g.ale_linters = {
-    ruby = { 'solargraph', 'standardrb', 'rubocop' },
-    python = {},
-    go = {},
-    c = {},
-    rust = {},
-    lua = {},
-    elm = {},
-    haskell = { 'stack-ghc' },
-    css = {},
-    vue = {},
-    javascript = {},
-    typescript = {}
-}
-vim.g.ale_python_pylint_change_directory = 0
-vim.g.ale_python_flake8_change_directory = 0
 
 -- strip whitespace on save
 vim.g.strip_whitespace_on_save = 1

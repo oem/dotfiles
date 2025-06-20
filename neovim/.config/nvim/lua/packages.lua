@@ -142,9 +142,6 @@ require('lazy').setup({
         "kristijanhusak/vim-dadbod-ui"
     },
 
-    -- Linting and fixing
-    -- 'dense-analysis/ale',
-
     -- Debugging
     'mfussenegger/nvim-dap',
     'leoluz/nvim-dap-go',
