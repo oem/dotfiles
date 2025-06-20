@@ -148,3 +148,8 @@ if [[ -f "$HOME/.local/bin/env" ]] then
 fi
 
 [ -f "/home/oem/.ghcup/env" ] && . "/home/oem/.ghcup/env" # ghcup-env
+
+# carapace: autocomplete suggestions for commands
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
