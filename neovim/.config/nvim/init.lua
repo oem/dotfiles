@@ -141,9 +141,6 @@ vim.keymap.set('n', '<leader>vd', function()
 end)
 
 -- Linting and fixing
--- ALE should run rubocop via bundle exec
-cmd [[let g:ale_ruby_rubocop_executable = 'bundle']]
-
 cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- strip whitespace on save
