@@ -43,7 +43,6 @@
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "popup.nvim": { "branch": "master", "commit": "b7404d35d5d3548a82149238289fa71f7f6de4ac" },
-  "py_lsp.nvim": { "branch": "main", "commit": "63169f3c63896e1286ffdfe06642cab55eaa6b3c" },
   "render-markdown.nvim": { "branch": "main", "commit": "b8ee8bcefd6f5319beb7d3df5237c68e5c5376ac" },
   "rustaceanvim": { "branch": "master", "commit": "b554761a920d807c3a7e8388d0dd34205ae4fd0d" },
   "sql.nvim": { "branch": "master", "commit": "50092d60feb242602d7578398c6eb53b4a8ffe7b" },
