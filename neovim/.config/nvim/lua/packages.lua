@@ -135,25 +135,6 @@ require('lazy').setup({
         event = 'InsertEnter *'
     },
 
-    -- DB
-    {
-        "tpope/vim-dadbod",
-        "kristijanhusak/vim-dadbod-completion",
-        "kristijanhusak/vim-dadbod-ui"
-    },
-
-    -- Debugging
-    'mfussenegger/nvim-dap',
-    'leoluz/nvim-dap-go',
-    {
-        "rcarriga/nvim-dap-ui",
-        dependencies = {
-            "mfussenegger/nvim-dap",
-            "nvim-neotest/nvim-nio"
-        },
-        config = [[require('config.dap')]]
-    },
-
     -- Highlights
     {
         'nvim-treesitter/nvim-treesitter',
