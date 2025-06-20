@@ -5,7 +5,7 @@ font-thicken = true
 grapheme-width-method = "unicode"
 adjust-cell-height = 35%
 
-theme = farmhouse-dark
+theme = Belafonte Night
 background = "#000000"
 
 window-padding-x = 30
@@ -17,7 +17,8 @@ gtk-titlebar = false
 gtk-adwaita = false
 mouse-hide-while-typing = true
 window-decoration = false
-cursor-style = block
+cursor-style-blink = true
+adjust-cursor-thickness = 12
 gtk-titlebar-hide-when-maximized = true
 
 quit-after-last-window-closed = true
