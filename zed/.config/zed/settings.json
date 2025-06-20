@@ -19,8 +19,8 @@
     "version": "2"
   },
   "features": {
-    "edit_prediction_provider": "supermaven"
-  },
+        "edit_prediction_provider": "zed"
+    },
   "theme": "Amber Monochrome Monitor CRT Phosphor Dark III",
   "ui_font_size": 18,
   "ui_font_family": "Berkeley Mono Variable",
