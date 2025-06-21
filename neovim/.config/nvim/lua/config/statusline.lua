@@ -116,7 +116,7 @@ basic.git = {
             return {
                 { git_comps.diff_added({ format = '  %s', show_zero = true }), 'green' },
                 { git_comps.diff_removed({ format = '  %s', show_zero = true }), 'red' },
-                { git_comps.diff_changed({ format = '  %s', show_zero = true }), 'blue' },
+                { git_comps.diff_changed({ format = '  %s', show_zero = true }), 'white' },
             }
         end
         return ''
