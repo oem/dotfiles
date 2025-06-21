@@ -19,11 +19,11 @@ basic.divider = { b_components.divider, '' }
 basic.bg = { ' ', 'StatusLine' }
 
 local colors_mode = {
-    Normal = { 'red', 'black' },
+    Normal = { 'white', 'black' },
     Insert = { 'green', 'black' },
     Visual = { 'yellow', 'black' },
     Replace = { 'blue_light', 'black' },
-    Command = { 'magenta', 'black' },
+    Command = { 'red', 'black' },
 }
 
 basic.vi_mode = {
@@ -52,8 +52,8 @@ basic.lsp_diagnos = {
         if lsp_comps.check_lsp(bufnr) then
             return {
                 { lsp_comps.lsp_error({ format = '  %s', show_zero = true }), 'red' },
-                { lsp_comps.lsp_warning({ format = '  %s', show_zero = true }), 'yellow' },
-                { lsp_comps.lsp_hint({ format = '  %s', show_zero = true }), 'blue' },
+                { lsp_comps.lsp_warning({ format = '  %s', show_zero = true }), 'white' },
+                { lsp_comps.lsp_hint({ format = '  %s', show_zero = true }), 'white' },
             }
         end
         return ''
