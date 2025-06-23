@@ -18,9 +18,18 @@
     },
     "version": "2"
   },
+  "context_servers": {
+    "Context7": {
+      "command": {
+        "path": "npx",
+        "args": ["-y", "@upstash/context7-mcp"]
+      },
+      "settings": {}
+    }
+  },
   "features": {
-        "edit_prediction_provider": "zed"
-    },
+    "edit_prediction_provider": "zed"
+  },
   "theme": "Amber Monochrome Monitor CRT Phosphor Dark III",
   "ui_font_size": 18,
   "ui_font_family": "Berkeley Mono Variable",
