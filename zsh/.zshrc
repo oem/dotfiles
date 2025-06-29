@@ -53,7 +53,7 @@ export SSH_ENV="$HOME/.ssh/environment"
 export WARP_ENABLE_TELEMETRY=0
 export WARP_HONOR_PS1=1
 
-# export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#d0d0d0,bg:#000000,hl:#0080ff --color=fg+:#000000,bg+:#ffffff,hl+:#5fd7ff --color=info:#81fa00,prompt:#ffffff,pointer:#0080ff --color=marker:#81fa00,spinner:#ffffff,header:#ffffff'
 # }}}
 
 # path {{{
