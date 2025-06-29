@@ -24,18 +24,25 @@
 * julia
 * and many more things, check out the top-level folders of this repo `ls -lA`
 
-These dotfiles use stow to setup everything.
+These dotfiles use `stow` to setup everything.
 
 To make this work seamlessly, clone this repo in a directory in your home directory, so that it will for example end up in `/home/you/dotfiles`.
 
 So, for example:
 
-```
+```sh
 cd
 git clone https://github.com/oem/dotfiles.git
 ```
 
-Then run stow on all the configs you want, or all, like this:
+Then run stow on the configs you are interested in:
+
+```sh
+stow neovim
+stow tmux
+```
+
+or all, like this:
 
 `./install`
 
