@@ -11,12 +11,18 @@
 
 * emacs
 * neovim
+* zed
 * urxvt / xorg
 * tmux
 * fish
+* zsh
 * alacritty
+* ghostty
+* wezterm
+* warp
 * qutebrowser
 * julia
+* and many more things, check out the top-level folders of this repo `ls -lA`
 
 These dotfiles use stow to setup everything.
 
