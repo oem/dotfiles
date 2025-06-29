@@ -6,6 +6,7 @@ grapheme-width-method = "unicode"
 adjust-cell-height = 30%
 
 theme = IR_Black
+background = #000000
 
 window-padding-x = 30
 window-padding-y = 30
