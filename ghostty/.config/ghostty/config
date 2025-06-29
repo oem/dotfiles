@@ -3,7 +3,7 @@ font-style = Regular
 font-size = 16
 # font-thicken = true
 grapheme-width-method = "unicode"
-adjust-cell-height = 35%
+adjust-cell-height = 30%
 
 theme = IR_Black
 
