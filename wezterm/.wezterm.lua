@@ -20,6 +20,8 @@ config.line_height = 1.2
 
 local custom_theme = wezterm.color.get_builtin_schemes()['Isotope (base16)']
 custom_theme.background = 'black'
+custom_theme.brights[1] = "#000000";
+
 config.color_schemes = {
     ["Custom Theme"] = custom_theme
 }
