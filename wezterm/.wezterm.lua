@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 config.font = wezterm.font_with_fallback {
-    { family = "Berkeley Mono",          weight = "Black" },
+    { family = "Berkeley Mono",          weight = "Regular" },
     { family = "FiraCode Nerd Font Mono" },
 }
 

@@ -3,10 +3,11 @@ font-style = Regular
 font-size = 16
 # font-thicken = true
 grapheme-width-method = "unicode"
-adjust-cell-height = 30%
+adjust-cell-height = 25%
 
 theme = IR_Black
 background = #000000
+palette = 0=#000000
 
 window-padding-x = 30
 window-padding-y = 30
