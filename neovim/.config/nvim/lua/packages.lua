@@ -225,10 +225,6 @@ require('lazy').setup({
     'reedes/vim-colors-pencil',
     'NLKNguyen/papercolor-theme',
     {
-        "jackplus-xyz/binary.nvim",
-        opts = {}
-    },
-    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000

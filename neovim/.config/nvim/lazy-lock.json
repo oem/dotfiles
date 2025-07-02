@@ -1,7 +1,6 @@
 {
   "Nvim-R": { "branch": "master", "commit": "eb97bf7c88480b9f00b6765c09c3886550ed8d43" },
   "arachne.nvim": { "branch": "main", "commit": "69df75c24091c8fe9ca5287a12ade37916667198" },
-  "binary.nvim": { "branch": "main", "commit": "0a0422551dfc9e8b02c00b133f63d72a75938d81" },
   "catppuccin": { "branch": "main", "commit": "fa42eb5e26819ef58884257d5ae95dd0552b9a66" },
   "claudecode.nvim": { "branch": "main", "commit": "2603ec0b59857bb9329223f18705241dd615bbef" },
   "cmp-buffer": { "branch": "main", "commit": "b74fab3656eea9de20a9b8116afa3cfc4ec09657" },
