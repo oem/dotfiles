@@ -233,8 +233,8 @@ require('lazy').setup({
     "oem/monobold.nvim",
     'onsails/lspkind-nvim',
     'morhetz/gruvbox',
-    "nvim-tree/nvim-web-devicons",
-    "nyoom-engineering/oxocarbon.nvim",
+    'nvim-tree/nvim-web-devicons',
+    'nyoom-engineering/oxocarbon.nvim',
     {
         'folke/noice.nvim',
         dependencies = {
