@@ -143,13 +143,6 @@ autocmd('LineNr', {
 -- Load the colorscheme
 vim.cmd.colorscheme("monobold")
 
--- Or configure it first
-require("monobold").setup({
-    style = "system",
-    bold_syntax = true,
-})
--- require("monobold").load()
-
 -- lsp signs
 cmd [[
     sign define DiagnosticSignError text=● linehl= texthl=DiagnosticSignError numhl=
