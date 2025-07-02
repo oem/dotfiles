@@ -11,15 +11,23 @@
   "diagnostics": {
     "inline": { "enabled": true }
   },
+  "title_bar": { "show_user_picture": false },
   "agent": {
     "default_model": {
-      "provider": "ollama",
-      "model": "qwen2.5-coder:32b"
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
     },
     "version": "2"
   },
   "context_servers": {
+    "mcp-server-context7": {
+      "source": "extension",
+      "settings": {
+        "default_minimum_tokens": "10000"
+      }
+    },
     "Context7": {
+      "source": "custom",
       "command": {
         "path": "npx",
         "args": ["-y", "@upstash/context7-mcp"]
