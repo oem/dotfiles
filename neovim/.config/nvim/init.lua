@@ -140,6 +140,16 @@ autocmd('LineNr', {
     'WinLeave * setlocal nornu nu'
 }, true)
 
+-- Load the colorscheme
+vim.cmd.colorscheme("monobold")
+
+-- Or configure it first
+require("monobold").setup({
+    style = "system",
+    bold_syntax = true,
+})
+-- require("monobold").load()
+
 -- lsp signs
 cmd [[
     sign define DiagnosticSignError text=● linehl= texthl=DiagnosticSignError numhl=
@@ -149,7 +159,7 @@ cmd [[
 ]]
 
 -- colors
-vim.api.nvim_command "colo binary"
+-- vim.api.nvim_command "colo binary"
 vim.api.nvim_set_hl(0, 'SignColumn', { bg = "none" })
 vim.api.nvim_set_hl(0, 'DiagnosticError', { fg = "#cf001e" })
 vim.api.nvim_set_hl(0, 'DiagnosticSignError', { fg = "#cf001e" })

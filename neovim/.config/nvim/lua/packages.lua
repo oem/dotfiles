@@ -234,6 +234,7 @@ require('lazy').setup({
         priority = 1000
     },
     'folke/tokyonight.nvim',
+    "oem/monobold.nvim",
     'onsails/lspkind-nvim',
     'morhetz/gruvbox',
     "nvim-tree/nvim-web-devicons",
