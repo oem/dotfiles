@@ -7,6 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "terminal": {
+    "dock": "right"
+  },
   "soft_wrap": "editor_width",
   "diagnostics": {
     "inline": { "enabled": true }
