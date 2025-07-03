@@ -33,6 +33,7 @@ emacs/elpa
 emacs/auto-save-list
 emacs/.emacs.gnu
 neovim/.config/nvim/plugin/packer_compiled.lua
+neovim/.config/nvim/lazy-lock.json
 julia/.julia/logs
 ghostty/.config/ghostty/ghostty-shaders/
 zed/.config/zed/prompts
