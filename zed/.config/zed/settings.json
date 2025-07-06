@@ -14,6 +14,7 @@
   "diagnostics": {
     "inline": { "enabled": true }
   },
+  "format_on_save": "on",
   "title_bar": { "show_user_picture": false },
   "agent": {
     "default_model": {
@@ -41,20 +42,26 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
   "theme": "Amber Monochrome Monitor CRT Phosphor Dark III",
   "ui_font_size": 18,
   "ui_font_family": "Berkeley Mono Variable",
   "buffer_font_size": 16,
   "remove_trailing_whitespace_on_save": true,
   "buffer_font_family": "Berkeley Mono",
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
-  },
   "scrollbar": { "show": "never" },
   "vim_mode": true,
   "vim": {
     "toggle_relative_line_numbers": true
+  },
+  "vertical_scroll_margin": 0,
+  "tab_bar": { "show": true },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
   },
   "languages": {
     "Python": {

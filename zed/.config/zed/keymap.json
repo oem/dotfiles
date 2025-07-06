@@ -12,5 +12,31 @@
       "f d": ["workspace::SendKeystrokes", "escape"],
       "] g": "editor::GoToHunk"
     }
+  },
+  {
+    "context": "Dock || Terminal || Editor",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "space t": "workspace::NewCenterTerminal"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-k": [
+        "projects::OpenRecent",
+        {
+          "create_new_window": false
+        }
+      ]
+    }
   }
 ]

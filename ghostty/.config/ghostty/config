@@ -10,7 +10,7 @@ background = #000000
 palette = 0=#000000
 
 window-padding-x = 30
-window-padding-y = 30
+window-padding-y = 35
 macos-non-native-fullscreen = true
 maximize = true
 fullscreen = true
