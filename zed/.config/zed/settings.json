@@ -10,6 +10,9 @@
   "terminal": {
     "dock": "right"
   },
+  "inlay_hints": {
+    "enabled": true
+  },
   "soft_wrap": "editor_width",
   "diagnostics": {
     "inline": { "enabled": true }
