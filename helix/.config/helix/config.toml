@@ -1,0 +1,32 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+mouse = false
+auto-completion = true
+auto-save = true
+auto-format = true
+text-width = 80
+gutters = ["diff", "diagnostics", "line-numbers", "spacer"]
+soft-wrap.enable = true
+soft-wrap.max-indent-retain = 80
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["mode", "spinner", "file-modification-indicator", "read-only-indicator"]
+center = ["file-name"]
+right = [
+    "diagnostics",
+    "register",
+    "selections",
+    "position",
+    "file-encoding",
+    "file-line-ending",
+    "file-type",
+]
+separator = "│"
+mode.normal = "LOCKED"
+mode.insert = "WORKING"
+mode.select = "VISUAL SEL"
