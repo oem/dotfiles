@@ -84,7 +84,7 @@ bo.expandtab = true -- we need to overwrite this for go buffers
 -- LSP
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "rust_analyzer", "clangd" }
+    ensure_installed = { "lua_ls", "clangd" }
 })
 
 vim.lsp.config('lua_ls', {
