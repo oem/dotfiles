@@ -41,7 +41,7 @@ export GOSUMDB="sum.golang.org"
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export GOROOT=$(brew --prefix go)/libexec
 else
-    export GOROOT=$HOME/go
+    export GOROOT=$HOME/src/go
     export PATH=$PATH:$GOROOT/bin
 fi
 
