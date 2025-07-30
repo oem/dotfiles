@@ -41,8 +41,8 @@ export GOSUMDB="sum.golang.org"
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export GOROOT=$(brew --prefix go)/libexec
 else
-    export GOROOT=$HOME/src/go
-    export PATH=$PATH:$GOROOT/bin
+    export GOROOT=/usr/lib/go
+    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
 export PYENV_ROOT="$HOME/.pyenv"
