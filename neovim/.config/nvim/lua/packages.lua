@@ -72,6 +72,16 @@ require('lazy').setup({
 
     -- LSP
     {
+        'neovim/nvim-lspconfig',
+        dependencies = { 'saghen/blink.cmp' },
+        config = function()
+            local capabilities = require('blink.cmp').get_lsp_capabilities()
+            local lspconfig = require('lspconfig')
+
+            lspconfig['lua_ls'].setup({ capabilities = capabilities })
+        end
+    },
+    {
         {
             'mason-org/mason-lspconfig.nvim',
             dependencies = {
@@ -114,25 +124,16 @@ require('lazy').setup({
     },
 
     -- Completion
-    { "rafamadriz/friendly-snippets" },
+    {
+        'saghen/blink.cmp',
+        dependencies = { 'rafamadriz/friendly-snippets' },
+        version = '1.*',
+        opts = { keymap = { preset = 'super-tab' } }
+    },
     {
         'l3mon4d3/luasnip',
         config = function() require("config.luasnip") end,
         dependencies = { "rafamadriz/friendly-snippets" }
-    },
-    {
-        'hrsh7th/nvim-cmp',
-        dependencies = {
-            'l3mon4d3/luasnip', {
-            'hrsh7th/cmp-buffer',
-            'nvim-cmp',
-        }, 'hrsh7th/cmp-nvim-lsp',
-            { 'hrsh7th/cmp-path',         dependencies = { 'nvim-cmp' } },
-            { 'hrsh7th/cmp-nvim-lua',     dependencies = { 'nvim-cmp' } },
-            { 'saadparwaiz1/cmp_luasnip', dependencies = { 'nvim-cmp' } },
-        },
-        config = function() require("config.cmp") end,
-        event = 'InsertEnter *'
     },
 
     -- Highlights
