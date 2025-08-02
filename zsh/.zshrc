@@ -157,3 +157,4 @@ fi
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace chmod zsh)
+eval "$(zoxide init zsh)"
