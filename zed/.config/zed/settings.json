@@ -23,8 +23,7 @@
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4"
-    },
-    "version": "2"
+    }
   },
   "context_servers": {
     "mcp-server-context7": {
@@ -35,11 +34,8 @@
     },
     "Context7": {
       "source": "custom",
-      "command": {
-        "path": "npx",
-        "args": ["-y", "@upstash/context7-mcp"]
-      },
-      "settings": {}
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
     }
   },
   "features": {
@@ -63,7 +59,7 @@
   "vertical_scroll_margin": 0,
   "tab_bar": { "show": true },
   "toolbar": {
-    "breadcrumbs": false,
+    "breadcrumbs": true,
     "quick_actions": false
   },
   "languages": {
