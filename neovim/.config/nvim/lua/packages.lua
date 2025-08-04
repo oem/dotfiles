@@ -78,7 +78,7 @@ require('lazy').setup({
             local capabilities = require('blink.cmp').get_lsp_capabilities()
             local lspconfig = require('lspconfig')
 
-            lspconfig['lua_ls'].setup({ capabilities = capabilities })
+            lspconfig['lua_ls'].setup({ capabilities = capabilities, settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
         end
     },
     {
