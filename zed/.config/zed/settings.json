@@ -26,6 +26,12 @@
     }
   },
   "context_servers": {
+    "figma": {
+      "source": "custom",
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "http://127.0.0.1:3845/sse"],
+      "env": {}
+    },
     "mcp-server-context7": {
       "source": "extension",
       "settings": {
