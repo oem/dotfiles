@@ -11,8 +11,6 @@ setxkbmap -option "ctrl:nocaps"
 
 xbindkeys &
 
-~/.fehbg &
-
 unclutter &
 
 exec /home/oem/.dotfiles/dwm-statusbar &
