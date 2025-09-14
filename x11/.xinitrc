@@ -4,7 +4,7 @@ xset -b # deactivate pc speaker
 xset r rate 200 50
 xset +fp /usr/share/fonts/local
 
-xsetroot -solid "#1c1c1c"
+xsetroot -solid "#000000"
 
 setxkbmap us mac
 setxkbmap -option "ctrl:nocaps"
