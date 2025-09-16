@@ -1,0 +1,1 @@
+ble-bind -c 'C-o' 'as-session'
