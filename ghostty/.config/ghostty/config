@@ -5,7 +5,7 @@ font-size = 16
 grapheme-width-method = "unicode"
 adjust-cell-height = 25%
 
-theme = IR_Black
+theme = IR Black
 background = #000000
 palette = 0=#000000
 
@@ -15,7 +15,6 @@ macos-non-native-fullscreen = true
 maximize = true
 fullscreen = true
 gtk-titlebar = false
-gtk-adwaita = false
 mouse-hide-while-typing = true
 window-decoration = false
 cursor-style-blink = true
