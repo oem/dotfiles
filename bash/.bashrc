@@ -57,14 +57,11 @@ alias ic='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 # integrations with external tools {{{
 eval "$(starship init bash)"
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
-source <(carapace _carapace)
+source <(carapace _carapace bash)
 eval "$(zoxide init bash)"
 
 [[ $- == *i* ]] && source /usr/share/blesh/ble.sh
 
 eval "$(fzf --bash)"
-# }}}
-
-# keybindings {{{
 # }}}
 
