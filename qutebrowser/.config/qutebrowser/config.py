@@ -17,9 +17,16 @@ interceptor.register(filter_yt)
 config.load_autoconfig()
 config.bind(",m", "spawn mpv --hwdec=auto --ytdl-format=best {url}")
 config.bind(",M", "hint links spawn mpv --hwdec=auto {hint-url}")
-config.set("colors.webpage.darkmode.enabled", True)
+
+# darkmode
+c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
+c.colors.webpage.darkmode.policy.images = 'never'
+config.set('colors.webpage.darkmode.enabled', False, 'file://*')
 
 c.zoom.default = "150%"
 c.fonts.default_size = "16pt"
 c.fonts.default_family = ["Berkeley Mono"]
 c.fonts.web.family.fixed = "Berkeley Mono"
+c.auto_save.session = True
+c.content.blocking.enabled = True
