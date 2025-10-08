@@ -57,6 +57,8 @@ export WARP_HONOR_PS1=1
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'  --no-color --black'
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
 # }}}
 
 # path {{{
