@@ -24,6 +24,12 @@ c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.colors.webpage.darkmode.policy.images = 'never'
 config.set('colors.webpage.darkmode.enabled', False, 'file://*')
 
+# completion
+c.colors.completion.even.bg = "#000000"
+c.colors.completion.odd.bg = "#000000"
+c.colors.completion.category.bg = "#FF4500"
+c.colors.completion.category.fg = "#000000"
+
 c.zoom.default = "150%"
 c.fonts.default_size = "16pt"
 c.fonts.default_family = ["Berkeley Mono"]
