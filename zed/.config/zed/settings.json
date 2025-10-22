@@ -26,6 +26,13 @@
     }
   },
   "context_servers": {
+    "mcp-server-brave-search": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {
+        "brave_api_key": "YOUR_API_KEY"
+      }
+    },
     "figma": {
       "source": "custom",
       "command": "npx",
@@ -53,8 +60,8 @@
   },
   "theme": "Nixdorf 8870 Dark",
   "ui_font_size": 18,
-  "ui_font_family": "Berkeley Mono Variable",
-  "buffer_font_size": 16,
+  "ui_font_family": "Berkeley Mono",
+  "buffer_font_size": 20,
   "remove_trailing_whitespace_on_save": true,
   "buffer_font_family": "Berkeley Mono",
   "scrollbar": { "show": "never" },
