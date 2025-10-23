@@ -143,16 +143,21 @@ autocmd('LineNr', {
 -- Load the colorscheme
 vim.cmd.colorscheme("monobold")
 
--- lsp signs
-cmd [[
-    sign define DiagnosticSignError text=● linehl= texthl=DiagnosticSignError numhl=
-    sign define DiagnosticSignWarn text=● linehl= texthl=DiagnosticSignWarn numhl=
-    sign define DiagnosticSignInfo text=● linehl= texthl=DiagnosticSignInfo numhl=
-    sign define DiagnosticSignHint text=●  linehl= texthl=DiagnosticSignHint numhl=
-]]
+-- vim diagnostics / lsp signs
+vim.diagnostic.config({
+    virtual_text = false,
+    signs = {
+        active = true,
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN]  = "",
+            [vim.diagnostic.severity.HINT]  = "󰟃",
+            [vim.diagnostic.severity.INFO]  = "",
+        }
+    }
+})
 
 -- colors
--- vim.api.nvim_command "colo binary"
 vim.api.nvim_set_hl(0, 'SignColumn', { bg = "none" })
 vim.api.nvim_set_hl(0, 'DiagnosticError', { fg = "#cf001e" })
 vim.api.nvim_set_hl(0, 'DiagnosticSignError', { fg = "#cf001e" })
