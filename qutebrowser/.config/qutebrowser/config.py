@@ -30,6 +30,12 @@ c.colors.completion.odd.bg = "#000000"
 c.colors.completion.category.bg = "#FF4500"
 c.colors.completion.category.fg = "#000000"
 
+# tabs
+c.colors.tabs.even.bg = "#1f1f1f"
+c.colors.tabs.odd.bg = "#000000"
+c.colors.tabs.selected.even.bg = "#002c9b"
+c.colors.tabs.selected.odd.bg = "#002c9b"
+
 c.zoom.default = "150%"
 c.fonts.default_size = "16pt"
 c.fonts.default_family = ["Berkeley Mono"]
