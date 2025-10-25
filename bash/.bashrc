@@ -67,5 +67,4 @@ eval "$(fzf --bash)"
 
 
 [ -f /etc/bash_completion ] && . /etc/bash_completion
-source ~/.local/share/bash-completion/completions/pass
-
+source /usr/share/bash-completion/completions/pass
