@@ -62,9 +62,9 @@ eval "$(zoxide init bash)"
 
 [[ $- == *i* ]] && source /usr/share/blesh/ble.sh
 
+[ -f /etc/bash_completion ] && . /etc/bash_completion
+source /usr/share/bash-completion/completions/pass
+
 eval "$(fzf --bash)"
 # }}}
 
-
-[ -f /etc/bash_completion ] && . /etc/bash_completion
-source /usr/share/bash-completion/completions/pass
