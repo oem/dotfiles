@@ -9,16 +9,16 @@ theme = IR Black
 background = #000000
 palette = 0=#000000
 
-window-padding-x = 30
-window-padding-y = 35
+# window-padding-x = 30
+# window-padding-y = 35
 macos-non-native-fullscreen = true
 maximize = true
-fullscreen = true
+# fullscreen = true
 gtk-titlebar = false
 mouse-hide-while-typing = true
 window-decoration = false
 cursor-style-blink = true
-adjust-cursor-thickness = 2
+adjust-cursor-thickness = 1
 gtk-titlebar-hide-when-maximized = true
 
 quit-after-last-window-closed = true
