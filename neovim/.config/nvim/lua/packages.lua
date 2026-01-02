@@ -122,7 +122,10 @@ require('lazy').setup({
     },
     {
         'l3mon4d3/luasnip',
-        config = function() require("config.luasnip") end,
+        build = "make install_jsregexp",
+        config = function()
+            require("config.snippets")
+        end,
         dependencies = { "rafamadriz/friendly-snippets" }
     },
 
