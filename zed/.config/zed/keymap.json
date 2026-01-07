@@ -7,9 +7,14 @@
 // from the command palette.
 [
   {
-    "context": "Editor",
+    "context": "Editor && vim_mode == insert",
     "bindings": {
       "f d": ["workspace::SendKeystrokes", "escape"],
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
       "] g": "editor::GoToHunk"
     }
   },
