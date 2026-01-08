@@ -112,7 +112,6 @@ cmd [[autocmd BufNewFile,BufRead *.html set filetype=html]]
 
 -- code navigation
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
-map('n', '<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<cr>', options)
 
 vim.keymap.set('n', '<leader>vd', function()
     vim.diagnostic.open_float({
