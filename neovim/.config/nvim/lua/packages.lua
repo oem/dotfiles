@@ -190,6 +190,11 @@ require('lazy').setup({
         ft = { "go", "gomod" },
     },
 
+    -- typescript
+    {
+        'pmizio/typescript-tools.nvim'
+    },
+
     -- lua
     'tjdevries/nlua.nvim',
 
