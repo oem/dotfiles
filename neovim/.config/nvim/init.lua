@@ -7,28 +7,28 @@ local wo = vim.wo
 local exec = vim.api.nvim_exec -- execute Vimscript
 
 -- Keybindings
-local map = require('config.utils').map
-local autocmd = require('config.utils').autocmd
+local map = require("config.utils").map
+local autocmd = require("config.utils").autocmd
 local options = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-map('i', 'fd', [[<esc>]], options)                                  -- alternative escape
-map('c', '%%', [[<C-R>=expand('%:h').'/'<cr>]], { noremap = true }) -- current dir
-map('n', '<leader><leader>', [[<c-^>]], options)                    -- toggle between buffers
-map('n', '<C-u>', '<C-u>zz', options)
-map('n', '<C-d>', '<C-d>zz', options)
+map("i", "fd", [[<esc>]], options) -- alternative escape
+map("c", "%%", [[<C-R>=expand('%:h').'/'<cr>]], { noremap = true }) -- current dir
+map("n", "<leader><leader>", [[<c-^>]], options) -- toggle between buffers
+map("n", "<C-u>", "<C-u>zz", options)
+map("n", "<C-d>", "<C-d>zz", options)
 
 -- folding
-o.foldcolumn = '0'
+o.foldcolumn = "0"
 o.foldlevel = 99
 o.foldlevelstart = 99
-o.foldmethod = 'expr'
-o.foldexpr = 'nvim_treesitter#foldexpr()'
+o.foldmethod = "expr"
+o.foldexpr = "nvim_treesitter#foldexpr()"
 o.foldenable = true
 
 -- Some helpers
-require('oem.globals')
+require("oem.globals")
 
 -- Options
 -- global options
@@ -39,7 +39,7 @@ o.wb = false
 o.encoding = "utf-8"
 o.hlsearch = false
 o.incsearch = true
-o.clipboard = 'unnamedplus' -- uses CLIPBOARD (^C)
+o.clipboard = "unnamedplus" -- uses CLIPBOARD (^C)
 o.tabstop = 4
 o.shiftwidth = 4
 o.backspace = "indent,eol,start"
@@ -59,15 +59,18 @@ o.background = "dark"
 -- opt.listchars = { space = "·" }
 
 -- packages
-require('packages')
+require("packages")
 
 -- highlight on yank
-exec([[
+exec(
+	[[
   augroup YankHighlight
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=500}
   augroup end
-]], false)
+]],
+	false
+)
 
 -- Memory/CPU
 o.hidden = true
@@ -84,71 +87,71 @@ bo.expandtab = true -- we need to overwrite this for go buffers
 -- LSP
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "clangd" }
+	ensure_installed = { "lua_ls", "clangd" },
 })
 
-vim.lsp.config('lua_ls', {
-    settings = {
-        Lua = {
-            diagnostics = { globals = { 'vim', 'use' } },
-            telemetry = {
-                enable = false,
-            },
-        }
-    }
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			diagnostics = { globals = { "vim", "use" } },
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
 })
 
-vim.lsp.config('ts_ls', {
-    init_options = {
-        plugins = {
-            {
-                name = '@vue/typescript-plugin',
-                location = vim.fn.stdpath 'data' ..
-                    '/mason/packages/vue-language-server/node_modules/@vue/language-server',
-                languages = { 'vue' },
-            },
-        },
-    },
-    filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-    settings = {
-        typescript = {
-            tsserver = {
-                useSyntaxServer = false,
-            },
-            inlayHints = {
-                includeInlayParameterNameHints = 'all',
-                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-            },
-        },
-    },
+vim.lsp.config("ts_ls", {
+	init_options = {
+		plugins = {
+			{
+				name = "@vue/typescript-plugin",
+				location = vim.fn.stdpath("data")
+					.. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+				languages = { "vue" },
+			},
+		},
+	},
+	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+	settings = {
+		typescript = {
+			tsserver = {
+				useSyntaxServer = false,
+			},
+			inlayHints = {
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+	},
 })
 
 -- Languages
 
 -- go
 -- don't show ugly tabs
-cmd [[autocmd FileType go setlocal nolist]]
+cmd([[autocmd FileType go setlocal nolist]])
 
 -- ruby
-cmd [[autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby]]
+cmd([[autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby]])
 
 -- html
-cmd [[autocmd BufNewFile,BufRead *.html set filetype=html]]
+cmd([[autocmd BufNewFile,BufRead *.html set filetype=html]])
 
 -- code navigation
-map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
+map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", options)
 
-vim.keymap.set('n', '<leader>vd', function()
-    vim.diagnostic.open_float({
-        height = 20,
-        width = 100,
-    })
+vim.keymap.set("n", "<leader>vd", function()
+	vim.diagnostic.open_float({
+		height = 20,
+		width = 100,
+	})
 end)
 
 -- Linting and fixing
@@ -160,14 +163,14 @@ vim.g.strip_whitespace_confirm = 0
 
 -- UI
 -- Cursorlines
-autocmd('CursorLine', {
-    'VimEnter,WinEnter,BufWinEnter * setlocal cursorline',
-    'WinLeave * setlocal nocursorline'
+autocmd("CursorLine", {
+	"VimEnter,WinEnter,BufWinEnter * setlocal cursorline",
+	"WinLeave * setlocal nocursorline",
 }, true)
 
-autocmd('LineNr', {
-    'VimEnter,WinEnter,BufWinEnter * setlocal nu rnu',
-    'WinLeave * setlocal nornu nu'
+autocmd("LineNr", {
+	"VimEnter,WinEnter,BufWinEnter * setlocal nu rnu",
+	"WinLeave * setlocal nornu nu",
 }, true)
 
 -- Load the colorscheme
@@ -175,21 +178,21 @@ vim.cmd.colorscheme("monobold")
 
 -- vim diagnostics / lsp signs
 vim.diagnostic.config({
-    virtual_text = false,
-    signs = {
-        active = true,
-        text = {
-            [vim.diagnostic.severity.ERROR] = "",
-            [vim.diagnostic.severity.WARN]  = "",
-            [vim.diagnostic.severity.HINT]  = "󰟃",
-            [vim.diagnostic.severity.INFO]  = "",
-        }
-    }
+	virtual_text = false,
+	signs = {
+		active = true,
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.HINT] = "󰟃",
+			[vim.diagnostic.severity.INFO] = "",
+		},
+	},
 })
 
 -- colors
-vim.api.nvim_set_hl(0, 'SignColumn', { bg = "none" })
-vim.api.nvim_set_hl(0, 'DiagnosticError', { fg = "#cf001e" })
-vim.api.nvim_set_hl(0, 'DiagnosticSignError', { fg = "#cf001e" })
-vim.api.nvim_set_hl(0, 'RenderMarkdownCode', { fg = "#ff5700" })
-vim.api.nvim_set_hl(0, 'RenderMarkdownCodeInline', { fg = "#ff5700" })
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#cf001e" })
+vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#cf001e" })
+vim.api.nvim_set_hl(0, "RenderMarkdownCode", { fg = "#ff5700" })
+vim.api.nvim_set_hl(0, "RenderMarkdownCodeInline", { fg = "#ff5700" })
