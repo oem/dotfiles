@@ -1,7 +1,7 @@
 font-family = Berkeley Mono
 font-family-bold = Berkeley Mono Black
 font-size = 16
-# font-thicken = true
+font-thicken = true
 grapheme-width-method = "unicode"
 adjust-cell-height = 25%
 
