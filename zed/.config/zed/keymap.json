@@ -15,7 +15,8 @@
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
         "bindings": {
-          "space space": "pane::AlternateFile"
+          "space space": "pane::AlternateFile",
+          "space b": "tab_switcher::ToggleAll",
         }
   },
   {
