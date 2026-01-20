@@ -120,16 +120,18 @@ require('lazy').setup({
         config = function()
             require('conform').setup({
                 formatters_by_ft = {
-                    typescript = { "prettier", "biome" },
-                    javascript = { "prettier", "biome" },
-                    vue = { "prettier", "biome" },
+                    typescript = { "prettier", "biome", "biome-organize-imports" },
+                    typescriptreact = { "prettier", "biome", "biome-organize-imports" },
+                    javascript = { "prettier", "biome", "biome-organize-imports" },
+                    javascriptreact = { "prettier", "biome", "biome-organize-imports" },
+                    vue = { "prettier", "biome", "biome-organize-imports" },
                     css = { "prettier" },
                     html = { "prettier" },
                 },
                 format_on_save = {
                     -- These options will be passed to conform.format()
                     timeout_ms = 500,
-                    lsp_format = "fallback",
+                    lsp_format = "never",
                 },
             })
         end

@@ -152,7 +152,7 @@ vim.keymap.set('n', '<leader>vd', function()
 end)
 
 -- Linting and fixing
-cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+-- cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- strip whitespace on save
 vim.g.strip_whitespace_on_save = 1
