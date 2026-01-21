@@ -132,6 +132,7 @@ require("lazy").setup({
 					typescriptreact = { "prettier", "biome", "biome-organize-imports" },
 					javascript = { "prettier", "biome", "biome-organize-imports" },
 					javascriptreact = { "prettier", "biome", "biome-organize-imports" },
+					json = { "biome" },
 					vue = { "prettier", "biome", "biome-organize-imports" },
 					css = { "prettier" },
 					html = { "prettier" },
