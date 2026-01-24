@@ -181,6 +181,16 @@ require("lazy").setup({
 		end,
 		build = ":TSUpdate",
 	},
+	{
+		"jmbuhr/otter.nvim",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
+		opts = {},
+		config = function()
+			require("otter").setup({})
+		end,
+	},
 
 	-- Some additional functionality on top of lsp
 	-- rust
