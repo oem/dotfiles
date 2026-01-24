@@ -139,6 +139,9 @@ require("lazy").setup({
 					go = { "goimports", "gofmt" },
 					rust = { "rustfmt" },
 					lua = { "stylua" },
+					bash = { "shfmt" },
+					sh = { "shfmt" },
+					haskell = { "ormolu" },
 				},
 				format_on_save = {
 					-- These options will be passed to conform.format()
