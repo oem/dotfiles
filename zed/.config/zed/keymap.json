@@ -14,12 +14,25 @@
   },
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
-        "bindings": {
-          "space space": "pane::AlternateFile",
-          "space b": "tab_switcher::ToggleAll",
-
-          "space x": "editor::ToggleDiagnostics"
-        }
+    "bindings": {
+      "space f": "file_finder::Toggle",
+      "space space": "pane::AlternateFile",
+      "space b": "tab_switcher::ToggleAll",
+      "space s s": "pane::DeploySearch",
+      "space s b": "buffer_search::Deploy",
+      "space c": "editor::ToggleCodeActions",
+      "space r": "editor::FindAllReferences",
+      "space d": "editor::GoToDefinition",
+      "space i": "editor::GoToImplementation",
+      "space y": "editor::GoToTypeDefinition",
+      "space a": "outline::Toggle",
+      "space A": "project_symbols::Toggle",
+      "space g": "editor::ToggleDiagnostics",
+      "space G": "diagnostics::Deploy",
+      "space x x": "diagnostics::Deploy",
+      "space h h": "zed::OpenKeymap",
+      "space !": "workspace::NewCenterTerminal"
+    }
   },
   {
     "context": "Editor",
