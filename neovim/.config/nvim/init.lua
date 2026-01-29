@@ -61,6 +61,8 @@ o.background = "dark"
 -- packages
 require("packages")
 
+vim.cmd.packadd("cfilter")
+
 -- highlight on yank
 exec(
 	[[
