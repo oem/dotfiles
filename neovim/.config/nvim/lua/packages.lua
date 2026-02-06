@@ -142,6 +142,7 @@ require("lazy").setup({
 					bash = { "shfmt" },
 					sh = { "shfmt" },
 					haskell = { "ormolu" },
+					sql = { "sqruff" },
 				},
 				format_on_save = {
 					-- These options will be passed to conform.format()
