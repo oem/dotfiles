@@ -9,12 +9,12 @@
 {
   "git": {
     "inline_blame": {
-      "show_commit_summary": true
-    }
+      "show_commit_summary": true,
+    },
   },
   "edit_predictions": {
     "provider": "zed",
-    "mode": "eager"
+    "mode": "eager",
   },
   "show_whitespaces": "all",
   "terminal": {
@@ -81,13 +81,14 @@
   "languages": {
     "JavaScript": {
       "prettier": { "allowed": false },
-      "formatter": { "language_server": { "name": "biome" } } },
+      "formatter": { "language_server": { "name": "biome" } },
+    },
     "Vue.js": {
-      "formatter":["prettier", { "language_server": { "name": "biome" } } ],
+      "formatter": ["prettier", { "language_server": { "name": "biome" } }],
     },
     "Astro": {
       "language_servers": ["astro-language-server", "..."],
-      "formatter":["prettier", { "language_server": { "name": "biome" } } ],
+      "formatter": ["prettier", { "language_server": { "name": "biome" } }],
     },
     "TypeScript": {
       "prettier": { "allowed": false },
@@ -136,4 +137,15 @@
       },
     },
   },
+  "platforms": {
+     "windows": {
+       "lsp": {
+         "clangd": {
+           "binary": {
+             "path": "C:\\Program Files\\LLVM\\bin\\clangd.exe"
+           }
+         }
+       }
+     }
+  }
 }
