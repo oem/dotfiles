@@ -13,6 +13,7 @@
     }
   },
   "edit_predictions": {
+    "provider": "zed",
     "mode": "eager"
   },
   "show_whitespaces": "all",
@@ -55,9 +56,6 @@
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"],
     },
-  },
-  "features": {
-    "edit_prediction_provider": "zed",
   },
   "telemetry": {
     "diagnostics": false,
