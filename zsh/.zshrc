@@ -69,6 +69,7 @@ export MANPAGER="nvim +Man!"
 path=("$HOME/.dotfiles/launch" $path)
 path=("$HOME/.dotfiles/fuzzy" $path)
 path=("$HOME/.cargo/bin" $path)
+path=("$HOME/.local/bin" $path)
 path=("$HOME/.volta/bin" $path)
 path=("$PYENV_ROOT/shims" $path)
 path=("$PYENV_ROOT/bin" $path)
