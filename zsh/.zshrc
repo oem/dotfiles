@@ -152,9 +152,6 @@ if [ -e /home/deck/.nix-profile/etc/profile.d/nix.sh ]; then . /home/deck/.nix-p
 
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
-# fnm
-export PATH="$HOME/.fnm:$PATH"
-eval "$(fnm env --use-on-cd)"
 # }}}
 
 if [[ -f "$HOME/.local/bin/env" ]] then
