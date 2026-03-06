@@ -34,7 +34,7 @@
 [interactive]
   diffFilter = delta --color-only
 [delta]
-	side-by-side = false
+	side-by-side = true
 [init]
 	defaultBranch = main
 [safe]
