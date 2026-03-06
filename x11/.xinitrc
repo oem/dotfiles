@@ -13,6 +13,7 @@ xmodmap ~/.xmodmap
 xbindkeys &
 
 unclutter &
+picom &
 
 exec /home/oem/.dotfiles/dwm-statusbar &
 exec /home/oem/.dotfiles/dwm-start
