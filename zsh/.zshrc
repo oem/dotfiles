@@ -51,13 +51,8 @@ else
     export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
-export PYENV_ROOT="$HOME/.pyenv"
 export EDITOR="nvim"
 export SSH_ENV="$HOME/.ssh/environment"
-
-# Warp privacy settings
-export WARP_ENABLE_TELEMETRY=0
-export WARP_HONOR_PS1=1
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'  --no-color --black'
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
@@ -71,8 +66,6 @@ path=("$HOME/.dotfiles/fuzzy" $path)
 path=("$HOME/.cargo/bin" $path)
 path=("$HOME/.local/bin" $path)
 path=("$HOME/.volta/bin" $path)
-path=("$PYENV_ROOT/shims" $path)
-path=("$PYENV_ROOT/bin" $path)
 path=("$GOROOT/bin" $path)
 path=($GOPATH $path)
 path=($GOBIN $path)
