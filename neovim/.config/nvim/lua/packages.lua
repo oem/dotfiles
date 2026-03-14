@@ -48,10 +48,6 @@ require("lazy").setup({
 	-- Git
 	{
 		{
-			"tpope/vim-fugitive",
-			cmd = { "Git", "Git status", "Git blame", "Git push", "Git pull" },
-		},
-		{
 			"lewis6991/gitsigns.nvim",
 			dependencies = { "nvim-lua/plenary.nvim" },
 			config = function()
