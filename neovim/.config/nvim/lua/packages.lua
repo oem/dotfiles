@@ -48,10 +48,6 @@ require("lazy").setup({
 	-- Git
 	{
 		{
-			"tpope/vim-fugitive",
-			cmd = { "Git", "Git status", "Git blame", "Git push", "Git pull" },
-		},
-		{
 			"lewis6991/gitsigns.nvim",
 			dependencies = { "nvim-lua/plenary.nvim" },
 			config = function()
@@ -71,7 +67,11 @@ require("lazy").setup({
 				"ibhagwan/fzf-lua",
 			},
 			init = function()
-				require("config.neogit")
+				local map = require("config.utils").map
+				local options = { silent = true, noremap = true }
+
+				map("n", "<leader>vv", [[<cmd>Neogit<cr>]], options)
+				map("n", "<leader>vb", [[<cmd>Git blame<cr>]], options)
 			end,
 		},
 	},
