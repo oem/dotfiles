@@ -12,6 +12,7 @@ PATH="$HOME/.cargo/bin:$PATH"
 PATH="$HOME/.ghcup/bin:$PATH"
 PATH="$HOME/.cabal/bin:$PATH"
 PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+PATH="$HOME/.local/share/mise/shims:$PATH"
 PATH="$PATH:/opt/homebrew/opt/llvm/bin"
 # }}}
 

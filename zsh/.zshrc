@@ -71,7 +71,8 @@ path=($GOPATH $path)
 path=($GOBIN $path)
 path=("$HOME/.ghcup/bin" $path)
 path=("$HOME/.cabal/bin" $path)
-path=("$HOME/.local/share/nvim/mason/bin", $path)
+path=("$HOME/.local/share/nvim/mason/bin" $path)
+path=("$HOME/.local/share/mise/shims" $path)
 path+=('/opt/homebrew/opt/llvm/bin')
 export PATH
 # }}}
