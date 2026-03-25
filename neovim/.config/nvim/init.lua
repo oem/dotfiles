@@ -196,5 +196,5 @@ vim.diagnostic.config({
 vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
 vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#cf001e" })
 vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#cf001e" })
-vim.api.nvim_set_hl(0, "RenderMarkdownCode", { fg = "#ff5700" })
-vim.api.nvim_set_hl(0, "RenderMarkdownCodeInline", { fg = "#ff5700" })
+vim.api.nvim_set_hl(0, "RenderMarkdownCode", { fg = "#b8bb26" })
+vim.api.nvim_set_hl(0, "RenderMarkdownCodeInline", { fg = "#b8bb26" })
