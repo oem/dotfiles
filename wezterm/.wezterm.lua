@@ -32,7 +32,7 @@ config.line_height = 1.2
 
 local custom_theme = wezterm.color.get_builtin_schemes()["IR_Black"]
 custom_theme.background = "black"
-custom_theme.brights[1] = "#000000"
+custom_theme.brights[1] = "#202020"
 
 config.color_schemes = {
 	["Custom Theme"] = custom_theme,
@@ -68,10 +68,10 @@ config.hide_tab_bar_if_only_one_tab = true
 config.enable_scroll_bar = false
 
 config.window_padding = {
-	left = 0,
-	right = 0,
-	bottom = 0,
-	top = 0,
+	left = 20,
+	right = 20,
+	bottom = 20,
+	top = 20,
 }
 
 if wezterm.target_triple == "x86_64-pc-windows-msvc" then
