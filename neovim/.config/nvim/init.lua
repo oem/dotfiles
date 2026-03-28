@@ -176,7 +176,7 @@ autocmd("LineNr", {
 }, true)
 
 -- Load the colorscheme
-vim.cmd.colorscheme("monobold")
+vim.cmd.colorscheme("mfd-mono")
 
 -- vim diagnostics / lsp signs
 vim.diagnostic.config({

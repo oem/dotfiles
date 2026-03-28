@@ -258,6 +258,14 @@ require("lazy").setup({
 
 	-- UI
 	"reedes/vim-colors-pencil",
+	{
+		"kungfusheep/mfd.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd("colorscheme mfd-stealth")
+		end,
+	},
 	"NLKNguyen/papercolor-theme",
 	{
 		"catppuccin/nvim",

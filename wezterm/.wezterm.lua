@@ -31,7 +31,7 @@ config.font_size = 16.0
 config.line_height = 1.2
 
 local custom_theme = wezterm.color.get_builtin_schemes()["IR_Black"]
-custom_theme.background = "black"
+custom_theme.background = "#08080C"
 custom_theme.brights[1] = "#202020"
 
 config.color_schemes = {
