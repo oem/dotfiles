@@ -62,6 +62,7 @@ export MANPAGER="nvim +Man!"
 
 # path {{{
 path=("$HOME/.dotfiles/launch" $path)
+path=("$HOME/sync/code/utils" $path)
 path=("$HOME/.dotfiles/fuzzy" $path)
 path=("$HOME/.cargo/bin" $path)
 path=("$HOME/.local/bin" $path)
