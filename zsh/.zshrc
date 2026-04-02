@@ -54,6 +54,8 @@ fi
 export EDITOR="nvim"
 export SSH_ENV="$HOME/.ssh/environment"
 
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'  --no-color --black'
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
