@@ -174,9 +174,7 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter-refactor",
 			"nvim-treesitter/nvim-treesitter-textobjects",
-			"nvim-treesitter/playground",
 		},
 		config = function()
 			require("config.treesitter")
@@ -336,7 +334,12 @@ require("lazy").setup({
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		opts = {},
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons", "nvim-mini/mini.nvim" },
+		config = function()
+			require("render-markdown").setup({
+				completions = { lsp = { enabled = true } },
+			})
+		end,
 	},
 
 	{
