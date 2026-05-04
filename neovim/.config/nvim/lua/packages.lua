@@ -170,28 +170,6 @@ require("lazy").setup({
 		dependencies = { "rafamadriz/friendly-snippets" },
 	},
 
-	-- Highlights
-	{
-		"nvim-treesitter/nvim-treesitter",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
-		},
-		config = function()
-			require("config.treesitter")
-		end,
-		build = ":TSUpdate",
-	},
-	{
-		"jmbuhr/otter.nvim",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-		opts = {},
-		config = function()
-			require("otter").setup({})
-		end,
-	},
-
 	-- Some additional functionality on top of lsp
 	-- rust
 	{
@@ -334,7 +312,7 @@ require("lazy").setup({
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		opts = {},
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons", "nvim-mini/mini.nvim" },
+		dependencies = { "nvim-tree/nvim-web-devicons", "nvim-mini/mini.nvim" },
 		config = function()
 			require("render-markdown").setup({
 				completions = { lsp = { enabled = true } },
