@@ -17,6 +17,14 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- Search
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{
+		"nvim-telescope/telescope-frecency.nvim",
+		-- install the latest stable version
+		version = "*",
+		config = function()
+			require("telescope").load_extension("frecency")
+		end,
+	},
 
 	{
 		"nvim-telescope/telescope.nvim",
@@ -24,7 +32,7 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-lua/popup.nvim",
 			"nvim-lua/plenary.nvim",
-			"telescope-frecency.nvim", -- improved sorting on recent files
+			"nvim-telescope/telescope-frecency.nvim", -- improved sorting on recent files
 			"popup.nvim",
 			"plenary.nvim",
 			"telescope-frecency.nvim",
@@ -38,10 +46,6 @@ require("lazy").setup({
 			require("config.telescope")
 		end,
 		cmd = "Telescope",
-	},
-	{
-		"nvim-telescope/telescope-frecency.nvim",
-		dependencies = "tami5/sql.nvim",
 	},
 	{ "nvim-telescope/telescope-fzf-native.nvim" },
 
