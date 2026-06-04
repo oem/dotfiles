@@ -1,1 +1,2 @@
 BreakBeforeBraces: Stroustrup
+AllowShortIfStatementsOnASingleLine: WithoutElse
