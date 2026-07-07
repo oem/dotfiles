@@ -7,18 +7,53 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "project_panel": {
+    "dock": "right",
+  },
+  "outline_panel": {
+    "dock": "right",
+  },
+  "collaboration_panel": {
+    "dock": "right",
+  },
+  "git_panel": {
+    "dock": "right",
+  },
   "git": {
     "inline_blame": {
       "show_commit_summary": true,
     },
   },
   "edit_predictions": {
+    "allow_data_collection": "no",
     "provider": "zed",
     "mode": "eager",
   },
   "show_whitespaces": "all",
   "terminal": {
     "dock": "right",
+    //   "shell": {
+    //     "with_arguments": {
+    //       "program": "cmd.exe",
+    //       "args": [
+    //         "/k",
+    //         "\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\Tools\\VsDevCmd.bat\" -arch=amd64"
+    //       ]
+    //     }
+    //   }
+    // },
+    "shell": {
+      "with_arguments": {
+        "program": "powershell.exe",
+        "args": [
+          "-NoExit",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-Command",
+          "& 'C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\Tools\\Launch-VsDevShell.ps1' -Arch amd64 -SkipAutomaticLocation"
+        ]
+      }
+    }
   },
   "inlay_hints": {
     "enabled": true,
@@ -30,6 +65,7 @@
   "format_on_save": "on",
   "title_bar": { "show_user_picture": false },
   "agent": {
+    "dock": "left",
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4",
@@ -138,14 +174,16 @@
     },
   },
   "platforms": {
-     "windows": {
-       "lsp": {
-         "clangd": {
-           "binary": {
-             "path": "C:\\Program Files\\LLVM\\bin\\clangd.exe"
-           }
-         }
-       }
-     }
-  }
+    "windows": {
+      "lsp": {
+        "clangd": {
+          "binary": {
+            "path": "C:\\Program Files\\LLVM\\bin\\clangd.exe",
+          },
+        },
+      },
+    },
+  },
 }
+
+
