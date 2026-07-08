@@ -1,2 +1,7 @@
 BreakBeforeBraces: Stroustrup
 AllowShortIfStatementsOnASingleLine: WithoutElse
+AlwaysBreakAfterReturnType: AllDefinitions
+BinPackParameters: false
+AllowAllArgumentsOnNextLine: false
+AlignAfterOpenBracket: Align
+
