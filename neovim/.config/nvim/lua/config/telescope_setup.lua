@@ -2,9 +2,26 @@ local map = require("config.utils").map
 local options = { silent = true, noremap = true }
 local builtin = require("telescope.builtin")
 
+local function is_git_repo()
+	vim.fn.system("git rev-parse --is-inside-work-tree")
+	return vim.v.shell_error == 0
+end
+
+local function get_git_root()
+	local dot_git_path = vim.fn.finddir(".git", ".;")
+	return vim.fn.fnamemodify(dot_git_path, ":h")
+end
+
+local dir_opts = { hidden = true }
+if is_git_repo() then
+	dir_opts.cwd = get_git_root()
+end
+
 -- files
-map("n", "<leader>ff", ":lua require('telescope.builtin').find_files({hidden = true})<cr>", options)
-map("n", "<leader>fF", ":lua require('telescope.builtin').git_files({ hidden = true})<cr>", options)
+vim.keymap.set("n", "<leader>ff", function()
+	builtin.find_files(dir_opts)
+end, { desc = "find files" })
+
 map(
 	"n",
 	"<leader>fr",
@@ -69,6 +86,10 @@ vim.keymap.set("n", "<leader>ld", builtin.lsp_definitions, { desc = "Telescope L
 vim.keymap.set("n", "<leader>li", builtin.lsp_implementations, { desc = "Telescope LSP implementations" })
 
 map("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<cr>", options)
+
+-- Version Control
+vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Telescope git status" })
+vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Telescope git files" })
 
 -- treesitter
 map(
