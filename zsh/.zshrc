@@ -56,7 +56,7 @@ export SSH_ENV="$HOME/.ssh/environment"
 
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'  --no-color --black'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --no-color'
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 export MANPAGER="nvim +Man!"
@@ -110,8 +110,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':fzf-tab:complete:cd:*' fzf 'ls --color $realpath'
 zstyle ':fzf-tab:*' continuous-trigger '/'
-zstyle ':fzf-tab:*' fzf-flags --no-color --black
-zstyle ':fzf-tab:complete:cd:*' fzf-flags --no-color --black
+zstyle ':fzf-tab:*' fzf-flags --no-color
+zstyle ':fzf-tab:complete:cd:*' fzf-flags --no-color
 # }}}
 
 # aliases {{{
