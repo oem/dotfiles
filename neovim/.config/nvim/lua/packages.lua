@@ -210,6 +210,11 @@ require("lazy").setup({
 		"pmizio/typescript-tools.nvim",
 	},
 
+	-- ruby/rails
+	{
+		"tpope/vim-rails",
+	},
+
 	-- lua
 	"tjdevries/nlua.nvim",
 
