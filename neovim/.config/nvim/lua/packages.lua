@@ -148,6 +148,7 @@ require("lazy").setup({
 					haskell = { "ormolu" },
 					sql = { "sqruff" },
 					c = { "clang-format" },
+					ruby = { "rubyfmt" },
 				},
 				format_on_save = {
 					-- These options will be passed to conform.format()
