@@ -63,6 +63,7 @@ export MANPAGER="nvim +Man!"
 # }}}
 
 # path {{{
+path=("$HOME/.local/share/nvim-luarocks/bin" $path)
 path=("$HOME/.dotfiles/launch" $path)
 path=("$HOME/sync/code/utils" $path)
 path=("$HOME/.dotfiles/fuzzy" $path)
