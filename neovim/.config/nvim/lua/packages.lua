@@ -245,7 +245,7 @@ require("lazy").setup({
 	{
 		"kungfusheep/mfd.nvim",
 		lazy = true,
-		-- priority = 1000,
+		priority = 1000,
 		config = function()
 			vim.cmd("colorscheme mfd-stealth")
 		end,

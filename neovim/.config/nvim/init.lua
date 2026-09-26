@@ -3,7 +3,14 @@ local cmd = vim.cmd
 local o = vim.o
 local bo = vim.bo
 local wo = vim.wo
--- local opt = vim.opt
+
+-- Some helpers
+require("oem.globals")
+
+-- Clipboard settings to avoid slow probing of system clipboard
+vim.g.clipboard = GetClipboard()
+o.clipboard = "unnamedplus"
+
 local exec = vim.api.nvim_exec -- execute Vimscript
 
 -- Keybindings
@@ -27,9 +34,6 @@ o.foldmethod = "expr"
 o.foldexpr = "nvim_treesitter#foldexpr()"
 o.foldenable = true
 
--- Some helpers
-require("oem.globals")
-
 -- Options
 -- global options
 o.ignorecase = true
@@ -39,7 +43,6 @@ o.wb = false
 o.encoding = "utf-8"
 o.hlsearch = false
 o.incsearch = true
-o.clipboard = "unnamedplus" -- uses CLIPBOARD (^C)
 o.tabstop = 4
 o.shiftwidth = 4
 o.backspace = "indent,eol,start"
