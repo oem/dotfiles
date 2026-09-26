@@ -15,6 +15,10 @@ xbindkeys &
 unclutter &
 picom &
 
+# make sure DISPLAY/XAUTHORITY are visible to systemd --user and dbus
+systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP
+
 exec /home/oem/.dotfiles/dwm-statusbar &
 exec /home/oem/.dotfiles/dwm-start
 
