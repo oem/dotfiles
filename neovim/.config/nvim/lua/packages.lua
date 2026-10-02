@@ -148,6 +148,7 @@ require("lazy").setup({
 					haskell = { "ormolu" },
 					sql = { "sqruff" },
 					c = { "clang-format" },
+					ruby = { "rubyfmt" },
 				},
 				format_on_save = {
 					-- These options will be passed to conform.format()
@@ -192,7 +193,8 @@ require("lazy").setup({
 	{
 		"mrcjkb/haskell-tools.nvim",
 		version = "^5", -- Recommended
-		lazy = false, -- This plugin is already lazy
+		ft = "haskell",
+		-- lazy = false, -- This plugin is already lazy
 		config = function()
 			require("config.haskell-tools")
 		end,
@@ -218,9 +220,6 @@ require("lazy").setup({
 	-- lua
 	"tjdevries/nlua.nvim",
 
-	-- R
-	"jalvesaq/Nvim-R",
-
 	-- html
 	"mattn/emmet-vim",
 
@@ -245,7 +244,7 @@ require("lazy").setup({
 	"reedes/vim-colors-pencil",
 	{
 		"kungfusheep/mfd.nvim",
-		lazy = false,
+		lazy = true,
 		priority = 1000,
 		config = function()
 			vim.cmd("colorscheme mfd-stealth")
