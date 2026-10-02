@@ -10,7 +10,6 @@ palette = 0=#08080C
 
 window-padding-x = 30
 window-padding-y = 35
-macos-non-native-fullscreen = true
 maximize = true
 # fullscreen = true
 gtk-titlebar = false
@@ -19,6 +18,9 @@ window-decoration = false
 cursor-style-blink = true
 adjust-cursor-thickness = 1
 gtk-titlebar-hide-when-maximized = true
+
+macos-non-native-fullscreen = true
+macos-secure-input-indication = false
 
 quit-after-last-window-closed = true
 confirm-close-surface = false
