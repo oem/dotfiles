@@ -8,15 +8,13 @@ theme = IR Black
 background = #08080C
 palette = 0=#08080C
 
-window-padding-x = 30
-window-padding-y = 35
+# window-padding-x = 30
+# window-padding-y = 35
 maximize = true
-# fullscreen = true
 gtk-titlebar = false
 mouse-hide-while-typing = true
 window-decoration = false
-cursor-style-blink = true
-adjust-cursor-thickness = 1
+adjust-cursor-thickness = 2
 gtk-titlebar-hide-when-maximized = true
 
 macos-non-native-fullscreen = true
