@@ -160,6 +160,7 @@ require("lazy").setup({
 	},
 
 	-- Completion
+	{ "hrsh7th/nvim-cmp" },
 	{
 		"saghen/blink.cmp",
 		dependencies = { "rafamadriz/friendly-snippets" },
