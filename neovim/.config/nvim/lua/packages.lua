@@ -132,7 +132,7 @@ require("lazy").setup({
 		config = function()
 			require("conform").setup({
 				formatters_by_ft = {
-					typescript = { "biome", "biome-organize-imports" },
+					typescript = { "prettier", "biome", "biome-organize-imports" },
 					typescriptreact = { "prettier", "biome", "biome-organize-imports" },
 					javascript = { "prettier", "biome", "biome-organize-imports" },
 					javascriptreact = { "prettier", "biome", "biome-organize-imports" },
