@@ -15,7 +15,8 @@ def filter_yt(info: interceptor.Request):
 interceptor.register(filter_yt)
 
 config.load_autoconfig()
-config.bind(",m", "spawn mpv --hwdec=auto --ytdl-format=best {url}")
+# config.bind(",m", "spawn mpv --hwdec=auto --ytdl-format=best {url}")
+config.bind(",m", "spawn mpv --hwdec=auto {url}")
 config.bind(",M", "hint links spawn mpv --hwdec=auto {hint-url}")
 
 # darkmode
