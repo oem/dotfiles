@@ -149,6 +149,7 @@ require("lazy").setup({
 					sql = { "sqruff" },
 					c = { "clang-format" },
 					ruby = { "rubyfmt" },
+					python = { "ruff_format" },
 				},
 				format_on_save = {
 					-- These options will be passed to conform.format()
