@@ -3,6 +3,7 @@ from qutebrowser.api import interceptor
 config: ConfigAPI = config  # noqa: F821, PLW0127
 c: ConfigContainer = c  # noqa: F821, PLW0127
 
+
 def filter_yt(info: interceptor.Request):
     """Block the given request if necessary."""
     url = info.request_url
@@ -23,9 +24,9 @@ config.bind(",M", "hint links spawn mpv --hwdec=auto {hint-url}")
 
 # darkmode
 c.colors.webpage.darkmode.enabled = True
-c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
-c.colors.webpage.darkmode.policy.images = 'never'
-config.set('colors.webpage.darkmode.enabled', False, 'file://*')
+c.colors.webpage.darkmode.algorithm = "lightness-cielab"
+c.colors.webpage.darkmode.policy.images = "never"
+config.set("colors.webpage.darkmode.enabled", False, "file://*")
 
 # completion
 c.colors.completion.even.bg = "#000000"
@@ -47,8 +48,8 @@ c.auto_save.session = True
 c.content.blocking.enabled = True
 
 c.url.searchengines = {
-        "DEFAULT": "https://duckduckgo.com/?q={}",
-        "g": "https://google.com/search?q={}",
-        "yt": "https://youtube.com/results?search_query={}",
-        "gh": "https://github.com/search?q={}"
-        }
+    "DEFAULT": "https://duckduckgo.com/?q={}",
+    "g": "https://google.com/search?q={}",
+    "yt": "https://youtube.com/results?search_query={}",
+    "gh": "https://github.com/search?q={}",
+}
