@@ -1,5 +1,7 @@
 from qutebrowser.api import interceptor
 
+config: ConfigAPI = config  # noqa: F821, PLW0127
+c: ConfigContainer = c  # noqa: F821, PLW0127
 
 def filter_yt(info: interceptor.Request):
     """Block the given request if necessary."""
@@ -43,3 +45,10 @@ c.fonts.default_family = ["Berkeley Mono"]
 c.fonts.web.family.fixed = "Berkeley Mono"
 c.auto_save.session = True
 c.content.blocking.enabled = True
+
+c.url.searchengines = {
+        "DEFAULT": "https://duckduckgo.com/?q={}",
+        "g": "https://google.com/search?q={}",
+        "yt": "https://youtube.com/results?search_query={}",
+        "gh": "https://github.com/search?q={}"
+        }
