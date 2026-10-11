@@ -51,33 +51,31 @@ else
     export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
-export PYENV_ROOT="$HOME/.pyenv"
 export EDITOR="nvim"
 export SSH_ENV="$HOME/.ssh/environment"
 
-# Warp privacy settings
-export WARP_ENABLE_TELEMETRY=0
-export WARP_HONOR_PS1=1
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'  --no-color --black'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --no-color'
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 export MANPAGER="nvim +Man!"
 # }}}
 
 # path {{{
+path=("$HOME/.local/share/nvim-luarocks/bin" $path)
 path=("$HOME/.dotfiles/launch" $path)
+path=("$HOME/sync/code/utils" $path)
 path=("$HOME/.dotfiles/fuzzy" $path)
 path=("$HOME/.cargo/bin" $path)
-path=("$HOME/.volta/bin" $path)
-path=("$PYENV_ROOT/shims" $path)
-path=("$PYENV_ROOT/bin" $path)
+path=("$HOME/.local/bin" $path)
 path=("$GOROOT/bin" $path)
 path=($GOPATH $path)
 path=($GOBIN $path)
 path=("$HOME/.ghcup/bin" $path)
 path=("$HOME/.cabal/bin" $path)
-path=("$HOME/.local/share/nvim/mason/bin", $path)
+path=("$HOME/.local/share/nvim/mason/bin" $path)
+path=("$HOME/.local/share/mise/shims" $path)
 path+=('/opt/homebrew/opt/llvm/bin')
 export PATH
 # }}}
@@ -111,8 +109,10 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf 'ls --color $realpath'
+zstyle ':fzf-tab:*' continuous-trigger '/'
+zstyle ':fzf-tab:*' fzf-flags --no-color
+zstyle ':fzf-tab:complete:cd:*' fzf-flags --no-color
 # }}}
 
 # aliases {{{
@@ -151,9 +151,6 @@ if [ -e /home/deck/.nix-profile/etc/profile.d/nix.sh ]; then . /home/deck/.nix-p
 
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
-# fnm
-export PATH="$HOME/.fnm:$PATH"
-eval "$(fnm env --use-on-cd)"
 # }}}
 
 if [[ -f "$HOME/.local/bin/env" ]] then
@@ -166,4 +163,4 @@ fi
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace chmod zsh)
-eval "$(zoxide init zsh)"
+command -v mise >/dev/null 2>&1 && eval "$(mise activate zsh)"

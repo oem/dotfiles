@@ -1,9 +1,27 @@
 local map = require("config.utils").map
 local options = { silent = true, noremap = true }
+local builtin = require("telescope.builtin")
+
+local function is_git_repo()
+	vim.fn.system("git rev-parse --is-inside-work-tree")
+	return vim.v.shell_error == 0
+end
+
+local function get_git_root()
+	local dot_git_path = vim.fn.finddir(".git", ".;")
+	return vim.fn.fnamemodify(dot_git_path, ":h")
+end
+
+local dir_opts = { hidden = true }
+if is_git_repo() then
+	dir_opts.cwd = get_git_root()
+end
 
 -- files
-map("n", "<leader>ff", ":lua require('telescope.builtin').find_files({hidden = true})<cr>", options)
-map("n", "<leader>fF", ":lua require('telescope.builtin').git_files({ hidden = true})<cr>", options)
+vim.keymap.set("n", "<leader>ff", function()
+	builtin.find_files(dir_opts)
+end, { desc = "find files" })
+
 map(
 	"n",
 	"<leader>fr",
@@ -53,49 +71,25 @@ map(
 )
 
 -- LSP
-map(
-	"n",
-	"<leader>g",
-	":lua require('telescope.builtin').diagnostics(require('telescope.themes').get_dropdown({bufnr=0}))<cr>",
-	options
-)
-map(
-	"n",
-	"<leader>G",
-	":lua require('telescope.builtin').diagnostics(require('telescope.themes').get_dropdown())<cr>",
-	options
-)
-map(
-	"n",
-	"<leader>r",
-	":lua require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown())<cr>",
-	options
-)
-map(
-	"n",
-	"<leader>a",
-	":lua require('telescope.builtin').lsp_document_symbols(require('telescope.themes').get_dropdown())<cr>",
-	options
-)
-map(
-	"n",
-	"<leader>A",
-	":lua require('telescope.builtin').lsp_workspace_symbols(require('telescope.themes').get_dropdown())<cr>",
-	options
-)
-map(
-	"n",
-	"<leader>d",
-	":lua require('telescope.builtin').lsp_definitions(require('telescope.themes').get_dropdown())<cr>",
-	options
-)
-map(
-	"n",
-	"<leader>i",
-	":lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_dropdown())<cr>",
-	options
-)
-map("n", "<leader>c", ":lua vim.lsp.buf.code_action()<cr>", options)
+vim.keymap.set("n", "<leader>le", function()
+	builtin.diagnostics(require("telescope.themes").get_dropdown({ bufnr = 0 }))
+end, { desc = "Telescope LSP diagnostics (buffer)" })
+
+vim.keymap.set("n", "<leader>lE", function()
+	builtin.diagnostics(require("telescope.themes").get_dropdown({}))
+end, { desc = "Telescope LSP diagnostics" })
+
+vim.keymap.set("n", "<leader>lr", builtin.lsp_references, { desc = "Telescope LSP references" })
+vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, { desc = "Telescope LSP symbols (document)" })
+vim.keymap.set("n", "<leader>lS", builtin.lsp_workspace_symbols, { desc = "Telescope LSP symbols" })
+vim.keymap.set("n", "<leader>ld", builtin.lsp_definitions, { desc = "Telescope LSP definitions" })
+vim.keymap.set("n", "<leader>li", builtin.lsp_implementations, { desc = "Telescope LSP implementations" })
+
+map("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<cr>", options)
+
+-- Version Control
+vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Telescope git status" })
+vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Telescope git files" })
 
 -- treesitter
 map(

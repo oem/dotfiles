@@ -17,6 +17,14 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- Search
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{
+		"nvim-telescope/telescope-frecency.nvim",
+		-- install the latest stable version
+		version = "*",
+		config = function()
+			require("telescope").load_extension("frecency")
+		end,
+	},
 
 	{
 		"nvim-telescope/telescope.nvim",
@@ -24,7 +32,7 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-lua/popup.nvim",
 			"nvim-lua/plenary.nvim",
-			"telescope-frecency.nvim", -- improved sorting on recent files
+			"nvim-telescope/telescope-frecency.nvim", -- improved sorting on recent files
 			"popup.nvim",
 			"plenary.nvim",
 			"telescope-frecency.nvim",
@@ -39,18 +47,10 @@ require("lazy").setup({
 		end,
 		cmd = "Telescope",
 	},
-	{
-		"nvim-telescope/telescope-frecency.nvim",
-		dependencies = "tami5/sql.nvim",
-	},
 	{ "nvim-telescope/telescope-fzf-native.nvim" },
 
 	-- Git
 	{
-		{
-			"tpope/vim-fugitive",
-			cmd = { "Git", "Git status", "Git blame", "Git push", "Git pull" },
-		},
 		{
 			"lewis6991/gitsigns.nvim",
 			dependencies = { "nvim-lua/plenary.nvim" },
@@ -71,7 +71,11 @@ require("lazy").setup({
 				"ibhagwan/fzf-lua",
 			},
 			init = function()
-				require("config.neogit")
+				local map = require("config.utils").map
+				local options = { silent = true, noremap = true }
+
+				map("n", "<leader>vv", [[<cmd>Neogit<cr>]], options)
+				map("n", "<leader>vb", [[<cmd>Git blame<cr>]], options)
 			end,
 		},
 	},
@@ -144,6 +148,8 @@ require("lazy").setup({
 					haskell = { "ormolu" },
 					sql = { "sqruff" },
 					c = { "clang-format" },
+					ruby = { "rubyfmt" },
+					python = { "ruff_format" },
 				},
 				format_on_save = {
 					-- These options will be passed to conform.format()
@@ -155,6 +161,7 @@ require("lazy").setup({
 	},
 
 	-- Completion
+	{ "hrsh7th/nvim-cmp" },
 	{
 		"saghen/blink.cmp",
 		dependencies = { "rafamadriz/friendly-snippets" },
@@ -168,30 +175,6 @@ require("lazy").setup({
 			require("config.snippets")
 		end,
 		dependencies = { "rafamadriz/friendly-snippets" },
-	},
-
-	-- Highlights
-	{
-		"nvim-treesitter/nvim-treesitter",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-refactor",
-			"nvim-treesitter/nvim-treesitter-textobjects",
-			"nvim-treesitter/playground",
-		},
-		config = function()
-			require("config.treesitter")
-		end,
-		build = ":TSUpdate",
-	},
-	{
-		"jmbuhr/otter.nvim",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-		opts = {},
-		config = function()
-			require("otter").setup({})
-		end,
 	},
 
 	-- Some additional functionality on top of lsp
@@ -212,7 +195,8 @@ require("lazy").setup({
 	{
 		"mrcjkb/haskell-tools.nvim",
 		version = "^5", -- Recommended
-		lazy = false, -- This plugin is already lazy
+		ft = "haskell",
+		-- lazy = false, -- This plugin is already lazy
 		config = function()
 			require("config.haskell-tools")
 		end,
@@ -230,11 +214,13 @@ require("lazy").setup({
 		"pmizio/typescript-tools.nvim",
 	},
 
+	-- ruby/rails
+	{
+		"tpope/vim-rails",
+	},
+
 	-- lua
 	"tjdevries/nlua.nvim",
-
-	-- R
-	"jalvesaq/Nvim-R",
 
 	-- html
 	"mattn/emmet-vim",
@@ -258,6 +244,14 @@ require("lazy").setup({
 
 	-- UI
 	"reedes/vim-colors-pencil",
+	{
+		"kungfusheep/mfd.nvim",
+		lazy = true,
+		priority = 1000,
+		config = function()
+			vim.cmd("colorscheme mfd-stealth")
+		end,
+	},
 	"NLKNguyen/papercolor-theme",
 	{
 		"catppuccin/nvim",
@@ -265,7 +259,6 @@ require("lazy").setup({
 		priority = 1000,
 	},
 	"folke/tokyonight.nvim",
-	"oem/monobold.nvim",
 	"onsails/lspkind-nvim",
 	"morhetz/gruvbox",
 	"nvim-tree/nvim-web-devicons",
@@ -329,7 +322,12 @@ require("lazy").setup({
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		opts = {},
-		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		dependencies = { "nvim-tree/nvim-web-devicons", "nvim-mini/mini.nvim" },
+		config = function()
+			require("render-markdown").setup({
+				completions = { lsp = { enabled = true } },
+			})
+		end,
 	},
 
 	{
