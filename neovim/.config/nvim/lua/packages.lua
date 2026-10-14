@@ -239,6 +239,9 @@ require("lazy").setup({
 	"tpope/vim-unimpaired",
 	"christoomey/vim-tmux-navigator",
 
+	-- Running
+	"tpope/vim-dispatch",
+
 	-- encryption
 	"jamessan/vim-gnupg",
 
