@@ -7,7 +7,6 @@ $git_state\
 $git_status\
 $cmd_duration\
 $python\
-\n\
 $character"""
 
 [directory]
@@ -19,7 +18,7 @@ error_symbol = "[●](bold red) "
 vimcmd_symbol = "[❮](green)"
 
 [git_branch]
-format =  '[$branch(:$remote_branch)]($style)'
+format =  '[$branch(:$remote_branch)]($style) '
 style = "bright-white"
 
 [git_state]
