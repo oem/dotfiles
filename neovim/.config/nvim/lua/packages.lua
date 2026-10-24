@@ -161,7 +161,12 @@ require("lazy").setup({
 	},
 
 	-- Completion
-	{ "hrsh7th/nvim-cmp" },
+	{
+		"hrsh7th/nvim-cmp",
+		config = function()
+			require("config.cmp")
+		end,
+	},
 	{
 		"saghen/blink.cmp",
 		dependencies = { "rafamadriz/friendly-snippets" },
