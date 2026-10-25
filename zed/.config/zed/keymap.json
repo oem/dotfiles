@@ -28,7 +28,9 @@
       "space A": "project_symbols::Toggle",
       "space g": "editor::ToggleDiagnostics",
       "space G": "diagnostics::Deploy",
-      "space x x": "diagnostics::Deploy",
+      "space x": "diagnostics::Deploy",
+      "space q": "editor::GoToDiagnostic",
+      "space Q": "editor::GoToPreviousDiagnostic",
       "space h h": "zed::OpenKeymap",
       "space !": "workspace::NewCenterTerminal"
     }

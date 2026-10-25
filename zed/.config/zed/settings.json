@@ -32,16 +32,6 @@
   "show_whitespaces": "all",
   "terminal": {
     "dock": "right",
-    //   "shell": {
-    //     "with_arguments": {
-    //       "program": "cmd.exe",
-    //       "args": [
-    //         "/k",
-    //         "\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\Tools\\VsDevCmd.bat\" -arch=amd64"
-    //       ]
-    //     }
-    //   }
-    // },
     "shell": {
       "with_arguments": {
         "program": "powershell.exe",
@@ -185,5 +175,3 @@
     },
   },
 }
-
-
