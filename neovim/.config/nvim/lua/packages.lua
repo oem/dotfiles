@@ -242,7 +242,6 @@ require("lazy").setup({
 
 	-- Moving
 	"tpope/vim-unimpaired",
-	"christoomey/vim-tmux-navigator",
 
 	-- Running
 	"tpope/vim-dispatch",

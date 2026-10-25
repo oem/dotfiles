@@ -26,6 +26,12 @@ map("n", "<leader><leader>", [[<c-^>]], options) -- toggle between buffers
 map("n", "<C-u>", "<C-u>zz", options)
 map("n", "<C-d>", "<C-d>zz", options)
 
+-- Map Ctrl+H/J/K/L to window navigation in Normal and Visual
+vim.keymap.set({ "n", "v" }, "<C-h>", "<C-w>h", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<C-j>", "<C-w>j", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<C-k>", "<C-w>k", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<C-l>", "<C-w>l", { noremap = true, silent = true })
+
 -- folding
 o.foldcolumn = "0"
 o.foldlevel = 99
