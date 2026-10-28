@@ -1,8 +1,12 @@
-BreakBeforeBraces: Stroustrup
+BreakBeforeBraces: Custom
 AllowShortIfStatementsOnASingleLine: WithoutElse
 AlwaysBreakAfterReturnType: AllDefinitions
 BinPackParameters: OnePerLine
 BinPackArguments: false
 AllowAllArgumentsOnNextLine: false
 AlignAfterOpenBracket: Align
-
+BraceWrapping:
+  AfterStruct: true
+  AfterClass: true
+  AfterUnion: true
+  AfterFunction: true
