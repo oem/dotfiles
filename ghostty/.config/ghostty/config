@@ -13,7 +13,7 @@ mouse-hide-while-typing = true
 window-decoration = none
 adjust-cursor-thickness = 2
 
-window-padding-x = 20
+window-padding-x = 10
 window-padding-y = 40
 
 gtk-titlebar-hide-when-maximized = true
