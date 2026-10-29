@@ -1,6 +1,52 @@
 {
     "profiles": [
         {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "app switcher",
+                        "description_notes": ["switch with option <number>"],
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "1",
+                                    "modifiers": {
+                                        "mandatory": ["left_option"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "software_function": {
+                                            "open_application": {
+                                                "bundle_identifier": "com.mitchellh.ghostty"
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "2",
+                                    "modifiers": {
+                                        "mandatory": ["left_option"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "software_function": {
+                                            "open_application": {
+                                                "bundle_identifier": "com.apple.Safari"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
             "devices": [
                 {
                     "disable_built_in_keyboard_if_exists": true,
