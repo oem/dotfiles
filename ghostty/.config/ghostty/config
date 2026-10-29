@@ -8,20 +8,22 @@ theme = IR Black
 background = #08080C
 palette = 0=#08080C
 
-# window-padding-x = 30
-# window-padding-y = 35
 maximize = true
-gtk-titlebar = false
 mouse-hide-while-typing = true
-window-decoration = false
+window-decoration = none
 adjust-cursor-thickness = 2
+
+window-padding-x = 20
+window-padding-y = 40
+
 gtk-titlebar-hide-when-maximized = true
+gtk-titlebar = false
 
 macos-non-native-fullscreen = true
 macos-secure-input-indication = false
+macos-window-shadow = false
 
 quit-after-last-window-closed = true
 confirm-close-surface = false
 
 keybind = global:alt+grave_accent=toggle_quick_terminal
-keybind = all:ctrl+alt+a=reload_config
