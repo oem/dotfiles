@@ -17,6 +17,39 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- Search
 	{
+		"folke/snacks.nvim",
+		opts = {
+			input = { enabled = true },
+			picker = { enabled = true, ui_select = true, layout = { preset = "ivy" } },
+		},
+		keys = {
+			{
+				"<leader>ns",
+				function()
+					require("snacks").picker.grep({ cwd = "~/sync/notes" })
+				end,
+			},
+			{
+				"<leader>nf",
+				function()
+					require("snacks").picker.files({ cwd = "~/sync/notes" })
+				end,
+			},
+			{
+				"<leader>glf",
+				function()
+					require("snacks").picker.git_log_file()
+				end,
+			},
+			{
+				"<leader>gd",
+				function()
+					require("snacks").picker.git_diff()
+				end,
+			},
+		},
+	},
+	{
 		"dmtrKovalenko/fff",
 		build = function()
 			require("fff.download").download_or_build_binary()
@@ -58,38 +91,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-	{
-		"nvim-telescope/telescope-frecency.nvim",
-		-- install the latest stable version
-		version = "*",
-		config = function()
-			require("telescope").load_extension("frecency")
-		end,
-	},
-
-	{
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
-		dependencies = {
-			"nvim-lua/popup.nvim",
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope-frecency.nvim", -- improved sorting on recent files
-			"popup.nvim",
-			"plenary.nvim",
-			"telescope-frecency.nvim",
-			"telescope-fzf-native.nvim",
-			"nvim-telescope/telescope-ui-select.nvim",
-		},
-		init = function()
-			require("config.telescope_setup")
-		end,
-		config = function()
-			require("config.telescope")
-		end,
-		cmd = "Telescope",
-	},
-	{ "nvim-telescope/telescope-fzf-native.nvim" },
 
 	-- Git
 	{
@@ -108,7 +109,6 @@ require("lazy").setup({
 			end,
 			dependencies = {
 				"nvim-lua/plenary.nvim",
-				"nvim-telescope/telescope.nvim",
 				"sindrets/diffview.nvim",
 				"ibhagwan/fzf-lua",
 			},
@@ -147,7 +147,6 @@ require("lazy").setup({
 		"folke/trouble.nvim",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
-			"nvim-telescope/telescope.nvim",
 		},
 		config = function()
 			require("trouble").setup({})
@@ -309,7 +308,6 @@ require("lazy").setup({
 	},
 	"folke/tokyonight.nvim",
 	"onsails/lspkind-nvim",
-	"morhetz/gruvbox",
 	"nvim-tree/nvim-web-devicons",
 	"nyoom-engineering/oxocarbon.nvim",
 	{
