@@ -28,30 +28,42 @@ require("lazy").setup({
 				function()
 					require("snacks").picker.grep({ cwd = "~/sync/notes" })
 				end,
+				desc = "search in notes",
 			},
 			{
 				"<leader>nf",
 				function()
 					require("snacks").picker.files({ cwd = "~/sync/notes" })
 				end,
+				desc = "find notes",
+			},
+			{
+				"<leader>b",
+				function()
+					require("snacks").picker.buffers()
+				end,
+				desc = "buffers",
 			},
 			{
 				"<leader>glf",
 				function()
 					require("snacks").picker.git_log_file()
 				end,
+				desc = "git log file",
 			},
 			{
 				"<leader>gll",
 				function()
 					require("snacks").picker.git_log()
 				end,
+				desc = "git log",
 			},
 			{
 				"<leader>gd",
 				function()
 					require("snacks").picker.git_diff()
 				end,
+				desc = "git diff",
 			},
 		},
 	},
