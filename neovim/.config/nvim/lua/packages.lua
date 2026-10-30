@@ -16,6 +16,48 @@ vim.opt.rtp:prepend(lazypath)
 -- Packages
 require("lazy").setup({
 	-- Search
+	{
+		"dmtrKovalenko/fff",
+		build = function()
+			require("fff.download").download_or_build_binary()
+		end,
+		lazy = false,
+		keys = {
+			{
+				"f",
+				function()
+					require("fff").find_files()
+				end,
+				desc = "FFFind files",
+			},
+			{
+				"ss",
+				function()
+					require("fff").live_grep({ grep = { modes = { "fuzzy", "plain" } } })
+				end,
+				desc = "Live fffuzy grep",
+			},
+			{
+				"sw",
+				function()
+					require("fff").live_grep_under_cursor()
+				end,
+				mode = { "n", "x" },
+				desc = "Search current word / selection",
+			},
+		},
+		config = function()
+			require("fff").setup({
+				prompt = "> ",
+				debug = {
+					enabled = true,
+				},
+				keymaps = {
+					close = { "<Esc>", "<C-c>" },
+				},
+			})
+		end,
+	},
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	{
 		"nvim-telescope/telescope-frecency.nvim",
