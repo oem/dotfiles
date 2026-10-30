@@ -24,21 +24,21 @@ require("lazy").setup({
 		lazy = false,
 		keys = {
 			{
-				"f",
+				"<leader>f",
 				function()
 					require("fff").find_files()
 				end,
 				desc = "FFFind files",
 			},
 			{
-				"ss",
+				"<leader>ss",
 				function()
 					require("fff").live_grep({ grep = { modes = { "fuzzy", "plain" } } })
 				end,
 				desc = "Live fffuzy grep",
 			},
 			{
-				"sw",
+				"<leader>sw",
 				function()
 					require("fff").live_grep_under_cursor()
 				end,
