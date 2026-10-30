@@ -42,6 +42,12 @@ require("lazy").setup({
 				end,
 			},
 			{
+				"<leader>gll",
+				function()
+					require("snacks").picker.git_log()
+				end,
+			},
+			{
 				"<leader>gd",
 				function()
 					require("snacks").picker.git_diff()
