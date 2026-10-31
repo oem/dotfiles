@@ -1,4 +1,3 @@
--- Aliases
 local cmd = vim.cmd
 local o = vim.o
 local bo = vim.bo
@@ -35,10 +34,11 @@ vim.keymap.set({ "n", "v" }, "<C-l>", "<C-w>l", { noremap = true, silent = true 
 -- folding
 o.foldcolumn = "0"
 o.foldlevel = 99
-o.foldlevelstart = 99
+o.foldlevelstart = 1
 o.foldmethod = "expr"
-o.foldexpr = "nvim_treesitter#foldexpr()"
+o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 o.foldenable = true
+o.foldtext = ""
 
 -- Options
 -- global options
@@ -208,3 +208,4 @@ vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#cf001e" })
 vim.api.nvim_set_hl(0, "Comment", { fg = "#505050" })
 vim.api.nvim_set_hl(0, "SnacksPickerListCursorLine", { bg = "#ffffff", fg = "#08080C", bold = true })
 vim.api.nvim_set_hl(0, "QuickFixLine", { bg = "#ffffff", fg = "#08080C", bold = true })
+vim.api.nvim_set_hl(0, "Folded", { bg = "#303030", fg = "#08080C", bold = true })
