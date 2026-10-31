@@ -309,7 +309,6 @@ require("lazy").setup({
 	"jamessan/vim-gnupg",
 
 	-- UI
-	"reedes/vim-colors-pencil",
 	{
 		"kungfusheep/mfd.nvim",
 		lazy = true,
@@ -318,7 +317,6 @@ require("lazy").setup({
 			vim.cmd("colorscheme mfd-stealth")
 		end,
 	},
-	"NLKNguyen/papercolor-theme",
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
