@@ -9,8 +9,8 @@
 
 ## programs used and customized
 
-* emacs
 * neovim
+* emacs
 * zed
 * urxvt / xorg
 * tmux
@@ -19,7 +19,6 @@
 * alacritty
 * ghostty
 * wezterm
-* warp
 * qutebrowser
 * julia
 * and many more things, check out the top-level folders of this repo `ls -lA`
