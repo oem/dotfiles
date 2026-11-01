@@ -82,14 +82,7 @@ require("lazy").setup({
 				desc = "FFFind files",
 			},
 			{
-				"<leader>ss",
-				function()
-					require("fff").live_grep({ grep = { modes = { "fuzzy", "plain" } } })
-				end,
-				desc = "Live fffuzy grep",
-			},
-			{
-				"<leader>sw",
+				"<leader>s",
 				function()
 					require("fff").live_grep_under_cursor()
 				end,
@@ -134,8 +127,7 @@ require("lazy").setup({
 				local map = require("config.utils").map
 				local options = { silent = true, noremap = true }
 
-				map("n", "<leader>vv", [[<cmd>Neogit<cr>]], options)
-				map("n", "<leader>vb", [[<cmd>Git blame<cr>]], options)
+				map("n", "<leader>v", [[<cmd>Neogit<cr>]], options)
 			end,
 		},
 	},
