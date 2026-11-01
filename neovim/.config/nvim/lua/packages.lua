@@ -65,6 +65,20 @@ require("lazy").setup({
 				end,
 				desc = "git diff",
 			},
+			{
+				"<leader>a",
+				function()
+					require("snacks").picker.lsp_symbols()
+				end,
+				desc = "lsp symbols",
+			},
+			{
+				"<leader>d",
+				function()
+					require("snacks").picker.diagnostics()
+				end,
+				desc = "lsp symbols",
+			},
 		},
 	},
 	{
