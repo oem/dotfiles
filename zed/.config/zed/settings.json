@@ -79,7 +79,7 @@
   "theme": {
     "mode": "dark",
     "light": "Sequoia Monochrome Light",
-    "dark": "Gruvbox Dark Soft"
+    "dark": "v0-dark"
   },
   "ui_font_size": 18,
   "ui_font_family": "Berkeley Mono",
