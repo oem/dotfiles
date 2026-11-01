@@ -26,7 +26,6 @@
 			"space a": "outline::Toggle",
 			"space A": "project_symbols::Toggle",
 			"space g": "editor::ToggleDiagnostics",
-			"space G": "diagnostics::Deploy",
 			"space x": "diagnostics::Deploy",
 			"space v": "git::Diff",
 			"space q": "editor::GoToDiagnostic",
