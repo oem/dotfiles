@@ -257,6 +257,15 @@ require("lazy").setup({
 		ft = { "go", "gomod" },
 	},
 
+	{
+		"Julian/lean.nvim",
+		event = { "BufReadPre *.lean", "BufNewFile *.lean" },
+
+		opts = {
+			mappings = true,
+		},
+	},
+
 	-- typescript
 	{
 		"pmizio/typescript-tools.nvim",
