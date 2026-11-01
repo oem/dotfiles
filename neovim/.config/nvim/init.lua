@@ -195,10 +195,4 @@ vim.diagnostic.config({
 })
 
 -- colors
-vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#cf001e" })
-vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#cf001e" })
-vim.api.nvim_set_hl(0, "Comment", { fg = "#505050" })
-vim.api.nvim_set_hl(0, "SnacksPickerListCursorLine", { bg = "#ffffff", fg = "#08080C", bold = true })
-vim.api.nvim_set_hl(0, "QuickFixLine", { bg = "#ffffff", fg = "#08080C", bold = true })
-vim.api.nvim_set_hl(0, "Folded", { bg = "#303030", fg = "#08080C", bold = true })
+require("oem.color-overrides")
