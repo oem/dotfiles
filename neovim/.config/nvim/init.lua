@@ -34,11 +34,17 @@ vim.keymap.set({ "n", "v" }, "<C-l>", "<C-w>l", { noremap = true, silent = true 
 -- folding
 o.foldcolumn = "0"
 o.foldlevel = 99
-o.foldlevelstart = 1
 o.foldmethod = "expr"
 o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 o.foldenable = true
 o.foldtext = ""
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.foldlevel = 1
+		vim.opt_local.foldlevelstart = 1
+	end,
+})
 
 -- Options
 -- global options
