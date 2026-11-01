@@ -309,7 +309,6 @@ require("lazy").setup({
 	"folke/tokyonight.nvim",
 	"onsails/lspkind-nvim",
 	"nvim-tree/nvim-web-devicons",
-	"nyoom-engineering/oxocarbon.nvim",
 
 	-- show trailing whitespace
 	"ntpeters/vim-better-whitespace",
