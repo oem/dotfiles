@@ -82,14 +82,7 @@ require("lazy").setup({
 				desc = "FFFind files",
 			},
 			{
-				"<leader>ss",
-				function()
-					require("fff").live_grep({ grep = { modes = { "fuzzy", "plain" } } })
-				end,
-				desc = "Live fffuzy grep",
-			},
-			{
-				"<leader>sw",
+				"<leader>s",
 				function()
 					require("fff").live_grep_under_cursor()
 				end,
