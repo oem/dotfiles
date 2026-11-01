@@ -8,6 +8,8 @@ theme = IR Black
 background = #08080C
 palette = 0=#08080C
 
+window-padding-y = 40,0
+
 maximize = true
 mouse-hide-while-typing = true
 window-decoration = none
@@ -16,9 +18,10 @@ adjust-cursor-thickness = 2
 gtk-titlebar-hide-when-maximized = true
 gtk-titlebar = false
 
-macos-non-native-fullscreen = padded-notch
+macos-non-native-fullscreen = true
 macos-secure-input-indication = false
 macos-window-shadow = false
+fullscreen = non-native
 
 quit-after-last-window-closed = true
 confirm-close-surface = false
