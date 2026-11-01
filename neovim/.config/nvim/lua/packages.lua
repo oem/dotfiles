@@ -20,7 +20,7 @@ require("lazy").setup({
 		"folke/snacks.nvim",
 		opts = {
 			input = { enabled = false },
-			picker = { enabled = true, ui_select = true, layout = { preset = "ivy" } },
+			picker = { enabled = true, ui_select = true, layout = { preset = "ivy", preview = "main" } },
 		},
 		keys = {
 			{
