@@ -13,13 +13,10 @@ mouse-hide-while-typing = true
 window-decoration = none
 adjust-cursor-thickness = 2
 
-window-padding-x = 10
-window-padding-y = 40
-
 gtk-titlebar-hide-when-maximized = true
 gtk-titlebar = false
 
-macos-non-native-fullscreen = true
+macos-non-native-fullscreen = padded-notch
 macos-secure-input-indication = false
 macos-window-shadow = false
 
