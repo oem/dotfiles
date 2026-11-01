@@ -58,7 +58,7 @@
 		}
 	},
 	{
-		"context": "Workspace",
+		"context": "Editor && vim_mode == normal",
 		"bindings": {
 			"space p": [
 				"projects::OpenRecent",
