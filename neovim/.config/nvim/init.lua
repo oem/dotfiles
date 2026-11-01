@@ -158,13 +158,6 @@ cmd([[autocmd BufNewFile,BufRead *.html set filetype=html]])
 -- code navigation
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", options)
 
-vim.keymap.set("n", "<leader>vd", function()
-	vim.diagnostic.open_float({
-		height = 20,
-		width = 100,
-	})
-end)
-
 -- Linting and fixing
 -- cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
