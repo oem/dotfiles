@@ -5,66 +5,67 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
-  {
-    "context": "Editor && vim_mode == insert",
-    "bindings": {
-      "f d": ["workspace::SendKeystrokes", "escape"],
-    }
-  },
-  {
-    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
-    "bindings": {
-      "space f": "file_finder::Toggle",
-      "space space": "pane::AlternateFile",
-      "space b": "tab_switcher::ToggleAll",
-      "space s s": "pane::DeploySearch",
-      "space s b": "buffer_search::Deploy",
-      "space c": "editor::ToggleCodeActions",
-      "space r": "editor::FindAllReferences",
-      "space d": "editor::GoToDefinition",
-      "space i": "editor::GoToImplementation",
-      "space y": "editor::GoToTypeDefinition",
-      "space a": "outline::Toggle",
-      "space A": "project_symbols::Toggle",
-      "space g": "editor::ToggleDiagnostics",
-      "space G": "diagnostics::Deploy",
-      "space x": "diagnostics::Deploy",
-      "space q": "editor::GoToDiagnostic",
-      "space Q": "editor::GoToPreviousDiagnostic",
-      "space h h": "zed::OpenKeymap",
-      "space !": "workspace::NewCenterTerminal"
-    }
-  },
-  {
-    "context": "Editor",
-    "bindings": {
-      "] g": "editor::GoToHunk"
-    }
-  },
-  {
-    "context": "Dock || Terminal || Editor",
-    "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
-    }
-  },
-  {
-    "context": "Editor && VimControl && !VimWaiting && !menu",
-    "bindings": {
-      "space t": "workspace::NewCenterTerminal"
-    }
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
-      "cmd-k": [
-        "projects::OpenRecent",
-        {
-          "create_new_window": false
-        }
-      ]
-    }
-  }
+	{
+		"context": "Editor && vim_mode == insert",
+		"bindings": {
+			"f d": ["workspace::SendKeystrokes", "escape"]
+		}
+	},
+	{
+		"context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+		"bindings": {
+			"space f": "file_finder::Toggle",
+			"space space": "pane::AlternateFile",
+			"space b": "tab_switcher::ToggleAll",
+			"space s": "pane::DeploySearch",
+			"space c": "editor::ToggleCodeActions",
+			"space r": "editor::FindAllReferences",
+			"space d": "editor::GoToDefinition",
+			"space i": "editor::GoToImplementation",
+			"space y": "editor::GoToTypeDefinition",
+			"space a": "outline::Toggle",
+			"space A": "project_symbols::Toggle",
+			"space g": "editor::ToggleDiagnostics",
+			"space G": "diagnostics::Deploy",
+			"space x": "diagnostics::Deploy",
+			"space q": "editor::GoToDiagnostic",
+			"space Q": "editor::GoToPreviousDiagnostic",
+			"space h h": "zed::OpenKeymap",
+			"space !": "workspace::NewCenterTerminal"
+		}
+	},
+	{
+		"context": "Editor",
+		"bindings": {
+			"] g": "editor::GoToHunk",
+			"] q": "editor::MoveToStartOfNextExcerpt",
+			"[ q": "editor::MoveToEndOfPreviousExcerpt"
+		}
+	},
+	{
+		"context": "Dock || Terminal || Editor",
+		"bindings": {
+			"ctrl-h": "workspace::ActivatePaneLeft",
+			"ctrl-l": "workspace::ActivatePaneRight",
+			"ctrl-k": "workspace::ActivatePaneUp",
+			"ctrl-j": "workspace::ActivatePaneDown"
+		}
+	},
+	{
+		"context": "Editor && VimControl && !VimWaiting && !menu",
+		"bindings": {
+			"space t": "workspace::NewCenterTerminal"
+		}
+	},
+	{
+		"context": "Workspace",
+		"bindings": {
+			"space p": [
+				"projects::OpenRecent",
+				{
+					"create_new_window": false
+				}
+			]
+		}
+	}
 ]

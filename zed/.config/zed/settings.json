@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "icon_theme": "Zed (Default)",
   "project_panel": {
     "dock": "right",
   },
@@ -31,20 +32,7 @@
   },
   "show_whitespaces": "all",
   "terminal": {
-    "dock": "right",
-    "shell": {
-      "with_arguments": {
-        "program": "powershell.exe",
-        "args": [
-          "-NoExit",
-          "-ExecutionPolicy",
-          "Bypass",
-          "-Command",
-          "& 'C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\Tools\\Launch-VsDevShell.ps1' -Arch amd64 -SkipAutomaticLocation"
-        ]
-      }
-    }
-  },
+    "dock": "right", },
   "inlay_hints": {
     "enabled": true,
   },
@@ -87,7 +75,11 @@
     "diagnostics": false,
     "metrics": false,
   },
-  "theme": "Nixdorf 8870 Dark",
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Sequoia Monochrome"
+  },
   "ui_font_size": 18,
   "ui_font_family": "Berkeley Mono",
   "buffer_font_size": 16.0,
@@ -146,7 +138,7 @@
   "lsp": {
     "biome": {
       "settings": {
-        "require_config_file": true,
+        "require_config_file": false,
       },
     },
     "jinja2-html-lsp": {
