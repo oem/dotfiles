@@ -16,38 +16,99 @@ vim.opt.rtp:prepend(lazypath)
 -- Packages
 require("lazy").setup({
 	-- Search
-	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	{
-		"nvim-telescope/telescope-frecency.nvim",
-		-- install the latest stable version
-		version = "*",
-		config = function()
-			require("telescope").load_extension("frecency")
-		end,
-	},
-
-	{
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
-		dependencies = {
-			"nvim-lua/popup.nvim",
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope-frecency.nvim", -- improved sorting on recent files
-			"popup.nvim",
-			"plenary.nvim",
-			"telescope-frecency.nvim",
-			"telescope-fzf-native.nvim",
-			"nvim-telescope/telescope-ui-select.nvim",
+		"folke/snacks.nvim",
+		opts = {
+			input = { enabled = false },
+			picker = { enabled = true, ui_select = true, layout = { preset = "ivy" } },
 		},
-		init = function()
-			require("config.telescope_setup")
-		end,
-		config = function()
-			require("config.telescope")
-		end,
-		cmd = "Telescope",
+		keys = {
+			{
+				"<leader>ns",
+				function()
+					require("snacks").picker.grep({ cwd = "~/sync/notes" })
+				end,
+				desc = "search in notes",
+			},
+			{
+				"<leader>nf",
+				function()
+					require("snacks").picker.files({ cwd = "~/sync/notes" })
+				end,
+				desc = "find notes",
+			},
+			{
+				"<leader>b",
+				function()
+					require("snacks").picker.buffers()
+				end,
+				desc = "buffers",
+			},
+			{
+				"<leader>glf",
+				function()
+					require("snacks").picker.git_log_file()
+				end,
+				desc = "git log file",
+			},
+			{
+				"<leader>gll",
+				function()
+					require("snacks").picker.git_log()
+				end,
+				desc = "git log",
+			},
+			{
+				"<leader>gd",
+				function()
+					require("snacks").picker.git_diff()
+				end,
+				desc = "git diff",
+			},
+		},
 	},
-	{ "nvim-telescope/telescope-fzf-native.nvim" },
+	{
+		"dmtrKovalenko/fff",
+		build = function()
+			require("fff.download").download_or_build_binary()
+		end,
+		lazy = false,
+		keys = {
+			{
+				"<leader>f",
+				function()
+					require("fff").find_files()
+				end,
+				desc = "FFFind files",
+			},
+			{
+				"<leader>ss",
+				function()
+					require("fff").live_grep({ grep = { modes = { "fuzzy", "plain" } } })
+				end,
+				desc = "Live fffuzy grep",
+			},
+			{
+				"<leader>sw",
+				function()
+					require("fff").live_grep_under_cursor()
+				end,
+				mode = { "n", "x" },
+				desc = "Search current word / selection",
+			},
+		},
+		config = function()
+			require("fff").setup({
+				prompt = "> ",
+				debug = {
+					enabled = true,
+				},
+				keymaps = {
+					close = { "<Esc>", "<C-c>" },
+				},
+			})
+		end,
+	},
 
 	-- Git
 	{
@@ -66,7 +127,6 @@ require("lazy").setup({
 			end,
 			dependencies = {
 				"nvim-lua/plenary.nvim",
-				"nvim-telescope/telescope.nvim",
 				"sindrets/diffview.nvim",
 				"ibhagwan/fzf-lua",
 			},
@@ -105,7 +165,6 @@ require("lazy").setup({
 		"folke/trouble.nvim",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
-			"nvim-telescope/telescope.nvim",
 		},
 		config = function()
 			require("trouble").setup({})
@@ -250,7 +309,6 @@ require("lazy").setup({
 	"jamessan/vim-gnupg",
 
 	-- UI
-	"reedes/vim-colors-pencil",
 	{
 		"kungfusheep/mfd.nvim",
 		lazy = true,
@@ -259,7 +317,6 @@ require("lazy").setup({
 			vim.cmd("colorscheme mfd-stealth")
 		end,
 	},
-	"NLKNguyen/papercolor-theme",
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -267,36 +324,8 @@ require("lazy").setup({
 	},
 	"folke/tokyonight.nvim",
 	"onsails/lspkind-nvim",
-	"morhetz/gruvbox",
 	"nvim-tree/nvim-web-devicons",
 	"nyoom-engineering/oxocarbon.nvim",
-	{
-		"folke/noice.nvim",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			{
-				"rcarriga/nvim-notify",
-				config = function()
-					require("notify").setup({
-						background_colour = "#232323",
-						timeout = 10,
-						keep = false,
-						fps = 60,
-						render = "compact",
-					})
-				end,
-			},
-		},
-		config = function()
-			require("noice").setup({
-				override = {
-					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-					["vim.lsp.util.stylize_markdown"] = true,
-					["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-				},
-			})
-		end,
-	},
 
 	-- show trailing whitespace
 	"ntpeters/vim-better-whitespace",

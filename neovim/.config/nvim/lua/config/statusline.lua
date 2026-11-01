@@ -126,7 +126,7 @@ basic.git = {
 local quickfix = {
 	filetypes = { "qf", "Trouble" },
 	active = {
-		{ "🚦 Quickfix ", { "white", "black" } },
+		{ "QUICKFIX ", { "white", "black" } },
 		{ helper.separators.slant_right, { "black", "black_light" } },
 		{
 			function()
@@ -139,7 +139,7 @@ local quickfix = {
 		{ " ", { "InactiveFg", "InactiveBg" } },
 		basic.divider,
 		{ helper.separators.slant_right, { "InactiveBg", "black" } },
-		{ "🧛 ", { "white", "black" } },
+		{ " ", { "white", "black" } },
 	},
 
 	always_active = true,
