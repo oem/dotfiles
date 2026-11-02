@@ -45,6 +45,13 @@ require("lazy").setup({
 				desc = "buffers",
 			},
 			{
+				"<leader>w",
+				function()
+					require("snacks").picker.lines()
+				end,
+				desc = "buffers",
+			},
+			{
 				"<leader>glf",
 				function()
 					require("snacks").picker.git_log_file()
@@ -198,6 +205,18 @@ require("lazy").setup({
 					-- These options will be passed to conform.format()
 					timeout_ms = 500,
 					lsp_format = "never",
+				},
+				formatters = {
+					biome = {
+						condition = function(_, ctx)
+							return vim.fs.root(ctx.dirname, { "biome.json", "biome.jsonc" }) ~= nil
+						end,
+					},
+					["biome-organize-imports"] = {
+						condition = function(_, ctx)
+							return vim.fs.root(ctx.dirname, { "biome.json", "biome.jsonc" }) ~= nil
+						end,
+					},
 				},
 			})
 		end,
