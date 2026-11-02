@@ -34,7 +34,8 @@
 	},
 	"show_whitespaces": "all",
 	"terminal": {
-		"dock": "right"
+		"dock": "right",
+		"font_size": 18
 	},
 	"inlay_hints": {
 		"enabled": true
