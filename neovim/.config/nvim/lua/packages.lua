@@ -1,6 +1,7 @@
 -- Package Manager
 -- Bootstrapping
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local launch_dir = vim.uv.cwd()
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
 		"git",
@@ -210,6 +211,15 @@ require("lazy").setup({
 					biome = {
 						condition = function(_, ctx)
 							return vim.fs.root(ctx.dirname, { "biome.json", "biome.jsonc" }) ~= nil
+						end,
+					},
+					["clang-format"] = {
+						condition = function(_, ctx)
+							return vim.fs.find({ ".clang-format", "_clang-format" }, {
+								path = ctx.dirname,
+								upward = true,
+								stop = vim.fs.dirname(launch_dir),
+							})[1] ~= nil
 						end,
 					},
 					["biome-organize-imports"] = {
