@@ -154,7 +154,6 @@ vim.lsp.config("ts_ls", {
 })
 
 -- Languages
-
 -- go
 -- don't show ugly tabs
 cmd([[autocmd FileType go setlocal nolist]])
@@ -164,6 +163,17 @@ cmd([[autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby]])
 
 -- html
 cmd([[autocmd BufNewFile,BufRead *.html set filetype=html]])
+
+-- c
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "c", "h" },
+	callback = function()
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.tabstop = 2
+		vim.opt_local.softtabstop = 2
+		vim.opt_local.expandtab = true
+	end,
+})
 
 -- code navigation
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", options)
